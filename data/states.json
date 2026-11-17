@@ -1,0 +1,65 @@
+{
+ "OH": {
+  "intro": "No federally recognized Nation has its government in Ohio today. The Ohio History Connection works with 45 federally recognized Nations that are tied to Ohio through homelands, historic sites and treaties. Many were forced out in the 1800s under federal removal policy, and their governments are now in Indiana, Kansas, Michigan, Minnesota, Missouri, Montana, New York, Oklahoma, Texas and Wisconsin. Native people from many Nations live in Ohio now, and the community groups below are where they gather.",
+  "intro_sources": [
+   {
+    "label": "Ohio History Connection: American Indian Relations",
+    "url": "https://www.ohiohistory.org/research/american-indian-relations/"
+   },
+   {
+    "label": "Ohio History Connection: a reflection on Native influences on Ohio",
+    "url": "https://www.ohiohistory.org/a-reflection-on-native-american-influences-on-ohio/"
+   }
+  ],
+  "ties_title": "Nations with ties to Ohio",
+  "ties_intro": "The Ohio History Connection names these Nations among those connected to Ohio, and says its list does not cover every Nation with ties to the state. If your family's story starts in Ohio, one of these governments may be the place to ask.",
+  "ties_source": {
+   "label": "Ohio History Connection",
+   "url": "https://www.ohiohistory.org/research/american-indian-relations/"
+  },
+  "ties": [
+   "absentee-shawnee-tribe-of-indians-of-oklahoma",
+   "citizen-potawatomi-nation-oklahoma",
+   "delaware-nation-oklahoma",
+   "delaware-tribe-of-indians",
+   "eastern-shawnee-tribe-of-oklahoma",
+   "forest-county-potawatomi-community-wisconsin",
+   "miami-tribe-of-oklahoma",
+   "ottawa-tribe-of-oklahoma",
+   "peoria-tribe-of-indians-of-oklahoma",
+   "pokagon-band-of-potawatomi-indians-michigan-and-indiana",
+   "prairie-band-potawatomi-nation",
+   "seneca-cayuga-nation",
+   "seneca-nation-of-indians",
+   "shawnee-tribe",
+   "tonawanda-band-of-seneca",
+   "turtle-mountain-band-of-chippewa-indians-of-north-dakota",
+   "wyandotte-nation"
+  ],
+  "checked": "2026-11-17"
+ },
+ "MI": {
+  "intro": "Twelve federally recognized Nations have their governments in Michigan. Michigan also has its own law, the Michigan Indian Family Preservation Act of 2013, which strengthens the Indian Child Welfare Act in Michigan courts.",
+  "intro_sources": [
+   {
+    "label": "Bureau of Indian Affairs Tribal Leaders Directory",
+    "url": "https://www.bia.gov/service/tribal-leaders-directory"
+   },
+   {
+    "label": "Michigan Department of Health and Human Services policy on the Michigan Indian Family Preservation Act",
+    "url": "https://mdhhs-pres-prod.michigan.gov/olmweb/ex/NA/Mobile/NAA/NAA%20Mobile.pdf"
+   }
+  ],
+  "checked": "2026-11-17"
+ },
+ "WA": {
+  "intro": "In Washington, dial 988 and choose option 4 to reach the Native and Strong Lifeline, a crisis line answered by Native counselors. It serves all Indigenous people living in Washington or calling from a Washington area code, enrolled or not.",
+  "intro_sources": [
+   {
+    "label": "Washington State Health Care Authority fact sheet",
+    "url": "https://www.hca.wa.gov/assets/program/82-0458-native-and-strong.pdf"
+   }
+  ],
+  "checked": "2026-11-17"
+ }
+}

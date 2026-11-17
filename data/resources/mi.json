@@ -1,0 +1,222 @@
+{
+ "area": "MI",
+ "records": [
+  {
+   "id": "mi-outreach-services",
+   "name": "Native American Outreach Services (Michigan Department of Health and Human Services)",
+   "need": "family",
+   "also": [
+    "nation",
+    "community"
+   ],
+   "access": "descendants",
+   "what": "State outreach workers who help Native families find services that fit their culture, get through state and federal programs including child welfare cases, and identify their heritage and tribal enrollment.",
+   "who": "Households that include a tribal member, citizen or descendant. Workers can also help if you are not sure of your tribal affiliation. The state lists no income rule.",
+   "start": "Find the outreach worker for your county on the state's contact map and ask to start services. The state uses a referral form, DHS-382.",
+   "url": "https://www.michigan.gov/mdhhs/inside-mdhhs/tribal-government-services-and-policy/native/native-american-resources",
+   "url_label": "Native American Outreach Services",
+   "more": [
+    {
+     "label": "County contact map (PDF)",
+     "url": "https://www.michigan.gov/mdhhs/-/media/Project/Websites/mdhhs/Adult-and-Childrens-Services/Native-American-Services/NAA_IOS_Contacts.pdf"
+    }
+   ],
+   "source": "https://www.michigan.gov/mdhhs/inside-mdhhs/tribal-government-services-and-policy/native/native-american-resources",
+   "checked": "2026-11-17"
+  },
+  {
+   "id": "mi-aihfs",
+   "name": "American Indian Health and Family Services",
+   "place": "Detroit",
+   "need": "health",
+   "also": [
+    "recovery",
+    "community"
+   ],
+   "access": "native",
+   "what": "A nonprofit health and community wellness center in southwest Detroit, and one of the urban Indian health programs. It serves seven counties: Livingston, Macomb, Monroe, Oakland, St. Clair, Washtenaw and Wayne.",
+   "who": "Native people in southeastern Michigan. The center also serves other people in the area.",
+   "start": "Call (313) 846-3718, or go to 4880 Lawndale Street, Detroit.",
+   "phone": "313-846-3718",
+   "address": "4880 Lawndale St, Detroit, MI 48210",
+   "url": "https://aihfs.org/",
+   "url_label": "aihfs.org",
+   "source": "https://uihi.org/uihp-profiles/detroit",
+   "checked": "2026-11-17"
+  },
+  {
+   "id": "mi-naia-detroit",
+   "name": "North American Indian Association of Detroit",
+   "place": "Detroit area",
+   "need": "community",
+   "also": [
+    "work",
+    "school"
+   ],
+   "access": "native",
+   "what": "Founded in 1940 as the North American Indian Club. It offers education assistance, employment and training help, and cultural and social events, and the U.S. Department of Labor lists it as a Native job training grantee.",
+   "who": "Native people in the Detroit area.",
+   "start": "Call (313) 535-2966, or go to 22720 Plymouth Road in Redford.",
+   "phone": "313-535-2966",
+   "address": "22720 Plymouth Rd, Redford, MI 48239",
+   "url": "https://nai.msu.edu/resources-container/native-american-resource-guide/native-education-legal-health-and-other-resources/employment",
+   "url_label": "Listing in the MSU Native American Resource Guide",
+   "source": "https://nai.msu.edu/resources-container/native-american-resource-guide/native-education-legal-health-and-other-resources/employment",
+   "checked": "2026-11-17"
+  },
+  {
+   "id": "mi-miets",
+   "name": "Michigan Indian Employment and Training Services",
+   "need": "work",
+   "access": "ask",
+   "what": "Employment services for Native residents of Michigan, with offices in Muskegon, the Grand Rapids area, Portage and Lansing. The U.S. Department of Labor lists it as a Native job training grantee.",
+   "who": "Native residents of Michigan. Ask the office which counties it serves.",
+   "start": "Call the office nearest you: Muskegon (231) 722-7769 or (800) 591-8820; Wyoming, near Grand Rapids, (616) 538-9644; Portage (269) 323-3339 or (800) 756-0234; Lansing (517) 393-0712.",
+   "phone": "800-591-8820",
+   "phone_note": "Muskegon office, toll free",
+   "url": "https://www.michigan.gov/mdhhs/inside-mdhhs/tribal-government-services-and-policy/native/native-american-resources/michigan-indian-employment-and-training-services-inc-",
+   "url_label": "State page for this program",
+   "source": "https://nai.msu.edu/resources-container/native-american-resource-guide/native-education-legal-health-and-other-resources/employment",
+   "checked": "2026-11-17"
+  },
+  {
+   "id": "mi-job-grantees",
+   "name": "Native job training grantees in Michigan",
+   "need": "work",
+   "access": "ask",
+   "what": "For program year 2025 the U.S. Department of Labor lists seven grantees in Michigan for Native job and training programs: Grand Traverse Band of Ottawa and Chippewa Indians; Inter-Tribal Council of Michigan; Little Traverse Bay Bands of Odawa Indians; Michigan Indian Employment and Training Services; North American Indian Association of Detroit; Sault Ste. Marie Tribe of Chippewa Indians; and Southeastern Michigan Indians, Inc.",
+   "who": "Each grantee sets its own intake rules and service area.",
+   "start": "Contact the grantee nearest you and ask for its employment and training program. The three Nations in this list are on this page with their phone numbers.",
+   "url": "https://www.dol.gov/agencies/eta/dinap",
+   "url_label": "Division of Indian and Native American Programs",
+   "source": "https://www.dol.gov/sites/dolgov/files/ETA/advisories/TEGL/2024/TEGL%2012-24/TEGL%2012-24.pdf",
+   "checked": "2026-11-17"
+  },
+  {
+   "id": "mi-tuition-waiver",
+   "name": "Michigan Indian Tuition Waiver",
+   "need": "school",
+   "access": "enrolled",
+   "what": "Waives tuition at Michigan's public community colleges and universities. It covers tuition only. Full-time or part-time status and your course of study do not limit it.",
+   "who": "You must qualify for admission, be at least one-quarter Native American by blood quantum and an enrolled citizen of a U.S. federally recognized tribe (your tribal enrollment department certifies both), and have lived in Michigan for at least 12 months in a row. The state says citizens of state or historic tribes and of Canadian First Nations are not eligible.",
+   "start": "Apply online, by phone at 888-447-2687 (Monday to Friday, 8 a.m. to 4:45 p.m.), or on paper, with a photocopy of your tribal ID. Your tribe certifies the application and may send it to the state for you.",
+   "phone": "888-447-2687",
+   "phone_note": "Monday to Friday, 8 a.m. to 4:45 p.m.",
+   "email": "mitw@michigan.gov",
+   "url": "https://www.michigan.gov/mistudentaid/programs/indian-tuition-waiver",
+   "url_label": "Michigan Indian Tuition Waiver",
+   "more": [
+    {
+     "label": "Questions and answers",
+     "url": "https://www.michigan.gov/mistudentaid/programs/indian-tuition-waiver/mitw-faq-page"
+    }
+   ],
+   "source": "https://www.michigan.gov/mistudentaid/programs/indian-tuition-waiver",
+   "checked": "2026-11-17"
+  },
+  {
+   "id": "mi-tribal-colleges",
+   "name": "Tribal colleges in Michigan",
+   "need": "school",
+   "also": [
+    "community"
+   ],
+   "access": "ask",
+   "what": "Three of the accredited tribal colleges listed by the American Indian College Fund are in Michigan: Bay Mills Community College in Brimley, Keweenaw Bay Ojibwa Community College in L'Anse, and Saginaw Chippewa Tribal College in Mount Pleasant.",
+   "who": "Ask each college about admission.",
+   "start": "Open the list, choose the college, and contact its admissions office.",
+   "url": "https://collegefund.org/tribal-colleges-and-universities/",
+   "url_label": "List of tribal colleges",
+   "source": "https://collegefund.org/tribal-colleges-and-universities/",
+   "checked": "2026-11-17"
+  },
+  {
+   "id": "mi-legal-services",
+   "name": "Michigan Indian Legal Services",
+   "place": "Traverse City",
+   "need": "legal",
+   "also": [
+    "family"
+   ],
+   "access": "ask",
+   "what": "A nonprofit law office that gives legal help, advice and representation in U.S. and tribal courts: protecting families and cultural practices, basic needs and rights, property, and safety from abuse and exploitation. It is free for people whose income qualifies.",
+   "who": "People with low income. The office focuses on tribal and federal Indian law problems.",
+   "start": "Call 231-947-0122. Its page on Michigan Legal Help lists phone hours of weekdays 9 a.m. to noon and 1 to 3 p.m.",
+   "phone": "231-947-0122",
+   "address": "814 S. Garfield Ave., Suite A, Traverse City, MI 49686",
+   "url": "https://sites.google.com/a/mils3.org/www/home",
+   "url_label": "Michigan Indian Legal Services",
+   "more": [
+    {
+     "label": "Michigan Legal Help page",
+     "url": "https://michiganlegalhelp.org/node/589"
+    }
+   ],
+   "source": "https://sites.google.com/a/mils3.org/www/home",
+   "checked": "2026-11-17"
+  },
+  {
+   "id": "mi-three-fires",
+   "name": "Uniting Three Fires Against Violence",
+   "need": "safety",
+   "access": "native",
+   "what": "Michigan's Native American domestic violence and sexual assault coalition, as listed by the Michigan Department of Health and Human Services.",
+   "who": "Native people in Michigan.",
+   "start": "Open the Get Support page on its website. For help at any hour, call or text StrongHearts at 1-844-762-8483.",
+   "url": "https://utfav.org/",
+   "url_label": "utfav.org",
+   "source": "https://www.michigan.gov/mdhhs/inside-mdhhs/tribal-government-services-and-policy/native/resources",
+   "checked": "2026-11-17"
+  },
+  {
+   "id": "mi-foster-care-navigator",
+   "name": "Foster Care Navigator Program",
+   "need": "family",
+   "access": "native",
+   "what": "Helps American Indian and Alaska Native people and families who are interested in becoming licensed foster parents or adopting, as listed by the Michigan Department of Health and Human Services.",
+   "who": "Native individuals and families in Michigan.",
+   "start": "Call 855-MICHKIDS (855-642-4543) and ask for the Native American outreach specialist.",
+   "phone": "855-642-4543",
+   "phone_note": "855-MICHKIDS",
+   "url": "http://www.fcnp.org/",
+   "url_label": "fcnp.org",
+   "source": "https://www.michigan.gov/mdhhs/inside-mdhhs/tribal-government-services-and-policy/native/resources",
+   "checked": "2026-11-17"
+  },
+  {
+   "id": "mi-wellbriety",
+   "name": "Wellbriety circles in Michigan",
+   "need": "recovery",
+   "also": [
+    "community"
+   ],
+   "access": "native",
+   "what": "White Bison's list shows recovery and talking circles in Grand Rapids, L'Anse, Mount Pleasant and Beaverton, and a Michigan circle that meets on Zoom.",
+   "who": "Each circle says whether it is open to new people.",
+   "start": "Open the list, find the Michigan rows, and contact the facilitator listed for the circle you want.",
+   "url": "https://whitebison.org/circle-meetings/",
+   "url_label": "List of Wellbriety circles",
+   "source": "https://whitebison.org/circle-meetings/",
+   "checked": "2026-11-17"
+  },
+  {
+   "id": "mi-msu-resource-guide",
+   "name": "Native American Resource Guide (Michigan State University)",
+   "need": "community",
+   "also": [
+    "work",
+    "legal",
+    "health",
+    "school"
+   ],
+   "access": "anyone",
+   "what": "A guide kept by Michigan State University's Native American Institute with Michigan listings for education, legal help, health and employment.",
+   "who": "Anyone.",
+   "start": "Open the guide and choose the kind of help you need.",
+   "url": "https://nai.msu.edu/resources-container/native-american-resource-guide/native-education-legal-health-and-other-resources/employment",
+   "url_label": "MSU Native American Resource Guide",
+   "source": "https://nai.msu.edu/resources-container/native-american-resource-guide/native-education-legal-health-and-other-resources/employment",
+   "checked": "2026-11-17"
+  }
+ ]
+}

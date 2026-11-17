@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://travisvought-byte.github.io/Native/sitemap.xml

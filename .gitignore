@@ -1,0 +1,6 @@
+node_modules/
+__pycache__/
+*.py[cod]
+.DS_Store
+# Never commit private notes or anything about a person who has not asked to be named
+*.private.*
