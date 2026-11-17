@@ -1,0 +1,13 @@
+{
+ "name": "Native Resource Map",
+ "tagline": "Help, Nations and community for First Peoples",
+ "description": "A free guide for Native people: crisis lines, health care, recovery, family, school, housing and legal help, every federally recognized Nation's government office, and Native community groups, state by state.",
+ "base_url": "https://travisvought-byte.github.io/Native/",
+ "repo": "https://github.com/travisvought-byte/Native",
+ "email": "travis@vethomeguard.org",
+ "maintainer": "Travis Vought",
+ "maintainer_url": "https://travisvought.com/",
+ "dedication": "Dedicated to Nina, and hers to share.",
+ "counter": "https://travisvought.goatcounter.com/count",
+ "exit_url": "https://www.weather.gov/"
+}

@@ -1,0 +1,94 @@
+{
+ "area": "OH",
+ "records": [
+  {
+   "id": "oh-naicco",
+   "name": "Native American Indian Center of Central Ohio (NAICCO)",
+   "place": "Columbus",
+   "need": "community",
+   "access": "native",
+   "what": "An intertribal community gathering place in Columbus for Native people in Ohio, including people who live far from their ancestral homelands. It works on cultural preservation, community development and wellness, and describes itself as an urban Indian center.",
+   "who": "Native people and families in Ohio.",
+   "start": "Email naicco1975@gmail.com, or follow NAICCO on Facebook, Instagram or YouTube to hear about gatherings.",
+   "email": "naicco1975@gmail.com",
+   "address": "67 East Innis Avenue, Columbus, Ohio. Mail: P.O. Box 7705, Columbus, OH 43207",
+   "url": "https://www.naicco.com/",
+   "url_label": "naicco.com",
+   "source": "https://www.naicco.com/",
+   "checked": "2026-11-17"
+  },
+  {
+   "id": "oh-urban-native-collective",
+   "name": "Urban Native Collective",
+   "place": "Cincinnati",
+   "need": "community",
+   "also": [
+    "recovery"
+   ],
+   "access": "native",
+   "what": "A cultural home and gathering place for American Indian, Alaska Native and Indigenous peoples in the Greater Cincinnati region, serving Ohio, Kentucky and Indiana. Its Native Sovereignty Center has a lending library and hosts events. The collective also runs an urban garden and a program that helps Indigenous women, women of color, and Two-Spirit and non-binary relatives get mental health care.",
+   "who": "Native and Indigenous people in the Cincinnati region.",
+   "start": "Visit the Native Sovereignty Center at 1710 Blue Rock Street in Northside, Monday to Friday, 10 a.m. to 4 p.m., or email info@urbannativecollective.org.",
+   "email": "info@urbannativecollective.org",
+   "address": "1710 Blue Rock Street, Cincinnati, OH 45223",
+   "url": "https://urbannativecollective.org/",
+   "url_label": "urbannativecollective.org",
+   "source": "https://urbannativecollective.org/",
+   "checked": "2026-11-17"
+  },
+  {
+   "id": "oh-cleveland-coalition",
+   "name": "Cleveland Indigenous Coalition",
+   "place": "Cleveland",
+   "need": "community",
+   "access": "native",
+   "what": "Four Native organizations in Northeast Ohio that work together: the Lake Erie Native American Council, the Committee of 500 Years of Dignity and Resistance, the American Indian Movement of Ohio, and the Lake Erie Professional Chapter of the American Indian Science and Engineering Society.",
+   "who": "Native people in Northeast Ohio.",
+   "start": "Reach each group through its own page, linked below.",
+   "url": "https://www.facebook.com/LENACohio/",
+   "url_label": "Lake Erie Native American Council (Facebook)",
+   "more": [
+    {
+     "label": "Committee of 500 Years of Dignity and Resistance",
+     "url": "https://www.committeeof500years.org/about-us/"
+    },
+    {
+     "label": "American Indian Movement of Ohio (Facebook)",
+     "url": "https://www.facebook.com/AIMofOhio/"
+    }
+   ],
+   "source": "https://www.mlb.com/indians/fans/cleteamname/native-american-partnership",
+   "checked": "2026-11-17"
+  },
+  {
+   "id": "oh-job-training",
+   "name": "North American Indian Cultural Center",
+   "place": "Tallmadge",
+   "need": "work",
+   "access": "ask",
+   "what": "For program year 2025 the U.S. Department of Labor lists this center, in Tallmadge near Akron, as Ohio's grantee for Native job and training programs.",
+   "who": "The grantee sets its own intake rules and service area.",
+   "start": "Ask the center for its employment and training program. The Labor Department page explains what grantees offer.",
+   "url": "https://www.dol.gov/agencies/eta/dinap",
+   "url_label": "Division of Indian and Native American Programs",
+   "source": "https://www.dol.gov/sites/dolgov/files/ETA/advisories/TEGL/2024/TEGL%2012-24/TEGL%2012-24.pdf",
+   "checked": "2026-11-17"
+  },
+  {
+   "id": "oh-wellbriety",
+   "name": "Wellbriety circles you can join from Ohio",
+   "need": "recovery",
+   "also": [
+    "community"
+   ],
+   "access": "native",
+   "what": "White Bison's list shows no recovery circle meeting in Ohio. It does list circles on Zoom that are open to new people, and circles in Michigan.",
+   "who": "Each circle says whether it is open to new people.",
+   "start": "Open the list, look for circles marked Zoom, and contact the facilitator listed.",
+   "url": "https://whitebison.org/circle-meetings/",
+   "url_label": "List of Wellbriety circles",
+   "source": "https://whitebison.org/circle-meetings/",
+   "checked": "2026-11-17"
+  }
+ ]
+}

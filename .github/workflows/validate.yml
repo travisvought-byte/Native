@@ -1,0 +1,17 @@
+name: Validate site
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v6
+      - name: Built pages match the data
+        run: |
+          python3 scripts/build.py
+          git diff --exit-code
+      - name: Check the pages against the data
+        run: python3 tests/test_site.py
