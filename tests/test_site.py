@@ -87,6 +87,8 @@ for path, page in pages.items():
         fail(f'{path}: visit counter missing')
     if 'id="quick-exit"' not in page.text:
         fail(f'{path}: quick exit missing')
+    if 'href="tel:988"' not in page.text or 'href="tel:211"' not in page.text:
+        fail(f'{path}: the suicide and shelter help lines must be on every page')
 
 # 2. Links inside the site lead somewhere, and links out are well formed.
 for path, page in pages.items():

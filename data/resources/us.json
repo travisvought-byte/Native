@@ -10,7 +10,7 @@
    ],
    "access": "anyone",
    "urgent": 1,
-   "what": "Free, confidential support for anyone in emotional distress or crisis, 24 hours a day, every day of the year.",
+   "what": "Free, confidential support for anyone who is thinking about suicide, in emotional distress, or in any crisis, 24 hours a day, every day of the year.",
    "who": "Anyone in the United States.",
    "start": "Call or text 988, or use the chat on the Lifeline website. In immediate danger, call 911.",
    "phone": "988",
@@ -175,7 +175,7 @@
    "url": "https://www.usa.gov/emergency-housing",
    "url_label": "USA.gov emergency housing page",
    "source": "https://www.usa.gov/emergency-housing",
-   "checked": "2026-11-15"
+   "checked": "2026-11-17"
   },
   {
    "id": "ihs-clinics",
@@ -437,6 +437,51 @@
     }
    ],
    "source": "https://collegefund.org/tribal-colleges-and-universities/",
+   "checked": "2026-11-17"
+  },
+  {
+   "id": "shelter-tonight",
+   "name": "No place to stay tonight: emergency shelter",
+   "need": "housing",
+   "also": [
+    "safety"
+   ],
+   "access": "anyone",
+   "urgent": 1,
+   "what": "The federal housing department's direction for anyone who is homeless: dial 211 and press 6 for homeless services. Its Find Shelter tool lists local shelters, food pantries, health clinics and places to get clothing. USA.gov says 211 works in most areas of the United States and gives referrals for emergency housing.",
+   "who": "Anyone.",
+   "start": "Dial 211 and press 6. Say where you are and what you need tonight. If 211 does not connect, open the Find Shelter tool. Shelter space changes daily, so call before you travel.",
+   "phone": "211",
+   "phone_note": "Press 6 for homeless services",
+   "url": "https://www.hud.gov/findshelter",
+   "url_label": "HUD Find Shelter tool",
+   "more": [
+    {
+     "label": "USA.gov: emergency housing",
+     "url": "https://www.usa.gov/emergency-housing"
+    }
+   ],
+   "source": "https://www.hud.gov/contactus",
+   "checked": "2026-11-17"
+  },
+  {
+   "id": "homeless-veterans-call-center",
+   "name": "National Call Center for Homeless Veterans",
+   "need": "housing",
+   "also": [
+    "veterans",
+    "safety"
+   ],
+   "access": "anyone",
+   "urgent": 2,
+   "what": "Free and confidential support, 24 hours a day, for veterans who are facing or experiencing homelessness.",
+   "who": "Veterans, and people calling for a veteran.",
+   "start": "Call 1-877-424-3838 and say where you are and what you need tonight.",
+   "phone": "1-877-424-3838",
+   "phone_note": "1-877-4AID-VET, 24 hours a day",
+   "url": "https://www.usa.gov/emergency-housing",
+   "url_label": "USA.gov: emergency housing",
+   "source": "https://www.usa.gov/emergency-housing",
    "checked": "2026-11-17"
   },
   {
