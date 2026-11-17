@@ -1,63 +1,226 @@
 {
  "needs": [
-  {"key": "safety", "label": "Crisis and safety", "short": "Safety",
-   "blurb": "Someone to talk to right now, and help if you are being hurt, threatened, trafficked, or someone is missing.",
-   "ready": ["Your location, if you want help sent to you", "Whether it is safe to talk or text right now"],
-   "ask": ["Is there a Native advocate or program near me?", "What happens after this call?"]},
-  {"key": "health", "label": "Health care", "short": "Health",
+  {
+   "key": "safety",
+   "label": "Crisis and safety",
+   "short": "Safety",
+   "blurb": "Someone to talk to right now if you are thinking about suicide or in any crisis, and help if you are being hurt, threatened, trafficked, or someone is missing.",
+   "ready": [
+    "Your location, if you want help sent to you",
+    "Whether it is safe to talk or text right now"
+   ],
+   "ask": [
+    "Is there a Native advocate or program near me?",
+    "What happens after this call?"
+   ]
+  },
+  {
+   "key": "health",
+   "label": "Health care",
+   "short": "Health",
    "blurb": "Clinics run by the Indian Health Service, tribes and urban Indian programs, and how health insurance rules work for Native people.",
-   "ready": ["Tribal enrollment card or other proof of tribal affiliation, if you have one", "Any insurance, Medicaid or Medicare card", "A list of your medicines"],
-   "ask": ["Can I be seen here, and what proof do you need?", "Do you offer the service I need, or where do you send people?", "Will anything cost me money?"]},
-  {"key": "recovery", "label": "Recovery and wellness", "short": "Recovery",
+   "ready": [
+    "Tribal enrollment card or other proof of tribal affiliation, if you have one",
+    "Any insurance, Medicaid or Medicare card",
+    "A list of your medicines"
+   ],
+   "ask": [
+    "Can I be seen here, and what proof do you need?",
+    "Do you offer the service I need, or where do you send people?",
+    "Will anything cost me money?"
+   ]
+  },
+  {
+   "key": "recovery",
+   "label": "Recovery and wellness",
+   "short": "Recovery",
    "blurb": "Help with alcohol, drugs and mental health, including recovery circles grounded in Native culture.",
-   "ready": ["What kind of help you want: someone to talk to, a meeting, outpatient care or a place to stay", "Insurance or Medicaid card, if you have one"],
-   "ask": ["Is there a wait, and what can I do while I wait?", "Is the program Native-run or does it include cultural practices?", "Can my family take part?"]},
-  {"key": "family", "label": "Children, youth and family", "short": "Family",
+   "ready": [
+    "What kind of help you want: someone to talk to, a meeting, outpatient care or a place to stay",
+    "Insurance or Medicaid card, if you have one"
+   ],
+   "ask": [
+    "Is there a wait, and what can I do while I wait?",
+    "Is the program Native-run or does it include cultural practices?",
+    "Can my family take part?"
+   ]
+  },
+  {
+   "key": "family",
+   "label": "Children, youth and family",
+   "short": "Family",
    "blurb": "Help when a child welfare agency is involved, rights under the Indian Child Welfare Act, and programs for Native youth.",
-   "ready": ["The child's tribe or the tribes in the family, even if you are not sure", "Any court papers and the caseworker's name", "Dates of upcoming hearings"],
-   "ask": ["Has the child's tribe been told about the case?", "Who can explain my rights under the Indian Child Welfare Act?", "Is there a free lawyer for parents or relatives?"]},
-  {"key": "school", "label": "School and scholarships", "short": "School",
+   "ready": [
+    "The child's tribe or the tribes in the family, even if you are not sure",
+    "Any court papers and the caseworker's name",
+    "Dates of upcoming hearings"
+   ],
+   "ask": [
+    "Has the child's tribe been told about the case?",
+    "Who can explain my rights under the Indian Child Welfare Act?",
+    "Is there a free lawyer for parents or relatives?"
+   ]
+  },
+  {
+   "key": "school",
+   "label": "School and scholarships",
+   "short": "School",
    "blurb": "Scholarships for Native students, tribal colleges and state tuition waivers.",
-   "ready": ["Tribal enrollment card, or the enrollment details of the parent or grandparent you descend from", "Transcripts and your FAFSA, if you have filed one"],
-   "ask": ["Do descendants qualify, or only enrolled members?", "What is the deadline, and can I apply after it?", "What does it cover: tuition, fees, books, housing?"]},
-  {"key": "housing", "label": "Housing", "short": "Housing",
-   "blurb": "Tribal housing offices, home repair grants and home loans for Native families.",
-   "ready": ["Tribal enrollment card", "Proof of income for everyone in the household", "Where you live now and how many people live with you"],
-   "ask": ["Is there a waiting list, and how long is it?", "Do I have to live in the tribe's service area?", "Is there emergency help while I wait?"]},
-  {"key": "money", "label": "Food, money and bills", "short": "Food and money",
+   "ready": [
+    "Tribal enrollment card, or the enrollment details of the parent or grandparent you descend from",
+    "Transcripts and your FAFSA, if you have filed one"
+   ],
+   "ask": [
+    "Do descendants qualify, or only enrolled members?",
+    "What is the deadline, and can I apply after it?",
+    "What does it cover: tuition, fees, books, housing?"
+   ]
+  },
+  {
+   "key": "housing",
+   "label": "Housing and homelessness",
+   "short": "Housing",
+   "blurb": "A place to sleep tonight, tribal housing offices, home repair grants and home loans for Native families.",
+   "ready": [
+    "Where you are right now, if you need a place tonight",
+    "Tribal enrollment card, if you have one",
+    "Proof of income for everyone in the household",
+    "Where you live now and how many people live with you"
+   ],
+   "ask": [
+    "Is there a bed open tonight, and how do I get there?",
+    "Is there a waiting list, and how long is it?",
+    "Do I have to live in the tribe's service area?",
+    "Is there emergency help while I wait?"
+   ]
+  },
+  {
+   "key": "money",
+   "label": "Food, money and bills",
+   "short": "Food and money",
    "blurb": "Food programs, emergency money and help with bills.",
-   "ready": ["Photo ID and tribal enrollment card, if you have them", "Proof of income and your address", "The bill or shut-off notice, if that is what you need help with"],
-   "ask": ["Can I use this program together with SNAP or other benefits?", "How fast can help arrive?", "What other programs should I apply for at the same time?"]},
-  {"key": "work", "label": "Work and training", "short": "Work",
+   "ready": [
+    "Photo ID and tribal enrollment card, if you have them",
+    "Proof of income and your address",
+    "The bill or shut-off notice, if that is what you need help with"
+   ],
+   "ask": [
+    "Can I use this program together with SNAP or other benefits?",
+    "How fast can help arrive?",
+    "What other programs should I apply for at the same time?"
+   ]
+  },
+  {
+   "key": "work",
+   "label": "Work and training",
+   "short": "Work",
    "blurb": "Job search help, paid training and support from Native employment programs.",
-   "ready": ["Tribal enrollment card or proof of Native descent", "Photo ID and Social Security card", "Your work history, even a rough list"],
-   "ask": ["Which counties do you serve?", "Can you help pay for training, tools, work clothes or travel?", "Do descendants qualify?"]},
-  {"key": "legal", "label": "Legal help and rights", "short": "Legal",
+   "ready": [
+    "Tribal enrollment card or proof of Native descent",
+    "Photo ID and Social Security card",
+    "Your work history, even a rough list"
+   ],
+   "ask": [
+    "Which counties do you serve?",
+    "Can you help pay for training, tools, work clothes or travel?",
+    "Do descendants qualify?"
+   ]
+  },
+  {
+   "key": "legal",
+   "label": "Legal help and rights",
+   "short": "Legal",
    "blurb": "Free and low-cost legal help, and where to learn your rights.",
-   "ready": ["Every paper you have about the problem, in date order", "Deadlines or court dates", "Household income, because free legal aid has income limits"],
-   "ask": ["Do you handle tribal court, state court or both?", "If you cannot take my case, who can?", "Is there a deadline I must not miss?"]},
-  {"key": "nation", "label": "Your Nation and enrollment", "short": "Your Nation",
+   "ready": [
+    "Every paper you have about the problem, in date order",
+    "Deadlines or court dates",
+    "Household income, because free legal aid has income limits"
+   ],
+   "ask": [
+    "Do you handle tribal court, state court or both?",
+    "If you cannot take my case, who can?",
+    "Is there a deadline I must not miss?"
+   ]
+  },
+  {
+   "key": "nation",
+   "label": "Your Nation and enrollment",
+   "short": "Your Nation",
    "blurb": "Reaching a Nation's government, tracing your family, and how enrollment works.",
-   "ready": ["Names, birth dates and birthplaces of parents and grandparents", "Birth, death or marriage certificates you already have", "Any family story about which Nation you come from, and from whom you heard it"],
-   "ask": ["What are your enrollment rules, and what papers do you accept?", "Can you tell me whether my relative is on your rolls?", "Are there services for descendants who cannot enroll?"]},
-  {"key": "elders", "label": "Elders", "short": "Elders",
+   "ready": [
+    "Names, birth dates and birthplaces of parents and grandparents",
+    "Birth, death or marriage certificates you already have",
+    "Any family story about which Nation you come from, and from whom you heard it"
+   ],
+   "ask": [
+    "What are your enrollment rules, and what papers do you accept?",
+    "Can you tell me whether my relative is on your rolls?",
+    "Are there services for descendants who cannot enroll?"
+   ]
+  },
+  {
+   "key": "elders",
+   "label": "Elders",
+   "short": "Elders",
    "blurb": "Meals, rides, help at home and support for people caring for an elder.",
-   "ready": ["The elder's age, address and tribe", "What a normal day looks like and where help is needed"],
-   "ask": ["At what age does your program count someone as an elder?", "Do you deliver meals or give rides to appointments?", "Is there help for a family member who is the caregiver?"]},
-  {"key": "veterans", "label": "Veterans", "short": "Veterans",
+   "ready": [
+    "The elder's age, address and tribe",
+    "What a normal day looks like and where help is needed"
+   ],
+   "ask": [
+    "At what age does your program count someone as an elder?",
+    "Do you deliver meals or give rides to appointments?",
+    "Is there help for a family member who is the caregiver?"
+   ]
+  },
+  {
+   "key": "veterans",
+   "label": "Veterans",
+   "short": "Veterans",
    "blurb": "Benefits and protections that apply to Native veterans.",
-   "ready": ["DD214 or other discharge papers", "Tribal enrollment card or other tribal documentation"],
-   "ask": ["Is there a tribal veterans service officer I can work with?", "Which form do I send, and where?"]},
-  {"key": "community", "label": "Community and culture", "short": "Community",
+   "ready": [
+    "DD214 or other discharge papers",
+    "Tribal enrollment card or other tribal documentation"
+   ],
+   "ask": [
+    "Is there a tribal veterans service officer I can work with?",
+    "Which form do I send, and where?"
+   ]
+  },
+  {
+   "key": "community",
+   "label": "Community and culture",
+   "short": "Community",
    "blurb": "Native community centers, youth councils, recovery circles and tribal colleges: places to be around your people.",
-   "ready": ["Usually nothing. Ask each place whether its gatherings are open to everyone."],
-   "ask": ["When is your next gathering, and can anyone come?", "Is there something I can help with?"]}
+   "ready": [
+    "Usually nothing. Ask each place whether its gatherings are open to everyone."
+   ],
+   "ask": [
+    "When is your next gathering, and can anyone come?",
+    "Is there something I can help with?"
+   ]
+  }
  ],
  "access": {
-  "anyone": {"label": "Open to anyone", "explain": "No Native status or tribal card is asked for."},
-  "native": {"label": "For Native people", "explain": "Serves Native people. The program does not state that a tribal enrollment card is required, but ask."},
-  "descendants": {"label": "Members and descendants", "explain": "Serves enrolled tribal members and people descended from an enrolled member."},
-  "enrolled": {"label": "Usually needs tribal enrollment", "explain": "Usually asks for proof that you are enrolled in a federally recognized tribe."},
-  "ask": {"label": "Rules differ: ask", "explain": "Each tribe, office or program sets its own rule about who it serves."}
+  "anyone": {
+   "label": "Open to anyone",
+   "explain": "No Native status or tribal card is asked for."
+  },
+  "native": {
+   "label": "For Native people",
+   "explain": "Serves Native people. The program does not state that a tribal enrollment card is required, but ask."
+  },
+  "descendants": {
+   "label": "Members and descendants",
+   "explain": "Serves enrolled tribal members and people descended from an enrolled member."
+  },
+  "enrolled": {
+   "label": "Usually needs tribal enrollment",
+   "explain": "Usually asks for proof that you are enrolled in a federally recognized tribe."
+  },
+  "ask": {
+   "label": "Rules differ: ask",
+   "explain": "Each tribe, office or program sets its own rule about who it serves."
+  }
  }
 }
