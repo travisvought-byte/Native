@@ -69,8 +69,8 @@ paths = [u[len(base):] or 'index.html' for u in re.findall(r'<loc>([^<]+)</loc>'
 pages = {p: parse(p) for p in paths + ['404.html']}
 
 # 1. Every page has the basics.
-if len(paths) != 7 + len(build.STATES):
-    fail(f'expected {7 + len(build.STATES)} pages in the sitemap, found {len(paths)}')
+if len(paths) != 8 + len(build.STATES):
+    fail(f'expected {8 + len(build.STATES)} pages in the sitemap, found {len(paths)}')
 for path, page in pages.items():
     if page.h1 != 1:
         fail(f'{path}: {page.h1} h1 headings')
