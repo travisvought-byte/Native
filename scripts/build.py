@@ -232,7 +232,7 @@ def state_options(up=''):
 
 
 NAV = [('help.html', 'Get help'), ('nations.html', 'Nations'), ('states/index.html', 'By state'),
-       ('find-your-nation.html', 'Finding your Nation'), ('community.html', 'Community'), ('about.html', 'About')]
+       ('find-your-nation.html', 'Finding your Nation'), ('community.html', 'Community'), ('what-works.html', 'What works'), ('about.html', 'About')]
 PAGES = []
 
 
@@ -633,6 +633,47 @@ def build_404():
     PAGES.remove('404.html')
 
 
+WORKS = [
+    {'title': 'Diabetes care run by tribes and clinics: the Special Diabetes Program for Indians',
+     'what': 'Since 1997 Congress has funded diabetes prevention and treatment that tribes, urban Indian programs and Indian Health Service clinics run themselves. The Indian Health Service counts 301 program sites in 35 states.',
+     'results': ['New cases of diabetes-related kidney failure in Native adults fell 54 percent from 1996 to 2013.',
+                 'Hospital stays for uncontrolled diabetes fell 84 percent from 2000 to 2015.',
+                 'Deaths related to diabetes fell 37 percent from 1999 to 2017.',
+                 'The share of Native adults with diabetes went down, from 15.4 percent in 2013 to 14.6 percent in 2017.'],
+     'use': 'Ask your tribal or urban Indian clinic whether it runs a diabetes program under this funding. Most do.',
+     'sources': [('Indian Health Service: Special Diabetes Program for Indians fact sheet, 2020', 'https://www.ihs.gov/sites/sdpi/themes/responsive2017/display_objects/documents/factsheets/SDPIFactSheet2020.pdf'),
+                 ('Indian Health Service: reports to Congress', 'https://www.ihs.gov/sdpi/reports-to-congress/')]},
+    {'title': 'Home visits for young families by local Native health workers: Family Spirit',
+     'what': 'Trained home visitors from the community meet with mothers from pregnancy until the child is three. Johns Hopkins designed and tested it together with the Navajo, White Mountain Apache and San Carlos Apache communities.',
+     'results': ['The U.S. Department of Health and Human Services reviewed the research and rates Family Spirit an evidence-based home visiting model, including for Indigenous communities.',
+                 'Four of the studies it reviewed were rated high or moderate quality.'],
+     'use': 'Ask your tribal health department or urban Indian program whether it offers Family Spirit or another home visiting program.',
+     'sources': [('U.S. Department of Health and Human Services: Home Visiting Evidence of Effectiveness, Family Spirit', 'https://homvee.acf.gov/models/family-spiritr')]},
+    {'title': 'Nations running their own programs: self-governance',
+     'what': 'Since the 1970s federal law has let Nations take over programs the federal government used to run for them, such as clinics, schools, police and land management.',
+     'results': ['Researchers at Harvard who have studied Native nations since the 1980s find that when Nations make their own decisions they consistently do better than outside decision-makers.',
+                 'Their awards program has documented 148 tribal government programs from more than 100 Nations that solved a problem at home, from school health centers to air quality.'],
+     'use': 'If you work for a Nation or a tribal program, the awards library is a place to find a program like the one you need and the people who built it.',
+     'sources': [('Harvard Kennedy School: Foundations of Indigenous nation building', 'https://www.hks.harvard.edu/faculty-research/policy-topics/democracy-governance/foundations-indigenous-nation-building'),
+                 ('Harvard Project on Indigenous Governance and Development: Honoring Nations', 'https://indigenousgov.hks.harvard.edu/honoring-nations')]},
+]
+WORKS_CHECKED = '2026-11-18'
+
+
+def build_works():
+    body = ('<h1>What has worked</h1><p class="lede">Programs with published results behind them, for Native families, clinics and tribal governments.</p>'
+            '<p>This page lists only programs whose results were measured and published by the agency or university named in each entry. It is short on purpose and will grow one sourced entry at a time. '
+            f'If you know a program with results to show, <a href="mailto:{E(SITE["email"])}">tell us</a>.</p>')
+    for i, w in enumerate(WORKS):
+        body += (f'<section aria-labelledby="w{i}"><h2 id="w{i}">{E(w["title"])}</h2><p>{E(w["what"])}</p>'
+                 '<h3>What the results show</h3><ul>' + ''.join(f'<li>{E(r)}</li>' for r in w['results']) + '</ul>'
+                 f'<p><strong>How to use this:</strong> {E(w["use"])}</p>'
+                 '<p class="meta">Sources: ' + ' · '.join(f'<a href="{E(u)}">{E(l)}</a>' for l, u in w['sources'])
+                 + f'. Checked {nice_date(WORKS_CHECKED)}.</p></section>')
+    page('what-works.html', f'Programs that have worked in Native communities, with their results | {SITE["name"]}',
+         'Programs with measured, published results in Native communities: tribal diabetes programs, home visiting for young families, and Nations running their own services.', body)
+
+
 def build_sitemap():
     dates = [r['checked'] for r in RES] + [NATIONS_FILE['retrieved']]
     lastmod = max(dates)
@@ -653,6 +694,7 @@ def main():
     build_states()
     build_find()
     build_community()
+    build_works()
     build_about()
     build_404()
     build_sitemap()
