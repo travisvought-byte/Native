@@ -236,7 +236,7 @@ def state_options(up=''):
 
 
 NAV = [('help.html', 'Get help'), ('nations.html', 'Nations'), ('states/index.html', 'By state'),
-       ('find-your-nation.html', 'Finding your Nation'), ('community.html', 'Community'), ('what-works.html', 'What works'), ('about.html', 'About')]
+       ('find-your-nation.html', 'Finding your Nation'), ('community.html', 'Community'), ('proud-history.html', 'Proud history'), ('what-works.html', 'What works'), ('about.html', 'About')]
 PAGES = []
 
 
@@ -779,6 +779,53 @@ WORKS = [
 WORKS_CHECKED = '2026-11-18'
 
 
+PROUD = [
+    ('Government', 'One of the oldest living democracies: the Haudenosaunee Confederacy',
+     'The Mohawk, Oneida, Onondaga, Cayuga and Seneca Nations, later joined by the Tuscarora, united under the Great Law of Peace, a constitution kept on wampum belts and recited from memory. Its Grand Council of 50 chiefs still meets. Women hold real power in it: clan mothers choose each chief and can remove one who does not serve the people.',
+     'In 1988 both houses of Congress passed a resolution acknowledging the contribution of the Iroquois Confederacy to the development of the United States Constitution. Historians still debate how much the framers borrowed; the Confederacy itself has governed continuously since long before the United States existed.',
+     [('Haudenosaunee Confederacy: how the Confederacy is structured', 'https://www.haudenosauneeconfederacy.com/chiefs.html'),
+      ('Congress.gov: H.Con.Res. 331 (1988)', 'https://www.congress.gov/bill/100th-congress/house-concurrent-resolution/331')]),
+    ('Language', 'A whole writing system, invented by one man: Sequoyah',
+     'Sequoyah spent about twelve years creating a syllabary for the Cherokee language, finished in 1821: a symbol for each syllable, simple enough to learn in days. The Cherokee people took it up fast.',
+     'In 1828 the Cherokee Nation printed the Cherokee Phoenix, the first newspaper published in a Native language in North America, in Cherokee and English side by side.',
+     [('Britannica: Cherokee language', 'https://www.britannica.com/topic/Cherokee-language')]),
+    ('Food', 'Feeding the world',
+     'Corn, beans, squash, potatoes, tomatoes, chile peppers, peanuts, cassava, sweet potatoes, cacao and vanilla were all developed by Indigenous farmers in the Americas over thousands of years. Corn was bred from a wild grass. Andean farmers developed potatoes for every climate from the coast to the high mountains.',
+     'Italian tomatoes, Irish potatoes and much of the world\'s chocolate trace back to Native farmers.',
+     [('Britannica: 18 food crops developed in the Americas', 'https://www.britannica.com/story/18-food-crops-developed-in-the-americas')]),
+    ('Service', 'Serving at the highest rate',
+     'American Indians, Alaska Natives and Native Hawaiians have served in every American war since the Revolution, and serve in the armed forces at one of the highest rates of any group.',
+     'In 2020 the National Native American Veterans Memorial opened on the grounds of the Smithsonian\'s National Museum of the American Indian in Washington, the first national memorial to Native veterans.',
+     [('Smithsonian: National Native American Veterans Memorial opens', 'https://torch.si.edu/2020/11/national-native-american-veterans-memorial-opens-to-the-public/')]),
+    ('Service', 'The code that was never broken',
+     'In World War II, Navajo Marines built a code from the Navajo language and carried messages through the Pacific that the enemy never deciphered. Code talkers from many other Nations, including Comanche, Choctaw, Hopi and others, served in both world wars.',
+     'The code stayed secret until 1968. In 2001 the original 29 Navajo Code Talkers received the Congressional Gold Medal, and later laws honored code talkers from other Nations as well.',
+     [('National Archives, Prologue: Semper Fidelis, Code Talkers', 'https://www.archives.gov/publications/prologue/2001/winter/navajo-code-talkers.html')]),
+    ('Science', 'Into space',
+     'Mary Golda Ross, a citizen of the Cherokee Nation, is considered the first Native American engineer in the U.S. space program. She worked in Lockheed\'s top-secret design team on rockets and spacecraft for the Gemini and Apollo programs. The 2019 Native American dollar coin shows her at work.',
+     'In 2002 John Herrington, an enrolled citizen of the Chickasaw Nation, became the first Native American in space, with three spacewalks to build the International Space Station.',
+     [('U.S. Mint: 2019 Native American $1 coin, American Indians in the space program', 'https://www.usmint.gov/learn/coins-and-medals/collectible-coins/native-american-dollar-coins/2019-american-indians-in-space'),
+      ('NASA: John Herrington performs a spacewalk', 'https://www.nasa.gov/image-article/john-herrington-performs-a-spacewalk/')]),
+    ('Sport', 'The greatest upset in Olympic history',
+     'Billy Mills, Oglala Lakota, grew up on the Pine Ridge Reservation and lost both parents young. At the 1964 Tokyo Olympics, a Marine lieutenant almost nobody had heard of, he passed the world-record holder in the last stretch to win the 10,000 meters.',
+     'He is still the only American ever to win it. He went on to spend his life working for Native youth.',
+     [('U.S. Olympic & Paralympic Museum Hall of Fame: Billy Mills', 'https://usopm.org/billy-mills/')]),
+]
+
+
+def build_proud():
+    cats = ''
+    body = ('<h1>Proud history</h1><p class="lede">Some of what First Peoples built, invented, defended and won. A few stories to start; there are thousands more.</p>'
+            '<p>Every entry links to the museum, government or Nation source it comes from. If your Nation or family has a story that belongs here, '
+            f'<a href="mailto:{E(SITE["email"])}">send it</a>, told the way you want it told.</p>')
+    for i, (cat, title, what, more, sources) in enumerate(PROUD):
+        body += (f'<section aria-labelledby="p{i}"><h2 id="p{i}">{E(title)}</h2><p>{E(what)}</p><p>{E(more)}</p>'
+                 '<p class="meta">Sources: ' + ' · '.join(f'<a href="{E(u)}">{E(l)}</a>' for l, u in sources) + '. Checked November 18, 2026.</p></section>')
+    body += '<p>Nations running their own programs have a record of results too: see <a href="what-works.html">What works</a>.</p>'
+    page('proud-history.html', f'Proud history: First Peoples\' achievements in government, language, food, service, science and sport | {SITE["name"]}',
+         'The Haudenosaunee Great Law of Peace, Sequoyah\'s Cherokee syllabary, the crops Native farmers gave the world, the code talkers, Native astronauts and engineers, and Billy Mills, each with its source.', body)
+
+
 def build_works():
     body = ('<h1>What has worked</h1><p class="lede">Programs with published results behind them, for Native families, clinics and tribal governments.</p>'
             '<p>This page lists only programs whose results were measured and published by the agency or university named in each entry. It is short on purpose and will grow one sourced entry at a time. '
@@ -813,6 +860,7 @@ def main():
     build_states()
     build_find()
     build_community()
+    build_proud()
     build_works()
     build_about()
     build_404()
