@@ -105,7 +105,7 @@ for path, page in pages.items():
     folder = Path(path).parent
     for href in page.hrefs:
         if href.startswith(('mailto:', 'tel:', 'sms:')):
-            if href.startswith('tel:') and not re.match(r'^tel:(\+1\d{10}|\d{3})$', href):
+            if href.startswith('tel:') and not re.match(r'^tel:(\+1\d{10}(,\d{1,6})?|\d{3})$', href):
                 fail(f'{path}: odd phone link {href}')
             continue
         if href.startswith('http://') or href.startswith('https://'):
@@ -155,6 +155,17 @@ for code, entry in build.STATE_NATIONS.items():
             fail(f'state-nations.json: {n["name"]} is already on the federal list')
         if n['name'] not in pages[f'states/{build.STATE_SLUG[code]}.html'].text or n['name'] not in directory.text:
             fail(f'{n["name"]} is missing from its state page or the directory')
+# Clinics: every facility in data/clinics.json is on its state's page, and no staff names or emails are kept.
+raw_clinics = (ROOT / 'data/clinics.json').read_text() if 'ROOT' in globals() else open('data/clinics.json', encoding='utf-8').read()
+if 'POC_' in raw_clinics or 'mailto:' in raw_clinics:
+    fail('data/clinics.json must not hold staff contacts')
+for code, items in build.CLINICS.items():
+    text = pages[f'states/{build.STATE_SLUG[code]}.html'].text
+    if 'id="clinics-h"' not in text:
+        fail(f'{code}: the clinics section is missing')
+    for c in items:
+        if build.E(c['name']) not in text:
+            fail(f'{code}: clinic {c["name"]} is missing')
 # Reservations and tribal lands: every area in the Census file is on its state's page.
 for code, areas in build.LANDS.items():
     text = pages[f'states/{build.STATE_SLUG[code]}.html'].text

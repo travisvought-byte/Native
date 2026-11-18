@@ -29,6 +29,8 @@ NATIONS_FILE = load('data/nations.json')
 NATIONS = NATIONS_FILE['nations']
 STATE_NATIONS = load('data/state-nations.json')['states']
 LANDS_FILE = load('data/lands.json')
+CLINICS_FILE = load('data/clinics.json')
+CLINICS = CLINICS_FILE['states']
 LANDS = LANDS_FILE['states']
 NATION = {n['id']: n for n in NATIONS}
 STATE_NOTES = load('data/states.json')
@@ -388,6 +390,63 @@ def land_item(a):
     return f'<li><span class="nm">{E(a["name"])}</span> <span class="where">{E(where)}</span> <span class="contact">{size} in this state</span></li>'
 
 
+CLINIC_KINDS = [('hospital', 'Hospitals'), ('clinic', 'Clinics and health centers'),
+                ('behavioral', 'Mental health and recovery'), ('dental', 'Dental clinics'), ('elder', 'Elder care')]
+RUN_LABEL = {'ihs': 'Run by the Indian Health Service', 'tribal': 'Run by a tribe or tribal health organization',
+             'urban': 'Urban Indian health program', 'partner': 'Partner facility that serves Native patients'}
+
+
+PHONE_RE = re.compile(r'(?:\+?1[-. ]?)?\(?(\d{3})\)?[-. ]*(\d{3})[-. ]*(\d{4})(?:\s*(?:ext\.?|x)\s*(\d{1,6}))?', re.I)
+
+
+def phone_links(text):
+    """Every number in a phone field becomes its own link; the words around them stay as written."""
+    out, last = '', 0
+    for m in PHONE_RE.finditer(text):
+        out += E(text[last:m.start()])
+        num = '+1' + ''.join(m.group(1, 2, 3)) + (f',{m.group(4)}' if m.group(4) else '')
+        out += f'<a href="tel:{num}">{E(m.group(0).strip())}</a>'
+        last = m.end()
+    return out + E(text[last:])
+
+
+def clinic_item(c):
+    name = E(c['name']) + (f' <span class="where">({E(c["alias"])})</span>' if c.get('alias') else '')
+    if c.get('url', '').startswith('http'):
+        name = f'<a href="{E(c["url"])}">{name}</a>'
+    bits = [E(c['city'])] if c.get('city') else []
+    if c.get('phone'):
+        bits.append(phone_links(c['phone']))
+    detail = [RUN_LABEL[c['run']] + (f': {E(c["by"])}' if c.get('by') and c['run'] in ('tribal', 'partner') else '')]
+    if c.get('offers'):
+        detail.append('Services: ' + ', '.join(E(o if i == 0 else o[0].lower() + o[1:]) for i, o in enumerate(c['offers'])))
+    if c.get('hours'):
+        detail.append(E(c['hours']))
+    return (f'<li><span class="nm">{name}</span> <span class="where">{" · ".join(bits)}</span>'
+            f'<span class="contact">{". ".join(detail)}</span></li>')
+
+
+def clinics_section(code):
+    items = CLINICS.get(code)
+    if not items:
+        return ''
+    name = STATE_NAME[code]
+    out = (f'<section aria-labelledby="clinics-h"><h2 id="clinics-h">Indian health clinics and hospitals in {E(name)}</h2>'
+           f'<p>{len(items)} places listed by the Indian Health Service. Clinics run by the Indian Health Service or a tribe mostly serve '
+           'members and descendants of federally recognized tribes; some serve everyone in the area. Urban Indian programs often serve any Native person. '
+           'Call first and ask whether you can be seen and what to bring.</p>')
+    for kind, label in CLINIC_KINDS:
+        group = [c for c in items if c['kind'] == kind]
+        if not group:
+            continue
+        lst = '<ul class="nations">' + ''.join(clinic_item(c) for c in group) + '</ul>'
+        out += (f'<details><summary>{E(label)} ({len(group)})</summary>{lst}</details>' if len(group) > 12
+                else f'<h3>{E(label)}</h3>{lst}')
+    return out + (f'<p class="meta">From the <a href="{E(CLINICS_FILE["source_page"])}">{E(CLINICS_FILE["publisher"])} Find Health Care map</a>, '
+                  f'retrieved {nice_date(CLINICS_FILE["retrieved"])}. Hours and services change; call before you go. '
+                  'The <a href="https://www.ihs.gov/findhealthcaremap/">map</a> also gives directions.</p></section>')
+
+
 def lands_section(code):
     areas = LANDS.get(code)
     if not areas:
@@ -448,6 +507,7 @@ def build_states():
                      f'<p class="meta">From the <a href="{E(NATIONS_FILE["source_page"])}">Bureau of Indian Affairs Tribal Leaders Directory</a>, retrieved {nice_date(NATIONS_FILE["retrieved"])}. '
                      'Names are shown as the Bureau lists them. Nations: tell us if you want a listing changed.</p></section>')
         body += state_nations_section(code)
+        body += clinics_section(code)
         body += lands_section(code)
         if note.get('ties'):
             body += (f'<section aria-labelledby="ties-h"><h2 id="ties-h">{E(note["ties_title"])}</h2><p>{E(note["ties_intro"])}</p>'

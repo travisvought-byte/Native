@@ -122,3 +122,4 @@ footer{max-width:1112px;margin:0 auto;padding:18px 16px 44px;border-top:1px soli
 
 @media (max-width:640px){body{font-size:17px}.top{padding-top:10px;padding-bottom:10px}.top nav a{padding:7px 8px}.cards,.nations{grid-template-columns:1fr}.card .actions .btn{flex:1 1 100%}.exit span{display:none}.usmap circle{r:3.4px}}
 @media print{.exit,.top nav,.skip,.filter,.picker,.search,.chips,.usmap,.statebox{display:none}body{background:#fff;font-size:12pt}.top{background:#fff;color:#000;padding:0}.brand{color:#000}.card,.nations li,.urgent{break-inside:avoid;border-color:#999}.btn{border:0;background:none;color:#000;padding:0;min-height:0;font-weight:700}.btn::after{content:""}a{color:#000}details.prep{display:none}}
+.nations a[href^="tel:"]{white-space:nowrap}
