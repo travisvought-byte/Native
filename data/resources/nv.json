@@ -1,0 +1,24 @@
+{
+ "area": "NV",
+ "records": [
+  {
+   "id": "nv-nevada-urban-indians",
+   "name": "Nevada Urban Indians, Inc.",
+   "place": "Carson City",
+   "need": "health",
+   "access": "native",
+   "what": "An Urban Indian Organization funded by the Indian Health Service. The Indian Health Service lists it as offering a clinic with a limited range of outpatient care.",
+   "who": "American Indian and Alaska Native people living in or near the city. Ask what proof of tribal affiliation or descent it needs.",
+   "start": "Use the website to find the current phone number and address, then ask how to become a patient or client.",
+   "url": "https://www.nevadaurbanindians.org/",
+   "source": "https://www.ihs.gov/Urban/urban-indian-organizations/phoenix/",
+   "checked": "2026-11-18",
+   "more": [
+    {
+     "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
+     "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
+    }
+   ]
+  }
+ ]
+}

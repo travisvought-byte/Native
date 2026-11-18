@@ -1,0 +1,88 @@
+{
+ "area": "AZ",
+ "records": [
+  {
+   "id": "az-naca-flagstaff",
+   "name": "Native Americans for Community Action",
+   "place": "Flagstaff",
+   "need": "health",
+   "access": "native",
+   "what": "An Urban Indian Organization funded by the Indian Health Service. The Indian Health Service lists it as offering a medical clinic with a full range of outpatient care.",
+   "who": "American Indian and Alaska Native people living in or near the city. Ask what proof of tribal affiliation or descent it needs.",
+   "start": "Call and ask how to become a patient or client, and which services are offered at the site nearest you.",
+   "phone": "928-526-2968",
+   "url": "https://www.nacainc.org/",
+   "source": "https://www.ihs.gov/Urban/urban-indian-organizations/navajo/",
+   "checked": "2026-11-18",
+   "more": [
+    {
+     "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
+     "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
+    }
+   ]
+  },
+  {
+   "id": "az-native-american-connections",
+   "name": "Native American Connections",
+   "place": "Phoenix",
+   "need": "health",
+   "access": "native",
+   "what": "An Urban Indian Organization funded by the Indian Health Service. The Indian Health Service lists it as offering a clinic with a limited range of outpatient care and outpatient and residential treatment for alcohol and drug use.",
+   "who": "American Indian and Alaska Native people living in or near the city. Ask what proof of tribal affiliation or descent it needs.",
+   "start": "Call and ask how to become a patient or client, and which services are offered at the site nearest you.",
+   "also": [
+    "recovery"
+   ],
+   "phone": "602-254-3247",
+   "url": "https://www.nativeconnections.org/",
+   "source": "https://www.ihs.gov/Urban/urban-indian-organizations/phoenix/",
+   "checked": "2026-11-18",
+   "more": [
+    {
+     "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
+     "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
+    }
+   ]
+  },
+  {
+   "id": "az-native-health",
+   "name": "Native Health",
+   "place": "Mesa and Phoenix",
+   "need": "health",
+   "access": "native",
+   "what": "An Urban Indian Organization funded by the Indian Health Service. The Indian Health Service lists it as offering a medical clinic with a full range of outpatient care.",
+   "who": "American Indian and Alaska Native people living in or near the city. Ask what proof of tribal affiliation or descent it needs.",
+   "start": "Call and ask how to become a patient or client, and which services are offered at the site nearest you.",
+   "phone": "602-279-5262",
+   "url": "https://www.nativehealthphoenix.org/",
+   "source": "https://www.ihs.gov/Urban/urban-indian-organizations/phoenix/",
+   "checked": "2026-11-18",
+   "more": [
+    {
+     "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
+     "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
+    }
+   ]
+  },
+  {
+   "id": "az-tucson-indian-center",
+   "name": "Tucson Indian Center",
+   "place": "Tucson",
+   "need": "health",
+   "access": "native",
+   "what": "An Urban Indian Organization funded by the Indian Health Service. The Indian Health Service lists it as offering a clinic with a limited range of outpatient care.",
+   "who": "American Indian and Alaska Native people living in or near the city. Ask what proof of tribal affiliation or descent it needs.",
+   "start": "Call and ask how to become a patient or client, and which services are offered at the site nearest you.",
+   "phone": "520-884-7131",
+   "url": "https://www.ticenter.org/",
+   "source": "https://www.ihs.gov/Urban/urban-indian-organizations/tucson/",
+   "checked": "2026-11-18",
+   "more": [
+    {
+     "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
+     "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
+    }
+   ]
+  }
+ ]
+}

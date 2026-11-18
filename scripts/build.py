@@ -403,7 +403,7 @@ def build_states():
         local = ' <span class="count">local listings</span>' if records else ''
         index_items += f'<li><a href="{STATE_SLUG[code]}.html">{E(name)}</a>{count}{local}</li>'
     body = f'''<h1>Find help by state</h1>
-<p class="lede">Every state has a page with the Nations whose governments are there and the national help that works anywhere. Ohio and Michigan also list community groups and state programs. More states are being filled in.</p>
+<p class="lede">Every state has a page with the Nations whose governments are there and the national help that works anywhere. Ohio and Michigan also list community groups and state programs, and 21 more states list their urban Indian health programs. More is being filled in.</p>
 <p class="picker"><label for="state-pick">Go to a state</label> <select id="state-pick" data-go>{state_options("../")}</select></p>
 <ul class="statelist big">{index_items}</ul>'''
     page('states/index.html', f'Native resources by state | {SITE["name"]}',

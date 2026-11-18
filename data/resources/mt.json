@@ -1,0 +1,100 @@
+{
+ "area": "MT",
+ "records": [
+  {
+   "id": "mt-all-nations",
+   "name": "All Nations Health Center",
+   "place": "Missoula",
+   "need": "health",
+   "access": "native",
+   "what": "An Urban Indian Organization funded by the Indian Health Service. The Indian Health Service lists it as offering a clinic with a limited range of outpatient care.",
+   "who": "American Indian and Alaska Native people living in or near the city. Ask what proof of tribal affiliation or descent it needs.",
+   "start": "Call and ask how to become a patient or client, and which services are offered at the site nearest you.",
+   "phone": "406-829-9515",
+   "url": "https://www.allnations.health/",
+   "source": "https://www.ihs.gov/Urban/urban-indian-organizations/billings/",
+   "checked": "2026-11-18",
+   "more": [
+    {
+     "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
+     "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
+    }
+   ]
+  },
+  {
+   "id": "mt-billings-uihwc",
+   "name": "Billings Urban Indian Health and Wellness Center",
+   "place": "Billings",
+   "need": "health",
+   "access": "native",
+   "what": "An Urban Indian Organization funded by the Indian Health Service. The Indian Health Service lists it as offering a medical clinic with a full range of outpatient care.",
+   "who": "American Indian and Alaska Native people living in or near the city. Ask what proof of tribal affiliation or descent it needs.",
+   "start": "Call and ask how to become a patient or client, and which services are offered at the site nearest you.",
+   "phone": "406-534-4558",
+   "url": "https://billingsurbanindianhealth.org/",
+   "source": "https://www.ihs.gov/Urban/urban-indian-organizations/billings/",
+   "checked": "2026-11-18",
+   "more": [
+    {
+     "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
+     "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
+    }
+   ]
+  },
+  {
+   "id": "mt-helena-indian-alliance",
+   "name": "Helena Indian Alliance",
+   "place": "Helena",
+   "need": "health",
+   "access": "native",
+   "what": "An Urban Indian Organization funded by the Indian Health Service. The Indian Health Service lists it as offering a medical clinic with a full range of outpatient care.",
+   "who": "American Indian and Alaska Native people living in or near the city. Ask what proof of tribal affiliation or descent it needs.",
+   "start": "Call and ask how to become a patient or client, and which services are offered at the site nearest you.",
+   "phone": "406-442-9244",
+   "url": "https://www.helenaindianalliance.com/",
+   "source": "https://www.ihs.gov/Urban/urban-indian-organizations/billings/",
+   "checked": "2026-11-18",
+   "more": [
+    {
+     "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
+     "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
+    }
+   ]
+  },
+  {
+   "id": "mt-ifhc-great-falls",
+   "name": "Indian Family Health Clinic",
+   "place": "Great Falls",
+   "need": "health",
+   "access": "native",
+   "what": "An Urban Indian Organization funded by the Indian Health Service. The Indian Health Service lists it as offering a clinic with a limited range of outpatient care.",
+   "who": "American Indian and Alaska Native people living in or near the city. Ask what proof of tribal affiliation or descent it needs.",
+   "start": "Call and ask how to become a patient or client, and which services are offered at the site nearest you.",
+   "phone": "406-268-1587",
+   "url": "https://www.ihs.gov/Urban/urban-indian-organizations/billings/",
+   "url_label": "Indian Health Service listing",
+   "source": "https://www.ihs.gov/Urban/urban-indian-organizations/billings/",
+   "checked": "2026-11-18",
+   "more": [
+    {
+     "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
+     "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
+    }
+   ]
+  },
+  {
+   "id": "mt-butte-native-wellness",
+   "name": "Butte Native Wellness Center",
+   "place": "Butte",
+   "need": "health",
+   "access": "native",
+   "what": "An Urban Indian Organization funded by the Indian Health Service. The Indian Health Service lists it as offering a clinic with a limited range of outpatient care.",
+   "who": "American Indian and Alaska Native people living in or near the city. Ask what proof of tribal affiliation or descent it needs.",
+   "start": "The Indian Health Service page names this center but gives no phone number. Search for the center by name, or call the Billings Area Indian Health Service and ask for its contact details.",
+   "url": "https://www.ihs.gov/Urban/urban-indian-organizations/billings/",
+   "url_label": "Indian Health Service listing",
+   "source": "https://www.ihs.gov/Urban/urban-indian-organizations/billings/",
+   "checked": "2026-11-18"
+  }
+ ]
+}
