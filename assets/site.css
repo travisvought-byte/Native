@@ -1,4 +1,4 @@
-/* Native Resource Map. One stylesheet, no frameworks, no web fonts. */
+/* Nina's Map. One stylesheet, no frameworks, no web fonts. */
 :root{--ink:#1f2a2e;--water:#0e4a5a;--deep:#0a3743;--leaf:#2c5a4c;--clay:#9c4421;--sand:#f7f3ea;--card:#fff;--line:#d8d2c2;--soft:#ebe5d6;--link:#0b5568}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}

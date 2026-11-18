@@ -1,8 +1,8 @@
 {
- "name": "Native Resource Map",
+ "name": "Nina's Map",
  "tagline": "Help, Nations and community for First Peoples",
- "description": "A free guide for Native people: crisis lines, health care, recovery, family, school, housing and legal help, every federally recognized Nation's government office, and Native community groups, state by state.",
- "base_url": "https://travisvought-byte.github.io/Native/",
+ "description": "A free guide for Native people: crisis lines, health care, clinics, recovery, family, school, housing and legal help, Nation government offices, reservations and tribal lands, and Native community groups, state by state.",
+ "base_url": "https://ninas-map.com/",
  "repo": "https://github.com/travisvought-byte/Native",
  "email": "travis@vethomeguard.org",
  "maintainer": "Travis Vought",
