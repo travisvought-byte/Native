@@ -1,0 +1,185 @@
+{
+ "area": "CA",
+ "records": [
+  {
+   "id": "ca-aihs-santa-barbara",
+   "name": "American Indian Health & Services Corporation",
+   "place": "Santa Barbara",
+   "need": "health",
+   "access": "native",
+   "what": "An Urban Indian Organization funded by the Indian Health Service. The Indian Health Service lists it as offering a medical clinic with a full range of outpatient care.",
+   "who": "American Indian and Alaska Native people living in or near the city. Ask what proof of tribal affiliation or descent it needs.",
+   "start": "Call and ask how to become a patient or client, and which services are offered at the site nearest you.",
+   "phone": "805-681-7356",
+   "url": "https://www.aihscorp.org/",
+   "source": "https://www.ihs.gov/Urban/urban-indian-organizations/california/",
+   "checked": "2026-11-18",
+   "more": [
+    {
+     "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
+     "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
+    }
+   ]
+  },
+  {
+   "id": "ca-bakersfield-aihp",
+   "name": "Bakersfield American Indian Health Project",
+   "place": "Bakersfield",
+   "need": "health",
+   "access": "native",
+   "what": "An Urban Indian Organization funded by the Indian Health Service. The Indian Health Service lists it as offering help finding and getting to health care (outreach and referral).",
+   "who": "American Indian and Alaska Native people living in or near the city. Ask what proof of tribal affiliation or descent it needs.",
+   "start": "Call and ask how to become a patient or client, and which services are offered at the site nearest you.",
+   "phone": "661-327-4030",
+   "url": "https://www.bakersfieldaihp.net/",
+   "source": "https://www.ihs.gov/Urban/urban-indian-organizations/california/",
+   "checked": "2026-11-18",
+   "more": [
+    {
+     "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
+     "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
+    }
+   ]
+  },
+  {
+   "id": "ca-fresno-aihp",
+   "name": "Fresno American Indian Health Project",
+   "place": "Fresno",
+   "need": "health",
+   "access": "native",
+   "what": "An Urban Indian Organization funded by the Indian Health Service. The Indian Health Service lists it as offering a medical clinic with a full range of outpatient care.",
+   "who": "American Indian and Alaska Native people living in or near the city. Ask what proof of tribal affiliation or descent it needs.",
+   "start": "Call and ask how to become a patient or client, and which services are offered at the site nearest you.",
+   "phone": "559-320-0490",
+   "url": "https://www.faihp.org/",
+   "source": "https://www.ihs.gov/Urban/urban-indian-organizations/california/",
+   "checked": "2026-11-18",
+   "more": [
+    {
+     "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
+     "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
+    }
+   ]
+  },
+  {
+   "id": "ca-friendship-house",
+   "name": "Friendship House Association of American Indians",
+   "place": "San Francisco",
+   "need": "recovery",
+   "access": "native",
+   "what": "An Urban Indian Organization funded by the Indian Health Service. The Indian Health Service lists it as offering residential treatment for alcohol and drug use and prevention and education.",
+   "who": "American Indian and Alaska Native people living in or near the city. Ask what proof of tribal affiliation or descent it needs.",
+   "start": "Call and ask how to become a patient or client, and which services are offered at the site nearest you.",
+   "phone": "415-865-0964",
+   "url": "https://www.friendshiphousesf.org/",
+   "source": "https://www.ihs.gov/Urban/urban-indian-organizations/california/",
+   "checked": "2026-11-18",
+   "more": [
+    {
+     "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
+     "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
+    }
+   ]
+  },
+  {
+   "id": "ca-ihc-santa-clara",
+   "name": "Indian Health Center of Santa Clara Valley",
+   "place": "San Jose",
+   "need": "health",
+   "access": "native",
+   "what": "An Urban Indian Organization funded by the Indian Health Service. The Indian Health Service lists it as offering a medical clinic with a full range of outpatient care.",
+   "who": "American Indian and Alaska Native people living in or near the city. Ask what proof of tribal affiliation or descent it needs.",
+   "start": "Call and ask how to become a patient or client, and which services are offered at the site nearest you.",
+   "phone": "408-445-3400",
+   "url": "https://www.indianhealthcenter.org/",
+   "source": "https://www.ihs.gov/Urban/urban-indian-organizations/california/",
+   "checked": "2026-11-18",
+   "more": [
+    {
+     "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
+     "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
+    }
+   ]
+  },
+  {
+   "id": "ca-nahc-oakland",
+   "name": "Native American Health Center, Inc.",
+   "place": "Oakland",
+   "need": "health",
+   "access": "native",
+   "what": "An Urban Indian Organization funded by the Indian Health Service. The Indian Health Service lists it as offering a medical clinic with a full range of outpatient care.",
+   "who": "American Indian and Alaska Native people living in or near the city. Ask what proof of tribal affiliation or descent it needs.",
+   "start": "Call and ask how to become a patient or client, and which services are offered at the site nearest you.",
+   "phone": "510-485-5900",
+   "url": "https://www.nativehealth.org/",
+   "source": "https://www.ihs.gov/Urban/urban-indian-organizations/california/",
+   "checked": "2026-11-18",
+   "more": [
+    {
+     "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
+     "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
+    }
+   ]
+  },
+  {
+   "id": "ca-native-directions",
+   "name": "Native Directions, Inc.",
+   "place": "Manteca",
+   "need": "recovery",
+   "access": "native",
+   "what": "An Urban Indian Organization funded by the Indian Health Service. The Indian Health Service lists it as offering outpatient and residential treatment for alcohol and drug use.",
+   "who": "American Indian and Alaska Native people living in or near the city. Ask what proof of tribal affiliation or descent it needs.",
+   "start": "Call and ask how to become a patient or client, and which services are offered at the site nearest you.",
+   "phone": "209-858-2421",
+   "url": "https://www.nativedirections.org/",
+   "source": "https://www.ihs.gov/Urban/urban-indian-organizations/california/",
+   "checked": "2026-11-18",
+   "more": [
+    {
+     "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
+     "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
+    }
+   ]
+  },
+  {
+   "id": "ca-snahc",
+   "name": "Sacramento Native American Health Center, Inc.",
+   "place": "Sacramento",
+   "need": "health",
+   "access": "native",
+   "what": "An Urban Indian Organization funded by the Indian Health Service. The Indian Health Service lists it as offering a medical clinic with a full range of outpatient care.",
+   "who": "American Indian and Alaska Native people living in or near the city. Ask what proof of tribal affiliation or descent it needs.",
+   "start": "Call and ask how to become a patient or client, and which services are offered at the site nearest you.",
+   "phone": "916-341-0576",
+   "url": "https://www.snahc.org/",
+   "source": "https://www.ihs.gov/Urban/urban-indian-organizations/california/",
+   "checked": "2026-11-18",
+   "more": [
+    {
+     "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
+     "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
+    }
+   ]
+  },
+  {
+   "id": "ca-sdaihc",
+   "name": "San Diego American Indian Health Center",
+   "place": "San Diego",
+   "need": "health",
+   "access": "native",
+   "what": "An Urban Indian Organization funded by the Indian Health Service. The Indian Health Service lists it as offering a medical clinic with a full range of outpatient care.",
+   "who": "American Indian and Alaska Native people living in or near the city. Ask what proof of tribal affiliation or descent it needs.",
+   "start": "Call and ask how to become a patient or client, and which services are offered at the site nearest you.",
+   "phone": "619-234-2158",
+   "url": "https://www.sdaihc.org/",
+   "source": "https://www.ihs.gov/Urban/urban-indian-organizations/california/",
+   "checked": "2026-11-18",
+   "more": [
+    {
+     "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
+     "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
+    }
+   ]
+  }
+ ]
+}

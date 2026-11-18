@@ -1,0 +1,45 @@
+{
+ "area": "WA",
+ "records": [
+  {
+   "id": "wa-native-project",
+   "name": "The NATIVE Project",
+   "place": "Spokane",
+   "need": "health",
+   "access": "native",
+   "what": "An Urban Indian Organization funded by the Indian Health Service. The Indian Health Service lists it as offering a medical clinic with a full range of outpatient care.",
+   "who": "American Indian and Alaska Native people living in or near the city. Ask what proof of tribal affiliation or descent it needs.",
+   "start": "Call and ask how to become a patient or client, and which services are offered at the site nearest you.",
+   "phone": "509-325-5502",
+   "url": "https://www.nativeproject.org/",
+   "source": "https://www.ihs.gov/Urban/urban-indian-organizations/portland/",
+   "checked": "2026-11-18",
+   "more": [
+    {
+     "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
+     "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
+    }
+   ]
+  },
+  {
+   "id": "wa-sihb",
+   "name": "Seattle Indian Health Board",
+   "place": "Seattle",
+   "need": "health",
+   "access": "native",
+   "what": "An Urban Indian Organization funded by the Indian Health Service. The Indian Health Service lists it as offering a medical clinic with a full range of outpatient care.",
+   "who": "American Indian and Alaska Native people living in or near the city. Ask what proof of tribal affiliation or descent it needs.",
+   "start": "Call and ask how to become a patient or client, and which services are offered at the site nearest you.",
+   "phone": "206-834-4002",
+   "url": "https://www.sihb.org/",
+   "source": "https://www.ihs.gov/Urban/urban-indian-organizations/portland/",
+   "checked": "2026-11-18",
+   "more": [
+    {
+     "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
+     "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
+    }
+   ]
+  }
+ ]
+}

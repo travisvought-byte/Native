@@ -1,0 +1,25 @@
+{
+ "area": "MA",
+ "records": [
+  {
+   "id": "ma-nal-boston",
+   "name": "Native American LifeLines, Inc.",
+   "place": "Boston",
+   "need": "health",
+   "access": "native",
+   "what": "An Urban Indian Organization funded by the Indian Health Service. The Indian Health Service lists it as offering help finding and getting to health care (outreach and referral).",
+   "who": "American Indian and Alaska Native people living in or near the city. Ask what proof of tribal affiliation or descent it needs.",
+   "start": "Call and ask how to become a patient or client, and which services are offered at the site nearest you.",
+   "phone": "857-203-9680",
+   "url": "https://www.nativeamericanlifelines.org/",
+   "source": "https://www.ihs.gov/Urban/urban-indian-organizations/nashville/",
+   "checked": "2026-11-18",
+   "more": [
+    {
+     "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
+     "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,45 @@
+{
+ "area": "MN",
+ "records": [
+  {
+   "id": "mn-ihb-minneapolis",
+   "name": "Indian Health Board of Minneapolis, Inc.",
+   "place": "Minneapolis",
+   "need": "health",
+   "access": "native",
+   "what": "An Urban Indian Organization funded by the Indian Health Service. The Indian Health Service lists it as offering a medical clinic with a full range of outpatient care and outpatient behavioral health care.",
+   "who": "American Indian and Alaska Native people living in or near the city. Ask what proof of tribal affiliation or descent it needs.",
+   "start": "Call and ask how to become a patient or client, and which services are offered at the site nearest you.",
+   "phone": "612-721-9800",
+   "url": "https://www.indianhealthboard.com/",
+   "source": "https://www.ihs.gov/Urban/urban-indian-organizations/bemidji/",
+   "checked": "2026-11-18",
+   "more": [
+    {
+     "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
+     "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
+    }
+   ]
+  },
+  {
+   "id": "mn-juel-fairbanks",
+   "name": "Juel Fairbanks Recovery Services",
+   "place": "St. Paul",
+   "need": "recovery",
+   "access": "native",
+   "what": "An Urban Indian Organization funded by the Indian Health Service. The Indian Health Service lists it as offering outpatient and residential treatment for alcohol and drug use.",
+   "who": "American Indian and Alaska Native people living in or near the city. Ask what proof of tribal affiliation or descent it needs.",
+   "start": "Call and ask how to become a patient or client, and which services are offered at the site nearest you.",
+   "phone": "651-282-0460",
+   "url": "https://www.juelfairbanks.org/",
+   "source": "https://www.ihs.gov/Urban/urban-indian-organizations/bemidji/",
+   "checked": "2026-11-18",
+   "more": [
+    {
+     "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
+     "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,25 @@
+{
+ "area": "MO",
+ "records": [
+  {
+   "id": "mo-kc-indian-center",
+   "name": "Kansas City Indian Center",
+   "place": "Kansas City",
+   "need": "recovery",
+   "access": "native",
+   "what": "An Urban Indian Organization funded by the Indian Health Service. The Indian Health Service lists it as offering outpatient treatment for alcohol and drug use.",
+   "who": "American Indian and Alaska Native people living in or near the city. Ask what proof of tribal affiliation or descent it needs.",
+   "start": "Call and ask how to become a patient or client, and which services are offered at the site nearest you.",
+   "phone": "816-421-7608",
+   "url": "https://www.kcindiancenter.org/",
+   "source": "https://www.ihs.gov/Urban/urban-indian-organizations/oklahoma-city/",
+   "checked": "2026-11-18",
+   "more": [
+    {
+     "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
+     "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
+    }
+   ]
+  }
+ ]
+}
