@@ -30,6 +30,8 @@ NATIONS = NATIONS_FILE['nations']
 STATE_NATIONS = load('data/state-nations.json')['states']
 LANDS_FILE = load('data/lands.json')
 CLINICS_FILE = load('data/clinics.json')
+COLLEGES_FILE = load('data/colleges.json')
+COLLEGES = COLLEGES_FILE['states']
 CLINICS = CLINICS_FILE['states']
 LANDS = LANDS_FILE['states']
 NATION = {n['id']: n for n in NATIONS}
@@ -489,6 +491,49 @@ def state_intro(code, nations, records):
     return ''.join(parts)
 
 
+def is_urban_center(r):
+    return 'urban-indian-organizations' in r.get('source', '')
+
+
+def college_item(c, show_state=False):
+    name = f'<a href="{E(c["url"])}">{E(c["name"])}</a>' if c.get('url') else E(c['name'])
+    bits = [E(c['city'])] if c.get('city') else []
+    if show_state:
+        bits[-1:] = [bits[-1] + ', ' + E(STATE_NAME[show_state])] if bits else [E(STATE_NAME[show_state])]
+    if c.get('phone'):
+        bits.append(phone_links(c['phone']))
+    return f'<li><span class="nm">{name}</span> <span class="where">{" · ".join(bits)}</span><span class="contact">{E(c.get("kind", ""))}</span></li>'
+
+
+def colleges_note():
+    return (f'<p class="meta">From the <a href="{E(COLLEGES_FILE["source_page"])}">{E(COLLEGES_FILE["publisher"])} tribal colleges dashboard</a>, '
+            f'retrieved {nice_date(COLLEGES_FILE["retrieved"])}. Most are open to everyone; many have no or low tuition for Native students and host community events, language classes and gatherings.</p>')
+
+
+def colleges_section(code):
+    items = COLLEGES.get(code)
+    if not items:
+        return ''
+    return (f'<section aria-labelledby="tcu-h"><h2 id="tcu-h">Tribal colleges in {E(STATE_NAME[code])}</h2>'
+            '<ul class="nations">' + ''.join(college_item(c) for c in items) + '</ul>' + colleges_note() + '</section>')
+
+
+def jump_bar(code, nations, records):
+    links = []
+    if records:
+        links.append(('local-h', 'Community and help'))
+    if COLLEGES.get(code):
+        links.append(('tcu-h', 'Tribal colleges'))
+    if nations or STATE_NATIONS.get(code):
+        links.append(('nations-h' if nations else 'hsr-' + code, 'Nations'))
+    if CLINICS.get(code):
+        links.append(('clinics-h', 'Clinics'))
+    if LANDS.get(code):
+        links.append(('lands-h', 'Lands'))
+    links.append(('nat-h', 'Help anywhere'))
+    return '<nav class="chips" aria-label="On this page"><ul>' + ''.join(f'<li><a href="#{i}">{E(l)}</a></li>' for i, l in links) + '</ul></nav>'
+
+
 def build_states():
     by_state = defaultdict(list)
     for n in NATIONS:
@@ -500,7 +545,11 @@ def build_states():
         note = STATE_NOTES.get(code, {})
         up = '../'
         body = f'<p class="crumb"><a href="index.html">All states</a></p><h1>{E(name)}: Nations and help for Native people</h1>'
-        body += state_intro(code, nations, records) + urgent(up)
+        body += state_intro(code, nations, records) + urgent(up) + jump_bar(code, nations, records)
+        if records:
+            body += f'<section aria-labelledby="local-h"><h2 id="local-h">Native community and help in {E(name)}</h2>'
+            body += ''.join(need_section(need, code, level=3, compact=True) for need in NEED_LIST) + '</section>'
+        body += colleges_section(code)
         if nations:
             body += (f'<section aria-labelledby="nations-h"><h2 id="nations-h">Nations with their government in {E(name)}</h2>'
                      '<ul class="nations">' + ''.join(nation_item(n) for n in nations) + '</ul>'
@@ -514,9 +563,6 @@ def build_states():
                      '<ul class="nations">' + ''.join(nation_item(NATION[i], show_state=True) for i in note['ties']) + '</ul>'
                      f'<p class="meta">List of Nations: <a href="{E(note["ties_source"]["url"])}">{E(note["ties_source"]["label"])}</a>, checked {nice_date(note["checked"])}. '
                      f'Phone numbers and websites: Bureau of Indian Affairs directory, retrieved {nice_date(NATIONS_FILE["retrieved"])}.</p></section>')
-        if records:
-            body += f'<section aria-labelledby="local-h"><h2 id="local-h">Help and community in {E(name)}</h2>'
-            body += ''.join(need_section(need, code, level=3, compact=True) for need in NEED_LIST) + '</section>'
         body += (f'<section aria-labelledby="nat-h"><h2 id="nat-h">Help that works in every state</h2>{national_links(up)}</section>'
                  f'<section class="panel"><h2>Know something that belongs on this page?</h2><p>A Nation, a community group, a clinic, a program: write to <a href="mailto:{E(SITE["email"])}">{E(SITE["email"])}</a>.</p></section>')
         if nations:
@@ -619,11 +665,24 @@ def build_community():
         local += (f'<section aria-labelledby="c-{code}"><h3 id="c-{code}"><a href="states/{STATE_SLUG[code]}.html">{E(name)}</a></h3>'
                   '<div class="cards">' + ''.join(card(r, 4) for r in recs) + '</div></section>')
     anywhere = [r for r in RES if r['area'] == 'US' and (r['need'] == 'community' or 'community' in r.get('also', []))]
+    urban = defaultdict(list)
+    for r in RES:
+        if is_urban_center(r):
+            urban[r['area']].append(r)
+    urban_html = ''.join(f'<h3><a href="states/{STATE_SLUG[c]}.html">{E(STATE_NAME[c])}</a></h3><ul class="nations">'
+                         + ''.join(f'<li><span class="nm"><a href="states/{STATE_SLUG[c]}.html#r-{E(r["id"])}">{E(r["name"])}</a></span> <span class="where">{E(r.get("place", ""))}'
+                                   + (f' · {phone_links(r["phone"])}' if r.get('phone') else '') + '</span></li>' for r in urban[c]) + '</ul>'
+                         for c, _ in STATES if c in urban)
+    colleges_html = '<ul class="nations">' + ''.join(college_item(x, show_state=c) for c, _ in STATES for x in COLLEGES.get(c, [])) + '</ul>'
     body = f'''<h1>Finding community</h1>
 <p class="lede">Places and groups where Native people gather: community centers, youth councils, recovery circles and tribal colleges.</p>
-<p>Local listings so far cover Ohio and Michigan. The national groups further down work from anywhere, and every state page lists the Nations whose governments are there.</p>
+<p>Community groups are listed so far for Ohio and Michigan. Urban Indian centers in 21 states and 33 tribal colleges in 13 states are further down, and every state page lists its Nations, clinics and tribal lands.</p>
 <section aria-labelledby="c-local"><h2 id="c-local">Community centers and groups, by state</h2>{local}
 <p>In another state? Start with the <a href="help.html#r-urban-indian-health">map of Urban Indian Organizations</a>, whose services can include youth, elder and community programs, or <a href="states/index.html">open your state's page</a>.</p></section>
+<section aria-labelledby="c-urban"><h2 id="c-urban">Urban Indian centers</h2>
+<p>Funded by the Indian Health Service to serve Native people living in cities. Many run community programs, youth and elder activities and gatherings as well as health care. Any Native person can usually walk in; ask what they need from you.</p>{urban_html}</section>
+<section aria-labelledby="c-tcu"><h2 id="c-tcu">Tribal colleges</h2>
+<p>Colleges chartered by Nations. They are community anchors: classes, language programs, powwows and events, often open to the public.</p>{colleges_html}{colleges_note()}</section>
 <section aria-labelledby="c-any"><h2 id="c-any">From anywhere</h2><div class="cards">{''.join(card(r, 3) for r in anywhere)}</div></section>
 <section aria-labelledby="c-nation"><h2 id="c-nation">Your own Nation</h2>
 <p>If you know which Nation you come from, call its government office and ask what gatherings, classes or events are coming up, and whether descendants are welcome. The <a href="nations.html">Nations directory</a> has the numbers. If you are not sure which Nation, start with <a href="find-your-nation.html">Finding your Nation</a>.</p></section>

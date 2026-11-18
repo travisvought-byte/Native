@@ -1,0 +1,265 @@
+{
+"source": "https://services1.arcgis.com/UxqqIfhng71wUT9x/arcgis/rest/services/TCU_Colleges/FeatureServer/0",
+"source_page": "https://www.arcgis.com/apps/dashboards/76eb5474cc1548d69d2f4a0fe76d4e3e",
+"publisher": "Bureau of Indian Affairs",
+"retrieved": "2026-11-18",
+"states": {
+"AK": [
+{
+"name": "Ilisagvik College",
+"kind": "Tribally Controlled College/University",
+"city": "Utqiagvik",
+"phone": "907-852-3333",
+"url": "https://www.ilisagvik.edu/"
+}
+],
+"AZ": [
+{
+"name": "Diné College",
+"kind": "Tribally Controlled College/University",
+"city": "Tsaile",
+"phone": "928-724-6600",
+"url": "https://www.dinecollege.edu/"
+},
+{
+"name": "Tohono O'Odham Community College",
+"kind": "Tribally Controlled College/University",
+"city": "Sells",
+"phone": "520-479-2300",
+"url": "https://www.tocc.edu/"
+}
+],
+"KS": [
+{
+"name": "Haskell Indian Nations University",
+"kind": "BIE Operated Tribal College/University",
+"city": "Lawrence",
+"phone": "785-749-8404",
+"url": "https://haskell.edu/"
+}
+],
+"MI": [
+{
+"name": "Bay Mills Community College",
+"kind": "Tribally Controlled College/University",
+"city": "Brimley",
+"phone": "906-248-3354",
+"url": "https://www.bmcc.edu/"
+},
+{
+"name": "Keweenaw Bay Ojibwa Community College",
+"kind": "Tribally Controlled College/University",
+"city": "L'Anse",
+"phone": "906-524-5400",
+"url": "https://www.kbocc.edu/"
+},
+{
+"name": "Saginaw Chippewa Tribal College",
+"kind": "Tribally Controlled College/University",
+"city": "Mt. Pleasant",
+"phone": "989-317-4760",
+"url": "https://www.sagchip.edu/"
+}
+],
+"MN": [
+{
+"name": "Leech Lake Tribal College",
+"kind": "Tribally Controlled College/University",
+"city": "Cass Lake",
+"phone": "218-335-4200",
+"url": "https://www.lltc.edu/"
+},
+{
+"name": "Red Lake Nation College",
+"kind": "Tribally Controlled College/University",
+"city": "Red Lake",
+"phone": "218-380-7100",
+"url": "https://www.rlnc.edu/"
+},
+{
+"name": "White Earth Tribal & Community College",
+"kind": "Tribally Controlled College/University",
+"city": "Mahnomen",
+"phone": "218-935-0417",
+"url": "https://www.wetcc.edu/"
+}
+],
+"MT": [
+{
+"name": "Aaniiih Nakoda College",
+"kind": "Tribally Controlled College/University",
+"city": "Harlem",
+"phone": "406-353-2607",
+"url": "https://www.ancollege.edu/"
+},
+{
+"name": "Blackfeet Community College",
+"kind": "Tribally Controlled College/University",
+"city": "Browning",
+"phone": "406-338-5441",
+"url": "https://bfcc.edu/"
+},
+{
+"name": "Chief Dull Knife College",
+"kind": "Tribally Controlled College/University",
+"city": "Lame Deer",
+"phone": "406-477-6215",
+"url": "http://www.cdkc.edu/"
+},
+{
+"name": "Fort Peck Community College",
+"kind": "Tribally Controlled College/University",
+"city": "Poplar",
+"phone": "406-768-6300",
+"url": "https://www.fpcc.edu/"
+},
+{
+"name": "Little Big Horn College",
+"kind": "Tribally Controlled College/University",
+"city": "Crow Agency",
+"phone": "406-638-3100",
+"url": "http://www.lbhc.edu/"
+},
+{
+"name": "Salish Kootenai College",
+"kind": "Tribally Controlled College/University",
+"city": "Pablo",
+"phone": "406-275-4800",
+"url": "https://www.skc.edu/"
+},
+{
+"name": "Stone Child College",
+"kind": "Tribally Controlled College/University",
+"city": "Box Elder",
+"phone": "406-395-4875",
+"url": "https://www.stonechild.edu/"
+}
+],
+"ND": [
+{
+"name": "Cankdeska Cikana Community College",
+"kind": "Tribally Controlled College/University",
+"city": "Fort Totten",
+"phone": "701-766-4415",
+"url": "https://www.littlehoop.edu/"
+},
+{
+"name": "Nueta Hidatsa Sahnish College",
+"kind": "Tribally Controlled College/University",
+"city": "New Town",
+"phone": "701-627-4738",
+"url": "https://nhsc.edu/"
+},
+{
+"name": "Sitting Bull College",
+"kind": "Tribally Controlled College/University",
+"city": "Fort Yates",
+"phone": "701-854-8000",
+"url": "https://www.sittingbull.edu/"
+},
+{
+"name": "Turtle Mountain College",
+"kind": "Tribally Controlled College/University",
+"city": "Belcourt",
+"phone": "701-477-7862",
+"url": "https://www.tm.edu/"
+},
+{
+"name": "United Tribes Technical College",
+"kind": "Tribally Controlled College/University",
+"city": "Bismarck",
+"phone": "701-255-3285",
+"url": "https://uttc.edu/"
+}
+],
+"NE": [
+{
+"name": "Little Priest Tribal College",
+"kind": "Tribally Controlled College/University",
+"city": "Winnebago",
+"phone": "402-878-2380",
+"url": "https://www.littlepriest.edu/"
+},
+{
+"name": "Nebraska Indian Community College",
+"kind": "Tribally Controlled College/University",
+"city": "Macy",
+"phone": "402-494-2311",
+"url": "https://www.thenicc.edu/"
+}
+],
+"NM": [
+{
+"name": "Navajo Technical University",
+"kind": "Tribally Controlled College/University",
+"city": "Crownpoint",
+"phone": "505-786-4100",
+"url": "https://www.navajotech.edu/"
+},
+{
+"name": "Southwestern Indian Polytechnic Institute",
+"kind": "BIE Operated Tribal College/University",
+"city": "Albuquerque",
+"phone": "505-346-2348",
+"url": "https://www.sipi.edu/"
+}
+],
+"OK": [
+{
+"name": "College of the Muscogee Nation",
+"kind": "Tribally Controlled College/University",
+"city": "Okmulgee",
+"phone": "918-549-2800",
+"url": "https://cmn.edu/"
+}
+],
+"SD": [
+{
+"name": "Oglala Lakota College",
+"kind": "Tribally Controlled College/University",
+"city": "Kyle",
+"phone": "605-455-6000",
+"url": "https://www.olc.edu/"
+},
+{
+"name": "Sinte Gleska University",
+"kind": "Tribally Controlled College/University",
+"city": "Mission",
+"phone": "605-856-8100",
+"url": "https://www.sintegleska.edu/"
+},
+{
+"name": "Sisseton Wahpeton College",
+"kind": "Tribally Controlled College/University",
+"city": "Agency Village",
+"phone": "605-698-3966",
+"url": "https://www.swcollege.edu/newswcollege/"
+}
+],
+"WA": [
+{
+"name": "Northwest Indian College",
+"kind": "Tribally Controlled College/University",
+"city": "Bellingham",
+"phone": "360-676-2772",
+"url": "https://foundation.nwic.edu/"
+}
+],
+"WI": [
+{
+"name": "College of Menominee Nation",
+"kind": "Tribally Controlled College/University",
+"city": "Keshena",
+"phone": "715-799-5600",
+"url": "https://www.menominee.edu/"
+},
+{
+"name": "Lac Courte Oreilles Ojibwe University",
+"kind": "Tribally Controlled College/University",
+"city": "Hayward",
+"phone": "715-634-4790",
+"url": "https://www.lco.edu/"
+}
+]
+}
+}
