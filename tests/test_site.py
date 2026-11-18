@@ -166,6 +166,15 @@ for code, items in build.CLINICS.items():
     for c in items:
         if build.E(c['name']) not in text:
             fail(f'{code}: clinic {c["name"]} is missing')
+# Tribal colleges: each on its state page and on the community page; no staff names or emails kept.
+raw_colleges = open('data/colleges.json', encoding='utf-8').read()
+if '@' in raw_colleges or 'President' in raw_colleges:
+    fail('data/colleges.json must not hold staff contacts')
+for code, items in build.COLLEGES.items():
+    text = pages[f'states/{build.STATE_SLUG[code]}.html'].text
+    for c in items:
+        if build.E(c['name']) not in text or build.E(c['name']) not in pages['community.html'].text:
+            fail(f'{code}: tribal college {c["name"]} is missing')
 # Reservations and tribal lands: every area in the Census file is on its state's page.
 for code, areas in build.LANDS.items():
     text = pages[f'states/{build.STATE_SLUG[code]}.html'].text
