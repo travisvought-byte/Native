@@ -89,6 +89,57 @@
    "url_label": "List of Wellbriety circles",
    "source": "https://whitebison.org/circle-meetings/",
    "checked": "2026-11-17"
+  },
+  {
+   "id": "oh-icwa-rules",
+   "name": "Ohio's rules under the Indian Child Welfare Act",
+   "need": "family",
+   "access": "ask",
+   "what": "Ohio's children services rules require county and private agencies to follow the Indian Child Welfare Act. The act applies when a child is an Indian child and is in a custody case, including involuntary cases and emergency removals. An agency may not weigh a family's part in tribal life, or the child's blood quantum, when deciding whether the act applies.",
+   "who": "Families with a child who is a member of a federally recognized tribe, or who may be eligible for membership, and who are dealing with an Ohio children services agency or court.",
+   "start": "Tell the caseworker and the court, in writing if you can, that the child is or may be an Indian child, and name the tribe or tribes. The rules say an agency has reason to know once anyone in the case tells it so, or a parent or the child has a tribal membership card. Then call the tribe.",
+   "url": "https://codes.ohio.gov/ohio-administrative-code/chapter-5180:2-53",
+   "url_label": "Read the Ohio rules",
+   "more": [
+    {
+     "label": "Find the tribe's phone number",
+     "url": "../nations.html"
+    }
+   ],
+   "source": "https://codes.ohio.gov/ohio-administrative-code/rule-5180:2-53-02",
+   "checked": "2026-11-18"
+  },
+  {
+   "id": "oh-myaamia-heritage-award",
+   "name": "Myaamia Heritage Award Program (Miami University)",
+   "place": "Oxford",
+   "need": "school",
+   "access": "enrolled",
+   "what": "A four-year undergraduate program at Miami University for citizens of the Miami Tribe of Oklahoma. It waives instructional fees for up to eight semesters and includes a weekly Heritage class on Myaamia history, language and culture. Course fees are not covered.",
+   "who": "Enrolled citizens of the Miami Tribe of Oklahoma who are admitted to Miami University and enroll at the Oxford campus.",
+   "start": "Apply to Miami University the same way as any other student, and call the Miami Tribe Relations office to ask about the award.",
+   "phone": "513-529-5648",
+   "phone_note": "Miami Tribe Relations office at the Myaamia Center",
+   "address": "Myaamia Center, 200 Bonham House, Oxford, OH 45056",
+   "url": "https://miamioh.edu/miami-tribe-relations/myaamia-students/myaamia-heritage-award-program.html",
+   "source": "https://miamioh.edu/miami-tribe-relations/myaamia-students/myaamia-heritage-award-program.html",
+   "checked": "2026-11-18"
+  },
+  {
+   "id": "oh-osu-american-indian-studies",
+   "name": "American Indian Studies at Ohio State University",
+   "place": "Columbus",
+   "need": "community",
+   "also": [
+    "school"
+   ],
+   "access": "anyone",
+   "what": "A program at Ohio State that works with the Newark Earthworks Center and with Native student groups on campus. It says all of its programming is free and open to the public, and its website lists campus events and courses. The university also has a staff member for American Indian and Indigenous student services.",
+   "who": "Anyone for public events. Students at Ohio State for student services and student groups.",
+   "start": "Check the program's website for upcoming events. If you are a student, ask the program how to reach American Indian and Indigenous student services.",
+   "url": "https://americanindianstudies.osu.edu/resources",
+   "source": "https://americanindianstudies.osu.edu/resources",
+   "checked": "2026-11-18"
   }
  ]
 }
