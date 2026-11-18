@@ -145,10 +145,24 @@ for nation in build.NATIONS:
     home = f'states/{build.STATE_SLUG[nation["state"]]}.html'
     if f'n-{nation["id"]}' not in pages[home].ids:
         fail(f'{home}: {nation["id"]} is missing')
+# Nations recognized by a state: each is on its own state's page and in the directory's own section, never mixed into the federal list.
+for code, entry in build.STATE_NATIONS.items():
+    if not entry['source'].startswith('https://') or not entry.get('checked') or not entry.get('authority'):
+        fail(f'state-nations.json: {code} needs an official source, authority and check date')
+    federal = {n['name'].lower() for n in build.NATIONS}
+    for n in entry['nations']:
+        if n['name'].lower() in federal:
+            fail(f'state-nations.json: {n["name"]} is already on the federal list')
+        if n['name'] not in pages[f'states/{build.STATE_SLUG[code]}.html'].text or n['name'] not in directory.text:
+            fail(f'{n["name"]} is missing from its state page or the directory')
+if 'id="state-recognized"' not in directory.text:
+    fail('nations.html: the state-recognized section is missing')
 for code, _ in build.STATES:
     path = f'states/{build.STATE_SLUG[code]}.html'
     allowed = {n['id'] for n in build.NATIONS if n['state'] == code} | set(build.STATE_NOTES.get(code, {}).get('ties', []))
     for found in pages[path].ids:
+        if found.startswith(f'n-st-{code.lower()}-'):
+            continue  # recognized by this state, from data/state-nations.json; checked below
         if found.startswith('n-') and found[2:] not in allowed:
             fail(f'{path}: lists {found[2:]}, which belongs to another state')
 

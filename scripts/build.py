@@ -27,6 +27,7 @@ NEED = {n['key']: n for n in NEED_LIST}
 ACCESS = NEEDS_FILE['access']
 NATIONS_FILE = load('data/nations.json')
 NATIONS = NATIONS_FILE['nations']
+STATE_NATIONS = load('data/state-nations.json')['states']
 NATION = {n['id']: n for n in NATIONS}
 STATE_NOTES = load('data/states.json')
 MAP = load('data/map/us.json')
@@ -345,6 +346,27 @@ def national_links(up):
     return out + '</ul>'
 
 
+def state_nation_item(code, n):
+    """A Nation recognized by a state and not on the federal list, shown as that state's own page names it."""
+    slug = re.sub(r'[^a-z0-9]+', '-', n['name'].lower()).strip('-')
+    item = {'id': f'st-{code.lower()}-{slug}', 'name': n['name'], 'city': n.get('city'), 'state': code, 'url': n.get('url')}
+    if n.get('phone'):
+        item['phone'] = {'display': n['phone'], 'tel': tel(n['phone'])}
+    return nation_item(item)
+
+
+def state_nations_section(code, level=2, linked=False):
+    entry = STATE_NATIONS.get(code)
+    if not entry:
+        return ''
+    name = STATE_NAME[code]
+    head = f'<a href="states/{STATE_SLUG[code]}.html">{E(name)}</a>' if linked else f'Nations recognized by the state of {E(name)}'
+    return (f'<section class="st" id="sr-{STATE_SLUG[code]}" aria-labelledby="hsr-{code}"><h{level} id="hsr-{code}">{head}</h{level}>'
+            '<ul class="nations">' + ''.join(state_nation_item(code, n) for n in entry['nations']) + '</ul>'
+            f'<p class="meta">Recognized by the state and not on the federal list. From the <a href="{E(entry["source"])}">{E(entry["authority"])}</a>, checked {nice_date(entry["checked"])}. '
+            'Names are shown as the state lists them. Programs that require enrollment in a federally recognized tribe may not accept these memberships; each listing on this site says who can use it.</p></section>')
+
+
 def state_intro(code, nations, records):
     name = STATE_NAME[code]
     note = STATE_NOTES.get(code, {})
@@ -384,6 +406,7 @@ def build_states():
                      '<ul class="nations">' + ''.join(nation_item(n) for n in nations) + '</ul>'
                      f'<p class="meta">From the <a href="{E(NATIONS_FILE["source_page"])}">Bureau of Indian Affairs Tribal Leaders Directory</a>, retrieved {nice_date(NATIONS_FILE["retrieved"])}. '
                      'Names are shown as the Bureau lists them. Nations: tell us if you want a listing changed.</p></section>')
+        body += state_nations_section(code)
         if note.get('ties'):
             body += (f'<section aria-labelledby="ties-h"><h2 id="ties-h">{E(note["ties_title"])}</h2><p>{E(note["ties_intro"])}</p>'
                      '<ul class="nations">' + ''.join(nation_item(NATION[i], show_state=True) for i in note['ties']) + '</ul>'
@@ -422,13 +445,18 @@ def build_nations():
         sections += (f'<section class="st" id="{STATE_SLUG[code]}" aria-labelledby="hs-{code}"><h2 id="hs-{code}">'
                      f'<a href="states/{STATE_SLUG[code]}.html">{E(name)}</a></h2><ul class="nations">'
                      + ''.join(nation_item(n) for n in by_state[code]) + '</ul></section>')
+    state_recognized = ('<section id="state-recognized" aria-labelledby="sr-h"><h2 id="sr-h">Nations recognized by a state</h2>'
+                        '<p>These Nations are recognized by their state government and are not on the federal list. So far: '
+                        + ', '.join(STATE_NAME[c] for c, _ in STATES if c in STATE_NATIONS) + '. More states are being added.</p>'
+                        + ''.join(state_nations_section(c, level=3, linked=True) for c, _ in STATES) + '</section>')
     body = f'''<h1>Nations directory</h1>
 <p class="lede">The government office of every federally recognized Nation in the United States, by state, with a phone number and website where the directory has one.</p>
 <p>This list is built from the <a href="{E(NATIONS_FILE['source_page'])}">Bureau of Indian Affairs Tribal Leaders Directory</a>, retrieved {nice_date(NATIONS_FILE['retrieved'])}. The Bureau counts 575 federally recognized tribes as of January 30, 2026, and lists some bands and communities separately. It says the directory is not the official list (that is the notice it publishes in the Federal Register) and may contain errors. A Nation is listed under the state where its government office is; its homelands and citizens may reach far beyond that state.</p>
-<p>Names appear as the Bureau lists them. Nations recognized only by a state, and Nations still seeking recognition, are not here yet. If you speak for a Nation and want its listing changed, write to <a href="mailto:{E(SITE['email'])}">{E(SITE['email'])}</a>.</p>
+<p>Names appear as the Bureau lists them. Nations recognized by a state and not on the federal list are in <a href="#state-recognized">their own section below</a>, added one state at a time from the official list of each state. Nations with neither kind of recognition are not listed yet; write to us to be added. If you speak for a Nation and want its listing changed, write to <a href="mailto:{E(SITE['email'])}">{E(SITE['email'])}</a>.</p>
 <p class="search"><label for="q">Search by name, town or state</label> <input id="q" type="search" autocomplete="off" data-nation-search> <span id="q-count" role="status"></span></p>
 <nav class="chips" aria-label="States with Nations listed"><ul>{chips}</ul></nav>
-{sections}'''
+{sections}
+{state_recognized}'''
     page('nations.html', f'Directory of federally recognized tribal Nations by state | {SITE["name"]}',
          'Phone numbers and websites for the government office of every federally recognized tribal Nation in the United States, listed by state, from the Bureau of Indian Affairs directory.', body)
 
