@@ -1,0 +1,93 @@
+{
+ "note": "Nations recognized by a state government and not on the federal list. Each state's list is copied from that state's own official page. Names are shown as the state lists them. No leaders' names, personal phone numbers or email addresses.",
+ "states": {
+  "NC": {
+   "authority": "North Carolina Commission of Indian Affairs",
+   "source": "https://www.doa.nc.gov/divisions/american-indian-affairs/tribes",
+   "checked": "2026-11-18",
+   "nations": [
+    {
+     "name": "Coharie Tribe",
+     "city": "Clinton",
+     "phone": "910-564-6909",
+     "url": "https://coharietribe.org/"
+    },
+    {
+     "name": "Haliwa-Saponi Indian Tribe",
+     "city": "Hollister",
+     "phone": "252-586-4017",
+     "url": "https://haliwa-saponi.org/"
+    },
+    {
+     "name": "Meherrin Indian Tribe",
+     "city": "Ahoskie",
+     "url": "https://meherrinnation.org/"
+    },
+    {
+     "name": "Occaneechi Band of the Saponi Nation",
+     "city": "Mebane",
+     "phone": "336-421-1317",
+     "url": "https://www.obsn.org/"
+    },
+    {
+     "name": "Sappony",
+     "city": "Roxboro",
+     "phone": "434-585-3352",
+     "url": "https://sappony.org/"
+    },
+    {
+     "name": "Waccamaw Siouan Tribe",
+     "city": "Bolton",
+     "phone": "910-665-8778",
+     "url": "https://www.waccamaw-siouan.org/"
+    }
+   ]
+  },
+  "AL": {
+   "authority": "Alabama Indian Affairs Commission",
+   "source": "https://aiac.alabama.gov/wp-content/uploads/2026/06/2026-REVISED-Chief-List-6-11-2026.pdf",
+   "checked": "2026-11-18",
+   "nations": [
+    {
+     "name": "Echota Cherokee Tribe of Alabama",
+     "city": "Falkville",
+     "url": "https://www.echotacherokee.org/"
+    },
+    {
+     "name": "Cherokee Tribe of Northeast Alabama",
+     "city": "Horton",
+     "url": "https://www.cherokeetribeofnortheastalabama.org/"
+    },
+    {
+     "name": "Machis Lower Creek Indian Tribe of Alabama",
+     "city": "Elba",
+     "url": "https://www.machistribe.com/"
+    },
+    {
+     "name": "Southeastern Mvskoke Nation",
+     "city": "Deatsville",
+     "url": "https://southeasternmvskokenation.org/"
+    },
+    {
+     "name": "Cher-O-Creek Intratribal Indians",
+     "city": "Athens"
+    },
+    {
+     "name": "MOWA Band of Choctaw Indians",
+     "city": "Mount Vernon",
+     "url": "https://www.mowachoctawindians.com/"
+    },
+    {
+     "name": "Piqua Shawnee Tribe",
+     "city": "Montgomery",
+     "url": "https://piquashawnee.gov/"
+    },
+    {
+     "name": "United Cherokee Aniyunwiya",
+     "city": "Scottsboro",
+     "url": "https://www.ucantribe.com/"
+    }
+   ]
+  }
+ }
+}
