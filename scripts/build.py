@@ -28,6 +28,8 @@ ACCESS = NEEDS_FILE['access']
 NATIONS_FILE = load('data/nations.json')
 NATIONS = NATIONS_FILE['nations']
 STATE_NATIONS = load('data/state-nations.json')['states']
+LANDS_FILE = load('data/lands.json')
+LANDS = LANDS_FILE['states']
 NATION = {n['id']: n for n in NATIONS}
 STATE_NOTES = load('data/states.json')
 MAP = load('data/map/us.json')
@@ -367,6 +369,45 @@ def state_nations_section(code, level=2, linked=False):
             'Names are shown as the state lists them. Programs that require enrollment in a federally recognized tribe may not accept these memberships; each listing on this site says who can use it.</p></section>')
 
 
+LAND_KINDS = [
+    ('reservation', 'Reservations and trust lands'),
+    ('state-reservation', 'Reservations recognized by the state'),
+    ('alaska', 'Alaska Native village areas'),
+    ('hawaiian', 'Hawaiian home lands'),
+    ('oklahoma', 'Oklahoma tribal areas'),
+    ('joint', 'Joint-use areas'),
+    ('state-area', 'Areas of state-recognized tribes (drawn for statistics; not reservations)'),
+    ('tribal-area', 'Tribal areas drawn for statistics (not reservations)'),
+]
+
+
+def land_item(a):
+    counties = a['counties'][:3]
+    where = ', '.join(counties) + (f' and {len(a["counties"]) - 3} more' if len(a['counties']) > 3 else '')
+    size = 'under 0.1 square miles' if a['sq_mi'] < 0.1 else f'about {a["sq_mi"]:,.1f} square miles'.replace('.0 ', ' ')
+    return f'<li><span class="nm">{E(a["name"])}</span> <span class="where">{E(where)}</span> <span class="contact">{size} in this state</span></li>'
+
+
+def lands_section(code):
+    areas = LANDS.get(code)
+    if not areas:
+        return ''
+    name = STATE_NAME[code]
+    out = f'<section aria-labelledby="lands-h"><h2 id="lands-h">Reservations and tribal lands in {E(name)}</h2>'
+    for kind, label in LAND_KINDS:
+        items = [a for a in areas if a['kind'] == kind]
+        if not items:
+            continue
+        lst = '<ul class="nations">' + ''.join(land_item(a) for a in items) + '</ul>'
+        if len(items) > 30:
+            out += f'<details><summary>{E(label)} ({len(items)})</summary>{lst}</details>'
+        else:
+            out += f'<h3>{E(label)}</h3>{lst}'
+    return out + (f'<p class="meta">Names, counties and land area from the <a href="{E(LANDS_FILE["source_page"])}">{E(LANDS_FILE["publisher"])}</a> '
+                  f'({E(LANDS_FILE["vintage"])} boundaries), retrieved {nice_date(LANDS_FILE["retrieved"])}. Counties are listed largest share first. '
+                  'These are the areas the Census Bureau maps; a Nation may hold other land, and boundaries can be in dispute. To reach a Nation, use its government office above or the <a href="../nations.html">Nations directory</a>.</p></section>')
+
+
 def state_intro(code, nations, records):
     name = STATE_NAME[code]
     note = STATE_NOTES.get(code, {})
@@ -407,6 +448,7 @@ def build_states():
                      f'<p class="meta">From the <a href="{E(NATIONS_FILE["source_page"])}">Bureau of Indian Affairs Tribal Leaders Directory</a>, retrieved {nice_date(NATIONS_FILE["retrieved"])}. '
                      'Names are shown as the Bureau lists them. Nations: tell us if you want a listing changed.</p></section>')
         body += state_nations_section(code)
+        body += lands_section(code)
         if note.get('ties'):
             body += (f'<section aria-labelledby="ties-h"><h2 id="ties-h">{E(note["ties_title"])}</h2><p>{E(note["ties_intro"])}</p>'
                      '<ul class="nations">' + ''.join(nation_item(NATION[i], show_state=True) for i in note['ties']) + '</ul>'

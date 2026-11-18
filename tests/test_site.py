@@ -155,6 +155,14 @@ for code, entry in build.STATE_NATIONS.items():
             fail(f'state-nations.json: {n["name"]} is already on the federal list')
         if n['name'] not in pages[f'states/{build.STATE_SLUG[code]}.html'].text or n['name'] not in directory.text:
             fail(f'{n["name"]} is missing from its state page or the directory')
+# Reservations and tribal lands: every area in the Census file is on its state's page.
+for code, areas in build.LANDS.items():
+    text = pages[f'states/{build.STATE_SLUG[code]}.html'].text
+    if 'id="lands-h"' not in text:
+        fail(f'{code}: the tribal lands section is missing')
+    for a in areas:
+        if build.E(a['name']) not in text:
+            fail(f'{code}: {a["name"]} is missing from the state page')
 if 'id="state-recognized"' not in directory.text:
     fail('nations.html: the state-recognized section is missing')
 for code, _ in build.STATES:
