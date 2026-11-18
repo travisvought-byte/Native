@@ -1,4 +1,4 @@
-// Native Resource Map. Everything on the site works without this file; it only adds
+// Nina's Map. Everything on the site works without this file; it only adds
 // the fast exit, the state picker, the filter on the help page and the search on the Nations page.
 // Nothing is stored and nothing is sent anywhere.
 (function () {

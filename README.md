@@ -1,10 +1,10 @@
-# Native Resource Map
+# Nina's Map
 
 A free guide for Native people looking for help, for their Nation, or for community.
 
 **Dedicated to Nina, and hers to share.** Built and maintained by Travis Vought. Corrections: travis@vethomeguard.org.
 
-Live site: https://travisvought-byte.github.io/Native/ (once GitHub Pages is turned on for this repository).
+Live site: https://ninas-map.com/ (GitHub Pages; the `CNAME` file sets the address, and the domain's records are kept at Wix).
 
 This first version covers the United States, with the most local detail for Ohio and Michigan. Canada and Mexico come next.
 
