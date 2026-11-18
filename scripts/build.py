@@ -176,12 +176,13 @@ def prep(need, level=3):
 
 
 def urgent(up=''):
-    """The help strip near the top of every page that lists programs: suicide and crisis, shelter, violence, trafficking."""
+    """The help strip near the top of every page that lists programs: suicide and crisis, violence, trafficking.
+
+    Shelter help is not repeated here (owner direction, November 17, 2026). It is one tap away through the
+    link at the end of the strip, in the housing section of the help page."""
     return ('<aside class="urgent" aria-labelledby="urgent-h"><h2 id="urgent-h">Need help right now?</h2><ul>'
             '<li>Thinking about suicide, or in any crisis: <a href="tel:988">call 988</a> or <a href="sms:988">text 988</a>, any time. '
             'Veterans: dial 988, then press 1.</li>'
-            '<li>No safe place to sleep tonight: <a href="tel:211">dial 211</a> and press 6 for homeless services. '
-            'Veterans: <a href="tel:+18774243838">call 1-877-424-3838</a>, 24 hours a day.</li>'
             '<li>Hurt or threatened by a partner or family member, or sexually assaulted: '
             '<a href="tel:+18447628483">call</a> or <a href="sms:+18447628483">text</a> the StrongHearts Native Helpline, 1-844-762-8483.</li>'
             '<li>Being made to work or sell sex: <a href="tel:+18883737888">call 1-888-373-7888</a> or <a href="sms:233733">text 233733</a>.</li>'
@@ -254,8 +255,7 @@ def page(path, title, description, body):
 <main id="main">
 {body}
 </main>
-<footer><p class="foothelp"><strong>Need help now?</strong> Thinking about suicide, or in any crisis: <a href="tel:988">call</a> or <a href="sms:988">text 988</a>, any time. No safe place to sleep tonight: <a href="tel:211">dial 211</a> and press 6 for homeless services. <a href="{up}help.html">All help</a></p>
-<p><strong>{E(SITE['dedication'])}</strong> Built and maintained by <a href="{E(SITE['maintainer_url'])}">{E(SITE['maintainer'])}</a>. <a href="mailto:{E(SITE['email'])}">Send a correction</a> · <a href="{up}about.html">About and sources</a></p>
+<footer><p><strong>{E(SITE['dedication'])}</strong> Built and maintained by <a href="{E(SITE['maintainer_url'])}">{E(SITE['maintainer'])}</a>. <a href="mailto:{E(SITE['email'])}">Send a correction</a> · <a href="{up}about.html">About and sources</a></p>
 <p>Listings come from tribal governments, government agencies and the organizations themselves, with the date each was checked. This site is not a tribal government, does not speak for any Nation, is not legal advice and does not decide who qualifies for anything. Nations and organizations can ask to have a listing corrected or removed.</p></footer>
 </body></html>
 '''
@@ -551,7 +551,7 @@ def build_404():
     body = f'''<h1>That page is not here</h1>
 <p class="lede">The link may be old, or the address may have a typo.</p>
 <ul><li><a href="{base}">Home</a></li><li><a href="{base}help.html">Get help</a></li><li><a href="{base}nations.html">Nations directory</a></li><li><a href="{base}states/index.html">Find help by state</a></li></ul>
-<p>Thinking about suicide, or in any crisis: <a href="tel:988">call</a> or <a href="sms:988">text 988</a>. No safe place to sleep tonight: <a href="tel:211">dial 211</a> and press 6.</p>'''
+<p>In a crisis, <a href="tel:988">call</a> or <a href="sms:988">text 988</a>.</p>'''
     # 404 pages are served from any depth, so every link in the page chrome must be absolute.
     page('404.html', f'Page not found | {SITE["name"]}', 'That page is not here.', body)
     path = ROOT / '404.html'

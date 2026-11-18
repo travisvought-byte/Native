@@ -87,8 +87,16 @@ for path, page in pages.items():
         fail(f'{path}: visit counter missing')
     if 'id="quick-exit"' not in page.text:
         fail(f'{path}: quick exit missing')
-    if 'href="tel:988"' not in page.text or 'href="tel:211"' not in page.text:
-        fail(f'{path}: the suicide and shelter help lines must be on every page')
+    # Crisis help leads the pages that list help (home, help, each state): one strip, with the 988 call and text links.
+    # Shelter help is not repeated on every page; it lives in the housing section, which the strip links to.
+    lists_help = path in ('index.html', 'help.html') or (path.startswith('states/') and path != 'states/index.html')
+    if lists_help:
+        if page.text.count('<aside class="urgent"') != 1 or 'href="tel:988"' not in page.text or 'href="sms:988"' not in page.text:
+            fail(f'{path}: the crisis strip with the 988 call and text links must lead this page')
+        if 'help.html#housing">Shelter and housing help</a>' not in page.text:
+            fail(f'{path}: the crisis strip must link to shelter and housing help')
+    if 'class="foothelp"' in page.text or 'No safe place to sleep tonight' in page.text.split('<main', 1)[0]:
+        fail(f'{path}: help lines are not repeated in the page chrome')
 
 # 2. Links inside the site lead somewhere, and links out are well formed.
 for path, page in pages.items():
