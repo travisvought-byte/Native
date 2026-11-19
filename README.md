@@ -25,6 +25,7 @@ Needs only Python 3.
 ```
 python3 scripts/build.py     # rebuilds every page from data/
 python3 tests/test_site.py   # checks the pages against the data
+python3 scripts/build_share.py  # redraws assets/share.png, the picture shown when a link is shared (needs rsvg-convert)
 ```
 
 Edit the files in `data/`, never the built pages. The workflow in `.github/workflows/validate.yml` runs both commands on every push and fails if a built page is out of date.

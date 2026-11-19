@@ -240,6 +240,26 @@ NAV = [('help.html', 'Get help'), ('nations.html', 'Nations'), ('states/index.ht
 PAGES = []
 
 
+def structured_data(path, title, description, canonical):
+    """Search-engine description of the page: the site on the home page, a web page everywhere else."""
+    site_id = SITE['base_url'] + '#website'
+    if path == 'index.html':
+        data = {
+            '@context': 'https://schema.org', '@type': 'WebSite', '@id': site_id,
+            'name': SITE['name'], 'url': SITE['base_url'], 'description': SITE['description'],
+            'inLanguage': 'en',
+            'publisher': {'@type': 'Person', 'name': SITE['maintainer'], 'url': SITE['maintainer_url']},
+        }
+    else:
+        data = {
+            '@context': 'https://schema.org', '@type': 'WebPage', 'name': title, 'url': canonical,
+            'description': description, 'inLanguage': 'en',
+            'isPartOf': {'@type': 'WebSite', '@id': site_id, 'name': SITE['name'], 'url': SITE['base_url']},
+        }
+    text = json.dumps(data, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
+    return f'<script type="application/ld+json">{text}</script>'
+
+
 def page(path, title, description, body):
     up = '../' * path.count('/')
     canonical = SITE['base_url'] + ('' if path == 'index.html' else path)
@@ -253,6 +273,9 @@ def page(path, title, description, body):
 <meta name="description" content="{E(description)}">
 <link rel="canonical" href="{E(canonical)}">
 <meta property="og:type" content="website"><meta property="og:site_name" content="{E(SITE['name'])}"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(description)}"><meta property="og:url" content="{E(canonical)}">
+<meta property="og:image" content="{E(SITE['base_url'])}assets/share.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="{E(SITE['name'])}: a map of Nation government offices across the United States">
+<meta name="twitter:card" content="summary_large_image">
+{structured_data(path, title, description, canonical)}
 <link rel="icon" href="{up}assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="{up}assets/site.css">
 <script data-goatcounter="{E(SITE['counter'])}" async src="https://gc.zgo.at/count.js"></script>
 <script src="{up}assets/site.js" defer></script></head>
