@@ -1,0 +1,46 @@
+{
+ "area": "ECU",
+ "records": [
+  {
+   "id": "ecu-linea-171",
+   "name": "Línea 171, opción 6: salud mental",
+   "need": "safety",
+   "also": [
+    "recovery",
+    "health"
+   ],
+   "access": "anyone",
+   "urgent": 1,
+   "what": "Línea gratuita del Ministerio de Salud Pública para primeros auxilios psicológicos, intervención en crisis y citas de psicología. (Free Ministry of Health line for psychological first aid, crisis help and appointments.)",
+   "who": "Cualquier persona en Ecuador. (Anyone in Ecuador.)",
+   "start": "Marque 171 desde un teléfono fijo o celular y elija la opción 6. En una emergencia, llame al ECU 911.",
+   "phone": "171, opción 6",
+   "tel": "171",
+   "url": "https://www.salud.gob.ec/a-traves-de-la-linea-171-msp-ofrece-atencion-en-salud-mental/",
+   "url_label": "salud.gob.ec",
+   "source": "https://www.salud.gob.ec/?p=105392",
+   "checked": "2026-11-20"
+  },
+  {
+   "id": "ecu-conaie",
+   "name": "CONAIE: Confederación de Nacionalidades Indígenas del Ecuador",
+   "place": "Quito",
+   "need": "nation",
+   "also": [
+    "legal",
+    "community"
+   ],
+   "access": "indigenous",
+   "what": "La mayor organización de los pueblos y nacionalidades indígenas del Ecuador, fundada en 1986, con filiales en la sierra (Ecuarunari), la Amazonía (Confeniae) y la costa (Conaice). (Ecuador's largest Indigenous organization, founded 1986.)",
+   "who": "Pueblos y nacionalidades indígenas del Ecuador.",
+   "start": "Visite el sitio web de la CONAIE.",
+   "url": "https://conaie.org/",
+   "url_label": "conaie.org",
+   "source": "https://www.primicias.ec/noticias/politica/conaie-organizacion-indigena-crisis-ecuador",
+   "lat": -0.1807,
+   "lon": -78.4678,
+   "pin": "town",
+   "checked": "2026-11-20"
+  }
+ ]
+}

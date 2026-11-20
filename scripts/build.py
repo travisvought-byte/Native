@@ -1105,7 +1105,8 @@ def build_world():
         for need in NEED_LIST:
             here = [r for r in recs if r['need'] == need['key']]
             if here:
-                body += (f'<section class="need" id="{need["key"]}" aria-labelledby="h-{need["key"]}"><h2 id="h-{need["key"]}">{E(need["label"])}</h2>'
+                label = 'Peoples, Nations and their governments' if need['key'] == 'nation' else need['label']
+                body += (f'<section class="need" id="{need["key"]}" aria-labelledby="h-{need["key"]}"><h2 id="h-{need["key"]}">{E(label)}</h2>'
                          '<div class="cards">' + ''.join(card(r, 3) for r in here) + '</div></section>')
         if c['code'] == 'CAN':
             fns = CA_PLACES['first_nations']

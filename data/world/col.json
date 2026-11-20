@@ -1,0 +1,47 @@
+{
+ "area": "COL",
+ "records": [
+  {
+   "id": "col-linea-106",
+   "name": "Línea 106: teleorientación en salud mental",
+   "need": "safety",
+   "also": [
+    "recovery"
+   ],
+   "access": "anyone",
+   "urgent": 1,
+   "what": "Línea nacional del Ministerio de Salud, gratuita y confidencial, las 24 horas, para apoyo emocional, crisis o simplemente hablar con un profesional de salud mental. (Free, confidential national mental health line, 24 hours.)",
+   "who": "Cualquier persona en Colombia. (Anyone in Colombia.)",
+   "start": "Llame al 106.",
+   "phone": "106",
+   "tel": "106",
+   "url": "https://minsalud.gov.co/salud/publica/salud-mental/Paginas/linea-106.aspx",
+   "url_label": "minsalud.gov.co: Línea 106",
+   "source": "https://minsalud.gov.co/salud/publica/salud-mental/Paginas/linea-106.aspx",
+   "checked": "2026-11-20"
+  },
+  {
+   "id": "col-onic",
+   "name": "ONIC: Organización Nacional Indígena de Colombia",
+   "place": "Bogotá",
+   "need": "nation",
+   "also": [
+    "legal",
+    "community"
+   ],
+   "access": "indigenous",
+   "what": "La organización nacional de los pueblos indígenas de Colombia, nacida del primer congreso indígena nacional de 1982. Se presenta como autoridad de gobierno, justicia, derecho y representación de los pueblos indígenas. (The national organization of Colombia's Indigenous peoples, founded in 1982.)",
+   "who": "Pueblos y organizaciones indígenas de Colombia.",
+   "start": "Escriba a la ONIC o visite su sitio web.",
+   "email": "onic@onic.org.co",
+   "address": "Calle 12B No. 4-38, Bogotá",
+   "url": "https://www.onic.org.co/",
+   "url_label": "onic.org.co",
+   "source": "https://www.onic.org.co/images/comunicados/Declaración_Política_final.pdf",
+   "lat": 4.6011,
+   "lon": -74.0708,
+   "pin": "town",
+   "checked": "2026-11-20"
+  }
+ ]
+}

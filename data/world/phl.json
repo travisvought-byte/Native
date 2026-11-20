@@ -2,6 +2,25 @@
  "area": "PHL",
  "records": [
   {
+   "id": "phl-ncmh-1553",
+   "name": "NCMH Crisis Hotline",
+   "need": "safety",
+   "also": [
+    "recovery"
+   ],
+   "access": "anyone",
+   "urgent": 1,
+   "what": "The 24-hour mental health crisis line of the National Center for Mental Health, part of the Department of Health, for anyone in emotional distress or thinking about suicide.",
+   "who": "Anyone in the Philippines.",
+   "start": "Dial 1553 from a landline (toll-free), or 1800-1888-1553.",
+   "phone": "1553",
+   "tel": "1553",
+   "url": "https://doh.gov.ph/NCMH-Crisis-Hotline",
+   "url_label": "doh.gov.ph",
+   "source": "https://www.who.int/philippines/news/detail/10-09-2020-doh-and-who-promote-holistic-mental-health-wellness-in-light-of-world-suicide-prevention-day",
+   "checked": "2026-11-20"
+  },
+  {
    "id": "phl-ncip",
    "name": "National Commission on Indigenous Peoples (NCIP)",
    "place": "Quezon City",

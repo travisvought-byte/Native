@@ -381,7 +381,13 @@
      "url": "https://iwgia.org/en/philippines/5975-iw-2026-philippines.html"
     }
    ],
-   "urgent": [],
+   "urgent": [
+    {
+     "label": "NCMH Crisis Hotline (24 hours)",
+     "phone": "1553",
+     "tel": "1553"
+    }
+   ],
    "region": "Asia",
    "report": "https://iwgia.org/en/philippines/5975-iw-2026-philippines.html"
   },
@@ -447,9 +453,151 @@
      "url": "https://iwgia.org/en/south-africa/5959-iw-2026-south-africa.html"
     }
    ],
-   "urgent": [],
+   "urgent": [
+    {
+     "label": "SADAG Suicide Crisis Helpline (24 hours, free)",
+     "phone": "0800 567 567",
+     "tel": "+27800567567"
+    }
+   ],
    "region": "Africa",
    "report": "https://iwgia.org/en/south-africa/5959-iw-2026-south-africa.html"
+  },
+  {
+   "code": "COL",
+   "slug": "colombia",
+   "name": "Colombia",
+   "peoples": "Pueblos indígenas",
+   "center": [
+    4.5,
+    -73.5
+   ],
+   "zoom": 5,
+   "emergency": null,
+   "intro": "Colombia is home to some 115 Indigenous peoples, living on the Caribbean and Pacific coasts, in the Amazon, on the Orinoco plains and in the Andes. In 2025 a decree created Indigenous Territorial Entities, Indigenous governments with powers over health, education, justice and land.",
+   "intro_sources": [
+    {
+     "label": "The Indigenous World 2026 (IWGIA): Colombia",
+     "url": "https://iwgia.org/en/colombia/5983-iw-2026-colombia.html"
+    },
+    {
+     "label": "The Indigenous World 2026 (IWGIA): Inter-American Commission on Human Rights",
+     "url": "https://iwgia.org/en/the-inter-american-human-rights-system-iahrs/6027-iw-2026-the-inter-american-commission-on-human-rights-iachr-in-relation-to-the-rights-of-indigenous-peoples.html"
+    }
+   ],
+   "urgent": [
+    {
+     "label": "Línea 106, salud mental (24 horas, gratuita)",
+     "phone": "106",
+     "tel": "106"
+    }
+   ],
+   "region": "Latin America",
+   "report": "https://iwgia.org/en/colombia/5983-iw-2026-colombia.html"
+  },
+  {
+   "code": "ECU",
+   "slug": "ecuador",
+   "name": "Ecuador",
+   "peoples": "Nacionalidades y pueblos indígenas",
+   "center": [
+    -1.5,
+    -78.3
+   ],
+   "zoom": 6,
+   "emergency": null,
+   "intro": "Ecuador has 14 Indigenous nationalities, 1,301,887 people or 7.7% of the population. About two in three live in the highlands, a quarter in the Amazon and the rest on the coast.",
+   "intro_sources": [
+    {
+     "label": "The Indigenous World 2026 (IWGIA): Ecuador",
+     "url": "https://www.iwgia.org/en/news/iw-2026-ecuador?lang=en"
+    }
+   ],
+   "urgent": [
+    {
+     "label": "Línea 171, opción 6: primeros auxilios psicológicos (gratuita)",
+     "phone": "171, opción 6",
+     "tel": "171"
+    }
+   ],
+   "region": "Latin America",
+   "report": "https://www.iwgia.org/en/news/iw-2026-ecuador?lang=en"
+  },
+  {
+   "code": "BOL",
+   "slug": "bolivia",
+   "name": "Bolivia",
+   "peoples": "Naciones y pueblos indígena originario campesinos",
+   "center": [
+    -16.5,
+    -64.5
+   ],
+   "zoom": 5,
+   "emergency": null,
+   "intro": "Bolivia recognizes 36 Indigenous peoples and calls itself a plurinational state. In the 2012 census 41% of people over 15 were of Indigenous origin, and the national statistics office projected 48% by 2017. Most Indigenous people in the Andes are Quechua or Aymara.",
+   "intro_sources": [
+    {
+     "label": "The Indigenous World 2026 (IWGIA): Bolivia",
+     "url": "https://iwgia.org/en/bolivia/5980-iw-2026-bolivia.html"
+    }
+   ],
+   "urgent": [],
+   "region": "Latin America",
+   "report": "https://iwgia.org/en/bolivia/5980-iw-2026-bolivia.html"
+  },
+  {
+   "code": "IND",
+   "slug": "india",
+   "name": "India",
+   "peoples": "Adivasis and Scheduled Tribes",
+   "center": [
+    22,
+    80
+   ],
+   "zoom": 4,
+   "emergency": null,
+   "intro": "India lists some 705 ethnic groups as Scheduled Tribes. In central India they are often called Adivasis, meaning original inhabitants. The Ministry of Tribal Affairs, set up in 1999, leads national programs for Scheduled Tribes, from scholarships to forest rights.",
+   "intro_sources": [
+    {
+     "label": "The Indigenous World 2025 (IWGIA): India",
+     "url": "https://iwgia.org/en/india/5658-iw-2025-india.html"
+    },
+    {
+     "label": "Ministry of Tribal Affairs",
+     "url": "https://tribal.nic.in/"
+    }
+   ],
+   "urgent": [
+    {
+     "label": "Tele-MANAS mental health helpline (24 hours, free, 20 languages)",
+     "phone": "14416",
+     "tel": "14416"
+    }
+   ],
+   "region": "Asia",
+   "report": "https://iwgia.org/en/india/5968-iw-2026-india.html"
+  },
+  {
+   "code": "KEN",
+   "slug": "kenya",
+   "name": "Kenya",
+   "peoples": "Pastoralist and hunter-gatherer peoples",
+   "center": [
+    0.3,
+    37.9
+   ],
+   "zoom": 6,
+   "emergency": null,
+   "intro": "The peoples who identify as Indigenous in Kenya are mainly pastoralists and hunter-gatherers, with some fisher peoples and small farming communities. They include hunter-gatherers such as the Ogiek, Sengwer, Yaaku, Waata and Sanya, and pastoralists such as the Endorois, Turkana, Maasai and Samburu.",
+   "intro_sources": [
+    {
+     "label": "The Indigenous World 2025 (IWGIA): Kenya",
+     "url": "https://iwgia.org/en/kenya/5627-iw-2025-kenya.html"
+    }
+   ],
+   "urgent": [],
+   "region": "Africa",
+   "report": "https://iwgia.org/en/kenya/5627-iw-2025-kenya.html"
   },
   {
    "code": "WORLD",

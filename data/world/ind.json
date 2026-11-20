@@ -1,0 +1,47 @@
+{
+ "area": "IND",
+ "records": [
+  {
+   "id": "ind-tele-manas",
+   "name": "Tele-MANAS (14416)",
+   "need": "safety",
+   "also": [
+    "recovery",
+    "health"
+   ],
+   "access": "anyone",
+   "urgent": 1,
+   "what": "The Government of India's free national mental health helpline, open 24 hours, for counselling, emotional support and referrals, in about 20 languages.",
+   "who": "Anyone in India.",
+   "start": "Call 14416 or 1-800-891-4416 and choose your language.",
+   "phone": "14416",
+   "tel": "14416",
+   "url": "https://dghs.mohfw.gov.in/national-mental-health-programme.php",
+   "url_label": "Ministry of Health: Tele-MANAS",
+   "source": "https://dghs.mohfw.gov.in/national-mental-health-programme.php",
+   "checked": "2026-11-20"
+  },
+  {
+   "id": "ind-mota",
+   "name": "Ministry of Tribal Affairs",
+   "place": "New Delhi",
+   "need": "nation",
+   "also": [
+    "school",
+    "money",
+    "work"
+   ],
+   "access": "ask",
+   "what": "The national ministry for the development and well-being of Scheduled Tribes, including scholarships, hostels, coaching and forest rights. Most of its schemes are carried out by state governments.",
+   "who": "Members of Scheduled Tribes and their organizations.",
+   "start": "Find the scheme you need on the ministry's website, or ask your state tribal welfare department.",
+   "url": "https://tribal.gov.in/",
+   "url_label": "tribal.gov.in",
+   "source": "https://tribal.nic.in/RTIfiles/draftRTImannual30112021.pdf",
+   "lat": 28.6139,
+   "lon": 77.209,
+   "pin": "town",
+   "checked": "2026-11-20"
+  }
+ ]
+}

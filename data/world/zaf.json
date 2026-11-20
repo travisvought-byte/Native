@@ -1,0 +1,24 @@
+{
+ "area": "ZAF",
+ "records": [
+  {
+   "id": "zaf-sadag",
+   "name": "SADAG Suicide Crisis Helpline",
+   "need": "safety",
+   "also": [
+    "recovery"
+   ],
+   "access": "anyone",
+   "urgent": 1,
+   "what": "South Africa's suicide crisis line, run by the South African Depression and Anxiety Group: free, 24 hours a day, with referrals to local help.",
+   "who": "Anyone in South Africa.",
+   "start": "Call 0800 567 567, any time.",
+   "phone": "0800 567 567",
+   "tel": "+27800567567",
+   "url": "https://www.sadag.org/",
+   "url_label": "sadag.org",
+   "source": "https://www.gov.za/sites/default/files/gcis_documents/contacts.pdf",
+   "checked": "2026-11-20"
+  }
+ ]
+}
