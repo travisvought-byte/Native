@@ -1,0 +1,62 @@
+{
+ "area": "NZL",
+ "records": [
+  {
+   "id": "nz-1737",
+   "name": "1737, Need to talk?",
+   "need": "safety",
+   "also": [
+    "recovery"
+   ],
+   "access": "anyone",
+   "urgent": 1,
+   "what": "New Zealand's national mental health and addictions line. Free call or text 1737 any time to reach a trained counsellor, or choose to talk with a peer support worker.",
+   "who": "Anyone in Aotearoa New Zealand.",
+   "start": "Call or text 1737. In an emergency, call 111.",
+   "phone": "1737",
+   "tel": "1737",
+   "sms": {
+    "to": "1737",
+    "label": "Text 1737"
+   },
+   "url": "https://1737.org.nz/",
+   "url_label": "1737.org.nz",
+   "source": "https://1737.org.nz/contact",
+   "checked": "2026-11-20"
+  },
+  {
+   "id": "nz-tkm",
+   "name": "Te Kāhui Māngai: directory of iwi and Māori organisations",
+   "need": "nation",
+   "also": [
+    "community"
+   ],
+   "access": "anyone",
+   "what": "The government directory of iwi, hapū and marae, with the organizations that represent them and how to reach them.",
+   "who": "Anyone, including people reconnecting with their iwi, hapū or marae.",
+   "start": "Search for your iwi or marae, or browse by region.",
+   "url": "https://tkm.govt.nz/",
+   "url_label": "tkm.govt.nz",
+   "source": "https://tkm.govt.nz/",
+   "checked": "2026-11-20"
+  },
+  {
+   "id": "nz-whanau-ora",
+   "name": "Whānau Ora",
+   "need": "family",
+   "also": [
+    "money",
+    "housing",
+    "work"
+   ],
+   "access": "ask",
+   "what": "Navigators (kaiārahi) with local and cultural knowledge help whānau plan, get through a crisis, and connect with the support they need to reach their goals.",
+   "who": "Whānau in Aotearoa New Zealand.",
+   "start": "Contact a Whānau Ora commissioning agency or provider in your region, or your local Te Puni Kōkiri office.",
+   "url": "https://www.tpk.govt.nz/en/a-matou-whakaarotau/whanau-ora/for-whanau",
+   "url_label": "Whānau Ora for whānau",
+   "source": "https://www.tpk.govt.nz/en/a-matou-whakaarotau/whanau-ora/for-whanau",
+   "checked": "2026-11-20"
+  }
+ ]
+}

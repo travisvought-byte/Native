@@ -19,7 +19,10 @@
      "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
      "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
     }
-   ]
+   ],
+   "lat": 35.4671,
+   "lon": -97.5137,
+   "pin": "town"
   },
   {
    "id": "ok-ihcrc-tulsa",
@@ -39,7 +42,10 @@
      "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
      "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
     }
-   ]
+   ],
+   "lat": 36.1279,
+   "lon": -95.9023,
+   "pin": "town"
   }
  ]
 }

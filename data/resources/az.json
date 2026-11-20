@@ -19,7 +19,10 @@
      "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
      "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
     }
-   ]
+   ],
+   "lat": 35.1852,
+   "lon": -111.6207,
+   "pin": "town"
   },
   {
    "id": "az-native-american-connections",
@@ -42,7 +45,10 @@
      "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
      "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
     }
-   ]
+   ],
+   "lat": 33.5722,
+   "lon": -112.0901,
+   "pin": "town"
   },
   {
    "id": "az-native-health",
@@ -62,7 +68,10 @@
      "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
      "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
     }
-   ]
+   ],
+   "lat": 33.4006,
+   "lon": -111.7165,
+   "pin": "town"
   },
   {
    "id": "az-tucson-indian-center",
@@ -82,7 +91,10 @@
      "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
      "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
     }
-   ]
+   ],
+   "lat": 32.153,
+   "lon": -110.8708,
+   "pin": "town"
   }
  ]
 }

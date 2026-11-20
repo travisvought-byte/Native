@@ -6,11 +6,13 @@ A free guide for Native people looking for help, for their Nation, or for commun
 
 Live site: https://ninas-map.com/ (GitHub Pages; the `CNAME` file sets the address, and the domain's records are kept at Wix).
 
-This first version covers the United States, with the most local detail for Ohio and Michigan. Canada and Mexico come next.
+It covers the United States in the most detail (Ohio and Michigan deepest) and has begun going worldwide: Canada, Mexico, Australia, Aotearoa New Zealand, Sápmi, and help that reaches Indigenous peoples anywhere.
 
 ## What is on the site
 
-- `index.html`: urgent help lines, a grid of thirteen kinds of help, three ways to start, and a map of where Nations have their government offices. Every state on the map links to its page.
+- `index.html`: the map finder. A zoomable map (Leaflet, OpenStreetMap tiles) of every Nation office, Indian health clinic, community listing, tribal college and tribal land in the U.S., and every First Nation and Inuit community in Canada, with need filters, "use my location", search, and a list of the closest places with Call, Directions and Website buttons. Beside it: the help lines that work anywhere in the country being viewed. Code: `assets/finder.js`; data: `assets/finder/` (built).
+- `world/`: a page for each country beyond the U.S., and `world/index.html`.
+- `states/index.html`: also holds the U.S. map of Nation offices.
 - `help.html`: national help by need (crisis and safety, health care, recovery, family, school, housing, food and money, work, legal help, enrollment, elders, veterans, community). Each listing says who can use it, how to start, when it was checked and where it came from. A filter shows only listings that do not ask for tribal enrollment.
 - `nations.html`: the government office of every federally recognized Nation, by state, with search.
 - `states/`: a page for every state and D.C. with the Nations whose governments are there, local listings where we have them (Ohio and Michigan so far), and links to national help. The Ohio page also lists Nations with ties to Ohio whose governments are now elsewhere.
@@ -41,6 +43,10 @@ Edit the files in `data/`, never the built pages. The workflow in `.github/workf
 | `data/states.json` | A short introduction for a state, with sources, and for Ohio the Nations with ties to the state. |
 | `data/nations.json` | Nation government offices, from the Bureau of Indian Affairs Tribal Leaders Directory. Do not edit by hand. |
 | `data/map/us.json` | State outlines and the map position of each office. Do not edit by hand. |
+| `data/map/lands.geojson`, `data/map/land-points.json` | Reservation and tribal land outlines and inside points (`npm run lands`). Do not edit by hand. |
+| `data/world/countries.json` | Each country: name, its peoples' own terms, map view, emergency number and crisis lines. Country codes must not clash with state codes (Canada is `CAN`). |
+| `data/world/<code>.json` | Listings for one country, same format as state listings. Add `tel` with the full international number (`+52...`) for numbers outside North America, and `lat`/`lon`/`pin` for a place on the map. |
+| `data/world/ca-places.json` | First Nations and Inuit communities in Canada (`python3 scripts/import_canada.py`). Do not edit by hand. |
 
 ### Adding a listing
 
@@ -72,6 +78,8 @@ python3 scripts/import_bia.py   # downloads the Bureau's open dataset and rewrit
 npm install && npm run map      # redraws data/map/us.json (needs Node; only for this step)
 python3 scripts/build.py && python3 tests/test_site.py
 ```
+
+Map positions: `scripts/import_clinics.py` and `scripts/import_colleges.py` keep each place's position; `npm run lands` then `python3 scripts/import_lands.py` places tribal lands. After changing Leaflet, run `npm run vendor`.
 
 The import keeps each office's name, town, state, phone, website and map position. It leaves out the names of elected leaders, fax numbers, email addresses and the Bureau's internal notes.
 

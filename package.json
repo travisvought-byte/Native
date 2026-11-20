@@ -1,14 +1,19 @@
 {
   "name": "native-resource-map",
   "private": true,
-  "description": "Build helpers for the map on the Native resource directory. The site itself needs only Python 3.",
+  "description": "Build helpers for the maps on Nina's Map. The site itself needs only Python 3.",
   "scripts": {
     "map": "node scripts/build_map.mjs",
     "build": "python3 scripts/build.py",
-    "test": "python3 tests/test_site.py"
+    "test": "python3 tests/test_site.py",
+    "lands": "node scripts/build_lands.mjs",
+    "vendor": "cp node_modules/leaflet/dist/leaflet.js node_modules/leaflet/dist/leaflet.css node_modules/leaflet.markercluster/dist/leaflet.markercluster.js assets/vendor/ && cp node_modules/leaflet.markercluster/dist/MarkerCluster.css assets/vendor/markercluster.css"
   },
   "devDependencies": {
     "d3-geo": "3.1.1",
+    "leaflet": "^1.9.4",
+    "leaflet.markercluster": "^1.5.3",
+    "mapshaper": "0.6.121",
     "topojson-client": "3.1.0",
     "us-atlas": "3.0.1"
   }

@@ -37,6 +37,10 @@ LANDS = LANDS_FILE['states']
 NATION = {n['id']: n for n in NATIONS}
 STATE_NOTES = load('data/states.json')
 MAP = load('data/map/us.json')
+COUNTRIES_FILE = load('data/world/countries.json')
+COUNTRIES = COUNTRIES_FILE['countries']
+COUNTRY = {c['code']: c for c in COUNTRIES}
+CA_PLACES = load('data/world/ca-places.json')
 
 STATES = [
     ('AL', 'Alabama'), ('AK', 'Alaska'), ('AZ', 'Arizona'), ('AR', 'Arkansas'), ('CA', 'California'),
@@ -71,12 +75,31 @@ RES = load_resources()
 RES_BY_ID = {r['id']: r for r in RES}
 
 
+def load_world():
+    records = []
+    for c in COUNTRIES:
+        path = ROOT / f'data/world/{c["code"].lower()}.json'
+        if not path.exists():
+            continue
+        data = json.loads(path.read_text(encoding='utf-8'))
+        for record in data['records']:
+            record['area'] = data['area']
+            records.append(record)
+    return records
+
+
+WORLD = load_world()
+
+
 def check_data():
     """Stop the build on data mistakes that would put a wrong or broken listing on a page."""
     problems = []
     if len(RES_BY_ID) != len(RES):
         problems.append('two listings share an id: ' + ', '.join(k for k, v in Counter(r['id'] for r in RES).items() if v > 1))
-    for r in RES:
+    ids = Counter(r['id'] for r in RES + WORLD)
+    if max(ids.values()) > 1:
+        problems.append('two listings share an id: ' + ', '.join(k for k, v in ids.items() if v > 1))
+    for r in RES + WORLD:
         for field in ('id', 'name', 'need', 'access', 'what', 'who', 'start', 'source', 'checked'):
             if not r.get(field):
                 problems.append(f'{r.get("id", "?")}: missing {field}')
@@ -87,12 +110,15 @@ def check_data():
                 problems.append(f'{r["id"]}: unknown need in also: {key}')
         if r.get('access') not in ACCESS:
             problems.append(f'{r.get("id")}: unknown access {r.get("access")}')
-        if r['area'] != 'US' and r['area'] not in STATE_NAME:
+        if r['area'] != 'US' and r['area'] not in STATE_NAME and r['area'] not in COUNTRY:
             problems.append(f'{r["id"]}: unknown area {r["area"]}')
         if not (r.get('phone') or r.get('sms') or r.get('url') or r.get('email')):
             problems.append(f'{r["id"]}: no way to reach it')
         if not re.match(r'^\d{4}-\d{2}-\d{2}$', r.get('checked', '')):
             problems.append(f'{r.get("id")}: checked must be a date like 2026-11-17')
+    for c in COUNTRIES:
+        if c['code'] in STATE_NAME:
+            problems.append(f'countries.json: {c["code"]} is also a state code; use another code')
     for code, note in STATE_NOTES.items():
         if code not in STATE_NAME:
             problems.append(f'states.json: unknown state {code}')
@@ -133,10 +159,15 @@ def records_for(area, need=None, primary_only=True):
 
 # ---------- pieces ----------
 
+def tel_of(r):
+    """A listing outside North America carries its own dialable number in 'tel'."""
+    return r.get('tel') or tel(r['phone'])
+
+
 def actions(r):
     out = []
     if r.get('phone'):
-        out.append(f'<a class="btn call" href="tel:{tel(r["phone"])}">Call {E(r["phone"])}</a>')
+        out.append(f'<a class="btn call" href="tel:{tel_of(r)}">Call {E(r["phone"])}</a>')
     if r.get('sms'):
         s = r['sms']
         href = 'sms:' + s['to'] + ('?&body=' + urllib.parse.quote(s['body']) if s.get('body') else '')
@@ -236,7 +267,7 @@ def state_options(up=''):
 
 
 NAV = [('help.html', 'Get help'), ('nations.html', 'Nations'), ('states/index.html', 'By state'),
-       ('find-your-nation.html', 'Finding your Nation'), ('community.html', 'Community'), ('proud-history.html', 'Proud history'), ('what-works.html', 'What works'), ('about.html', 'About')]
+       ('find-your-nation.html', 'Finding your Nation'), ('community.html', 'Community'), ('proud-history.html', 'Proud history'), ('what-works.html', 'What works'), ('world/index.html', 'World'), ('about.html', 'About')]
 PAGES = []
 
 
@@ -260,7 +291,7 @@ def structured_data(path, title, description, canonical):
     return f'<script type="application/ld+json">{text}</script>'
 
 
-def page(path, title, description, body):
+def page(path, title, description, body, head=''):
     up = '../' * path.count('/')
     canonical = SITE['base_url'] + ('' if path == 'index.html' else path)
     current = ' aria-current="page"'
@@ -278,7 +309,7 @@ def page(path, title, description, body):
 {structured_data(path, title, description, canonical)}
 <link rel="icon" href="{up}assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="{up}assets/site.css">
 <script data-goatcounter="{E(SITE['counter'])}" async src="https://gc.zgo.at/count.js"></script>
-<script src="{up}assets/site.js" defer></script></head>
+<script src="{up}assets/site.js" defer></script>{head}</head>
 <body><a class="skip" href="#main">Skip to main content</a>
 <div class="exit"><a id="quick-exit" href="{E(SITE['exit_url'])}" rel="noreferrer">Leave this site now</a> <span>or press Esc twice. This does not clear your browser history.</span></div>
 <header class="top"><a class="brand" href="{up}index.html">{E(SITE['name'])}</a><nav aria-label="Main"><ul>{nav}</ul></nav></header>
@@ -296,33 +327,6 @@ def page(path, title, description, body):
 
 
 # ---------- pages ----------
-
-def build_home():
-    tiles = ''.join(
-        f'<li><a href="help.html#{n["key"]}"><strong>{E(n["label"])}</strong><span>{E(n["blurb"])}</span></a></li>'
-        for n in NEED_LIST)
-    states = ''.join(f'<li><a href="states/{STATE_SLUG[c]}.html">{E(n)}</a></li>' for c, n in STATES)
-    body = f'''<section class="hero"><h1>A map for First Peoples to find help, Nations and community</h1>
-<p class="lede">Free, plain-language listings for Native people anywhere in the United States. Every listing shows where it came from and when it was checked. Start with what you need, where you live, or the Nation you come from.</p>
-<p class="dedication">{E(SITE['dedication'])}</p></section>
-{urgent()}
-<section aria-labelledby="needs-h"><h2 id="needs-h">What do you need?</h2><ul class="needs">{tiles}</ul></section>
-<section aria-labelledby="paths-h"><h2 id="paths-h">Start where you are</h2><div class="paths">
-<article><h3>I am not sure which Nation I come from</h3><p>How to trace your family, what enrollment is, and who can help you look.</p><p><a class="btn" href="find-your-nation.html">Finding your Nation</a></p></article>
-<article><h3>I want to be around Native people near me</h3><p>Community centers, youth councils, recovery circles and tribal colleges.</p><p><a class="btn" href="community.html">Find community</a></p></article>
-<article><h3>I know my Nation and need to reach it</h3><p>The phone number and website of the government office of every federally recognized Nation.</p><p><a class="btn" href="nations.html">Nations directory</a></p></article>
-</div></section>
-<section aria-labelledby="map-h"><h2 id="map-h">Where Nations have their governments</h2>
-<p>Each dot is the government office of a federally recognized Nation, from the Bureau of Indian Affairs directory. Choose a state to see its Nations and the help listed there.</p>
-<p class="picker"><label for="state-pick">Go to a state</label> <select id="state-pick" data-go>{state_options()}</select></p>
-{map_svg()}
-<details class="statebox"><summary>All states as a list</summary><ul class="statelist">{states}</ul></details>
-<p class="meta">Office locations: <a href="{E(NATIONS_FILE['source_page'])}">Bureau of Indian Affairs Tribal Leaders Directory</a>, retrieved {nice_date(NATIONS_FILE['retrieved'])}. A dot shows where a government office is, not the extent of a Nation's homelands.</p></section>
-<section class="panel" aria-labelledby="who-h"><h2 id="who-h">Who made this, and who it needs</h2>
-<p>This guide was built by {E(SITE['maintainer'])} from what Nations, government agencies and Native organizations publish about themselves. It is not a tribal government and does not speak for any Nation. This first version covers the United States, with the most local detail for Ohio and Michigan. Canada and Mexico come next.</p>
-<p>It needs Native people to look it over. If you work for a Nation, a tribal program or a Native organization, or you simply know something here is wrong or missing, <a href="mailto:{E(SITE['email'])}">write to us</a>. <a href="about.html">Read how the site is put together</a>.</p></section>'''
-    page('index.html', f'{SITE["name"]}: help, Nations and community for First Peoples', SITE['description'], body)
-
 
 def need_section(need, area='US', level=2, compact=False):
     """One kind of help with its listings. State pages use the compact form; the full form is on the help page."""
@@ -599,7 +603,11 @@ def build_states():
     body = f'''<h1>Find help by state</h1>
 <p class="lede">Every state has a page with the Nations whose governments are there and the national help that works anywhere. Ohio and Michigan also list community groups and state programs, and 21 more states list their urban Indian health programs. More is being filled in.</p>
 <p class="picker"><label for="state-pick">Go to a state</label> <select id="state-pick" data-go>{state_options("../")}</select></p>
-<ul class="statelist big">{index_items}</ul>'''
+<ul class="statelist big">{index_items}</ul>
+<section aria-labelledby="map-h"><h2 id="map-h">Where Nations have their governments</h2>
+<p>Each dot is the government office of a federally recognized Nation, from the Bureau of Indian Affairs directory. Each state is a link to its page. For a map you can zoom, search and use near you, <a href="../index.html">open the main map</a>.</p>
+{map_svg("../")}
+<p class="meta">Office locations: <a href="{E(NATIONS_FILE['source_page'])}">Bureau of Indian Affairs Tribal Leaders Directory</a>, retrieved {nice_date(NATIONS_FILE['retrieved'])}. A dot shows where a government office is, not the extent of a Nation's homelands.</p></section>'''
     page('states/index.html', f'Native resources by state | {SITE["name"]}',
          'Choose a state to see the federally recognized Nations with governments there, and help for Native people who live there.', body)
 
@@ -747,6 +755,7 @@ def build_about():
 
 <section aria-labelledby="a6"><h2 id="a6">Your privacy and safety</h2>
 <p>There are no accounts and no forms, and the site stores nothing about you. One counter (GoatCounter) counts page views without cookies. Phone and text links open your own phone's apps.</p>
+<p>The map on the home page can use your location to show what is near you, but only if you press "Use my location" and your browser asks you first. Your location stays on your device and is never sent to this site. The map pictures are loaded from OpenStreetMap's servers, which, like any website, can see which part of the map is being looked at. Directions open in the maps app you choose.</p>
 <p>The "Leave this site now" bar at the top of every page takes you to a weather page. It cannot clear your browser history. If someone checks your phone or computer, use a private browsing window, or a device they cannot get to.</p></section>
 
 <section aria-labelledby="a7"><h2 id="a7">Limits</h2>
@@ -863,8 +872,247 @@ def build_works():
          'Programs with measured, published results in Native communities: tribal diabetes programs, home visiting for young families, and Nations running their own services.', body)
 
 
+# ---------- the map finder and the world ----------
+
+FINDER_NEEDS = ['safety', 'health', 'recovery', 'family', 'school', 'housing', 'money', 'work', 'legal', 'nation',
+                'elders', 'veterans', 'community']
+CLINIC_NEED = {'hospital': ['health'], 'clinic': ['health'], 'behavioral': ['recovery', 'health'],
+               'dental': ['health'], 'elder': ['elders', 'health']}
+KIND_LABEL = {'nation': 'Nation government office', 'fn': 'First Nation', 'inuit': 'Inuit community',
+              'clinic': 'Health care', 'college': 'Tribal college', 'land': 'Reservation or tribal land',
+              'place': 'Community and help'}
+LAND_LABEL = {'reservation': 'Reservation', 'hawaiian': 'Hawaiian home land', 'alaska': 'Alaska Native village area',
+              'oklahoma': 'Oklahoma tribal area', 'state-area': 'State-designated tribal area', 'tribal-area': 'Tribal designated area',
+              'joint': 'Joint-use area', 'state-reservation': 'State reservation'}
+
+
+def world_slug(code):
+    return COUNTRY[code]['slug']
+
+
+def finder_data():
+    """Everything the map shows, as one compact file the home page loads. Columns are listed in 'cols'."""
+    pts = []
+
+    def add(lat, lon, kind, name, sub, needs, country, phone=None, telno=None, url=None, page=None, access=None, pin=None):
+        pts.append([lat, lon, kind, name, sub or '', ','.join(needs), country, phone or '', telno or '', url or '',
+                    page or '', access or '', pin or ''])
+
+    for n in NATIONS:
+        if n.get('lat') is None:
+            continue
+        add(n['lat'], n['lon'], 'nation', n['name'], ', '.join(x for x in [n.get('city'), STATE_NAME[n['state']]] if x),
+            ['nation'], 'US', n['phone']['display'] if n.get('phone') else None, n['phone']['tel'] if n.get('phone') else None,
+            n.get('url'), f'states/{STATE_SLUG[n["state"]]}.html#n-{n["id"]}')
+    for code, items in CLINICS.items():
+        for c in items:
+            if 'lat' not in c:
+                continue
+            m = PHONE_RE.search(c.get('phone') or '')
+            sub = ' · '.join(x for x in [RUN_LABEL[c['run']].replace('Run by the ', '').replace('Run by a ', ''),
+                                          f'{c["city"]}, {STATE_NAME[code]}' if c.get('city') else STATE_NAME[code]] if x)
+            add(c['lat'], c['lon'], 'clinic', c['name'], sub, CLINIC_NEED[c['kind']], 'US',
+                m.group(0).strip() if m else None, ('+1' + ''.join(m.group(1, 2, 3))) if m else None,
+                c.get('url') if (c.get('url') or '').startswith('http') else None, f'states/{STATE_SLUG[code]}.html#clinics-h',
+                'ask' if c['run'] != 'urban' else 'native')
+    for code, items in COLLEGES.items():
+        for c in items:
+            if 'lat' in c:
+                m = PHONE_RE.search(c.get('phone') or '')
+                add(c['lat'], c['lon'], 'college', c['name'], f'{c.get("city", "")}, {STATE_NAME[code]}', ['school', 'community'], 'US',
+                    m.group(0).strip() if m else None, ('+1' + ''.join(m.group(1, 2, 3))) if m else None, c.get('url'),
+                    f'states/{STATE_SLUG[code]}.html#tcu-h', 'anyone')
+    seen = set()
+    for code, items in LANDS.items():
+        for a in items:
+            if 'lat' not in a or (a['name'], a['lat']) in seen:
+                continue
+            seen.add((a['name'], a['lat']))
+            add(a['lat'], a['lon'], 'land', a['name'], LAND_LABEL.get(a['kind'], 'Tribal land') + f' · {STATE_NAME[code]}',
+                ['nation'], 'US', page=f'states/{STATE_SLUG[code]}.html#lands-h')
+    for r in RES:
+        if 'lat' in r:
+            add(r['lat'], r['lon'], 'place', r['name'], r.get('place') or STATE_NAME.get(r['area'], ''), [r['need']] + r.get('also', []),
+                'US', r.get('phone'), tel_of(r) if r.get('phone') else None, r.get('url'),
+                f'states/{STATE_SLUG[r["area"]]}.html#r-{r["id"]}', r['access'], r.get('pin'))
+    for n in CA_PLACES['first_nations']['items']:
+        add(n['lat'], n['lon'], 'fn', n['name'], 'Canada', ['nation'], 'CAN', url=n['url'],
+            page='world/canada.html#first-nations')
+    for n in CA_PLACES['inuit']['items']:
+        sub = ' · '.join(x for x in [n.get('inuktut') if n.get('inuktut') != n['name'] else None, n.get('region'), n.get('province')] if x)
+        add(n['lat'], n['lon'], 'inuit', n['name'], sub, ['nation', 'community'], 'CAN', page='world/canada.html#inuit')
+    for r in WORLD:
+        if 'lat' in r:
+            add(r['lat'], r['lon'], 'place', r['name'], r.get('place', ''), [r['need']] + r.get('also', []), r['area'],
+                r.get('phone'), tel_of(r) if r.get('phone') else None, r.get('url'),
+                f'world/{world_slug(r["area"])}.html#r-{r["id"]}', r['access'], r.get('pin'))
+
+    def wide(r, page_path):
+        return {'id': r['id'], 'name': r['name'], 'needs': [r['need']] + r.get('also', []), 'what': r['what'],
+                'access': r['access'], 'phone': r.get('phone'), 'tel': tel_of(r) if r.get('phone') else None,
+                'sms': r['sms']['to'] if r.get('sms') else None, 'url': r.get('url'), 'label': r.get('url_label'),
+                'page': page_path, 'urgent': r.get('urgent')}
+
+    national = {'US': [wide(r, f'help.html#r-{r["id"]}') for r in RES if r['area'] == 'US']}
+    for r in WORLD:
+        if 'lat' not in r:
+            national.setdefault(r['area'], []).append(wide(r, f'world/{world_slug(r["area"])}.html#r-{r["id"]}'))
+    countries = [{k: c.get(k) for k in ('code', 'name', 'peoples', 'center', 'zoom', 'emergency', 'urgent')}
+                 | {'page': f'world/{c["slug"]}.html' if c['slug'] else 'help.html'} for c in COUNTRIES]
+    needs = [{'key': k, 'label': NEED[k]['short']} for k in FINDER_NEEDS]
+    access = {k: v['label'] for k, v in ACCESS.items()}
+    data = {'cols': ['lat', 'lon', 'kind', 'name', 'sub', 'needs', 'country', 'phone', 'tel', 'url', 'page', 'access', 'pin'],
+            'kinds': KIND_LABEL, 'points': pts, 'national': national, 'countries': countries, 'needs': needs, 'access': access}
+    out = ROOT / 'assets/finder'
+    out.mkdir(parents=True, exist_ok=True)
+    (out / 'data.json').write_text(json.dumps(data, ensure_ascii=False, separators=(',', ':')) + '\n', encoding='utf-8')
+    (out / 'lands.geojson').write_text((ROOT / 'data/map/lands.geojson').read_text(encoding='utf-8'), encoding='utf-8')
+    return data
+
+
+def urgent_world(up=''):
+    """Home page help strip: the United States lines first, then the first line for each other country."""
+    others = ''
+    for c in COUNTRIES:
+        if c['code'] in ('US',) or not c['urgent']:
+            continue
+        u = c['urgent'][0]
+        link = f'<a href="tel:{u["tel"]}">{E(u["phone"])}</a>'
+        if u.get('sms'):
+            link += f' (call or <a href="sms:{u["sms"]}">text</a>)'
+        others += f'<li><strong>{E(c["name"])}:</strong> {E(u["label"])}, {link}. Emergency: {E(c["emergency"])}.</li>'
+    return ('<aside class="urgent" aria-labelledby="urgent-h"><h2 id="urgent-h">Need help right now?</h2><ul>'
+            '<li><strong>United States:</strong> thinking about suicide, or in any crisis: <a href="tel:988">call 988</a> or <a href="sms:988">text 988</a>, any time. '
+            'Hurt or threatened by a partner or family member: <a href="tel:+18447628483">call</a> or <a href="sms:+18447628483">text</a> the StrongHearts Native Helpline, 1-844-762-8483. In immediate danger, call 911.</li>'
+            f'{others}</ul>'
+            f'<p><a href="{up}help.html#safety">All crisis and safety lines</a> · <a href="{up}help.html#housing">Shelter and housing help</a> · <a href="{up}world/index.html">Help in other countries</a></p></aside>')
+
+
+def build_home():
+    data = finder_data()
+    country_opts = ''.join(f'<option value="{c["code"]}">{E(c["name"])}</option>' for c in COUNTRIES)
+    need_btns = '<button type="button" class="chip" aria-pressed="true" data-need="">Everything</button>' + ''.join(
+        f'<button type="button" class="chip" aria-pressed="false" data-need="{k}">{E(NEED[k]["short"])}</button>' for k in FINDER_NEEDS)
+    counts = Counter(p[2] for p in data['points'])
+    legend = ''.join(f'<li><span class="key k-{k}" aria-hidden="true"></span>{E(label)} <span class="count">{counts.get(k, 0):,}</span></li>'
+                     for k, label in KIND_LABEL.items() if counts.get(k))
+    world_cards = ''.join(
+        f'<li id="{c["slug"]}"><a href="world/{c["slug"]}.html"><strong>{E(c["name"])}</strong><span>{E(c["peoples"])}</span></a></li>'
+        for c in COUNTRIES if c['slug'])
+    total = len(data['points'])
+    body = f'''<section class="finder" aria-labelledby="find-h">
+<div class="finder-head"><h1 id="find-h">Find help, your Nation and your people</h1>
+<p class="lede">A free map for First Peoples with {total:,} places: Nations, clinics, community centers, tribal colleges and tribal lands. Tap a place to call, get directions or open its website. <span class="dedication">{E(SITE['dedication'])}</span></p></div>
+<form class="finder-controls" role="search" onsubmit="return false">
+<p class="ctl"><label for="f-country">Where</label> <select id="f-country">{country_opts}</select></p>
+<p class="ctl"><button type="button" class="btn" id="f-locate">Use my location</button></p>
+<p class="ctl grow"><label for="f-search">Search</label> <input id="f-search" type="search" autocomplete="off" placeholder="A Nation, a clinic, a town"></p>
+</form>
+<div class="chips needs-bar" role="group" aria-label="What do you need?">{need_btns}</div>
+<p class="ctl small"><label><input type="checkbox" id="f-open"> Only places that do not ask for a tribal card</label>
+ <label><input type="checkbox" id="f-lands" checked> Show reservation and tribal land outlines</label></p>
+<div class="finder-body">
+<div class="mapwrap"><div id="map" role="region" aria-label="Map of Nations, help and community. The same places are listed next to the map."></div>
+<ul class="legend" aria-label="Map key">{legend}</ul>
+<p class="meta">Your location, if you share it, stays on your device. The map pictures come from OpenStreetMap, which sees which area you look at. <a href="about.html#a6">Privacy</a></p></div>
+<div class="results">
+<h2 id="near-h">Closest to the middle of the map</h2>
+<p id="f-status" class="meta" role="status"></p>
+<ol id="f-list" class="hits"></ol>
+<h2 id="wide-h">Help anywhere in <span id="f-cname">the United States</span></h2>
+<ul id="f-wide" class="wide"></ul>
+<p><a id="f-more" href="help.html">All help for this country</a></p>
+</div></div>
+<noscript><p class="panel">The map needs JavaScript. Everything on it is also on the <a href="states/index.html">state pages</a>, the <a href="nations.html">Nations directory</a> and the <a href="world/index.html">country pages</a>.</p></noscript>
+</section>
+{urgent_world()}
+<section aria-labelledby="paths-h"><h2 id="paths-h">Start where you are</h2><div class="paths">
+<article><h3>I am not sure which Nation I come from</h3><p>How to trace your family, what enrollment is, and who can help you look.</p><p><a class="btn" href="find-your-nation.html">Finding your Nation</a></p></article>
+<article><h3>I want to be around Native people near me</h3><p>Community centers, youth councils, recovery circles and tribal colleges.</p><p><a class="btn" href="community.html">Find community</a></p></article>
+<article><h3>I know my Nation and need to reach it</h3><p>The phone number and website of the government office of every federally recognized Nation.</p><p><a class="btn" href="nations.html">Nations directory</a></p></article>
+</div></section>
+<section aria-labelledby="world-h"><h2 id="world-h">First Peoples around the world</h2>
+<p>Nina's Map started in the United States and is growing country by country, each one in its own peoples' terms.</p>
+<ul class="needs world-cards">{world_cards}</ul></section>
+<section class="panel" aria-labelledby="who-h"><h2 id="who-h">Who made this, and who it needs</h2>
+<p>This guide was built by {E(SITE['maintainer'])} from what Nations, governments and Indigenous organizations publish about themselves. It is not a tribal government and does not speak for any Nation. It covers the United States in the most detail, with Ohio and Michigan the deepest, and now Canada, Mexico, Australia, Aotearoa New Zealand and Sápmi.</p>
+<p>It needs Indigenous people to look it over. If you work for a Nation, a tribal program or an Indigenous organization, or you know something here is wrong or missing, <a href="mailto:{E(SITE['email'])}">write to us</a>. <a href="about.html">Read how the site is put together</a>.</p></section>'''
+    head = ('<link rel="stylesheet" href="assets/vendor/leaflet.css"><link rel="stylesheet" href="assets/vendor/markercluster.css">'
+            '<script src="assets/vendor/leaflet.js" defer></script><script src="assets/vendor/leaflet.markercluster.js" defer></script>'
+            '<script src="assets/finder.js" defer></script>')
+    page('index.html', f'{SITE["name"]}: a map of help, Nations and community for First Peoples', SITE['description'], body, head)
+
+
+def country_urgent(c, up):
+    if not c['urgent'] and not c.get('emergency'):
+        return ''
+    items = ''
+    for u in c['urgent']:
+        link = f'<a href="tel:{u["tel"]}">call {E(u["phone"])}</a>'
+        if u.get('sms'):
+            link += f' or <a href="sms:{u["sms"]}">text {E(u["sms"])}</a>'
+        items += f'<li>{E(u["label"])}: {link}.</li>'
+    if c.get('emergency'):
+        items += f'<li>In immediate danger, call {E(c["emergency"])}.</li>'
+    return f'<aside class="urgent country" aria-labelledby="urgent-h"><h2 id="urgent-h">Need help right now?</h2><ul>{items}</ul></aside>'
+
+
+def build_world():
+    up = '../'
+    cards = ''
+    for c in COUNTRIES:
+        if not c['slug']:
+            continue
+        recs = [r for r in WORLD if r['area'] == c['code']]
+        body = (f'<p class="crumb"><a href="index.html">All countries</a></p><h1>{E(c["name"])}: help and community for {E(c["peoples"])}</h1>'
+                f'<p class="lede">{E(c["intro"])}</p>')
+        if c.get('intro_sources'):
+            body += '<p class="meta">Sources: ' + ' · '.join(f'<a href="{E(s["url"])}">{E(s["label"])}</a>' for s in c['intro_sources']) + '.</p>'
+        body += country_urgent(c, up)
+        body += f'<p><a class="btn" href="../index.html#{c["slug"]}">See {E(c["name"])} on the map</a></p>'
+        for need in NEED_LIST:
+            here = [r for r in recs if r['need'] == need['key']]
+            if here:
+                body += (f'<section class="need" id="{need["key"]}" aria-labelledby="h-{need["key"]}"><h2 id="h-{need["key"]}">{E(need["label"])}</h2>'
+                         '<div class="cards">' + ''.join(card(r, 3) for r in here) + '</div></section>')
+        if c['code'] == 'CAN':
+            fns = CA_PLACES['first_nations']
+            body += (f'<section id="first-nations" aria-labelledby="fn-h"><h2 id="fn-h">First Nations ({len(fns["items"])})</h2>'
+                     '<p>Each name links to the First Nation\'s official profile from Indigenous Services Canada, with its address, phone and more. '
+                     'Names are written as the department registers them.</p>'
+                     '<p class="search"><label for="q">Search by name</label> <input id="q" type="search" autocomplete="off" data-nation-search> <span id="q-count" role="status"></span></p>'
+                     '<section class="st"><ul class="nations cols">' + ''.join(
+                         f'<li data-k="{E(n["name"].lower())}"><a href="{E(n["url"])}">{E(n["name"])}</a></li>' for n in fns['items']) + '</ul></section>'
+                     f'<p class="meta">From <a href="{E(fns["source_page"])}">First Nations Location</a>, {E(fns["publisher"])}, retrieved {nice_date(CA_PLACES["retrieved"])}. Open Government Licence – Canada.</p></section>')
+            inuit = CA_PLACES['inuit']
+            regions = defaultdict(list)
+            for n in inuit['items']:
+                regions[n.get('region', 'Other')].append(n)
+            body += f'<section id="inuit" aria-labelledby="inuit-h"><h2 id="inuit-h">Inuit communities ({len(inuit["items"])})</h2><p>Inuit Nunangat, the Inuit homeland, has four regions. Names are shown in English and in Inuktut where the dataset gives them.</p>'
+            for region in sorted(regions):
+                body += f'<h3>{E(region)}</h3><ul class="nations cols">' + ''.join(
+                    f'<li><span class="nm">{E(n["name"])}</span>'
+                    + (f' <span class="aka">{E(n["inuktut"])}{" · " + E(n["syllabics"]) if n.get("syllabics") else ""}</span>' if n.get('inuktut') and n['inuktut'] != n['name'] else '')
+                    + f' <span class="where">{E(n.get("province", ""))}</span></li>' for n in regions[region]) + '</ul>'
+            body += f'<p class="meta">From <a href="{E(inuit["source_page"])}">Inuit Communities Location</a>, {E(inuit["publisher"])}, retrieved {nice_date(CA_PLACES["retrieved"])}.</p></section>'
+        body += (f'<section class="panel"><h2>Help us fill in {E(c["name"])}</h2><p>This page is new and short on purpose: everything on it is read from the organization\'s own page or a government page. '
+                 f'If you know a program, a community center or a correction that belongs here, write to <a href="mailto:{E(SITE["email"])}">{E(SITE["email"])}</a>.</p></section>')
+        desc = f'Help for {c["peoples"]} in {c["name"]}: crisis lines, health care, family support, legal help, and how to reach Nations and communities, with sources.'
+        page(f'world/{c["slug"]}.html', f'{c["name"]}: help and community for {c["peoples"]} | {SITE["name"]}', desc[:255], body)
+        first = c['urgent'][0] if c['urgent'] else None
+        line = f'<span class="meta">{E(first["label"])}: {E(first["phone"])}</span>' if first else ''
+        cards += f'<li><a href="{c["slug"]}.html"><strong>{E(c["name"])}</strong><span>{E(c["peoples"])}</span>{line}</a></li>'
+    body = f'''<h1>First Peoples around the world</h1>
+<p class="lede">Nina's Map began in the United States. These pages carry it to other countries, one at a time, using each people's own terms. Every listing shows where it came from and when it was checked.</p>
+<p>Country pages so far: Canada, Mexico, Australia, Aotearoa New Zealand, Sápmi, and help that reaches Indigenous peoples anywhere. More are on the way. If you want your country next, <a href="mailto:{E(SITE['email'])}">tell us</a>.</p>
+<ul class="needs world-cards">{cards}</ul>
+<p><a class="btn" href="../index.html">Open the map</a> <a class="btn line" href="../help.html">Help in the United States</a></p>'''
+    page('world/index.html', f'Help and community for Indigenous peoples around the world | {SITE["name"]}',
+         'Help lines, health care, family support and Nation and community directories for Indigenous peoples in Canada, Mexico, Australia, Aotearoa New Zealand, Sápmi and worldwide.', body)
+
+
 def build_sitemap():
-    dates = [r['checked'] for r in RES] + [NATIONS_FILE['retrieved']]
+    dates = [r['checked'] for r in RES + WORLD] + [NATIONS_FILE['retrieved']]
     lastmod = max(dates)
     urls = ''.join(
         f'<url><loc>{E(SITE["base_url"] + ("" if p == "index.html" else p))}</loc><lastmod>{lastmod}</lastmod></url>\n'
@@ -885,10 +1133,11 @@ def main():
     build_community()
     build_proud()
     build_works()
+    build_world()
     build_about()
     build_404()
     build_sitemap()
-    print(f'{len(PAGES)} pages, {len(RES)} listings, {len(NATIONS)} Nation offices')
+    print(f'{len(PAGES)} pages, {len(RES) + len(WORLD)} listings, {len(NATIONS)} Nation offices')
 
 
 if __name__ == '__main__':

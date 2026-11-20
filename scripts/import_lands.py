@@ -4,6 +4,7 @@
 Source: the U.S. Census Bureau's 2020 relationship file of American Indian, Alaska Native and
 Native Hawaiian areas by county. It is a public file; this script only reads it. Names are kept as
 the Census Bureau writes them. Run by hand when the Bureau publishes a new file.
+Map positions come from data/map/land-points.json (npm run lands).
 """
 import json, sys, urllib.request
 from collections import defaultdict
@@ -21,8 +22,9 @@ SQMI = 2589988.11
 def main():
     text = Path(sys.argv[1]).read_text(encoding='utf-8-sig') if len(sys.argv) > 1 else \
         urllib.request.urlopen(URL, timeout=120).read().decode('utf-8-sig')
+    point = {p['GEOID']: (p['lat'], p['lon']) for p in json.loads((ROOT / 'data/map/land-points.json').read_text())}
     fips = json.loads((ROOT / 'scripts/state_fips.json').read_text())
-    areas = defaultdict(lambda: {'land': 0, 'counties': []})
+    areas = defaultdict(lambda: {'land': 0, 'counties': [], 'geoid': None})
     for line in text.splitlines()[1:]:
         c = line.split('|')
         if len(c) < 18 or not c[2]:
@@ -34,11 +36,15 @@ def main():
         key = (state, c[2], kind)
         part = int(c[16] or 0)
         areas[key]['land'] += part
+        areas[key]['geoid'] = c[1]
         areas[key]['counties'].append((part, c[10]))
     out = defaultdict(list)
     for (state, name, kind), v in sorted(areas.items()):
         counties = [n for _, n in sorted(v['counties'], reverse=True)]
-        out[state].append({'name': name, 'kind': kind, 'sq_mi': round(v['land'] / SQMI, 1), 'counties': counties})
+        rec = {'name': name, 'kind': kind, 'sq_mi': round(v['land'] / SQMI, 1), 'counties': counties}
+        if v['geoid'] in point:
+            rec['lat'], rec['lon'] = point[v['geoid']]
+        out[state].append(rec)
     data = {'source': URL, 'source_page': PAGE, 'publisher': 'U.S. Census Bureau', 'vintage': '2020',
             'retrieved': date.today().isoformat(), 'states': out}
     (ROOT / 'data/lands.json').write_text(json.dumps(data, ensure_ascii=False, indent=0) + '\n', encoding='utf-8')

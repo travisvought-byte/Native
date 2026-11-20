@@ -20,7 +20,10 @@
      "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
      "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
     }
-   ]
+   ],
+   "lat": 42.9606,
+   "lon": -88.0057,
+   "pin": "town"
   },
   {
    "id": "wi-ignace",
@@ -40,7 +43,10 @@
      "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
      "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
     }
-   ]
+   ],
+   "lat": 43.0633,
+   "lon": -87.9667,
+   "pin": "town"
   }
  ]
 }

@@ -1,0 +1,100 @@
+{
+ "area": "SAPMI",
+ "records": [
+  {
+   "id": "sapmi-samediggi-no",
+   "name": "Sámediggi / Sametinget: the Sámi Parliament of Norway",
+   "place": "Kárášjohka/Karasjok, Norway",
+   "need": "nation",
+   "also": [
+    "community"
+   ],
+   "access": "anyone",
+   "what": "The Sámi people's elected parliament in Norway, dealing with all matters that concern the Sámi. Its plenary meetings are open to the public, and it offers guided tours.",
+   "who": "Sámi in Norway, and anyone with a question about Sámi matters.",
+   "start": "Call or email the Sámi Parliament.",
+   "phone": "+47 78 47 40 00",
+   "tel": "+4778474000",
+   "email": "samediggi@samediggi.no",
+   "address": "Ávjovárgeaidnu 50, Kárášjohka/Karasjok, Norway",
+   "url": "https://sametinget.no/",
+   "url_label": "sametinget.no",
+   "source": "https://sametinget.no/visit-the-sami-parliament",
+   "lat": 69.4719,
+   "lon": 25.5113,
+   "pin": "town",
+   "country": "NO",
+   "checked": "2026-11-20"
+  },
+  {
+   "id": "sapmi-sametinget-se",
+   "name": "Sámediggi / Sametinget: the Sámi Parliament of Sweden",
+   "place": "Giron/Kiruna, Sweden",
+   "need": "nation",
+   "also": [
+    "community"
+   ],
+   "access": "anyone",
+   "what": "The elected Sámi Parliament in Sweden, based in Kiruna. Under Swedish law its main task is to look after matters of Sámi culture in Sweden.",
+   "who": "Sámi in Sweden, and anyone with a question about Sámi matters.",
+   "start": "Contact the Sámi Parliament through its website.",
+   "address": "Box 90, 981 22 Kiruna, Sweden",
+   "url": "https://www.sametinget.se/",
+   "url_label": "sametinget.se",
+   "source": "https://data.riksdagen.se/dokument/sfs-1992-1433.html",
+   "lat": 67.8558,
+   "lon": 20.2253,
+   "pin": "town",
+   "country": "SE",
+   "checked": "2026-11-20"
+  },
+  {
+   "id": "sapmi-samediggi-fi",
+   "name": "Sámediggi / Saamelaiskäräjät: the Sámi Parliament of Finland",
+   "place": "Anár/Inari, Finland",
+   "need": "nation",
+   "also": [
+    "community",
+    "health"
+   ],
+   "access": "anyone",
+   "what": "The elected Sámi Parliament in Finland, at the Sámi Cultural Centre Sajos in Inari. It works for Sámi rights, including in social and health services, and on Sámi languages, culture and youth.",
+   "who": "Sámi in Finland, and anyone with a question about Sámi matters.",
+   "start": "Call the telephone centre, Monday to Friday 9 to 11 and 12 to 15, or email.",
+   "phone": "+358 10 839 3100",
+   "tel": "+358108393100",
+   "email": "info@samediggi.fi",
+   "address": "Menesjärventie 2 A, 99870 Inari, Finland",
+   "url": "https://samediggi.fi/en/",
+   "url_label": "samediggi.fi",
+   "source": "https://samediggi.fi/en/contact-information/",
+   "lat": 68.9058,
+   "lon": 27.0289,
+   "pin": "town",
+   "country": "FI",
+   "checked": "2026-11-20"
+  },
+  {
+   "id": "sapmi-sanks",
+   "name": "SANKS: Sámi mental health and substance use service",
+   "place": "Kárášjohka/Karasjok, Norway",
+   "need": "recovery",
+   "also": [
+    "health",
+    "safety"
+   ],
+   "access": "indigenous",
+   "what": "A specialist service of Finnmark Hospital Trust that gives Sámi people care in mental health and substance use that fits their language and culture, for children, youth and adults. It also helps people who have been subjected to violence or abuse.",
+   "who": "Sámi people anywhere in Norway.",
+   "start": "Ask your doctor, psychologist or child welfare service for a referral. Read about SANKS on Dinutvei, the national site on violence and abuse.",
+   "url": "https://dinutvei.no/en/english/have-you-been-subjected-to-violence-or-assault-what-can-the-sami-norwegian-national-advisory-unit-on-mental-health-and-substance-use-sanks-offer/",
+   "url_label": "About SANKS (Dinutvei)",
+   "source": "https://finnmarkssykehuset.no/49fd46/siteassets/documents/sanks/nordsamisk-infobrosjyre---2022.pdf",
+   "lat": 69.4719,
+   "lon": 25.5113,
+   "pin": "town",
+   "country": "NO",
+   "checked": "2026-11-20"
+  }
+ ]
+}

@@ -1,0 +1,42 @@
+{
+ "area": "MEX",
+ "records": [
+  {
+   "id": "mx-linea-de-la-vida",
+   "name": "Línea de la Vida",
+   "need": "safety",
+   "also": [
+    "recovery"
+   ],
+   "access": "anyone",
+   "urgent": 1,
+   "what": "Línea nacional, gratuita y confidencial, las 24 horas: apoyo en crisis, riesgo suicida, consumo de sustancias y violencia. (Free, confidential national line, 24 hours, for crisis, suicide risk, substance use and violence.)",
+   "who": "Cualquier persona en México. (Anyone in Mexico.)",
+   "start": "Llame al 800 911 2000. En una emergencia, llame al 911.",
+   "phone": "800 911 2000",
+   "tel": "+528009112000",
+   "url": "https://www.gob.mx/conasama/articulos/linea-de-la-vida-800-911-2000",
+   "url_label": "gob.mx/conasama",
+   "source": "https://www.gob.mx/conasama/articulos/linea-de-la-vida-800-911-2000",
+   "checked": "2026-11-20"
+  },
+  {
+   "id": "mx-inpi",
+   "name": "Instituto Nacional de los Pueblos Indígenas (INPI)",
+   "need": "nation",
+   "also": [
+    "school",
+    "money",
+    "legal"
+   ],
+   "access": "indigenous",
+   "what": "La autoridad del gobierno federal en asuntos de los pueblos indígenas y afromexicano, con oficinas de representación en los estados y Centros Coordinadores en las regiones indígenas. (The federal authority for Indigenous and Afro-Mexican peoples, with state offices and regional coordinating centres.)",
+   "who": "Pueblos y comunidades indígenas y afromexicanas. (Indigenous and Afro-Mexican peoples and communities.)",
+   "start": "Busque la oficina o el Centro Coordinador de su región. (Find the office or coordinating centre for your region.)",
+   "url": "https://www.gob.mx/inpi",
+   "url_label": "gob.mx/inpi",
+   "source": "https://www.gob.mx/cms/uploads/attachment/file/742569/2guia.pdf",
+   "checked": "2026-11-20"
+  }
+ ]
+}

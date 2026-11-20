@@ -11,7 +11,7 @@ from datetime import date
 from pathlib import Path
 
 LAYER = 'https://services2.arcgis.com/VFLAJVozK0rtzQmT/arcgis/rest/services/ITU_Health_Facilities_View/FeatureServer/0'
-QUERY = LAYER + '/query?where=1%3D1&outFields=*&returnGeometry=false&f=json'
+QUERY = LAYER + '/query?where=1%3D1&outFields=*&returnGeometry=true&outSR=4326&f=json'
 PAGE = 'https://www.ihs.gov/findhealthcaremap/'
 ROOT = Path(__file__).resolve().parent.parent
 RUN = {'I': 'ihs', 'T': 'tribal', 'U': 'urban', 'N': 'partner'}
@@ -39,7 +39,7 @@ def clean(s):
 def main():
     raw = json.loads(Path(sys.argv[1]).read_text()) if len(sys.argv) > 1 else \
         json.loads(urllib.request.urlopen(QUERY, timeout=120).read())
-    rows = [f['attributes'] for f in raw['features']]
+    rows = [dict(f['attributes'], _geo=f.get('geometry') or {}) for f in raw['features']]
     out = {}
     for x in rows:
         if x.get('STATUS') != 'Active' or x.get('SERVICE_TYPE') in SKIP or not x.get('STATE'):
@@ -51,6 +51,9 @@ def main():
                'phone': clean(x.get('PHONE')), 'hours': clean(x.get('HOURS')), 'type': clean(x.get('SERVICE_TYPE')),
                'kind': kind(x), 'run': RUN.get(x.get('ITU_CODE'), 'partner'), 'by': clean(x.get('TRIBAL_ENTITY')),
                'offers': flags, 'url': clean(x.get('WEBSITE_URL'))}
+        g = x['_geo']
+        if g.get('y') and g.get('x'):
+            rec['lat'], rec['lon'] = round(g['y'], 4), round(g['x'], 4)
         out.setdefault(x['STATE'], []).append({k: v for k, v in rec.items() if v})
     for v in out.values():
         v.sort(key=lambda r: ((r.get('city') or '').lower(), r['name'].lower()))

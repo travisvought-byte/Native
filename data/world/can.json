@@ -1,0 +1,138 @@
+{
+ "area": "CAN",
+ "records": [
+  {
+   "id": "ca-hope-for-wellness",
+   "name": "Hope for Wellness Help Line",
+   "need": "safety",
+   "also": [
+    "recovery"
+   ],
+   "access": "indigenous",
+   "urgent": 1,
+   "what": "Counselling and crisis help by phone or online chat, 24 hours a day, for Indigenous people anywhere in Canada.",
+   "who": "All Indigenous people across Canada.",
+   "start": "Call 1-855-242-3310, or open the chat on the website.",
+   "phone": "1-855-242-3310",
+   "phone_note": "Any time",
+   "url": "https://www.hopeforwellness.ca/",
+   "url_label": "hopeforwellness.ca (chat)",
+   "source": "https://rcaanc-cirnac.gc.ca/eng/1625663008357",
+   "checked": "2026-11-20"
+  },
+  {
+   "id": "ca-988",
+   "name": "9-8-8 Suicide Crisis Helpline",
+   "need": "safety",
+   "access": "anyone",
+   "urgent": 2,
+   "what": "Call or text 988 any time if you are thinking about suicide or worried about someone. Free, in every province and territory.",
+   "who": "Anyone in Canada.",
+   "start": "Call or text 988. In an emergency, call 911.",
+   "phone": "988",
+   "sms": {
+    "to": "988",
+    "label": "Text 988"
+   },
+   "url": "https://988.ca/",
+   "url_label": "988.ca",
+   "source": "https://www.sac-isc.gc.ca/eng/1568396042341",
+   "checked": "2026-11-20"
+  },
+  {
+   "id": "ca-irs-crisis-line",
+   "name": "National Indian Residential School Crisis Line",
+   "need": "safety",
+   "also": [
+    "recovery"
+   ],
+   "access": "ask",
+   "urgent": 3,
+   "what": "Crisis support, 24 hours a day, for former residential school students and their families, with referrals to other health supports.",
+   "who": "Former Indian Residential School students and their families.",
+   "start": "Call 1-866-925-4419, any time.",
+   "phone": "1-866-925-4419",
+   "url": "https://www.sac-isc.gc.ca/eng/1581971225188/1581971250953",
+   "url_label": "Resolution Health Support Program",
+   "source": "https://www.sac-isc.gc.ca/eng/1581971225188/1581971250953",
+   "checked": "2026-11-20"
+  },
+  {
+   "id": "ca-jordans-principle",
+   "name": "Jordan's Principle",
+   "need": "family",
+   "also": [
+    "health",
+    "school"
+   ],
+   "access": "ask",
+   "what": "Funding so First Nations children can get the health, social and education products, services and supports they need, on or off reserve. Named for Jordan River Anderson of Norway House Cree Nation.",
+   "who": "First Nations children in Canada.",
+   "start": "Call the Jordan's Principle Call Centre, open 24 hours. It is not a crisis line; if a child needs immediate care, call 911.",
+   "phone": "1-855-572-4453",
+   "phone_note": "1-855-JP-CHILD, any time. Teletypewriter: 1-866-553-0554",
+   "url": "https://www.canada.ca/en/indigenous-services-canada/services/jordans-principle.html",
+   "url_label": "Jordan's Principle",
+   "source": "https://www.sac-isc.gc.ca/eng/1568396042341/1568396159824",
+   "checked": "2026-11-20"
+  },
+  {
+   "id": "ca-inuit-child-first",
+   "name": "Inuit Child First Initiative",
+   "need": "family",
+   "also": [
+    "health",
+    "school"
+   ],
+   "access": "ask",
+   "what": "Funding so Inuit children have equal access to health, social and education products, services and supports. Free to apply.",
+   "who": "Inuit children, wherever they live in Canada.",
+   "start": "Contact your regional focal point, or call the national call centre, open 24 hours.",
+   "phone": "1-855-572-4453",
+   "url": "https://www.sac-isc.gc.ca/eng/1536348095773",
+   "url_label": "Supporting Inuit children",
+   "more": [
+    {
+     "label": "Inuit Tapiriit Kanatami: how to apply in each region",
+     "url": "https://itk.ca/projects/inuit-child-first-initiative/"
+    }
+   ],
+   "source": "https://www.sac-isc.gc.ca/eng/1536348095773",
+   "checked": "2026-11-20"
+  },
+  {
+   "id": "ca-nihb",
+   "name": "Non-Insured Health Benefits (NIHB)",
+   "need": "health",
+   "also": [
+    "recovery"
+   ],
+   "access": "ask",
+   "what": "Federal coverage for health costs that provincial plans and private insurance do not cover, such as prescription drugs, dental and vision care, medical supplies, mental health counselling and medical travel.",
+   "who": "Residents of Canada who are registered First Nations or recognized Inuit. First Nations in British Columbia are covered through the First Nations Health Authority instead, and Inuit in Nunavik through their regional board.",
+   "start": "Read who is eligible, then ask your health provider or pharmacist to bill NIHB.",
+   "url": "https://www.sac-isc.gc.ca/eng/1574187596083/1576511384063",
+   "url_label": "Who is eligible",
+   "source": "https://www.sac-isc.gc.ca/eng/1576790320164/157679036455",
+   "checked": "2026-11-20"
+  },
+  {
+   "id": "ca-friendship-centres",
+   "name": "Friendship Centres",
+   "need": "community",
+   "also": [
+    "housing",
+    "work",
+    "family"
+   ],
+   "access": "indigenous",
+   "what": "Community hubs for Indigenous people living in cities and towns, with programs in health, shelter, youth, justice and more. Over 100 centres belong to the National Association of Friendship Centres.",
+   "who": "Indigenous people living in urban areas; many programs are open to everyone.",
+   "start": "Find the centre nearest you on the association's map.",
+   "url": "https://nafc.ca/friendship-centres/find-a-friendship-centre",
+   "url_label": "Find a Friendship Centre",
+   "source": "https://nafc.ca/",
+   "checked": "2026-11-20"
+  }
+ ]
+}

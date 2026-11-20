@@ -22,7 +22,10 @@
      "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
      "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
     }
-   ]
+   ],
+   "lat": 45.537,
+   "lon": -122.65,
+   "pin": "town"
   }
  ]
 }

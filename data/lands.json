@@ -3,7 +3,7 @@
 "source_page": "https://www.census.gov/geographies/reference-files/time-series/geo/relationship-files.2020.html",
 "publisher": "U.S. Census Bureau",
 "vintage": "2020",
-"retrieved": "2026-11-18",
+"retrieved": "2026-11-20",
 "states": {
 "AK": [
 {
@@ -12,7 +12,9 @@
 "sq_mi": 7.4,
 "counties": [
 "Kodiak Island Borough"
-]
+],
+"lat": 56.944,
+"lon": -154.2159
 },
 {
 "name": "Akiachak ANVSA",
@@ -20,7 +22,9 @@
 "sq_mi": 15.4,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 60.9026,
+"lon": -161.4133
 },
 {
 "name": "Akiak ANVSA",
@@ -28,7 +32,9 @@
 "sq_mi": 0.8,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 60.9109,
+"lon": -161.2252
 },
 {
 "name": "Akutan ANVSA",
@@ -36,7 +42,9 @@
 "sq_mi": 1.4,
 "counties": [
 "Aleutians East Borough"
-]
+],
+"lat": 54.1385,
+"lon": -165.7847
 },
 {
 "name": "Alakanuk ANVSA",
@@ -44,7 +52,9 @@
 "sq_mi": 32.2,
 "counties": [
 "Kusilvak Census Area"
-]
+],
+"lat": 62.6895,
+"lon": -164.6579
 },
 {
 "name": "Alatna ANVSA",
@@ -52,7 +62,9 @@
 "sq_mi": 18.0,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 66.5651,
+"lon": -152.7518
 },
 {
 "name": "Aleknagik ANVSA",
@@ -60,7 +72,9 @@
 "sq_mi": 12.9,
 "counties": [
 "Dillingham Census Area"
-]
+],
+"lat": 59.2776,
+"lon": -158.6489
 },
 {
 "name": "Algaaciq ANVSA",
@@ -68,7 +82,9 @@
 "sq_mi": 2.1,
 "counties": [
 "Kusilvak Census Area"
-]
+],
+"lat": 62.066,
+"lon": -163.1608
 },
 {
 "name": "Allakaket ANVSA",
@@ -76,7 +92,9 @@
 "sq_mi": 8.7,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 66.5407,
+"lon": -152.5776
 },
 {
 "name": "Ambler ANVSA",
@@ -84,7 +102,9 @@
 "sq_mi": 10.3,
 "counties": [
 "Northwest Arctic Borough"
-]
+],
+"lat": 67.0892,
+"lon": -157.8741
 },
 {
 "name": "Anaktuvuk Pass ANVSA",
@@ -92,7 +112,9 @@
 "sq_mi": 5.2,
 "counties": [
 "North Slope Borough"
-]
+],
+"lat": 68.15,
+"lon": -151.7162
 },
 {
 "name": "Andreafsky ANVSA",
@@ -100,7 +122,9 @@
 "sq_mi": 25.8,
 "counties": [
 "Kusilvak Census Area"
-]
+],
+"lat": 62.0644,
+"lon": -163.3223
 },
 {
 "name": "Angoon ANVSA",
@@ -108,7 +132,9 @@
 "sq_mi": 24.5,
 "counties": [
 "Hoonah-Angoon Census Area"
-]
+],
+"lat": 57.4498,
+"lon": -134.4958
 },
 {
 "name": "Aniak ANVSA",
@@ -116,7 +142,9 @@
 "sq_mi": 11.6,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 61.5813,
+"lon": -159.5322
 },
 {
 "name": "Annette Island Reserve",
@@ -124,7 +152,9 @@
 "sq_mi": 132.8,
 "counties": [
 "Prince of Wales-Hyder Census Area"
-]
+],
+"lat": 55.13,
+"lon": -131.4489
 },
 {
 "name": "Anvik ANVSA",
@@ -132,7 +162,9 @@
 "sq_mi": 9.5,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 62.6535,
+"lon": -160.2144
 },
 {
 "name": "Arctic Village ANVSA",
@@ -140,7 +172,9 @@
 "sq_mi": 11.8,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 68.1032,
+"lon": -145.5996
 },
 {
 "name": "Atka ANVSA",
@@ -148,7 +182,9 @@
 "sq_mi": 8.0,
 "counties": [
 "Aleutians West Census Area"
-]
+],
+"lat": 52.2317,
+"lon": -174.2067
 },
 {
 "name": "Atmautluak ANVSA",
@@ -156,7 +192,9 @@
 "sq_mi": 0.6,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 60.8588,
+"lon": -162.2745
 },
 {
 "name": "Atqasuk ANVSA",
@@ -164,7 +202,9 @@
 "sq_mi": 39.1,
 "counties": [
 "North Slope Borough"
-]
+],
+"lat": 70.4874,
+"lon": -157.3722
 },
 {
 "name": "Barrow ANVSA",
@@ -172,7 +212,9 @@
 "sq_mi": 18.8,
 "counties": [
 "North Slope Borough"
-]
+],
+"lat": 71.2659,
+"lon": -156.7672
 },
 {
 "name": "Beaver ANVSA",
@@ -180,7 +222,9 @@
 "sq_mi": 20.5,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 66.3825,
+"lon": -147.3097
 },
 {
 "name": "Belkofski ANVSA",
@@ -188,7 +232,9 @@
 "sq_mi": 2.7,
 "counties": [
 "Aleutians East Borough"
-]
+],
+"lat": 55.0903,
+"lon": -162.0419
 },
 {
 "name": "Bethel ANVSA",
@@ -196,7 +242,9 @@
 "sq_mi": 44.5,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 60.7928,
+"lon": -161.7917
 },
 {
 "name": "Bill Moore's ANVSA",
@@ -204,7 +252,9 @@
 "sq_mi": 2.5,
 "counties": [
 "Kusilvak Census Area"
-]
+],
+"lat": 62.9421,
+"lon": -163.7815
 },
 {
 "name": "Birch Creek ANVSA",
@@ -212,7 +262,9 @@
 "sq_mi": 8.1,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 66.2698,
+"lon": -145.8874
 },
 {
 "name": "Brevig Mission ANVSA",
@@ -220,7 +272,9 @@
 "sq_mi": 2.4,
 "counties": [
 "Nome Census Area"
-]
+],
+"lat": 65.3414,
+"lon": -166.4953
 },
 {
 "name": "Buckland ANVSA",
@@ -228,7 +282,9 @@
 "sq_mi": 0.9,
 "counties": [
 "Northwest Arctic Borough"
-]
+],
+"lat": 65.9784,
+"lon": -161.1341
 },
 {
 "name": "Cantwell ANVSA",
@@ -236,7 +292,9 @@
 "sq_mi": 101.1,
 "counties": [
 "Denali Borough"
-]
+],
+"lat": 63.3879,
+"lon": -148.7645
 },
 {
 "name": "Canyon Village ANVSA",
@@ -244,7 +302,9 @@
 "sq_mi": 30.8,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 67.1763,
+"lon": -142.1009
 },
 {
 "name": "Chalkyitsik ANVSA",
@@ -252,7 +312,9 @@
 "sq_mi": 8.5,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 66.6459,
+"lon": -143.7889
 },
 {
 "name": "Chefornak ANVSA",
@@ -260,7 +322,9 @@
 "sq_mi": 5.2,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 60.155,
+"lon": -164.255
 },
 {
 "name": "Chenega ANVSA",
@@ -268,7 +332,9 @@
 "sq_mi": 29.3,
 "counties": [
 "Chugach Census Area"
-]
+],
+"lat": 60.0824,
+"lon": -148.0104
 },
 {
 "name": "Chevak ANVSA",
@@ -276,7 +342,9 @@
 "sq_mi": 1.1,
 "counties": [
 "Kusilvak Census Area"
-]
+],
+"lat": 61.5289,
+"lon": -165.5941
 },
 {
 "name": "Chickaloon ANVSA",
@@ -284,7 +352,9 @@
 "sq_mi": 5957.2,
 "counties": [
 "Matanuska-Susitna Borough"
-]
+],
+"lat": 62.2561,
+"lon": -148.4042
 },
 {
 "name": "Chignik ANVSA",
@@ -292,7 +362,9 @@
 "sq_mi": 10.9,
 "counties": [
 "Lake and Peninsula Borough"
-]
+],
+"lat": 56.3025,
+"lon": -158.4324
 },
 {
 "name": "Chignik Lagoon ANVSA",
@@ -300,7 +372,9 @@
 "sq_mi": 13.3,
 "counties": [
 "Lake and Peninsula Borough"
-]
+],
+"lat": 56.3024,
+"lon": -158.5004
 },
 {
 "name": "Chignik Lake ANVSA",
@@ -308,7 +382,9 @@
 "sq_mi": 15.7,
 "counties": [
 "Lake and Peninsula Borough"
-]
+],
+"lat": 56.2468,
+"lon": -158.7615
 },
 {
 "name": "Chilkat ANVSA",
@@ -317,7 +393,9 @@
 "counties": [
 "Hoonah-Angoon Census Area",
 "Haines Borough"
-]
+],
+"lat": 59.4037,
+"lon": -135.8963
 },
 {
 "name": "Chilkoot ANVSA",
@@ -325,7 +403,9 @@
 "sq_mi": 0.5,
 "counties": [
 "Haines Borough"
-]
+],
+"lat": 59.225,
+"lon": -135.4448
 },
 {
 "name": "Chistochina ANVSA",
@@ -333,7 +413,9 @@
 "sq_mi": 26.8,
 "counties": [
 "Copper River Census Area"
-]
+],
+"lat": 62.5945,
+"lon": -144.6268
 },
 {
 "name": "Chitina ANVSA",
@@ -341,7 +423,9 @@
 "sq_mi": 119.2,
 "counties": [
 "Copper River Census Area"
-]
+],
+"lat": 61.519,
+"lon": -144.5433
 },
 {
 "name": "Chuathbaluk ANVSA",
@@ -349,7 +433,9 @@
 "sq_mi": 4.5,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 61.5741,
+"lon": -159.2489
 },
 {
 "name": "Chuloonawick ANVSA",
@@ -357,7 +443,9 @@
 "sq_mi": 35.7,
 "counties": [
 "Kusilvak Census Area"
-]
+],
+"lat": 62.941,
+"lon": -164.1349
 },
 {
 "name": "Circle ANVSA",
@@ -365,7 +453,9 @@
 "sq_mi": 106.0,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 65.7893,
+"lon": -144.16
 },
 {
 "name": "Clarks Point ANVSA",
@@ -373,7 +463,9 @@
 "sq_mi": 3.3,
 "counties": [
 "Dillingham Census Area"
-]
+],
+"lat": 58.832,
+"lon": -158.5226
 },
 {
 "name": "Copper Center ANVSA",
@@ -381,7 +473,9 @@
 "sq_mi": 15.1,
 "counties": [
 "Copper River Census Area"
-]
+],
+"lat": 62,
+"lon": -145.3611
 },
 {
 "name": "Council ANVSA",
@@ -389,7 +483,9 @@
 "sq_mi": 21.2,
 "counties": [
 "Nome Census Area"
-]
+],
+"lat": 64.9045,
+"lon": -163.6804
 },
 {
 "name": "Craig ANVSA",
@@ -397,7 +493,9 @@
 "sq_mi": 14.0,
 "counties": [
 "Prince of Wales-Hyder Census Area"
-]
+],
+"lat": 55.5074,
+"lon": -133.083
 },
 {
 "name": "Crooked Creek ANVSA",
@@ -405,7 +503,9 @@
 "sq_mi": 99.8,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 61.8393,
+"lon": -158.1049
 },
 {
 "name": "Deering ANVSA",
@@ -413,7 +513,9 @@
 "sq_mi": 5.0,
 "counties": [
 "Northwest Arctic Borough"
-]
+],
+"lat": 66.0762,
+"lon": -162.7631
 },
 {
 "name": "Dillingham ANVSA",
@@ -421,7 +523,9 @@
 "sq_mi": 70.9,
 "counties": [
 "Dillingham Census Area"
-]
+],
+"lat": 59.0805,
+"lon": -158.5585
 },
 {
 "name": "Dot Lake ANVSA",
@@ -429,7 +533,9 @@
 "sq_mi": 4.4,
 "counties": [
 "Southeast Fairbanks Census Area"
-]
+],
+"lat": 63.6628,
+"lon": -144.0162
 },
 {
 "name": "Douglas ANVSA",
@@ -437,7 +543,9 @@
 "sq_mi": 76.6,
 "counties": [
 "Juneau City and Borough"
-]
+],
+"lat": 58.2783,
+"lon": -134.5168
 },
 {
 "name": "Eagle ANVSA",
@@ -445,7 +553,9 @@
 "sq_mi": 17.0,
 "counties": [
 "Southeast Fairbanks Census Area"
-]
+],
+"lat": 64.7435,
+"lon": -141.122
 },
 {
 "name": "Eek ANVSA",
@@ -453,7 +563,9 @@
 "sq_mi": 0.6,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 60.2164,
+"lon": -162.0331
 },
 {
 "name": "Egegik ANVSA",
@@ -461,7 +573,9 @@
 "sq_mi": 29.6,
 "counties": [
 "Lake and Peninsula Borough"
-]
+],
+"lat": 58.2087,
+"lon": -157.3569
 },
 {
 "name": "Eklutna ANVSA",
@@ -469,7 +583,9 @@
 "sq_mi": 4.5,
 "counties": [
 "Anchorage Municipality"
-]
+],
+"lat": 61.462,
+"lon": -149.345
 },
 {
 "name": "Ekuk ANVSA",
@@ -477,7 +593,9 @@
 "sq_mi": 4.3,
 "counties": [
 "Dillingham Census Area"
-]
+],
+"lat": 58.8041,
+"lon": -158.5297
 },
 {
 "name": "Ekwok ANVSA",
@@ -485,7 +603,9 @@
 "sq_mi": 16.7,
 "counties": [
 "Dillingham Census Area"
-]
+],
+"lat": 59.3462,
+"lon": -157.4861
 },
 {
 "name": "Elim ANVSA",
@@ -493,7 +613,9 @@
 "sq_mi": 307.2,
 "counties": [
 "Nome Census Area"
-]
+],
+"lat": 64.7978,
+"lon": -161.9984
 },
 {
 "name": "Emmonak ANVSA",
@@ -501,7 +623,9 @@
 "sq_mi": 5.0,
 "counties": [
 "Kusilvak Census Area"
-]
+],
+"lat": 62.7762,
+"lon": -164.5157
 },
 {
 "name": "Evansville ANVSA",
@@ -509,7 +633,9 @@
 "sq_mi": 6.1,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 66.9035,
+"lon": -151.5143
 },
 {
 "name": "Eyak ANVSA",
@@ -517,7 +643,9 @@
 "sq_mi": 13.7,
 "counties": [
 "Chugach Census Area"
-]
+],
+"lat": 60.5311,
+"lon": -145.6048
 },
 {
 "name": "False Pass ANVSA",
@@ -525,7 +653,9 @@
 "sq_mi": 12.3,
 "counties": [
 "Aleutians East Borough"
-]
+],
+"lat": 54.8992,
+"lon": -163.4171
 },
 {
 "name": "Fort Yukon ANVSA",
@@ -533,7 +663,9 @@
 "sq_mi": 6.7,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 66.5784,
+"lon": -145.224
 },
 {
 "name": "Gakona ANVSA",
@@ -541,7 +673,9 @@
 "sq_mi": 36.6,
 "counties": [
 "Copper River Census Area"
-]
+],
+"lat": 62.4244,
+"lon": -144.9686
 },
 {
 "name": "Galena ANVSA",
@@ -549,7 +683,9 @@
 "sq_mi": 17.2,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 64.7426,
+"lon": -156.8687
 },
 {
 "name": "Gambell ANVSA",
@@ -557,7 +693,9 @@
 "sq_mi": 10.5,
 "counties": [
 "Nome Census Area"
-]
+],
+"lat": 63.7513,
+"lon": -171.6893
 },
 {
 "name": "Georgetown ANVSA",
@@ -565,7 +703,9 @@
 "sq_mi": 43.8,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 61.919,
+"lon": -157.6514
 },
 {
 "name": "Golovin ANVSA",
@@ -573,7 +713,9 @@
 "sq_mi": 4.1,
 "counties": [
 "Nome Census Area"
-]
+],
+"lat": 64.5641,
+"lon": -162.9958
 },
 {
 "name": "Goodnews Bay ANVSA",
@@ -581,7 +723,9 @@
 "sq_mi": 3.3,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 59.1268,
+"lon": -161.5753
 },
 {
 "name": "Grayling ANVSA",
@@ -589,7 +733,9 @@
 "sq_mi": 11.2,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 62.899,
+"lon": -160.1078
 },
 {
 "name": "Gulkana ANVSA",
@@ -597,7 +743,9 @@
 "sq_mi": 4.3,
 "counties": [
 "Copper River Census Area"
-]
+],
+"lat": 62.2693,
+"lon": -145.3678
 },
 {
 "name": "Hamilton ANVSA",
@@ -605,7 +753,9 @@
 "sq_mi": 5.6,
 "counties": [
 "Kusilvak Census Area"
-]
+],
+"lat": 62.9074,
+"lon": -163.8358
 },
 {
 "name": "Healy Lake ANVSA",
@@ -613,7 +763,9 @@
 "sq_mi": 47.4,
 "counties": [
 "Southeast Fairbanks Census Area"
-]
+],
+"lat": 63.964,
+"lon": -144.6975
 },
 {
 "name": "Holy Cross ANVSA",
@@ -621,7 +773,9 @@
 "sq_mi": 28.8,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 62.1868,
+"lon": -159.8198
 },
 {
 "name": "Hoonah ANVSA",
@@ -629,7 +783,9 @@
 "sq_mi": 5.9,
 "counties": [
 "Hoonah-Angoon Census Area"
-]
+],
+"lat": 58.1136,
+"lon": -135.4283
 },
 {
 "name": "Hooper Bay ANVSA",
@@ -637,7 +793,9 @@
 "sq_mi": 7.5,
 "counties": [
 "Kusilvak Census Area"
-]
+],
+"lat": 61.5286,
+"lon": -166.1266
 },
 {
 "name": "Hughes ANVSA",
@@ -645,7 +803,9 @@
 "sq_mi": 3.9,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 66.0463,
+"lon": -154.2363
 },
 {
 "name": "Huslia ANVSA",
@@ -653,7 +813,9 @@
 "sq_mi": 31.5,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 65.6877,
+"lon": -156.2958
 },
 {
 "name": "Hydaburg ANVSA",
@@ -661,7 +823,9 @@
 "sq_mi": 0.3,
 "counties": [
 "Prince of Wales-Hyder Census Area"
-]
+],
+"lat": 55.2068,
+"lon": -132.8223
 },
 {
 "name": "Igiugig ANVSA",
@@ -669,7 +833,9 @@
 "sq_mi": 21.1,
 "counties": [
 "Lake and Peninsula Borough"
-]
+],
+"lat": 59.304,
+"lon": -155.8721
 },
 {
 "name": "Iliamna ANVSA",
@@ -677,7 +843,9 @@
 "sq_mi": 37.2,
 "counties": [
 "Lake and Peninsula Borough"
-]
+],
+"lat": 59.7856,
+"lon": -154.8679
 },
 {
 "name": "Inalik ANVSA",
@@ -685,7 +853,9 @@
 "sq_mi": 2.4,
 "counties": [
 "Nome Census Area"
-]
+],
+"lat": 65.754,
+"lon": -168.9219
 },
 {
 "name": "Ivanof Bay ANVSA",
@@ -693,7 +863,9 @@
 "sq_mi": 4.2,
 "counties": [
 "Lake and Peninsula Borough"
-]
+],
+"lat": 55.915,
+"lon": -159.4938
 },
 {
 "name": "Kake ANVSA",
@@ -701,7 +873,9 @@
 "sq_mi": 7.7,
 "counties": [
 "Prince of Wales-Hyder Census Area"
-]
+],
+"lat": 56.9772,
+"lon": -133.9114
 },
 {
 "name": "Kaktovik ANVSA",
@@ -709,7 +883,9 @@
 "sq_mi": 0.8,
 "counties": [
 "North Slope Borough"
-]
+],
+"lat": 70.1218,
+"lon": -143.6262
 },
 {
 "name": "Kalskag ANVSA",
@@ -717,7 +893,9 @@
 "sq_mi": 3.6,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 61.5416,
+"lon": -160.3337
 },
 {
 "name": "Kaltag ANVSA",
@@ -725,7 +903,9 @@
 "sq_mi": 21.6,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 64.3223,
+"lon": -158.7436
 },
 {
 "name": "Karluk ANVSA",
@@ -733,7 +913,9 @@
 "sq_mi": 24.7,
 "counties": [
 "Kodiak Island Borough"
-]
+],
+"lat": 57.5687,
+"lon": -154.3909
 },
 {
 "name": "Kasaan ANVSA",
@@ -741,7 +923,9 @@
 "sq_mi": 6.1,
 "counties": [
 "Prince of Wales-Hyder Census Area"
-]
+],
+"lat": 55.5582,
+"lon": -132.4146
 },
 {
 "name": "Kasigluk ANVSA",
@@ -749,7 +933,9 @@
 "sq_mi": 11.8,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 60.8746,
+"lon": -162.5272
 },
 {
 "name": "Kenaitze ANVSA",
@@ -757,7 +943,9 @@
 "sq_mi": 1959.1,
 "counties": [
 "Kenai Peninsula Borough"
-]
+],
+"lat": 60.5618,
+"lon": -150.6106
 },
 {
 "name": "Ketchikan ANVSA",
@@ -765,7 +953,9 @@
 "sq_mi": 21.6,
 "counties": [
 "Ketchikan Gateway Borough"
-]
+],
+"lat": 55.3681,
+"lon": -131.6787
 },
 {
 "name": "Kiana ANVSA",
@@ -773,7 +963,9 @@
 "sq_mi": 1.1,
 "counties": [
 "Northwest Arctic Borough"
-]
+],
+"lat": 66.9806,
+"lon": -160.4282
 },
 {
 "name": "King Cove ANVSA",
@@ -781,7 +973,9 @@
 "sq_mi": 12.1,
 "counties": [
 "Aleutians East Borough"
-]
+],
+"lat": 55.0644,
+"lon": -162.2852
 },
 {
 "name": "King Salmon ANVSA",
@@ -789,7 +983,9 @@
 "sq_mi": 10.1,
 "counties": [
 "Bristol Bay Borough"
-]
+],
+"lat": 58.7122,
+"lon": -156.722
 },
 {
 "name": "Kipnuk ANVSA",
@@ -797,7 +993,9 @@
 "sq_mi": 20.3,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 59.933,
+"lon": -164.0215
 },
 {
 "name": "Kivalina ANVSA",
@@ -805,7 +1003,9 @@
 "sq_mi": 1.6,
 "counties": [
 "Northwest Arctic Borough"
-]
+],
+"lat": 67.733,
+"lon": -164.5212
 },
 {
 "name": "Klawock ANVSA",
@@ -813,7 +1013,9 @@
 "sq_mi": 0.6,
 "counties": [
 "Prince of Wales-Hyder Census Area"
-]
+],
+"lat": 55.5518,
+"lon": -133.1025
 },
 {
 "name": "Knik ANVSA",
@@ -821,7 +1023,9 @@
 "sq_mi": 6986.1,
 "counties": [
 "Matanuska-Susitna Borough"
-]
+],
+"lat": 61.9511,
+"lon": -150.3413
 },
 {
 "name": "Kobuk ANVSA",
@@ -829,7 +1033,9 @@
 "sq_mi": 15.5,
 "counties": [
 "Northwest Arctic Borough"
-]
+],
+"lat": 66.9311,
+"lon": -156.8938
 },
 {
 "name": "Kodiak ANVSA",
@@ -837,7 +1043,9 @@
 "sq_mi": 48.7,
 "counties": [
 "Kodiak Island Borough"
-]
+],
+"lat": 57.8585,
+"lon": -152.5241
 },
 {
 "name": "Kokhanok ANVSA",
@@ -845,7 +1053,9 @@
 "sq_mi": 21.0,
 "counties": [
 "Lake and Peninsula Borough"
-]
+],
+"lat": 59.4122,
+"lon": -154.744
 },
 {
 "name": "Kongiganak ANVSA",
@@ -853,7 +1063,9 @@
 "sq_mi": 13.3,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 59.9867,
+"lon": -162.8544
 },
 {
 "name": "Kotlik ANVSA",
@@ -861,7 +1073,9 @@
 "sq_mi": 3.0,
 "counties": [
 "Kusilvak Census Area"
-]
+],
+"lat": 63.03,
+"lon": -163.553
 },
 {
 "name": "Kotzebue ANVSA",
@@ -869,7 +1083,9 @@
 "sq_mi": 24.8,
 "counties": [
 "Northwest Arctic Borough"
-]
+],
+"lat": 66.8627,
+"lon": -162.531
 },
 {
 "name": "Koyuk ANVSA",
@@ -877,7 +1093,9 @@
 "sq_mi": 5.1,
 "counties": [
 "Nome Census Area"
-]
+],
+"lat": 64.9424,
+"lon": -161.1454
 },
 {
 "name": "Koyukuk ANVSA",
@@ -885,7 +1103,9 @@
 "sq_mi": 5.7,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 64.9003,
+"lon": -157.6956
 },
 {
 "name": "Kwethluk ANVSA",
@@ -893,7 +1113,9 @@
 "sq_mi": 10.2,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 60.7978,
+"lon": -161.4147
 },
 {
 "name": "Kwigillingok ANVSA",
@@ -901,7 +1123,9 @@
 "sq_mi": 23.8,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 59.8689,
+"lon": -163.1643
 },
 {
 "name": "Kwinhagak ANVSA",
@@ -909,7 +1133,9 @@
 "sq_mi": 4.1,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 59.7506,
+"lon": -161.8993
 },
 {
 "name": "Lake Minchumina ANVSA",
@@ -917,7 +1143,9 @@
 "sq_mi": 3.8,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 63.8904,
+"lon": -152.3106
 },
 {
 "name": "Larsen Bay ANVSA",
@@ -925,7 +1153,9 @@
 "sq_mi": 4.0,
 "counties": [
 "Kodiak Island Borough"
-]
+],
+"lat": 57.54,
+"lon": -154.0056
 },
 {
 "name": "Lesnoi ANVSA",
@@ -933,7 +1163,9 @@
 "sq_mi": 2.4,
 "counties": [
 "Kodiak Island Borough"
-]
+],
+"lat": 57.7787,
+"lon": -152.3361
 },
 {
 "name": "Levelock ANVSA",
@@ -941,7 +1173,9 @@
 "sq_mi": 16.7,
 "counties": [
 "Lake and Peninsula Borough"
-]
+],
+"lat": 59.0644,
+"lon": -156.9018
 },
 {
 "name": "Lime Village ANVSA",
@@ -949,7 +1183,9 @@
 "sq_mi": 76.5,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 61.3501,
+"lon": -155.2916
 },
 {
 "name": "Lower Kalskag ANVSA",
@@ -957,7 +1193,9 @@
 "sq_mi": 1.2,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 61.5163,
+"lon": -160.3556
 },
 {
 "name": "Manley Hot Springs ANVSA",
@@ -965,7 +1203,9 @@
 "sq_mi": 15.1,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 65.0062,
+"lon": -150.6244
 },
 {
 "name": "Manokotak ANVSA",
@@ -973,7 +1213,9 @@
 "sq_mi": 35.1,
 "counties": [
 "Dillingham Census Area"
-]
+],
+"lat": 59.0047,
+"lon": -159.0074
 },
 {
 "name": "Marshall ANVSA",
@@ -981,7 +1223,9 @@
 "sq_mi": 4.1,
 "counties": [
 "Kusilvak Census Area"
-]
+],
+"lat": 61.8737,
+"lon": -162.048
 },
 {
 "name": "Mary's Igloo ANVSA",
@@ -989,7 +1233,9 @@
 "sq_mi": 0.4,
 "counties": [
 "Nome Census Area"
-]
+],
+"lat": 65.1507,
+"lon": -165.0724
 },
 {
 "name": "McGrath ANVSA",
@@ -997,7 +1243,9 @@
 "sq_mi": 42.3,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 62.9424,
+"lon": -155.563
 },
 {
 "name": "Mekoryuk ANVSA",
@@ -1005,7 +1253,9 @@
 "sq_mi": 7.1,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 60.3707,
+"lon": -166.267
 },
 {
 "name": "Mentasta Lake ANVSA",
@@ -1013,7 +1263,9 @@
 "sq_mi": 37.6,
 "counties": [
 "Copper River Census Area"
-]
+],
+"lat": 62.9013,
+"lon": -143.671
 },
 {
 "name": "Minto ANVSA",
@@ -1021,7 +1273,9 @@
 "sq_mi": 3.0,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 65.15,
+"lon": -149.3732
 },
 {
 "name": "Mountain Village ANVSA",
@@ -1029,7 +1283,9 @@
 "sq_mi": 108.1,
 "counties": [
 "Kusilvak Census Area"
-]
+],
+"lat": 62.0958,
+"lon": -163.8574
 },
 {
 "name": "Naknek ANVSA",
@@ -1037,7 +1293,9 @@
 "sq_mi": 81.5,
 "counties": [
 "Bristol Bay Borough"
-]
+],
+"lat": 58.7907,
+"lon": -156.8969
 },
 {
 "name": "Nanwalek ANVSA",
@@ -1045,7 +1303,9 @@
 "sq_mi": 8.4,
 "counties": [
 "Kenai Peninsula Borough"
-]
+],
+"lat": 59.3261,
+"lon": -151.91
 },
 {
 "name": "Napaimute ANVSA",
@@ -1053,7 +1313,9 @@
 "sq_mi": 25.2,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 61.562,
+"lon": -158.7013
 },
 {
 "name": "Napakiak ANVSA",
@@ -1061,7 +1323,9 @@
 "sq_mi": 2.0,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 60.6905,
+"lon": -161.9866
 },
 {
 "name": "Napaskiak ANVSA",
@@ -1069,7 +1333,9 @@
 "sq_mi": 2.9,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 60.7027,
+"lon": -161.7592
 },
 {
 "name": "Nelson Lagoon ANVSA",
@@ -1077,7 +1343,9 @@
 "sq_mi": 4.5,
 "counties": [
 "Aleutians East Borough"
-]
+],
+"lat": 55.9773,
+"lon": -161.2933
 },
 {
 "name": "Nenana ANVSA",
@@ -1085,7 +1353,9 @@
 "sq_mi": 5.8,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 64.5365,
+"lon": -149.0804
 },
 {
 "name": "New Koliganek ANVSA",
@@ -1093,7 +1363,9 @@
 "sq_mi": 16.7,
 "counties": [
 "Dillingham Census Area"
-]
+],
+"lat": 59.7049,
+"lon": -157.2329
 },
 {
 "name": "New Stuyahok ANVSA",
@@ -1101,7 +1373,9 @@
 "sq_mi": 33.7,
 "counties": [
 "Dillingham Census Area"
-]
+],
+"lat": 59.4762,
+"lon": -157.271
 },
 {
 "name": "Newhalen ANVSA",
@@ -1109,7 +1383,9 @@
 "sq_mi": 6.0,
 "counties": [
 "Lake and Peninsula Borough"
-]
+],
+"lat": 59.7254,
+"lon": -154.897
 },
 {
 "name": "Newtok ANVSA",
@@ -1117,7 +1393,9 @@
 "sq_mi": 8.3,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 60.8121,
+"lon": -164.498
 },
 {
 "name": "Nightmute ANVSA",
@@ -1125,7 +1403,9 @@
 "sq_mi": 5.2,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 60.4892,
+"lon": -164.7008
 },
 {
 "name": "Nikolai ANVSA",
@@ -1133,7 +1413,9 @@
 "sq_mi": 4.4,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 63.0095,
+"lon": -154.3763
 },
 {
 "name": "Nikolski ANVSA",
@@ -1141,7 +1423,9 @@
 "sq_mi": 19.6,
 "counties": [
 "Aleutians West Census Area"
-]
+],
+"lat": 52.906,
+"lon": -168.9258
 },
 {
 "name": "Ninilchik ANVSA",
@@ -1149,7 +1433,9 @@
 "sq_mi": 898.7,
 "counties": [
 "Kenai Peninsula Borough"
-]
+],
+"lat": 59.943,
+"lon": -151.3813
 },
 {
 "name": "Noatak ANVSA",
@@ -1157,7 +1443,9 @@
 "sq_mi": 16.0,
 "counties": [
 "Northwest Arctic Borough"
-]
+],
+"lat": 67.5947,
+"lon": -162.9899
 },
 {
 "name": "Nome ANVSA",
@@ -1165,7 +1453,9 @@
 "sq_mi": 124.5,
 "counties": [
 "Nome Census Area"
-]
+],
+"lat": 64.5269,
+"lon": -165.2694
 },
 {
 "name": "Nondalton ANVSA",
@@ -1173,7 +1463,9 @@
 "sq_mi": 6.7,
 "counties": [
 "Lake and Peninsula Borough"
-]
+],
+"lat": 59.9761,
+"lon": -154.8717
 },
 {
 "name": "Noorvik ANVSA",
@@ -1181,7 +1473,9 @@
 "sq_mi": 0.8,
 "counties": [
 "Northwest Arctic Borough"
-]
+],
+"lat": 66.8317,
+"lon": -161.0377
 },
 {
 "name": "Northway ANVSA",
@@ -1189,7 +1483,9 @@
 "sq_mi": 35.4,
 "counties": [
 "Southeast Fairbanks Census Area"
-]
+],
+"lat": 62.9379,
+"lon": -141.7988
 },
 {
 "name": "Nuiqsut ANVSA",
@@ -1197,7 +1493,9 @@
 "sq_mi": 8.9,
 "counties": [
 "North Slope Borough"
-]
+],
+"lat": 70.2135,
+"lon": -150.9897
 },
 {
 "name": "Nulato ANVSA",
@@ -1205,7 +1503,9 @@
 "sq_mi": 41.1,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 64.6939,
+"lon": -158.2906
 },
 {
 "name": "Nunam Iqua ANVSA",
@@ -1213,7 +1513,9 @@
 "sq_mi": 11.6,
 "counties": [
 "Kusilvak Census Area"
-]
+],
+"lat": 62.5042,
+"lon": -164.9114
 },
 {
 "name": "Nunapitchuk ANVSA",
@@ -1221,7 +1523,9 @@
 "sq_mi": 7.0,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 60.8772,
+"lon": -162.4615
 },
 {
 "name": "Ohogamiut ANVSA",
@@ -1229,7 +1533,9 @@
 "sq_mi": 9.0,
 "counties": [
 "Kusilvak Census Area"
-]
+],
+"lat": 61.5869,
+"lon": -161.8742
 },
 {
 "name": "Old Harbor ANVSA",
@@ -1237,7 +1543,9 @@
 "sq_mi": 16.2,
 "counties": [
 "Kodiak Island Borough"
-]
+],
+"lat": 57.2139,
+"lon": -153.3328
 },
 {
 "name": "Oscarville ANVSA",
@@ -1245,7 +1553,9 @@
 "sq_mi": 2.6,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 60.7282,
+"lon": -161.7736
 },
 {
 "name": "Ouzinkie ANVSA",
@@ -1253,7 +1563,9 @@
 "sq_mi": 13.0,
 "counties": [
 "Kodiak Island Borough"
-]
+],
+"lat": 57.9196,
+"lon": -152.4415
 },
 {
 "name": "Paimiut ANVSA",
@@ -1261,7 +1573,9 @@
 "sq_mi": 25.3,
 "counties": [
 "Kusilvak Census Area"
-]
+],
+"lat": 61.7226,
+"lon": -165.7749
 },
 {
 "name": "Pedro Bay ANVSA",
@@ -1269,7 +1583,9 @@
 "sq_mi": 19.5,
 "counties": [
 "Lake and Peninsula Borough"
-]
+],
+"lat": 59.7921,
+"lon": -154.1415
 },
 {
 "name": "Perryville ANVSA",
@@ -1277,7 +1593,9 @@
 "sq_mi": 11.2,
 "counties": [
 "Lake and Peninsula Borough"
-]
+],
+"lat": 55.9295,
+"lon": -159.1645
 },
 {
 "name": "Petersburg ANVSA",
@@ -1285,7 +1603,9 @@
 "sq_mi": 2.5,
 "counties": [
 "Petersburg Borough"
-]
+],
+"lat": 56.8104,
+"lon": -132.9457
 },
 {
 "name": "Pilot Point ANVSA",
@@ -1293,7 +1613,9 @@
 "sq_mi": 8.5,
 "counties": [
 "Lake and Peninsula Borough"
-]
+],
+"lat": 57.568,
+"lon": -157.5628
 },
 {
 "name": "Pilot Station ANVSA",
@@ -1301,7 +1623,9 @@
 "sq_mi": 1.6,
 "counties": [
 "Kusilvak Census Area"
-]
+],
+"lat": 61.9422,
+"lon": -162.8828
 },
 {
 "name": "Pitkas Point ANVSA",
@@ -1309,7 +1633,9 @@
 "sq_mi": 1.6,
 "counties": [
 "Kusilvak Census Area"
-]
+],
+"lat": 62.0377,
+"lon": -163.2681
 },
 {
 "name": "Platinum ANVSA",
@@ -1317,7 +1643,9 @@
 "sq_mi": 26.0,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 58.9546,
+"lon": -161.7454
 },
 {
 "name": "Point Hope ANVSA",
@@ -1325,7 +1653,9 @@
 "sq_mi": 5.0,
 "counties": [
 "North Slope Borough"
-]
+],
+"lat": 68.3505,
+"lon": -166.7475
 },
 {
 "name": "Point Lay ANVSA",
@@ -1333,7 +1663,9 @@
 "sq_mi": 28.5,
 "counties": [
 "North Slope Borough"
-]
+],
+"lat": 69.7244,
+"lon": -162.8344
 },
 {
 "name": "Port Alsworth ANVSA",
@@ -1341,7 +1673,9 @@
 "sq_mi": 22.6,
 "counties": [
 "Lake and Peninsula Borough"
-]
+],
+"lat": 60.1637,
+"lon": -154.3308
 },
 {
 "name": "Port Graham ANVSA",
@@ -1349,7 +1683,9 @@
 "sq_mi": 6.4,
 "counties": [
 "Kenai Peninsula Borough"
-]
+],
+"lat": 59.3386,
+"lon": -151.8409
 },
 {
 "name": "Port Heiden ANVSA",
@@ -1357,7 +1693,9 @@
 "sq_mi": 46.8,
 "counties": [
 "Lake and Peninsula Borough"
-]
+],
+"lat": 56.9423,
+"lon": -158.6047
 },
 {
 "name": "Port Lions ANVSA",
@@ -1365,7 +1703,9 @@
 "sq_mi": 83.4,
 "counties": [
 "Kodiak Island Borough"
-]
+],
+"lat": 57.772,
+"lon": -152.7882
 },
 {
 "name": "Portage Creek ANVSA",
@@ -1373,7 +1713,9 @@
 "sq_mi": 13.2,
 "counties": [
 "Dillingham Census Area"
-]
+],
+"lat": 58.9048,
+"lon": -157.6698
 },
 {
 "name": "Rampart ANVSA",
@@ -1381,7 +1723,9 @@
 "sq_mi": 6.5,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 65.4978,
+"lon": -150.1462
 },
 {
 "name": "Red Devil ANVSA",
@@ -1389,7 +1733,9 @@
 "sq_mi": 25.1,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 61.7761,
+"lon": -157.3559
 },
 {
 "name": "Ruby ANVSA",
@@ -1397,7 +1743,9 @@
 "sq_mi": 7.0,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 64.7224,
+"lon": -155.5006
 },
 {
 "name": "Russian Mission ANVSA",
@@ -1405,7 +1753,9 @@
 "sq_mi": 5.4,
 "counties": [
 "Kusilvak Census Area"
-]
+],
+"lat": 61.7835,
+"lon": -161.3572
 },
 {
 "name": "Salamatof ANVSA",
@@ -1413,7 +1763,9 @@
 "sq_mi": 8.0,
 "counties": [
 "Kenai Peninsula Borough"
-]
+],
+"lat": 60.6178,
+"lon": -151.3238
 },
 {
 "name": "Sand Point ANVSA",
@@ -1421,7 +1773,9 @@
 "sq_mi": 9.8,
 "counties": [
 "Aleutians East Borough"
-]
+],
+"lat": 55.3194,
+"lon": -160.4795
 },
 {
 "name": "Savoonga ANVSA",
@@ -1429,7 +1783,9 @@
 "sq_mi": 5.9,
 "counties": [
 "Nome Census Area"
-]
+],
+"lat": 63.675,
+"lon": -170.5134
 },
 {
 "name": "Saxman ANVSA",
@@ -1437,7 +1793,9 @@
 "sq_mi": 1.0,
 "counties": [
 "Ketchikan Gateway Borough"
-]
+],
+"lat": 55.3233,
+"lon": -131.5888
 },
 {
 "name": "Scammon Bay ANVSA",
@@ -1445,7 +1803,9 @@
 "sq_mi": 0.5,
 "counties": [
 "Kusilvak Census Area"
-]
+],
+"lat": 61.842,
+"lon": -165.5833
 },
 {
 "name": "Selawik ANVSA",
@@ -1453,7 +1813,9 @@
 "sq_mi": 2.3,
 "counties": [
 "Northwest Arctic Borough"
-]
+],
+"lat": 66.599,
+"lon": -159.9996
 },
 {
 "name": "Seldovia ANVSA",
@@ -1461,7 +1823,9 @@
 "sq_mi": 13.2,
 "counties": [
 "Kenai Peninsula Borough"
-]
+],
+"lat": 59.4664,
+"lon": -151.645
 },
 {
 "name": "Shageluk ANVSA",
@@ -1469,7 +1833,9 @@
 "sq_mi": 10.2,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 62.6678,
+"lon": -159.5699
 },
 {
 "name": "Shaktoolik ANVSA",
@@ -1477,7 +1843,9 @@
 "sq_mi": 1.1,
 "counties": [
 "Nome Census Area"
-]
+],
+"lat": 64.3632,
+"lon": -161.2062
 },
 {
 "name": "Shishmaref ANVSA",
@@ -1485,7 +1853,9 @@
 "sq_mi": 16.6,
 "counties": [
 "Nome Census Area"
-]
+],
+"lat": 66.0915,
+"lon": -166.1173
 },
 {
 "name": "Shungnak ANVSA",
@@ -1493,7 +1863,9 @@
 "sq_mi": 8.1,
 "counties": [
 "Northwest Arctic Borough"
-]
+],
+"lat": 66.8805,
+"lon": -157.1499
 },
 {
 "name": "Sitka ANVSA",
@@ -1501,7 +1873,9 @@
 "sq_mi": 2.6,
 "counties": [
 "Sitka City and Borough"
-]
+],
+"lat": 57.0622,
+"lon": -135.3314
 },
 {
 "name": "Skagway ANVSA",
@@ -1509,7 +1883,9 @@
 "sq_mi": 80.8,
 "counties": [
 "Skagway Municipality"
-]
+],
+"lat": 59.5874,
+"lon": -135.2585
 },
 {
 "name": "Sleetmute ANVSA",
@@ -1517,7 +1893,9 @@
 "sq_mi": 21.1,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 61.6765,
+"lon": -157.1259
 },
 {
 "name": "Solomon ANVSA",
@@ -1525,7 +1903,9 @@
 "sq_mi": 3.4,
 "counties": [
 "Nome Census Area"
-]
+],
+"lat": 64.5013,
+"lon": -164.6646
 },
 {
 "name": "South Naknek ANVSA",
@@ -1533,7 +1913,9 @@
 "sq_mi": 87.5,
 "counties": [
 "Bristol Bay Borough"
-]
+],
+"lat": 58.6755,
+"lon": -156.9358
 },
 {
 "name": "St. George ANVSA",
@@ -1541,7 +1923,9 @@
 "sq_mi": 34.8,
 "counties": [
 "Aleutians West Census Area"
-]
+],
+"lat": 56.5709,
+"lon": -169.6139
 },
 {
 "name": "St. Michael ANVSA",
@@ -1549,7 +1933,9 @@
 "sq_mi": 21.7,
 "counties": [
 "Nome Census Area"
-]
+],
+"lat": 63.4748,
+"lon": -162.1328
 },
 {
 "name": "St. Paul ANVSA",
@@ -1557,7 +1943,9 @@
 "sq_mi": 42.3,
 "counties": [
 "Aleutians West Census Area"
-]
+],
+"lat": 57.1771,
+"lon": -170.28
 },
 {
 "name": "Stebbins ANVSA",
@@ -1565,7 +1953,9 @@
 "sq_mi": 32.6,
 "counties": [
 "Nome Census Area"
-]
+],
+"lat": 63.482,
+"lon": -162.2321
 },
 {
 "name": "Stevens Village ANVSA",
@@ -1573,7 +1963,9 @@
 "sq_mi": 11.7,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 66.0282,
+"lon": -149.0874
 },
 {
 "name": "Stony River ANVSA",
@@ -1581,7 +1973,9 @@
 "sq_mi": 3.1,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 61.7819,
+"lon": -156.5851
 },
 {
 "name": "Takotna ANVSA",
@@ -1589,7 +1983,9 @@
 "sq_mi": 23.4,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 62.9789,
+"lon": -156.0578
 },
 {
 "name": "Tanacross ANVSA",
@@ -1597,7 +1993,9 @@
 "sq_mi": 79.1,
 "counties": [
 "Southeast Fairbanks Census Area"
-]
+],
+"lat": 63.3328,
+"lon": -143.4536
 },
 {
 "name": "Tanana ANVSA",
@@ -1605,7 +2003,9 @@
 "sq_mi": 10.7,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 65.1746,
+"lon": -152.0686
 },
 {
 "name": "Tatitlek ANVSA",
@@ -1613,7 +2013,9 @@
 "sq_mi": 7.3,
 "counties": [
 "Chugach Census Area"
-]
+],
+"lat": 60.8916,
+"lon": -146.6728
 },
 {
 "name": "Tazlina ANVSA",
@@ -1621,7 +2023,9 @@
 "sq_mi": 12.3,
 "counties": [
 "Copper River Census Area"
-]
+],
+"lat": 62.0605,
+"lon": -145.4517
 },
 {
 "name": "Telida ANVSA",
@@ -1629,7 +2033,9 @@
 "sq_mi": 1.7,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 63.3765,
+"lon": -153.2876
 },
 {
 "name": "Teller ANVSA",
@@ -1637,7 +2043,9 @@
 "sq_mi": 1.5,
 "counties": [
 "Nome Census Area"
-]
+],
+"lat": 65.2556,
+"lon": -166.3598
 },
 {
 "name": "Tetlin ANVSA",
@@ -1645,7 +2053,9 @@
 "sq_mi": 183.0,
 "counties": [
 "Southeast Fairbanks Census Area"
-]
+],
+"lat": 63.1298,
+"lon": -142.4823
 },
 {
 "name": "Togiak ANVSA",
@@ -1653,7 +2063,9 @@
 "sq_mi": 47.3,
 "counties": [
 "Dillingham Census Area"
-]
+],
+"lat": 59.0714,
+"lon": -160.4729
 },
 {
 "name": "Toksook Bay ANVSA",
@@ -1661,7 +2073,9 @@
 "sq_mi": 10.5,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 60.5511,
+"lon": -165.0842
 },
 {
 "name": "Tuluksak ANVSA",
@@ -1669,7 +2083,9 @@
 "sq_mi": 2.9,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 61.1055,
+"lon": -160.9487
 },
 {
 "name": "Tuntutuliak ANVSA",
@@ -1677,7 +2093,9 @@
 "sq_mi": 1.9,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 60.344,
+"lon": -162.6717
 },
 {
 "name": "Tununak ANVSA",
@@ -1685,7 +2103,9 @@
 "sq_mi": 60.7,
 "counties": [
 "Bethel Census Area"
-]
+],
+"lat": 60.6091,
+"lon": -165.1169
 },
 {
 "name": "Twin Hills ANVSA",
@@ -1693,7 +2113,9 @@
 "sq_mi": 22.9,
 "counties": [
 "Dillingham Census Area"
-]
+],
+"lat": 59.0685,
+"lon": -160.2739
 },
 {
 "name": "Tyonek ANVSA",
@@ -1701,7 +2123,9 @@
 "sq_mi": 12.7,
 "counties": [
 "Kenai Peninsula Borough"
-]
+],
+"lat": 61.0751,
+"lon": -151.1723
 },
 {
 "name": "Ugashik ANVSA",
@@ -1709,7 +2133,9 @@
 "sq_mi": 95.6,
 "counties": [
 "Lake and Peninsula Borough"
-]
+],
+"lat": 57.5109,
+"lon": -157.2567
 },
 {
 "name": "Unalakleet ANVSA",
@@ -1717,7 +2143,9 @@
 "sq_mi": 11.9,
 "counties": [
 "Nome Census Area"
-]
+],
+"lat": 63.9335,
+"lon": -160.7941
 },
 {
 "name": "Unalaska ANVSA",
@@ -1725,7 +2153,9 @@
 "sq_mi": 75.2,
 "counties": [
 "Aleutians West Census Area"
-]
+],
+"lat": 53.8505,
+"lon": -166.4866
 },
 {
 "name": "Uyak ANVSA",
@@ -1733,7 +2163,9 @@
 "sq_mi": 2.1,
 "counties": [
 "Kodiak Island Borough"
-]
+],
+"lat": 57.6348,
+"lon": -154.0158
 },
 {
 "name": "Venetie ANVSA",
@@ -1741,7 +2173,9 @@
 "sq_mi": 11.7,
 "counties": [
 "Yukon-Koyukuk Census Area"
-]
+],
+"lat": 67.0317,
+"lon": -146.4099
 },
 {
 "name": "Wainwright ANVSA",
@@ -1749,7 +2183,9 @@
 "sq_mi": 10.3,
 "counties": [
 "North Slope Borough"
-]
+],
+"lat": 70.652,
+"lon": -159.9338
 },
 {
 "name": "Wales ANVSA",
@@ -1757,7 +2193,9 @@
 "sq_mi": 2.3,
 "counties": [
 "Nome Census Area"
-]
+],
+"lat": 65.6103,
+"lon": -168.0722
 },
 {
 "name": "White Mountain ANVSA",
@@ -1765,7 +2203,9 @@
 "sq_mi": 1.8,
 "counties": [
 "Nome Census Area"
-]
+],
+"lat": 64.6817,
+"lon": -163.4228
 },
 {
 "name": "Wrangell ANVSA",
@@ -1773,7 +2213,9 @@
 "sq_mi": 0.9,
 "counties": [
 "Wrangell City and Borough"
-]
+],
+"lat": 56.4772,
+"lon": -132.3802
 },
 {
 "name": "Yakutat ANVSA",
@@ -1781,7 +2223,9 @@
 "sq_mi": 100.4,
 "counties": [
 "Yakutat City and Borough"
-]
+],
+"lat": 59.5373,
+"lon": -139.5933
 }
 ],
 "AL": [
@@ -1791,7 +2235,9 @@
 "sq_mi": 308.3,
 "counties": [
 "Houston County"
-]
+],
+"lat": 31.1238,
+"lon": -85.2739
 },
 {
 "name": "Cherokee Tribe of Northeast Alabama SDTSA",
@@ -1799,7 +2245,9 @@
 "sq_mi": 34.0,
 "counties": [
 "Marshall County"
-]
+],
+"lat": 34.214,
+"lon": -86.3113
 },
 {
 "name": "Echota Cherokee SDTSA",
@@ -1809,7 +2257,9 @@
 "Lawrence County",
 "Madison County",
 "Cullman County"
-]
+],
+"lat": 34.4748,
+"lon": -87.231
 },
 {
 "name": "MOWA Choctaw Reservation",
@@ -1818,7 +2268,9 @@
 "counties": [
 "Washington County",
 "Mobile County"
-]
+],
+"lat": 31.1487,
+"lon": -88.0532
 },
 {
 "name": "MaChis Lower Creek SDTSA",
@@ -1830,7 +2282,9 @@
 "Covington County",
 "Pike County",
 "Houston County"
-]
+],
+"lat": 31.5189,
+"lon": -85.9466
 },
 {
 "name": "Poarch Creek Reservation",
@@ -1841,7 +2295,9 @@
 "Elmore County",
 "Montgomery County",
 "Monroe County"
-]
+],
+"lat": 31.1049,
+"lon": -87.5651
 },
 {
 "name": "Southeastern Mvskoke Nation SDTSA",
@@ -1850,7 +2306,9 @@
 "counties": [
 "Pike County",
 "Crenshaw County"
-]
+],
+"lat": 31.7078,
+"lon": -86.0005
 },
 {
 "name": "United Cherokee Ani-Yun-Wiya Nation SDTSA",
@@ -1858,7 +2316,9 @@
 "sq_mi": 8.5,
 "counties": [
 "Marshall County"
-]
+],
+"lat": 34.3194,
+"lon": -86.3242
 }
 ],
 "AZ": [
@@ -1868,7 +2328,9 @@
 "sq_mi": 10.0,
 "counties": [
 "Yuma County"
-]
+],
+"lat": 32.6102,
+"lon": -114.7979
 },
 {
 "name": "Colorado River Indian Reservation",
@@ -1876,7 +2338,9 @@
 "sq_mi": 385.2,
 "counties": [
 "La Paz County"
-]
+],
+"lat": 33.9511,
+"lon": -114.4003
 },
 {
 "name": "Fort Apache Reservation",
@@ -1886,7 +2350,9 @@
 "Navajo County",
 "Gila County",
 "Apache County"
-]
+],
+"lat": 33.932,
+"lon": -110.121
 },
 {
 "name": "Fort McDowell Yavapai Nation Reservation",
@@ -1894,7 +2360,9 @@
 "sq_mi": 38.6,
 "counties": [
 "Maricopa County"
-]
+],
+"lat": 33.6413,
+"lon": -111.6645
 },
 {
 "name": "Fort Mojave Reservation",
@@ -1902,7 +2370,9 @@
 "sq_mi": 36.1,
 "counties": [
 "Mohave County"
-]
+],
+"lat": 34.954,
+"lon": -114.6403
 },
 {
 "name": "Fort Yuma Indian Reservation",
@@ -1910,7 +2380,9 @@
 "sq_mi": 3.3,
 "counties": [
 "Yuma County"
-]
+],
+"lat": 32.7837,
+"lon": -114.6633
 },
 {
 "name": "Gila River Indian Reservation",
@@ -1919,7 +2391,9 @@
 "counties": [
 "Pinal County",
 "Maricopa County"
-]
+],
+"lat": 33.1892,
+"lon": -111.9929
 },
 {
 "name": "Havasupai Reservation",
@@ -1927,7 +2401,9 @@
 "sq_mi": 275.8,
 "counties": [
 "Coconino County"
-]
+],
+"lat": 36.1906,
+"lon": -112.6724
 },
 {
 "name": "Hopi Reservation",
@@ -1936,7 +2412,9 @@
 "counties": [
 "Navajo County",
 "Coconino County"
-]
+],
+"lat": 35.7678,
+"lon": -110.5431
 },
 {
 "name": "Hualapai Indian Reservation",
@@ -1946,7 +2424,9 @@
 "Coconino County",
 "Mohave County",
 "Yavapai County"
-]
+],
+"lat": 35.9201,
+"lon": -113.1138
 },
 {
 "name": "Kaibab Indian Reservation",
@@ -1955,7 +2435,9 @@
 "counties": [
 "Mohave County",
 "Coconino County"
-]
+],
+"lat": 36.9163,
+"lon": -112.6548
 },
 {
 "name": "Maricopa (Ak Chin) Indian Reservation",
@@ -1963,7 +2445,9 @@
 "sq_mi": 34.4,
 "counties": [
 "Pinal County"
-]
+],
+"lat": 33.0234,
+"lon": -112.0834
 },
 {
 "name": "Navajo Nation Reservation",
@@ -1973,7 +2457,9 @@
 "Apache County",
 "Coconino County",
 "Navajo County"
-]
+],
+"lat": 36.3391,
+"lon": -109.383
 },
 {
 "name": "Pascua Pueblo Yaqui Reservation",
@@ -1981,7 +2467,9 @@
 "sq_mi": 3.5,
 "counties": [
 "Pima County"
-]
+],
+"lat": 32.1135,
+"lon": -111.088
 },
 {
 "name": "Salt River Reservation",
@@ -1989,7 +2477,9 @@
 "sq_mi": 82.4,
 "counties": [
 "Maricopa County"
-]
+],
+"lat": 33.5172,
+"lon": -111.8194
 },
 {
 "name": "San Carlos Reservation",
@@ -1999,7 +2489,9 @@
 "Graham County",
 "Gila County",
 "Pinal County"
-]
+],
+"lat": 33.3611,
+"lon": -110.361
 },
 {
 "name": "Tohono O'odham Nation Reservation",
@@ -2009,7 +2501,9 @@
 "Pima County",
 "Pinal County",
 "Maricopa County"
-]
+],
+"lat": 32.1273,
+"lon": -112.1327
 },
 {
 "name": "Tonto Apache Reservation",
@@ -2017,7 +2511,9 @@
 "sq_mi": 0.6,
 "counties": [
 "Gila County"
-]
+],
+"lat": 34.2212,
+"lon": -111.3222
 },
 {
 "name": "Yavapai-Apache Nation Reservation",
@@ -2025,7 +2521,9 @@
 "sq_mi": 2.9,
 "counties": [
 "Yavapai County"
-]
+],
+"lat": 34.6181,
+"lon": -111.8983
 },
 {
 "name": "Yavapai-Prescott Reservation",
@@ -2033,7 +2531,9 @@
 "sq_mi": 2.2,
 "counties": [
 "Yavapai County"
-]
+],
+"lat": 34.5536,
+"lon": -112.4409
 },
 {
 "name": "Zuni Reservation",
@@ -2041,7 +2541,9 @@
 "sq_mi": 20.6,
 "counties": [
 "Apache County"
-]
+],
+"lat": 35.0548,
+"lon": -108.6749
 }
 ],
 "CA": [
@@ -2051,7 +2553,9 @@
 "sq_mi": 54.8,
 "counties": [
 "Riverside County"
-]
+],
+"lat": 33.7458,
+"lon": -116.5438
 },
 {
 "name": "Alturas Indian Rancheria",
@@ -2059,7 +2563,9 @@
 "sq_mi": 0.0,
 "counties": [
 "Modoc County"
-]
+],
+"lat": 41.4777,
+"lon": -120.5244
 },
 {
 "name": "Auburn Rancheria",
@@ -2067,7 +2573,9 @@
 "sq_mi": 1.8,
 "counties": [
 "Placer County"
-]
+],
+"lat": 39.0228,
+"lon": -121.3223
 },
 {
 "name": "Augustine Reservation",
@@ -2075,7 +2583,9 @@
 "sq_mi": 0.9,
 "counties": [
 "Riverside County"
-]
+],
+"lat": 33.65,
+"lon": -116.1924
 },
 {
 "name": "Barona Reservation",
@@ -2083,7 +2593,9 @@
 "sq_mi": 11.6,
 "counties": [
 "San Diego County"
-]
+],
+"lat": 32.9387,
+"lon": -116.8576
 },
 {
 "name": "Benton Paiute Reservation",
@@ -2091,7 +2603,9 @@
 "sq_mi": 0.6,
 "counties": [
 "Mono County"
-]
+],
+"lat": 37.7887,
+"lon": -118.521
 },
 {
 "name": "Berry Creek Rancheria",
@@ -2099,7 +2613,9 @@
 "sq_mi": 0.3,
 "counties": [
 "Butte County"
-]
+],
+"lat": 39.5024,
+"lon": -121.5068
 },
 {
 "name": "Big Bend Rancheria",
@@ -2107,7 +2623,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Shasta County"
-]
+],
+"lat": 41.0264,
+"lon": -121.9189
 },
 {
 "name": "Big Lagoon Rancheria",
@@ -2115,7 +2633,9 @@
 "sq_mi": 0.0,
 "counties": [
 "Humboldt County"
-]
+],
+"lat": 41.1643,
+"lon": -124.1208
 },
 {
 "name": "Big Pine Reservation",
@@ -2123,7 +2643,9 @@
 "sq_mi": 0.5,
 "counties": [
 "Inyo County"
-]
+],
+"lat": 37.159,
+"lon": -118.2838
 },
 {
 "name": "Big Sandy Rancheria",
@@ -2131,7 +2653,9 @@
 "sq_mi": 0.5,
 "counties": [
 "Fresno County"
-]
+],
+"lat": 37.0853,
+"lon": -119.4656
 },
 {
 "name": "Big Valley Rancheria",
@@ -2139,7 +2663,9 @@
 "sq_mi": 0.2,
 "counties": [
 "Lake County"
-]
+],
+"lat": 39.0204,
+"lon": -122.8873
 },
 {
 "name": "Bishop Reservation",
@@ -2147,7 +2673,9 @@
 "sq_mi": 1.4,
 "counties": [
 "Inyo County"
-]
+],
+"lat": 37.3684,
+"lon": -118.4237
 },
 {
 "name": "Blue Lake Rancheria",
@@ -2155,7 +2683,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Humboldt County"
-]
+],
+"lat": 40.8851,
+"lon": -123.9987
 },
 {
 "name": "Bridgeport Reservation",
@@ -2163,7 +2693,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Mono County"
-]
+],
+"lat": 38.2665,
+"lon": -119.2174
 },
 {
 "name": "Cabazon Reservation",
@@ -2171,7 +2703,9 @@
 "sq_mi": 2.5,
 "counties": [
 "Riverside County"
-]
+],
+"lat": 33.7075,
+"lon": -116.1942
 },
 {
 "name": "Cahuilla Reservation",
@@ -2179,7 +2713,9 @@
 "sq_mi": 28.9,
 "counties": [
 "Riverside County"
-]
+],
+"lat": 33.5159,
+"lon": -116.7103
 },
 {
 "name": "Campo Indian Reservation",
@@ -2187,7 +2723,9 @@
 "sq_mi": 25.8,
 "counties": [
 "San Diego County"
-]
+],
+"lat": 32.6666,
+"lon": -116.3726
 },
 {
 "name": "Capitan Grande Reservation",
@@ -2195,7 +2733,9 @@
 "sq_mi": 24.9,
 "counties": [
 "San Diego County"
-]
+],
+"lat": 32.9169,
+"lon": -116.7548
 },
 {
 "name": "Cedarville Rancheria",
@@ -2203,7 +2743,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Modoc County"
-]
+],
+"lat": 41.5263,
+"lon": -120.1835
 },
 {
 "name": "Chemehuevi Reservation",
@@ -2211,7 +2753,9 @@
 "sq_mi": 48.1,
 "counties": [
 "San Bernardino County"
-]
+],
+"lat": 34.4139,
+"lon": -114.3783
 },
 {
 "name": "Chicken Ranch Rancheria",
@@ -2219,7 +2763,9 @@
 "sq_mi": 0.0,
 "counties": [
 "Tuolumne County"
-]
+],
+"lat": 37.9278,
+"lon": -120.4486
 },
 {
 "name": "Cold Springs Rancheria",
@@ -2227,7 +2773,9 @@
 "sq_mi": 0.2,
 "counties": [
 "Fresno County"
-]
+],
+"lat": 36.9706,
+"lon": -119.3225
 },
 {
 "name": "Colorado River Indian Reservation",
@@ -2236,7 +2784,9 @@
 "counties": [
 "San Bernardino County",
 "Riverside County"
-]
+],
+"lat": 33.9511,
+"lon": -114.4003
 },
 {
 "name": "Colusa Rancheria",
@@ -2244,7 +2794,9 @@
 "sq_mi": 0.4,
 "counties": [
 "Colusa County"
-]
+],
+"lat": 39.2528,
+"lon": -122.0269
 },
 {
 "name": "Cortina Indian Rancheria",
@@ -2252,7 +2804,9 @@
 "sq_mi": 1.2,
 "counties": [
 "Colusa County"
-]
+],
+"lat": 39.0183,
+"lon": -122.2904
 },
 {
 "name": "Coyote Valley Reservation",
@@ -2260,7 +2814,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Mendocino County"
-]
+],
+"lat": 39.2537,
+"lon": -123.2065
 },
 {
 "name": "Dry Creek Rancheria",
@@ -2268,7 +2824,9 @@
 "sq_mi": 0.2,
 "counties": [
 "Sonoma County"
-]
+],
+"lat": 38.7023,
+"lon": -122.8563
 },
 {
 "name": "Elk Valley Rancheria",
@@ -2276,7 +2834,9 @@
 "sq_mi": 0.8,
 "counties": [
 "Del Norte County"
-]
+],
+"lat": 41.7394,
+"lon": -124.1507
 },
 {
 "name": "Enterprise Rancheria",
@@ -2285,7 +2845,9 @@
 "counties": [
 "Butte County",
 "Yuba County"
-]
+],
+"lat": 39.5616,
+"lon": -121.3555
 },
 {
 "name": "Ewiiaapaayp Reservation",
@@ -2293,7 +2855,9 @@
 "sq_mi": 8.5,
 "counties": [
 "San Diego County"
-]
+],
+"lat": 32.8512,
+"lon": -116.3963
 },
 {
 "name": "Fort Bidwell Reservation",
@@ -2301,7 +2865,9 @@
 "sq_mi": 5.5,
 "counties": [
 "Modoc County"
-]
+],
+"lat": 41.8598,
+"lon": -120.1869
 },
 {
 "name": "Fort Independence Reservation",
@@ -2309,7 +2875,9 @@
 "sq_mi": 0.9,
 "counties": [
 "Inyo County"
-]
+],
+"lat": 36.8404,
+"lon": -118.2301
 },
 {
 "name": "Fort Mojave Reservation",
@@ -2317,7 +2885,9 @@
 "sq_mi": 9.6,
 "counties": [
 "San Bernardino County"
-]
+],
+"lat": 34.954,
+"lon": -114.6403
 },
 {
 "name": "Fort Yuma Indian Reservation",
@@ -2325,7 +2895,9 @@
 "sq_mi": 65.7,
 "counties": [
 "Imperial County"
-]
+],
+"lat": 32.7837,
+"lon": -114.6633
 },
 {
 "name": "Greenville Rancheria",
@@ -2333,7 +2905,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Plumas County"
-]
+],
+"lat": 40.1491,
+"lon": -120.8943
 },
 {
 "name": "Grindstone Indian Rancheria",
@@ -2341,7 +2915,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Glenn County"
-]
+],
+"lat": 39.672,
+"lon": -122.5179
 },
 {
 "name": "Guidiville Rancheria",
@@ -2349,7 +2925,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Mendocino County"
-]
+],
+"lat": 39.165,
+"lon": -123.1699
 },
 {
 "name": "Hoopa Valley Reservation",
@@ -2357,7 +2935,9 @@
 "sq_mi": 140.7,
 "counties": [
 "Humboldt County"
-]
+],
+"lat": 41.0989,
+"lon": -123.6726
 },
 {
 "name": "Hopland Rancheria",
@@ -2366,7 +2946,9 @@
 "counties": [
 "Mendocino County",
 "Lake County"
-]
+],
+"lat": 39.0015,
+"lon": -123.0375
 },
 {
 "name": "Inaja and Cosmit Reservation",
@@ -2374,7 +2956,9 @@
 "sq_mi": 1.3,
 "counties": [
 "San Diego County"
-]
+],
+"lat": 33.0092,
+"lon": -116.6452
 },
 {
 "name": "Ione Band of Miwok TDSA",
@@ -2382,7 +2966,9 @@
 "sq_mi": 2.1,
 "counties": [
 "Amador County"
-]
+],
+"lat": 38.4584,
+"lon": -120.8487
 },
 {
 "name": "Jackson Rancheria",
@@ -2390,7 +2976,9 @@
 "sq_mi": 0.5,
 "counties": [
 "Amador County"
-]
+],
+"lat": 38.3848,
+"lon": -120.719
 },
 {
 "name": "Jamul Indian Village",
@@ -2398,7 +2986,9 @@
 "sq_mi": 0.0,
 "counties": [
 "San Diego County"
-]
+],
+"lat": 32.7026,
+"lon": -116.8709
 },
 {
 "name": "Karuk Reservation",
@@ -2407,7 +2997,9 @@
 "counties": [
 "Siskiyou County",
 "Humboldt County"
-]
+],
+"lat": 41.7036,
+"lon": -122.6211
 },
 {
 "name": "La Jolla Reservation",
@@ -2415,7 +3007,9 @@
 "sq_mi": 13.5,
 "counties": [
 "San Diego County"
-]
+],
+"lat": 33.2741,
+"lon": -116.858
 },
 {
 "name": "La Posta Indian Reservation",
@@ -2423,7 +3017,9 @@
 "sq_mi": 6.4,
 "counties": [
 "San Diego County"
-]
+],
+"lat": 32.7333,
+"lon": -116.3899
 },
 {
 "name": "Laytonville Rancheria",
@@ -2431,7 +3027,9 @@
 "sq_mi": 0.3,
 "counties": [
 "Mendocino County"
-]
+],
+"lat": 39.6696,
+"lon": -123.5007
 },
 {
 "name": "Likely Rancheria",
@@ -2439,7 +3037,9 @@
 "sq_mi": 0.0,
 "counties": [
 "Modoc County"
-]
+],
+"lat": 41.2048,
+"lon": -120.4788
 },
 {
 "name": "Lone Pine Reservation",
@@ -2447,7 +3047,9 @@
 "sq_mi": 0.4,
 "counties": [
 "Inyo County"
-]
+],
+"lat": 36.5975,
+"lon": -118.0536
 },
 {
 "name": "Lookout Rancheria",
@@ -2455,7 +3057,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Modoc County"
-]
+],
+"lat": 41.2139,
+"lon": -121.0934
 },
 {
 "name": "Los Coyotes Reservation",
@@ -2463,7 +3067,9 @@
 "sq_mi": 39.2,
 "counties": [
 "San Diego County"
-]
+],
+"lat": 33.2998,
+"lon": -116.5505
 },
 {
 "name": "Lytton Rancheria",
@@ -2471,7 +3077,9 @@
 "sq_mi": 0.0,
 "counties": [
 "Contra Costa County"
-]
+],
+"lat": 37.9525,
+"lon": -122.3344
 },
 {
 "name": "Manchester-Point Arena Rancheria",
@@ -2479,7 +3087,9 @@
 "sq_mi": 0.6,
 "counties": [
 "Mendocino County"
-]
+],
+"lat": 38.9355,
+"lon": -123.6814
 },
 {
 "name": "Manzanita Reservation",
@@ -2487,7 +3097,9 @@
 "sq_mi": 7.2,
 "counties": [
 "San Diego County"
-]
+],
+"lat": 32.7467,
+"lon": -116.3481
 },
 {
 "name": "Mechoopda TDSA",
@@ -2495,7 +3107,9 @@
 "sq_mi": 1.3,
 "counties": [
 "Butte County"
-]
+],
+"lat": 39.7211,
+"lon": -121.8022
 },
 {
 "name": "Mesa Grande Reservation",
@@ -2503,7 +3117,9 @@
 "sq_mi": 2.7,
 "counties": [
 "San Diego County"
-]
+],
+"lat": 33.1183,
+"lon": -116.7382
 },
 {
 "name": "Middletown Rancheria",
@@ -2511,7 +3127,9 @@
 "sq_mi": 0.2,
 "counties": [
 "Lake County"
-]
+],
+"lat": 38.7284,
+"lon": -122.6255
 },
 {
 "name": "Montgomery Creek Rancheria",
@@ -2519,7 +3137,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Shasta County"
-]
+],
+"lat": 40.834,
+"lon": -121.9155
 },
 {
 "name": "Mooretown Rancheria",
@@ -2527,7 +3147,9 @@
 "sq_mi": 0.5,
 "counties": [
 "Butte County"
-]
+],
+"lat": 39.469,
+"lon": -121.5187
 },
 {
 "name": "Morongo Reservation",
@@ -2535,7 +3157,9 @@
 "sq_mi": 54.4,
 "counties": [
 "Riverside County"
-]
+],
+"lat": 33.9687,
+"lon": -116.8308
 },
 {
 "name": "North Fork Rancheria",
@@ -2543,7 +3167,9 @@
 "sq_mi": 0.7,
 "counties": [
 "Madera County"
-]
+],
+"lat": 37.0056,
+"lon": -120.1217
 },
 {
 "name": "Pala Reservation",
@@ -2551,7 +3177,9 @@
 "sq_mi": 21.7,
 "counties": [
 "San Diego County"
-]
+],
+"lat": 33.361,
+"lon": -117.0694
 },
 {
 "name": "Paskenta Rancheria",
@@ -2559,7 +3187,9 @@
 "sq_mi": 3.3,
 "counties": [
 "Tehama County"
-]
+],
+"lat": 39.8672,
+"lon": -122.2261
 },
 {
 "name": "Pauma and Yuima Reservation",
@@ -2567,7 +3197,9 @@
 "sq_mi": 9.4,
 "counties": [
 "San Diego County"
-]
+],
+"lat": 33.3646,
+"lon": -116.9539
 },
 {
 "name": "Pechanga Reservation",
@@ -2575,7 +3207,9 @@
 "sq_mi": 7.0,
 "counties": [
 "Riverside County"
-]
+],
+"lat": 33.4448,
+"lon": -117.0676
 },
 {
 "name": "Picayune Rancheria",
@@ -2583,7 +3217,9 @@
 "sq_mi": 0.3,
 "counties": [
 "Madera County"
-]
+],
+"lat": 37.2113,
+"lon": -119.7023
 },
 {
 "name": "Pinoleville Rancheria",
@@ -2591,7 +3227,9 @@
 "sq_mi": 0.2,
 "counties": [
 "Mendocino County"
-]
+],
+"lat": 39.1804,
+"lon": -123.2164
 },
 {
 "name": "Pit River Trust Land",
@@ -2599,7 +3237,9 @@
 "sq_mi": 0.4,
 "counties": [
 "Shasta County"
-]
+],
+"lat": 40.8685,
+"lon": -121.6746
 },
 {
 "name": "Quartz Valley Reservation",
@@ -2607,7 +3247,9 @@
 "sq_mi": 1.1,
 "counties": [
 "Siskiyou County"
-]
+],
+"lat": 41.6129,
+"lon": -122.9704
 },
 {
 "name": "Ramona Village",
@@ -2615,7 +3257,9 @@
 "sq_mi": 0.8,
 "counties": [
 "Riverside County"
-]
+],
+"lat": 33.6046,
+"lon": -116.6956
 },
 {
 "name": "Redding Rancheria",
@@ -2623,7 +3267,9 @@
 "sq_mi": 0.2,
 "counties": [
 "Shasta County"
-]
+],
+"lat": 40.5077,
+"lon": -122.3861
 },
 {
 "name": "Redwood Valley Rancheria",
@@ -2631,7 +3277,9 @@
 "sq_mi": 0.4,
 "counties": [
 "Mendocino County"
-]
+],
+"lat": 39.2899,
+"lon": -123.1768
 },
 {
 "name": "Resighini Rancheria",
@@ -2639,7 +3287,9 @@
 "sq_mi": 0.4,
 "counties": [
 "Del Norte County"
-]
+],
+"lat": 41.515,
+"lon": -124.0156
 },
 {
 "name": "Rincon Reservation",
@@ -2647,7 +3297,9 @@
 "sq_mi": 7.2,
 "counties": [
 "San Diego County"
-]
+],
+"lat": 33.2608,
+"lon": -116.9528
 },
 {
 "name": "Roaring Creek Rancheria",
@@ -2655,7 +3307,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Shasta County"
-]
+],
+"lat": 40.8933,
+"lon": -121.9535
 },
 {
 "name": "Robinson Rancheria",
@@ -2663,7 +3317,9 @@
 "sq_mi": 0.3,
 "counties": [
 "Lake County"
-]
+],
+"lat": 39.1402,
+"lon": -122.8809
 },
 {
 "name": "Rohnerville (Rancheria) Trust Land",
@@ -2671,7 +3327,9 @@
 "sq_mi": 0.3,
 "counties": [
 "Humboldt County"
-]
+],
+"lat": 40.6289,
+"lon": -124.2106
 },
 {
 "name": "Round Valley Reservation",
@@ -2680,7 +3338,9 @@
 "counties": [
 "Mendocino County",
 "Trinity County"
-]
+],
+"lat": 39.9026,
+"lon": -123.3662
 },
 {
 "name": "Rumsey Indian Rancheria",
@@ -2688,7 +3348,9 @@
 "sq_mi": 0.8,
 "counties": [
 "Yolo County"
-]
+],
+"lat": 38.7372,
+"lon": -122.1306
 },
 {
 "name": "San Manuel Reservation",
@@ -2696,7 +3358,9 @@
 "sq_mi": 1.5,
 "counties": [
 "San Bernardino County"
-]
+],
+"lat": 34.1563,
+"lon": -117.2196
 },
 {
 "name": "San Pasqual Reservation",
@@ -2704,7 +3368,9 @@
 "sq_mi": 3.1,
 "counties": [
 "San Diego County"
-]
+],
+"lat": 33.2018,
+"lon": -116.9844
 },
 {
 "name": "Santa Rosa Rancheria",
@@ -2712,7 +3378,9 @@
 "sq_mi": 0.6,
 "counties": [
 "Kings County"
-]
+],
+"lat": 36.2363,
+"lon": -119.7551
 },
 {
 "name": "Santa Rosa Reservation",
@@ -2720,7 +3388,9 @@
 "sq_mi": 17.8,
 "counties": [
 "Riverside County"
-]
+],
+"lat": 33.5595,
+"lon": -116.5434
 },
 {
 "name": "Santa Ynez Reservation",
@@ -2728,7 +3398,9 @@
 "sq_mi": 0.2,
 "counties": [
 "Santa Barbara County"
-]
+],
+"lat": 34.604,
+"lon": -120.0924
 },
 {
 "name": "Santa Ysabel Reservation",
@@ -2736,7 +3408,9 @@
 "sq_mi": 23.4,
 "counties": [
 "San Diego County"
-]
+],
+"lat": 33.1745,
+"lon": -116.6602
 },
 {
 "name": "Sherwood Valley Rancheria",
@@ -2744,7 +3418,9 @@
 "sq_mi": 0.8,
 "counties": [
 "Mendocino County"
-]
+],
+"lat": 39.5406,
+"lon": -123.4906
 },
 {
 "name": "Shingle Springs Rancheria",
@@ -2752,7 +3428,9 @@
 "sq_mi": 0.4,
 "counties": [
 "El Dorado County"
-]
+],
+"lat": 38.6759,
+"lon": -120.9153
 },
 {
 "name": "Smith River Rancheria",
@@ -2760,7 +3438,9 @@
 "sq_mi": 0.3,
 "counties": [
 "Del Norte County"
-]
+],
+"lat": 41.9511,
+"lon": -124.2073
 },
 {
 "name": "Soboba Reservation",
@@ -2768,7 +3448,9 @@
 "sq_mi": 12.0,
 "counties": [
 "Riverside County"
-]
+],
+"lat": 33.7828,
+"lon": -116.8933
 },
 {
 "name": "Stewarts Point Rancheria",
@@ -2776,7 +3458,9 @@
 "sq_mi": 0.9,
 "counties": [
 "Sonoma County"
-]
+],
+"lat": 38.6525,
+"lon": -123.3277
 },
 {
 "name": "Sulphur Bank Rancheria",
@@ -2784,7 +3468,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Lake County"
-]
+],
+"lat": 39.0082,
+"lon": -122.6717
 },
 {
 "name": "Susanville Indian Rancheria",
@@ -2792,7 +3478,9 @@
 "sq_mi": 2.2,
 "counties": [
 "Lassen County"
-]
+],
+"lat": 40.4442,
+"lon": -120.6343
 },
 {
 "name": "Sycuan Reservation",
@@ -2800,7 +3488,9 @@
 "sq_mi": 3.5,
 "counties": [
 "San Diego County"
-]
+],
+"lat": 32.7802,
+"lon": -116.8318
 },
 {
 "name": "Table Bluff Reservation",
@@ -2808,7 +3498,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Humboldt County"
-]
+],
+"lat": 40.6907,
+"lon": -124.2521
 },
 {
 "name": "Table Mountain Rancheria",
@@ -2816,7 +3508,9 @@
 "sq_mi": 1.3,
 "counties": [
 "Fresno County"
-]
+],
+"lat": 36.9814,
+"lon": -119.6289
 },
 {
 "name": "Timbi-Sha Shoshone Reservation",
@@ -2824,7 +3518,9 @@
 "sq_mi": 3.2,
 "counties": [
 "Inyo County"
-]
+],
+"lat": 37.4716,
+"lon": -117.5089
 },
 {
 "name": "Torres-Martinez Reservation",
@@ -2833,7 +3529,9 @@
 "counties": [
 "Riverside County",
 "Imperial County"
-]
+],
+"lat": 33.5536,
+"lon": -116.127
 },
 {
 "name": "Trinidad Rancheria",
@@ -2841,7 +3539,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Humboldt County"
-]
+],
+"lat": 41.0543,
+"lon": -124.1307
 },
 {
 "name": "Tule River Reservation",
@@ -2849,7 +3549,9 @@
 "sq_mi": 84.3,
 "counties": [
 "Tulare County"
-]
+],
+"lat": 36.0371,
+"lon": -118.708
 },
 {
 "name": "Tuolumne Rancheria",
@@ -2857,7 +3559,9 @@
 "sq_mi": 0.6,
 "counties": [
 "Tuolumne County"
-]
+],
+"lat": 37.9828,
+"lon": -120.2392
 },
 {
 "name": "Twenty-Nine Palms Reservation",
@@ -2866,7 +3570,9 @@
 "counties": [
 "Riverside County",
 "San Bernardino County"
-]
+],
+"lat": 33.7113,
+"lon": -116.1861
 },
 {
 "name": "Upper Lake Rancheria",
@@ -2874,7 +3580,9 @@
 "sq_mi": 0.7,
 "counties": [
 "Lake County"
-]
+],
+"lat": 39.1842,
+"lon": -122.9171
 },
 {
 "name": "Viejas Reservation",
@@ -2882,7 +3590,9 @@
 "sq_mi": 2.7,
 "counties": [
 "San Diego County"
-]
+],
+"lat": 32.8508,
+"lon": -116.6983
 },
 {
 "name": "Washoe Ranches Trust Land",
@@ -2890,7 +3600,9 @@
 "sq_mi": 0.4,
 "counties": [
 "Alpine County"
-]
+],
+"lat": 38.9567,
+"lon": -119.544
 },
 {
 "name": "Woodfords Community",
@@ -2898,7 +3610,9 @@
 "sq_mi": 0.6,
 "counties": [
 "Alpine County"
-]
+],
+"lat": 38.7984,
+"lon": -119.798
 },
 {
 "name": "XL Ranch Rancheria",
@@ -2906,7 +3620,9 @@
 "sq_mi": 15.2,
 "counties": [
 "Modoc County"
-]
+],
+"lat": 41.5344,
+"lon": -120.4538
 },
 {
 "name": "Yurok Reservation",
@@ -2915,7 +3631,9 @@
 "counties": [
 "Humboldt County",
 "Del Norte County"
-]
+],
+"lat": 41.5057,
+"lon": -123.9801
 }
 ],
 "CO": [
@@ -2927,7 +3645,9 @@
 "La Plata County",
 "Archuleta County",
 "Montezuma County"
-]
+],
+"lat": 37.1075,
+"lon": -107.6439
 },
 {
 "name": "Ute Mountain Reservation",
@@ -2936,7 +3656,9 @@
 "counties": [
 "Montezuma County",
 "La Plata County"
-]
+],
+"lat": 37.1079,
+"lon": -108.6669
 }
 ],
 "CT": [
@@ -2947,7 +3669,9 @@
 "counties": [
 "New London County",
 "Fairfield County"
-]
+],
+"lat": 41.5527,
+"lon": -72.2665
 },
 {
 "name": "Mashantucket Pequot Reservation",
@@ -2955,7 +3679,9 @@
 "sq_mi": 2.6,
 "counties": [
 "New London County"
-]
+],
+"lat": 41.4587,
+"lon": -71.9759
 },
 {
 "name": "Mohegan Reservation",
@@ -2963,7 +3689,9 @@
 "sq_mi": 0.9,
 "counties": [
 "New London County"
-]
+],
+"lat": 41.4894,
+"lon": -72.0901
 },
 {
 "name": "Paucatuck Eastern Pequot Reservation",
@@ -2971,7 +3699,9 @@
 "sq_mi": 0.4,
 "counties": [
 "New London County"
-]
+],
+"lat": 41.4453,
+"lon": -71.9383
 },
 {
 "name": "Schaghticoke Reservation",
@@ -2979,7 +3709,9 @@
 "sq_mi": 0.4,
 "counties": [
 "Litchfield County"
-]
+],
+"lat": 41.692,
+"lon": -73.5101
 }
 ],
 "DE": [
@@ -2989,7 +3721,9 @@
 "sq_mi": 2.2,
 "counties": [
 "Kent County"
-]
+],
+"lat": 39.2084,
+"lon": -75.5957
 },
 {
 "name": "Nanticoke Indian Tribe SDTSA",
@@ -2997,7 +3731,9 @@
 "sq_mi": 27.2,
 "counties": [
 "Sussex County"
-]
+],
+"lat": 38.6426,
+"lon": -75.2252
 }
 ],
 "FL": [
@@ -3008,7 +3744,9 @@
 "counties": [
 "Hendry County",
 "Broward County"
-]
+],
+"lat": 26.2891,
+"lon": -80.9792
 },
 {
 "name": "Brighton Reservation",
@@ -3016,7 +3754,9 @@
 "sq_mi": 57.1,
 "counties": [
 "Glades County"
-]
+],
+"lat": 27.0807,
+"lon": -81.0571
 },
 {
 "name": "Coconut Creek Trust Land",
@@ -3024,7 +3764,9 @@
 "sq_mi": 0.0,
 "counties": [
 "Broward County"
-]
+],
+"lat": 26.2775,
+"lon": -80.1998
 },
 {
 "name": "Fort Pierce Reservation",
@@ -3032,7 +3774,9 @@
 "sq_mi": 0.1,
 "counties": [
 "St. Lucie County"
-]
+],
+"lat": 27.4018,
+"lon": -80.4349
 },
 {
 "name": "Hollywood Reservation",
@@ -3040,7 +3784,9 @@
 "sq_mi": 0.8,
 "counties": [
 "Broward County"
-]
+],
+"lat": 26.0396,
+"lon": -80.211
 },
 {
 "name": "Immokalee Reservation",
@@ -3048,7 +3794,9 @@
 "sq_mi": 1.0,
 "counties": [
 "Collier County"
-]
+],
+"lat": 26.4037,
+"lon": -81.411
 },
 {
 "name": "Miccosukee Reservation",
@@ -3059,7 +3807,9 @@
 "Hendry County",
 "Highlands County",
 "Miami-Dade County"
-]
+],
+"lat": 26.1408,
+"lon": -80.8294
 },
 {
 "name": "Poarch Creek Reservation",
@@ -3067,7 +3817,9 @@
 "sq_mi": 0.0,
 "counties": [
 "Escambia County"
-]
+],
+"lat": 31.1049,
+"lon": -87.5651
 },
 {
 "name": "Seminole (FL) Trust Land",
@@ -3075,7 +3827,9 @@
 "sq_mi": 0.0,
 "counties": [
 "Broward County"
-]
+],
+"lat": 26.1043,
+"lon": -80.2017
 },
 {
 "name": "Tampa Reservation",
@@ -3083,7 +3837,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Hillsborough County"
-]
+],
+"lat": 27.994,
+"lon": -82.3712
 }
 ],
 "GA": [
@@ -3093,7 +3849,9 @@
 "sq_mi": 33.7,
 "counties": [
 "Lumpkin County"
-]
+],
+"lat": 34.5073,
+"lon": -84.0433
 },
 {
 "name": "Tama Reservation",
@@ -3101,7 +3859,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Grady County"
-]
+],
+"lat": 30.8626,
+"lon": -84.2646
 }
 ],
 "HI": [
@@ -3111,7 +3871,9 @@
 "sq_mi": 0.8,
 "counties": [
 "Kauai County"
-]
+],
+"lat": 22.1494,
+"lon": -159.3192
 },
 {
 "name": "Anahola (Residential) Hawaiian Home Land",
@@ -3119,7 +3881,9 @@
 "sq_mi": 5.6,
 "counties": [
 "Kauai County"
-]
+],
+"lat": 22.1372,
+"lon": -159.3464
 },
 {
 "name": "East Kapolei Hawaiian Home Land",
@@ -3127,7 +3891,9 @@
 "sq_mi": 0.3,
 "counties": [
 "Honolulu County"
-]
+],
+"lat": 21.3526,
+"lon": -158.0443
 },
 {
 "name": "Haiku Hawaiian Home Land",
@@ -3135,7 +3901,9 @@
 "sq_mi": 0.2,
 "counties": [
 "Honolulu County"
-]
+],
+"lat": 21.4059,
+"lon": -157.8266
 },
 {
 "name": "Hanapepe Hawaiian Home Land",
@@ -3143,7 +3911,9 @@
 "sq_mi": 0.6,
 "counties": [
 "Kauai County"
-]
+],
+"lat": 21.9151,
+"lon": -159.5957
 },
 {
 "name": "Homuula-Upper Piihonua Hawaiian Home Land",
@@ -3151,7 +3921,9 @@
 "sq_mi": 96.9,
 "counties": [
 "Hawaii County"
-]
+],
+"lat": 19.7649,
+"lon": -155.3792
 },
 {
 "name": "Honokaia Hawaiian Home Land",
@@ -3159,7 +3931,9 @@
 "sq_mi": 5.0,
 "counties": [
 "Hawaii County"
-]
+],
+"lat": 20.0345,
+"lon": -155.5325
 },
 {
 "name": "Honokowai Hawaiian Home Land",
@@ -3167,7 +3941,9 @@
 "sq_mi": 1.3,
 "counties": [
 "Maui County"
-]
+],
+"lat": 20.9481,
+"lon": -156.6683
 },
 {
 "name": "Honolulu Makai Hawaiian Home Land",
@@ -3175,7 +3951,9 @@
 "sq_mi": 0.0,
 "counties": [
 "Honolulu County"
-]
+],
+"lat": 21.3367,
+"lon": -157.8962
 },
 {
 "name": "Honomu Hawaiian Home Land",
@@ -3183,7 +3961,9 @@
 "sq_mi": 1.2,
 "counties": [
 "Hawaii County"
-]
+],
+"lat": 19.8508,
+"lon": -155.1384
 },
 {
 "name": "Hoolehua-Palaau Hawaiian Home Land",
@@ -3191,7 +3971,9 @@
 "sq_mi": 21.6,
 "counties": [
 "Maui County"
-]
+],
+"lat": 21.1765,
+"lon": -157.0974
 },
 {
 "name": "Kahikinui Hawaiian Home Land",
@@ -3199,7 +3981,9 @@
 "sq_mi": 37.3,
 "counties": [
 "Maui County"
-]
+],
+"lat": 20.6521,
+"lon": -156.2832
 },
 {
 "name": "Kakaina-Kumuhau Hawaiian Home Land",
@@ -3207,7 +3991,9 @@
 "sq_mi": 0.0,
 "counties": [
 "Honolulu County"
-]
+],
+"lat": 21.3452,
+"lon": -157.7271
 },
 {
 "name": "Kalaeloa Hawaiian Home Land",
@@ -3215,7 +4001,9 @@
 "sq_mi": 0.9,
 "counties": [
 "Honolulu County"
-]
+],
+"lat": 21.3174,
+"lon": -158.0845
 },
 {
 "name": "Kalamaula Hawaiian Home Land",
@@ -3223,7 +4011,9 @@
 "sq_mi": 7.9,
 "counties": [
 "Maui County"
-]
+],
+"lat": 21.1172,
+"lon": -157.0346
 },
 {
 "name": "Kalaupapa Hawaiian Home Land",
@@ -3232,7 +4022,9 @@
 "counties": [
 "Kalawao County",
 "Maui County"
-]
+],
+"lat": 21.1836,
+"lon": -156.9795
 },
 {
 "name": "Kalawahine Hawaiian Home Land",
@@ -3240,7 +4032,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Honolulu County"
-]
+],
+"lat": 21.3159,
+"lon": -157.8359
 },
 {
 "name": "Kamaoa-Puueo Hawaiian Home Land",
@@ -3248,7 +4042,9 @@
 "sq_mi": 17.6,
 "counties": [
 "Hawaii County"
-]
+],
+"lat": 18.9578,
+"lon": -155.6535
 },
 {
 "name": "Kamiloloa-Makakupaia Hawaiian Home Land",
@@ -3256,7 +4052,9 @@
 "sq_mi": 5.1,
 "counties": [
 "Maui County"
-]
+],
+"lat": 21.0969,
+"lon": -156.9753
 },
 {
 "name": "Kamoku-Kapulena Hawaiian Home Land",
@@ -3264,7 +4062,9 @@
 "sq_mi": 7.5,
 "counties": [
 "Hawaii County"
-]
+],
+"lat": 20.0537,
+"lon": -155.5591
 },
 {
 "name": "Kanehili Hawaiian Home Land",
@@ -3272,7 +4072,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Honolulu County"
-]
+],
+"lat": 21.3409,
+"lon": -158.0555
 },
 {
 "name": "Kaohe-Olaa Hawaiian Home Land",
@@ -3280,7 +4082,9 @@
 "sq_mi": 1.1,
 "counties": [
 "Hawaii County"
-]
+],
+"lat": 19.4925,
+"lon": -155.1922
 },
 {
 "name": "Kapaa Hawaiian Home Land",
@@ -3288,7 +4092,9 @@
 "sq_mi": 0.0,
 "counties": [
 "Kauai County"
-]
+],
+"lat": 22.0787,
+"lon": -159.3172
 },
 {
 "name": "Kapaakea Hawaiian Home Land",
@@ -3296,7 +4102,9 @@
 "sq_mi": 3.1,
 "counties": [
 "Maui County"
-]
+],
+"lat": 21.109,
+"lon": -156.9902
 },
 {
 "name": "Kapolei Hawaiian Home Land",
@@ -3304,7 +4112,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Honolulu County"
-]
+],
+"lat": 21.3332,
+"lon": -158.0519
 },
 {
 "name": "Kaumana Hawaiian Home Land",
@@ -3312,7 +4122,9 @@
 "sq_mi": 0.0,
 "counties": [
 "Hawaii County"
-]
+],
+"lat": 19.6843,
+"lon": -155.1374
 },
 {
 "name": "Kaupea Hawaiian Home Land",
@@ -3320,7 +4132,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Honolulu County"
-]
+],
+"lat": 21.3295,
+"lon": -158.0621
 },
 {
 "name": "Kawaihae Hawaiian Home Land",
@@ -3328,7 +4142,9 @@
 "sq_mi": 16.0,
 "counties": [
 "Hawaii County"
-]
+],
+"lat": 20.0666,
+"lon": -155.8067
 },
 {
 "name": "Keahuolu Hawaiian Home Land",
@@ -3336,7 +4152,9 @@
 "sq_mi": 0.2,
 "counties": [
 "Hawaii County"
-]
+],
+"lat": 19.6623,
+"lon": -155.9844
 },
 {
 "name": "Kealakehe Hawaiian Home Land",
@@ -3344,7 +4162,9 @@
 "sq_mi": 1.1,
 "counties": [
 "Hawaii County"
-]
+],
+"lat": 19.6726,
+"lon": -155.9935
 },
 {
 "name": "Keanae-Wailua Hawaiian Home Land",
@@ -3352,7 +4172,9 @@
 "sq_mi": 0.4,
 "counties": [
 "Maui County"
-]
+],
+"lat": 20.8408,
+"lon": -156.148
 },
 {
 "name": "Keaukaha Hawaiian Home Land",
@@ -3360,7 +4182,9 @@
 "sq_mi": 2.6,
 "counties": [
 "Hawaii County"
-]
+],
+"lat": 19.7256,
+"lon": -155.0025
 },
 {
 "name": "Kekaha Hawaiian Home Land",
@@ -3368,7 +4192,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Kauai County"
-]
+],
+"lat": 21.9724,
+"lon": -159.7274
 },
 {
 "name": "Keokea (Agricultural) Hawaiian Home Land",
@@ -3376,7 +4202,9 @@
 "sq_mi": 3.9,
 "counties": [
 "Maui County"
-]
+],
+"lat": 20.721,
+"lon": -156.3851
 },
 {
 "name": "Keoniki Hawaiian Home Land",
@@ -3384,7 +4212,9 @@
 "sq_mi": 0.4,
 "counties": [
 "Hawaii County"
-]
+],
+"lat": 20.0395,
+"lon": -155.6968
 },
 {
 "name": "Kewalo Hawaiian Home Land",
@@ -3392,7 +4222,9 @@
 "sq_mi": 0.0,
 "counties": [
 "Honolulu County"
-]
+],
+"lat": 21.3141,
+"lon": -157.8391
 },
 {
 "name": "Kolaoa Hawaiian Home Land",
@@ -3408,7 +4240,9 @@
 "sq_mi": 0.4,
 "counties": [
 "Hawaii County"
-]
+],
+"lat": 20.0232,
+"lon": -155.7052
 },
 {
 "name": "Lanai City Hawaiian Home Land",
@@ -3416,7 +4250,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Maui County"
-]
+],
+"lat": 20.8272,
+"lon": -156.9286
 },
 {
 "name": "Leialii Hawaiian Home Land",
@@ -3424,7 +4260,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Maui County"
-]
+],
+"lat": 20.9039,
+"lon": -156.6814
 },
 {
 "name": "Lualualei Hawaiian Home Land",
@@ -3432,7 +4270,9 @@
 "sq_mi": 0.8,
 "counties": [
 "Honolulu County"
-]
+],
+"lat": 21.4373,
+"lon": -158.1633
 },
 {
 "name": "Maili Hawaiian Home Land",
@@ -3440,7 +4280,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Honolulu County"
-]
+],
+"lat": 21.4128,
+"lon": -158.1701
 },
 {
 "name": "Makaha Valley Hawaiian Home Land",
@@ -3456,7 +4298,9 @@
 "sq_mi": 3.4,
 "counties": [
 "Hawaii County"
-]
+],
+"lat": 19.5308,
+"lon": -154.9691
 },
 {
 "name": "Maluohai Hawaiian Home Land",
@@ -3464,7 +4308,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Honolulu County"
-]
+],
+"lat": 21.331,
+"lon": -158.0682
 },
 {
 "name": "Moloaa Hawaiian Home Land",
@@ -3472,7 +4318,9 @@
 "sq_mi": 0.5,
 "counties": [
 "Kauai County"
-]
+],
+"lat": 22.1793,
+"lon": -159.3573
 },
 {
 "name": "Nanakuli Hawaiian Home Land",
@@ -3480,7 +4328,9 @@
 "sq_mi": 3.6,
 "counties": [
 "Honolulu County"
-]
+],
+"lat": 21.3937,
+"lon": -158.1258
 },
 {
 "name": "Nienie Hawaiian Home Land",
@@ -3488,7 +4338,9 @@
 "sq_mi": 11.1,
 "counties": [
 "Hawaii County"
-]
+],
+"lat": 20.0072,
+"lon": -155.512
 },
 {
 "name": "Panaewa (Agricultural) Hawaiian Home Land",
@@ -3496,7 +4348,9 @@
 "sq_mi": 2.7,
 "counties": [
 "Hawaii County"
-]
+],
+"lat": 19.6858,
+"lon": -155.0496
 },
 {
 "name": "Panaewa (Residential) Hawaiian Home Land",
@@ -3504,7 +4358,9 @@
 "sq_mi": 0.2,
 "counties": [
 "Hawaii County"
-]
+],
+"lat": 19.6928,
+"lon": -155.0602
 },
 {
 "name": "Papakolea Hawaiian Home Land",
@@ -3512,7 +4368,9 @@
 "sq_mi": 0.2,
 "counties": [
 "Honolulu County"
-]
+],
+"lat": 21.3184,
+"lon": -157.8376
 },
 {
 "name": "Pauahi Hawaiian Home Land",
@@ -3520,7 +4378,9 @@
 "sq_mi": 0.9,
 "counties": [
 "Hawaii County"
-]
+],
+"lat": 20.0532,
+"lon": -155.7167
 },
 {
 "name": "Paukukalo Hawaiian Home Land",
@@ -3528,7 +4388,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Maui County"
-]
+],
+"lat": 20.9067,
+"lon": -156.493
 },
 {
 "name": "Pearl City Hawaiian Home Land",
@@ -3544,7 +4406,9 @@
 "sq_mi": 0.0,
 "counties": [
 "Hawaii County"
-]
+],
+"lat": 19.7154,
+"lon": -155.1062
 },
 {
 "name": "Ponohawaii Hawaiian Home Land",
@@ -3552,7 +4416,9 @@
 "sq_mi": 0.0,
 "counties": [
 "Hawaii County"
-]
+],
+"lat": 19.7062,
+"lon": -155.0852
 },
 {
 "name": "Princess Kahanu Estates Hawaiian Home Land",
@@ -3560,7 +4426,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Honolulu County"
-]
+],
+"lat": 21.397,
+"lon": -158.1573
 },
 {
 "name": "Pulehunui Hawaiian Home Land",
@@ -3568,7 +4436,9 @@
 "sq_mi": 0.6,
 "counties": [
 "Maui County"
-]
+],
+"lat": 20.8084,
+"lon": -156.4621
 },
 {
 "name": "Puukapu Hawaiian Home Land",
@@ -3576,7 +4446,9 @@
 "sq_mi": 18.9,
 "counties": [
 "Hawaii County"
-]
+],
+"lat": 20.0058,
+"lon": -155.6181
 },
 {
 "name": "South Maui Hawaiian Home Land",
@@ -3584,7 +4456,9 @@
 "sq_mi": 0.3,
 "counties": [
 "Maui County"
-]
+],
+"lat": 20.6205,
+"lon": -156.4307
 },
 {
 "name": "Ualapue Hawaiian Home Land",
@@ -3592,7 +4466,9 @@
 "sq_mi": 0.6,
 "counties": [
 "Maui County"
-]
+],
+"lat": 21.0715,
+"lon": -156.8346
 },
 {
 "name": "Upolu Hawaiian Home Land",
@@ -3600,7 +4476,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Hawaii County"
-]
+],
+"lat": 20.2492,
+"lon": -155.8866
 },
 {
 "name": "Waiahole Hawaiian Home Land",
@@ -3608,7 +4486,9 @@
 "sq_mi": 0.0,
 "counties": [
 "Honolulu County"
-]
+],
+"lat": 21.484,
+"lon": -157.8597
 },
 {
 "name": "Waiakea Hawaiian Home Land",
@@ -3616,7 +4496,9 @@
 "sq_mi": 2.2,
 "counties": [
 "Hawaii County"
-]
+],
+"lat": 19.6908,
+"lon": -155.0182
 },
 {
 "name": "Waianae Hawaiian Home Land",
@@ -3624,7 +4506,9 @@
 "sq_mi": 0.6,
 "counties": [
 "Honolulu County"
-]
+],
+"lat": 21.4561,
+"lon": -158.1643
 },
 {
 "name": "Waianae Kai Hawaiian Home Land",
@@ -3632,7 +4516,9 @@
 "sq_mi": 0.0,
 "counties": [
 "Honolulu County"
-]
+],
+"lat": 21.4389,
+"lon": -158.1768
 },
 {
 "name": "Waiehu Hawaiian Home Land",
@@ -3640,7 +4526,9 @@
 "sq_mi": 0.2,
 "counties": [
 "Maui County"
-]
+],
+"lat": 20.9292,
+"lon": -156.5061
 },
 {
 "name": "Waiku-Hana Hawaiian Home Land",
@@ -3648,7 +4536,9 @@
 "sq_mi": 1.2,
 "counties": [
 "Maui County"
-]
+],
+"lat": 20.7754,
+"lon": -156.0109
 },
 {
 "name": "Wailau Hawaiian Home Land",
@@ -3656,7 +4546,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Hawaii County"
-]
+],
+"lat": 19.1446,
+"lon": -155.5171
 },
 {
 "name": "Wailua Hawaiian Home Land",
@@ -3664,7 +4556,9 @@
 "sq_mi": 0.9,
 "counties": [
 "Kauai County"
-]
+],
+"lat": 22.0403,
+"lon": -159.3434
 },
 {
 "name": "Waimanalo Hawaiian Home Land",
@@ -3672,7 +4566,9 @@
 "sq_mi": 3.2,
 "counties": [
 "Honolulu County"
-]
+],
+"lat": 21.3255,
+"lon": -157.7226
 },
 {
 "name": "Waimanu Hawaiian Home Land",
@@ -3680,7 +4576,9 @@
 "sq_mi": 0.3,
 "counties": [
 "Hawaii County"
-]
+],
+"lat": 20.1372,
+"lon": -155.6412
 },
 {
 "name": "Waimea Hawaiian Home Land",
@@ -3688,7 +4586,9 @@
 "sq_mi": 23.6,
 "counties": [
 "Kauai County"
-]
+],
+"lat": 22.0389,
+"lon": -159.7174
 },
 {
 "name": "Waiohinu Hawaiian Home Land",
@@ -3696,7 +4596,9 @@
 "sq_mi": 0.4,
 "counties": [
 "Hawaii County"
-]
+],
+"lat": 19.078,
+"lon": -155.6212
 },
 {
 "name": "Waiohuli (Residential) Hawaiian Home Land",
@@ -3704,7 +4606,9 @@
 "sq_mi": 5.8,
 "counties": [
 "Maui County"
-]
+],
+"lat": 20.735,
+"lon": -156.375
 }
 ],
 "IA": [
@@ -3714,7 +4618,9 @@
 "sq_mi": 5.6,
 "counties": [
 "Monona County"
-]
+],
+"lat": 42.1036,
+"lon": -96.4798
 },
 {
 "name": "Ponca (NE) Trust Land",
@@ -3722,7 +4628,9 @@
 "sq_mi": 0.0,
 "counties": [
 "Pottawattamie County"
-]
+],
+"lat": 42.7141,
+"lon": -98.0848
 },
 {
 "name": "Sac and Fox/Meskwaki Settlement",
@@ -3730,7 +4638,9 @@
 "sq_mi": 10.3,
 "counties": [
 "Tama County"
-]
+],
+"lat": 41.9927,
+"lon": -92.6553
 },
 {
 "name": "Winnebago Reservation",
@@ -3738,7 +4648,9 @@
 "sq_mi": 1.0,
 "counties": [
 "Woodbury County"
-]
+],
+"lat": 42.2192,
+"lon": -96.6149
 }
 ],
 "ID": [
@@ -3749,7 +4661,9 @@
 "counties": [
 "Benewah County",
 "Kootenai County"
-]
+],
+"lat": 47.2801,
+"lon": -116.8472
 },
 {
 "name": "Duck Valley Reservation",
@@ -3757,7 +4671,9 @@
 "sq_mi": 226.0,
 "counties": [
 "Owyhee County"
-]
+],
+"lat": 41.9963,
+"lon": -116.1841
 },
 {
 "name": "Fort Hall Reservation",
@@ -3768,7 +4684,9 @@
 "Power County",
 "Bannock County",
 "Caribou County"
-]
+],
+"lat": 43.0457,
+"lon": -112.1919
 },
 {
 "name": "Kootenai Reservation",
@@ -3776,7 +4694,9 @@
 "sq_mi": 4.8,
 "counties": [
 "Boundary County"
-]
+],
+"lat": 48.8175,
+"lon": -116.3867
 },
 {
 "name": "Nez Perce Reservation",
@@ -3788,7 +4708,9 @@
 "Idaho County",
 "Clearwater County",
 "Latah County"
-]
+],
+"lat": 46.3309,
+"lon": -116.3984
 }
 ],
 "IN": [
@@ -3798,7 +4720,9 @@
 "sq_mi": 0.3,
 "counties": [
 "St. Joseph County"
-]
+],
+"lat": 41.9428,
+"lon": -86.1785
 }
 ],
 "KS": [
@@ -3809,7 +4733,9 @@
 "counties": [
 "Brown County",
 "Doniphan County"
-]
+],
+"lat": 40.003,
+"lon": -95.3611
 },
 {
 "name": "Kickapoo (KS) Reservation",
@@ -3819,7 +4745,9 @@
 "Brown County",
 "Jackson County",
 "Atchison County"
-]
+],
+"lat": 39.6807,
+"lon": -95.61
 },
 {
 "name": "Kickapoo (KS) Reservation/Sac and Fox Nation Trust Land joint-use area",
@@ -3827,7 +4755,9 @@
 "sq_mi": 0.4,
 "counties": [
 "Brown County"
-]
+],
+"lat": 39.701,
+"lon": -95.7209
 },
 {
 "name": "Prairie Band of Potawatomi Nation Reservation",
@@ -3835,7 +4765,9 @@
 "sq_mi": 121.5,
 "counties": [
 "Jackson County"
-]
+],
+"lat": 39.3407,
+"lon": -95.8401
 },
 {
 "name": "Sac and Fox Nation Reservation",
@@ -3843,7 +4775,9 @@
 "sq_mi": 8.0,
 "counties": [
 "Brown County"
-]
+],
+"lat": 40.0093,
+"lon": -95.513
 }
 ],
 "LA": [
@@ -3853,7 +4787,9 @@
 "sq_mi": 146.3,
 "counties": [
 "Natchitoches Parish"
-]
+],
+"lat": 31.7571,
+"lon": -93.3126
 },
 {
 "name": "Apache Choctaw SDTSA",
@@ -3861,7 +4797,9 @@
 "sq_mi": 85.6,
 "counties": [
 "Sabine Parish"
-]
+],
+"lat": 31.6498,
+"lon": -93.6856
 },
 {
 "name": "Bayou Lafourche SDTSA",
@@ -3869,7 +4807,9 @@
 "sq_mi": 37.6,
 "counties": [
 "Lafourche Parish"
-]
+],
+"lat": 29.4455,
+"lon": -90.3026
 },
 {
 "name": "Chitimacha Reservation",
@@ -3877,7 +4817,9 @@
 "sq_mi": 0.7,
 "counties": [
 "St. Mary Parish"
-]
+],
+"lat": 29.8839,
+"lon": -91.532
 },
 {
 "name": "Clifton Choctaw SDTSA",
@@ -3886,7 +4828,9 @@
 "counties": [
 "Rapides Parish",
 "Vernon Parish"
-]
+],
+"lat": 31.2909,
+"lon": -92.866
 },
 {
 "name": "Coushatta Reservation",
@@ -3894,7 +4838,9 @@
 "sq_mi": 1.7,
 "counties": [
 "Allen Parish"
-]
+],
+"lat": 30.5261,
+"lon": -92.793
 },
 {
 "name": "Four Winds Cherokee SDTSA",
@@ -3903,7 +4849,9 @@
 "counties": [
 "Vernon Parish",
 "Beauregard Parish"
-]
+],
+"lat": 31.2341,
+"lon": -93.1417
 },
 {
 "name": "Grand Caillou/Dulac SDTSA",
@@ -3911,7 +4859,9 @@
 "sq_mi": 67.9,
 "counties": [
 "Terrebonne Parish"
-]
+],
+"lat": 29.4486,
+"lon": -90.6546
 },
 {
 "name": "Isle de Jean Charles SDTSA",
@@ -3919,7 +4869,9 @@
 "sq_mi": 2.6,
 "counties": [
 "Terrebonne Parish"
-]
+],
+"lat": 29.7145,
+"lon": -90.7864
 },
 {
 "name": "Jena Band of Choctaw Reservation",
@@ -3928,7 +4880,9 @@
 "counties": [
 "Grant Parish",
 "LaSalle Parish"
-]
+],
+"lat": 31.4394,
+"lon": -92.4911
 },
 {
 "name": "Natchitoches SDTSA",
@@ -3936,7 +4890,9 @@
 "sq_mi": 129.4,
 "counties": [
 "Natchitoches Parish"
-]
+],
+"lat": 31.7481,
+"lon": -93.1075
 },
 {
 "name": "Pointe-au-Chien SDTSA",
@@ -3945,7 +4901,9 @@
 "counties": [
 "Terrebonne Parish",
 "Lafourche Parish"
-]
+],
+"lat": 29.4733,
+"lon": -90.5383
 },
 {
 "name": "Tunica-Biloxi Reservation",
@@ -3953,7 +4911,9 @@
 "sq_mi": 1.2,
 "counties": [
 "Avoyelles Parish"
-]
+],
+"lat": 31.1097,
+"lon": -92.0572
 },
 {
 "name": "United Houma Nation SDTSA",
@@ -3964,7 +4924,9 @@
 "Lafourche Parish",
 "Assumption Parish",
 "St. Mary Parish"
-]
+],
+"lat": 29.6287,
+"lon": -90.6893
 }
 ],
 "MA": [
@@ -3974,7 +4936,9 @@
 "sq_mi": 0.0,
 "counties": [
 "Worcester County"
-]
+],
+"lat": 42.2122,
+"lon": -71.7045
 },
 {
 "name": "Mashpee Wampanoag Trust Land",
@@ -3983,7 +4947,9 @@
 "counties": [
 "Barnstable County",
 "Bristol County"
-]
+],
+"lat": 41.8723,
+"lon": -71.0511
 },
 {
 "name": "Wampanoag-Aquinnah Trust Land",
@@ -3991,7 +4957,9 @@
 "sq_mi": 0.8,
 "counties": [
 "Dukes County"
-]
+],
+"lat": 41.3458,
+"lon": -70.7749
 }
 ],
 "ME": [
@@ -4001,7 +4969,9 @@
 "sq_mi": 1.6,
 "counties": [
 "Aroostook County"
-]
+],
+"lat": 46.923,
+"lon": -67.8933
 },
 {
 "name": "Houlton Maliseet Reservation",
@@ -4009,7 +4979,9 @@
 "sq_mi": 2.0,
 "counties": [
 "Aroostook County"
-]
+],
+"lat": 46.1807,
+"lon": -67.8135
 },
 {
 "name": "Indian Township Reservation",
@@ -4017,7 +4989,9 @@
 "sq_mi": 37.5,
 "counties": [
 "Washington County"
-]
+],
+"lat": 45.265,
+"lon": -67.6124
 },
 {
 "name": "Passamaquoddy Trust Land",
@@ -4030,7 +5004,9 @@
 "Washington County",
 "Penobscot County",
 "Oxford County"
-]
+],
+"lat": 45.5528,
+"lon": -70.5606
 },
 {
 "name": "Penobscot Reservation",
@@ -4041,7 +5017,9 @@
 "Franklin County",
 "Piscataquis County",
 "Aroostook County"
-]
+],
+"lat": 45.4846,
+"lon": -68.6617
 },
 {
 "name": "Pleasant Point Reservation",
@@ -4049,7 +5027,9 @@
 "sq_mi": 0.6,
 "counties": [
 "Washington County"
-]
+],
+"lat": 44.9632,
+"lon": -67.058
 }
 ],
 "MI": [
@@ -4059,7 +5039,9 @@
 "sq_mi": 5.5,
 "counties": [
 "Chippewa County"
-]
+],
+"lat": 46.4328,
+"lon": -84.6254
 },
 {
 "name": "Grand Traverse Reservation",
@@ -4071,7 +5053,9 @@
 "Antrim County",
 "Benzie County",
 "Charlevoix County"
-]
+],
+"lat": 45.0196,
+"lon": -85.6053
 },
 {
 "name": "Hannahville Indian Community",
@@ -4080,7 +5064,9 @@
 "counties": [
 "Menominee County",
 "Delta County"
-]
+],
+"lat": 45.7776,
+"lon": -87.4182
 },
 {
 "name": "Huron Potawatomi Reservation",
@@ -4088,7 +5074,9 @@
 "sq_mi": 0.3,
 "counties": [
 "Calhoun County"
-]
+],
+"lat": 42.1056,
+"lon": -85.2624
 },
 {
 "name": "Isabella Reservation",
@@ -4098,7 +5086,9 @@
 "Isabella County",
 "Arenac County",
 "Iosco County"
-]
+],
+"lat": 43.6625,
+"lon": -84.7767
 },
 {
 "name": "L'Anse Reservation",
@@ -4107,7 +5097,9 @@
 "counties": [
 "Baraga County",
 "Marquette County"
-]
+],
+"lat": 46.7654,
+"lon": -88.3666
 },
 {
 "name": "Lac Vieux Desert Reservation",
@@ -4115,7 +5107,9 @@
 "sq_mi": 0.4,
 "counties": [
 "Gogebic County"
-]
+],
+"lat": 46.2878,
+"lon": -89.175
 },
 {
 "name": "Little River Reservation",
@@ -4124,7 +5118,9 @@
 "counties": [
 "Manistee County",
 "Mason County"
-]
+],
+"lat": 44.2888,
+"lon": -86.2497
 },
 {
 "name": "Little Traverse Bay Reservation",
@@ -4134,7 +5130,9 @@
 "Emmet County",
 "Charlevoix County",
 "Delta County"
-]
+],
+"lat": 45.6986,
+"lon": -84.8076
 },
 {
 "name": "Match-e-be-nash-she-wish Band of Pottawatomi Reservation",
@@ -4142,7 +5140,9 @@
 "sq_mi": 1.2,
 "counties": [
 "Allegan County"
-]
+],
+"lat": 42.6345,
+"lon": -85.6579
 },
 {
 "name": "Ontonagon Reservation",
@@ -4150,7 +5150,9 @@
 "sq_mi": 3.7,
 "counties": [
 "Ontonagon County"
-]
+],
+"lat": 46.973,
+"lon": -89.1037
 },
 {
 "name": "Pokagon Reservation",
@@ -4160,7 +5162,9 @@
 "Cass County",
 "Van Buren County",
 "Berrien County"
-]
+],
+"lat": 41.9428,
+"lon": -86.1785
 },
 {
 "name": "Sault Ste. Marie Reservation",
@@ -4174,7 +5178,9 @@
 "Delta County",
 "Luce County",
 "Marquette County"
-]
+],
+"lat": 46.4675,
+"lon": -84.3191
 }
 ],
 "MN": [
@@ -4186,7 +5192,9 @@
 "Koochiching County",
 "St. Louis County",
 "Itasca County"
-]
+],
+"lat": 48.0919,
+"lon": -93.1872
 },
 {
 "name": "Fond du Lac Reservation",
@@ -4195,7 +5203,9 @@
 "counties": [
 "Carlton County",
 "St. Louis County"
-]
+],
+"lat": 46.7615,
+"lon": -92.6184
 },
 {
 "name": "Grand Portage Reservation",
@@ -4203,7 +5213,9 @@
 "sq_mi": 74.5,
 "counties": [
 "Cook County"
-]
+],
+"lat": 47.9615,
+"lon": -89.7751
 },
 {
 "name": "Ho-Chunk Nation Reservation",
@@ -4211,7 +5223,9 @@
 "sq_mi": 0.5,
 "counties": [
 "Houston County"
-]
+],
+"lat": 44.3312,
+"lon": -90.7766
 },
 {
 "name": "Leech Lake Reservation",
@@ -4222,7 +5236,9 @@
 "Itasca County",
 "Beltrami County",
 "Hubbard County"
-]
+],
+"lat": 47.4561,
+"lon": -94.0661
 },
 {
 "name": "Lower Sioux Indian Community",
@@ -4230,7 +5246,9 @@
 "sq_mi": 2.7,
 "counties": [
 "Redwood County"
-]
+],
+"lat": 44.53,
+"lon": -94.9858
 },
 {
 "name": "Mille Lacs Reservation",
@@ -4241,7 +5259,9 @@
 "Pine County",
 "Aitkin County",
 "Crow Wing County"
-]
+],
+"lat": 46.1341,
+"lon": -93.6451
 },
 {
 "name": "Minnesota Chippewa Trust Land",
@@ -4252,7 +5272,9 @@
 "St. Louis County",
 "Becker County",
 "Otter Tail County"
-]
+],
+"lat": 46.9875,
+"lon": -94.0355
 },
 {
 "name": "Prairie Island Indian Community",
@@ -4261,7 +5283,9 @@
 "counties": [
 "Goodhue County",
 "Dakota County"
-]
+],
+"lat": 44.6553,
+"lon": -92.6923
 },
 {
 "name": "Red Lake Reservation",
@@ -4277,7 +5301,9 @@
 "Marshall County",
 "Red Lake County",
 "Polk County"
-]
+],
+"lat": 47.9985,
+"lon": -95.1462
 },
 {
 "name": "Shakopee Mdewakanton Sioux Community",
@@ -4285,7 +5311,9 @@
 "sq_mi": 4.8,
 "counties": [
 "Scott County"
-]
+],
+"lat": 44.0618,
+"lon": -103.7892
 },
 {
 "name": "Upper Sioux Community",
@@ -4294,7 +5322,9 @@
 "counties": [
 "Yellow Medicine County",
 "Chippewa County"
-]
+],
+"lat": 44.7648,
+"lon": -95.5003
 },
 {
 "name": "White Earth Reservation",
@@ -4304,7 +5334,9 @@
 "Mahnomen County",
 "Becker County",
 "Clearwater County"
-]
+],
+"lat": 47.2381,
+"lon": -95.7214
 }
 ],
 "MS": [
@@ -4324,7 +5356,9 @@
 "Jackson County",
 "Scott County",
 "Noxubee County"
-]
+],
+"lat": 32.7922,
+"lon": -89.2467
 }
 ],
 "MT": [
@@ -4335,7 +5369,9 @@
 "counties": [
 "Glacier County",
 "Pondera County"
-]
+],
+"lat": 48.6255,
+"lon": -112.8593
 },
 {
 "name": "Crow Reservation",
@@ -4345,7 +5381,9 @@
 "Big Horn County",
 "Yellowstone County",
 "Treasure County"
-]
+],
+"lat": 45.3841,
+"lon": -107.3984
 },
 {
 "name": "Flathead Reservation",
@@ -4356,7 +5394,9 @@
 "Sanders County",
 "Missoula County",
 "Flathead County"
-]
+],
+"lat": 47.5392,
+"lon": -114.2913
 },
 {
 "name": "Fort Belknap Reservation",
@@ -4365,7 +5405,9 @@
 "counties": [
 "Blaine County",
 "Phillips County"
-]
+],
+"lat": 48.2195,
+"lon": -108.6301
 },
 {
 "name": "Fort Peck Indian Reservation",
@@ -4376,7 +5418,9 @@
 "Valley County",
 "Daniels County",
 "Sheridan County"
-]
+],
+"lat": 48.3541,
+"lon": -105.6444
 },
 {
 "name": "Northern Cheyenne Indian Reservation",
@@ -4385,7 +5429,9 @@
 "counties": [
 "Rosebud County",
 "Big Horn County"
-]
+],
+"lat": 45.539,
+"lon": -106.6848
 },
 {
 "name": "Rocky Boy's Reservation",
@@ -4394,7 +5440,9 @@
 "counties": [
 "Hill County",
 "Chouteau County"
-]
+],
+"lat": 48.2018,
+"lon": -109.7816
 },
 {
 "name": "Turtle Mountain Reservation",
@@ -4410,7 +5458,9 @@
 "Carter County",
 "Chouteau County",
 "Valley County"
-]
+],
+"lat": 48.849,
+"lon": -99.8498
 }
 ],
 "NC": [
@@ -4422,7 +5472,9 @@
 "Harnett County",
 "Sampson County",
 "Cumberland County"
-]
+],
+"lat": 35.2969,
+"lon": -78.6329
 },
 {
 "name": "Eastern Cherokee Reservation",
@@ -4434,7 +5486,9 @@
 "Cherokee County",
 "Graham County",
 "Haywood County"
-]
+],
+"lat": 35.4827,
+"lon": -83.2365
 },
 {
 "name": "Haliwa-Saponi SDTSA",
@@ -4445,7 +5499,9 @@
 "Halifax County",
 "Nash County",
 "Franklin County"
-]
+],
+"lat": 36.2588,
+"lon": -77.9651
 },
 {
 "name": "Lumbee SDTSA",
@@ -4456,7 +5512,9 @@
 "Cumberland County",
 "Scotland County",
 "Hoke County"
-]
+],
+"lat": 34.764,
+"lon": -79.1631
 },
 {
 "name": "Meherrin SDTSA",
@@ -4464,7 +5522,9 @@
 "sq_mi": 32.6,
 "counties": [
 "Hertford County"
-]
+],
+"lat": 36.3671,
+"lon": -76.938
 },
 {
 "name": "Occaneechi-Saponi SDTSA",
@@ -4473,7 +5533,9 @@
 "counties": [
 "Alamance County",
 "Orange County"
-]
+],
+"lat": 36.1904,
+"lon": -79.2569
 },
 {
 "name": "Sappony SDTSA",
@@ -4481,7 +5543,9 @@
 "sq_mi": 43.0,
 "counties": [
 "Person County"
-]
+],
+"lat": 36.4931,
+"lon": -78.8583
 },
 {
 "name": "Waccamaw Siouan SDTSA",
@@ -4490,7 +5554,9 @@
 "counties": [
 "Columbus County",
 "Bladen County"
-]
+],
+"lat": 34.386,
+"lon": -78.5252
 }
 ],
 "ND": [
@@ -4505,7 +5571,9 @@
 "McKenzie County",
 "Mercer County",
 "Ward County"
-]
+],
+"lat": 47.7376,
+"lon": -102.2776
 },
 {
 "name": "Lake Traverse Reservation",
@@ -4514,7 +5582,9 @@
 "counties": [
 "Sargent County",
 "Richland County"
-]
+],
+"lat": 45.7056,
+"lon": -97.1057
 },
 {
 "name": "Spirit Lake Reservation",
@@ -4525,7 +5595,9 @@
 "Eddy County",
 "Ramsey County",
 "Nelson County"
-]
+],
+"lat": 47.922,
+"lon": -98.913
 },
 {
 "name": "Standing Rock Reservation",
@@ -4533,7 +5605,9 @@
 "sq_mi": 1094.1,
 "counties": [
 "Sioux County"
-]
+],
+"lat": 45.793,
+"lon": -101.1323
 },
 {
 "name": "Turtle Mountain Reservation",
@@ -4548,7 +5622,9 @@
 "Burke County",
 "Cavalier County",
 "McHenry County"
-]
+],
+"lat": 48.849,
+"lon": -99.8498
 }
 ],
 "NE": [
@@ -4558,7 +5634,9 @@
 "sq_mi": 6.0,
 "counties": [
 "Richardson County"
-]
+],
+"lat": 40.003,
+"lon": -95.3611
 },
 {
 "name": "Omaha Reservation",
@@ -4568,7 +5646,9 @@
 "Thurston County",
 "Cuming County",
 "Burt County"
-]
+],
+"lat": 42.1036,
+"lon": -96.4798
 },
 {
 "name": "Pine Ridge Reservation",
@@ -4576,7 +5656,9 @@
 "sq_mi": 0.8,
 "counties": [
 "Sheridan County"
-]
+],
+"lat": 43.3426,
+"lon": -102.1004
 },
 {
 "name": "Ponca (NE) Trust Land",
@@ -4585,7 +5667,9 @@
 "counties": [
 "Knox County",
 "Lancaster County"
-]
+],
+"lat": 42.7141,
+"lon": -98.0848
 },
 {
 "name": "Sac and Fox Nation Reservation",
@@ -4593,7 +5677,9 @@
 "sq_mi": 15.6,
 "counties": [
 "Richardson County"
-]
+],
+"lat": 40.0093,
+"lon": -95.513
 },
 {
 "name": "Santee Reservation",
@@ -4601,7 +5687,9 @@
 "sq_mi": 172.9,
 "counties": [
 "Knox County"
-]
+],
+"lat": 42.7214,
+"lon": -97.8288
 },
 {
 "name": "Winnebago Reservation",
@@ -4611,7 +5699,9 @@
 "Thurston County",
 "Dixon County",
 "Burt County"
-]
+],
+"lat": 42.2192,
+"lon": -96.6149
 }
 ],
 "NJ": [
@@ -4621,7 +5711,9 @@
 "sq_mi": 19.1,
 "counties": [
 "Cumberland County"
-]
+],
+"lat": 39.4098,
+"lon": -75.1767
 },
 {
 "name": "Ramapough SDTSA",
@@ -4630,7 +5722,9 @@
 "counties": [
 "Passaic County",
 "Bergen County"
-]
+],
+"lat": 41.1456,
+"lon": -74.2731
 }
 ],
 "NM": [
@@ -4642,7 +5736,9 @@
 "Cibola County",
 "Socorro County",
 "Catron County"
-]
+],
+"lat": 34.881,
+"lon": -107.6727
 },
 {
 "name": "Fort Sill Apache Indian Reservation",
@@ -4650,7 +5746,9 @@
 "sq_mi": 0.0,
 "counties": [
 "Luna County"
-]
+],
+"lat": 32.2414,
+"lon": -107.4214
 },
 {
 "name": "Isleta Pueblo",
@@ -4660,7 +5758,9 @@
 "Bernalillo County",
 "Valencia County",
 "Torrance County"
-]
+],
+"lat": 34.8792,
+"lon": -106.5996
 },
 {
 "name": "Jemez Pueblo",
@@ -4668,7 +5768,9 @@
 "sq_mi": 139.7,
 "counties": [
 "Sandoval County"
-]
+],
+"lat": 35.6127,
+"lon": -106.7422
 },
 {
 "name": "Jicarilla Apache Nation Reservation",
@@ -4677,7 +5779,9 @@
 "counties": [
 "Rio Arriba County",
 "Sandoval County"
-]
+],
+"lat": 36.7029,
+"lon": -107.0077
 },
 {
 "name": "Laguna Pueblo",
@@ -4688,7 +5792,9 @@
 "Sandoval County",
 "Valencia County",
 "Bernalillo County"
-]
+],
+"lat": 35.012,
+"lon": -107.3477
 },
 {
 "name": "Mescalero Reservation",
@@ -4697,7 +5803,9 @@
 "counties": [
 "Otero County",
 "Lincoln County"
-]
+],
+"lat": 33.1549,
+"lon": -105.6119
 },
 {
 "name": "Nambe Pueblo",
@@ -4705,7 +5813,9 @@
 "sq_mi": 32.3,
 "counties": [
 "Santa Fe County"
-]
+],
+"lat": 35.8838,
+"lon": -105.9522
 },
 {
 "name": "Navajo Nation Reservation",
@@ -4719,7 +5829,9 @@
 "Socorro County",
 "Bernalillo County",
 "Rio Arriba County"
-]
+],
+"lat": 36.3391,
+"lon": -109.383
 },
 {
 "name": "Ohkay Owingeh",
@@ -4727,7 +5839,9 @@
 "sq_mi": 26.4,
 "counties": [
 "Rio Arriba County"
-]
+],
+"lat": 36.0533,
+"lon": -106.072
 },
 {
 "name": "Picuris Pueblo",
@@ -4735,7 +5849,9 @@
 "sq_mi": 27.4,
 "counties": [
 "Taos County"
-]
+],
+"lat": 36.2006,
+"lon": -105.7094
 },
 {
 "name": "Pueblo de Cochiti",
@@ -4744,7 +5860,9 @@
 "counties": [
 "Sandoval County",
 "Santa Fe County"
-]
+],
+"lat": 35.623,
+"lon": -106.3209
 },
 {
 "name": "Pueblo of Pojoaque",
@@ -4752,7 +5870,9 @@
 "sq_mi": 21.9,
 "counties": [
 "Santa Fe County"
-]
+],
+"lat": 35.8939,
+"lon": -106.0262
 },
 {
 "name": "San Felipe Pueblo",
@@ -4760,7 +5880,9 @@
 "sq_mi": 79.6,
 "counties": [
 "Sandoval County"
-]
+],
+"lat": 35.4293,
+"lon": -106.438
 },
 {
 "name": "San Felipe Pueblo/Santa Ana Pueblo joint-use area",
@@ -4768,7 +5890,9 @@
 "sq_mi": 1.1,
 "counties": [
 "Sandoval County"
-]
+],
+"lat": 35.3625,
+"lon": -106.4945
 },
 {
 "name": "San Felipe Pueblo/Santo Domingo Pueblo joint-use area",
@@ -4776,7 +5900,9 @@
 "sq_mi": 1.2,
 "counties": [
 "Sandoval County"
-]
+],
+"lat": 35.4739,
+"lon": -106.3717
 },
 {
 "name": "San Ildefonso Pueblo",
@@ -4785,7 +5911,9 @@
 "counties": [
 "Santa Fe County",
 "Sandoval County"
-]
+],
+"lat": 35.893,
+"lon": -106.1358
 },
 {
 "name": "Sandia Pueblo",
@@ -4794,7 +5922,9 @@
 "counties": [
 "Sandoval County",
 "Bernalillo County"
-]
+],
+"lat": 35.25,
+"lon": -106.5445
 },
 {
 "name": "Santa Ana Pueblo",
@@ -4802,7 +5932,9 @@
 "sq_mi": 101.0,
 "counties": [
 "Sandoval County"
-]
+],
+"lat": 35.4361,
+"lon": -106.6147
 },
 {
 "name": "Santa Clara Pueblo",
@@ -4812,7 +5944,9 @@
 "Rio Arriba County",
 "Sandoval County",
 "Santa Fe County"
-]
+],
+"lat": 35.9803,
+"lon": -106.222
 },
 {
 "name": "Santo Domingo Pueblo",
@@ -4821,7 +5955,9 @@
 "counties": [
 "Sandoval County",
 "Santa Fe County"
-]
+],
+"lat": 35.5257,
+"lon": -106.3919
 },
 {
 "name": "Taos Pueblo",
@@ -4829,7 +5965,9 @@
 "sq_mi": 156.1,
 "counties": [
 "Taos County"
-]
+],
+"lat": 36.4702,
+"lon": -105.4547
 },
 {
 "name": "Tesuque Pueblo",
@@ -4837,7 +5975,9 @@
 "sq_mi": 26.9,
 "counties": [
 "Santa Fe County"
-]
+],
+"lat": 35.803,
+"lon": -105.9759
 },
 {
 "name": "Ute Mountain Reservation",
@@ -4845,7 +5985,9 @@
 "sq_mi": 161.5,
 "counties": [
 "San Juan County"
-]
+],
+"lat": 37.1079,
+"lon": -108.6669
 },
 {
 "name": "Zia Pueblo",
@@ -4853,7 +5995,9 @@
 "sq_mi": 191.1,
 "counties": [
 "Sandoval County"
-]
+],
+"lat": 35.4745,
+"lon": -106.7315
 },
 {
 "name": "Zuni Reservation",
@@ -4863,7 +6007,9 @@
 "McKinley County",
 "Cibola County",
 "Catron County"
-]
+],
+"lat": 35.0548,
+"lon": -108.6749
 }
 ],
 "NV": [
@@ -4873,7 +6019,9 @@
 "sq_mi": 1.1,
 "counties": [
 "Lander County"
-]
+],
+"lat": 40.6616,
+"lon": -116.9728
 },
 {
 "name": "Campbell Ranch",
@@ -4881,7 +6029,9 @@
 "sq_mi": 2.6,
 "counties": [
 "Lyon County"
-]
+],
+"lat": 39.0756,
+"lon": -119.2058
 },
 {
 "name": "Carson Colony",
@@ -4889,7 +6039,9 @@
 "sq_mi": 0.3,
 "counties": [
 "Carson City"
-]
+],
+"lat": 39.1394,
+"lon": -119.7757
 },
 {
 "name": "Dresslerville Colony",
@@ -4897,7 +6049,9 @@
 "sq_mi": 1.2,
 "counties": [
 "Douglas County"
-]
+],
+"lat": 38.8992,
+"lon": -119.7128
 },
 {
 "name": "Duck Valley Reservation",
@@ -4905,7 +6059,9 @@
 "sq_mi": 224.6,
 "counties": [
 "Elko County"
-]
+],
+"lat": 41.9963,
+"lon": -116.1841
 },
 {
 "name": "Duckwater Reservation",
@@ -4913,7 +6069,9 @@
 "sq_mi": 6.2,
 "counties": [
 "Nye County"
-]
+],
+"lat": 38.922,
+"lon": -115.7165
 },
 {
 "name": "Elko Colony",
@@ -4921,7 +6079,9 @@
 "sq_mi": 0.3,
 "counties": [
 "Elko County"
-]
+],
+"lat": 40.8518,
+"lon": -115.7649
 },
 {
 "name": "Ely Reservation",
@@ -4929,7 +6089,9 @@
 "sq_mi": 5.7,
 "counties": [
 "White Pine County"
-]
+],
+"lat": 39.1596,
+"lon": -115.0126
 },
 {
 "name": "Fallon Paiute-Shoshone Colony",
@@ -4938,7 +6100,9 @@
 "counties": [
 "Churchill County",
 "Lyon County"
-]
+],
+"lat": 39.4846,
+"lon": -118.7607
 },
 {
 "name": "Fallon Paiute-Shoshone Reservation",
@@ -4946,7 +6110,9 @@
 "sq_mi": 13.0,
 "counties": [
 "Churchill County"
-]
+],
+"lat": 39.5144,
+"lon": -118.6176
 },
 {
 "name": "Fort McDermitt Indian Reservation",
@@ -4954,7 +6120,9 @@
 "sq_mi": 26.1,
 "counties": [
 "Humboldt County"
-]
+],
+"lat": 42.0355,
+"lon": -117.5875
 },
 {
 "name": "Fort Mojave Reservation",
@@ -4962,7 +6130,9 @@
 "sq_mi": 5.9,
 "counties": [
 "Clark County"
-]
+],
+"lat": 34.954,
+"lon": -114.6403
 },
 {
 "name": "Goshute Reservation",
@@ -4970,7 +6140,9 @@
 "sq_mi": 109.6,
 "counties": [
 "White Pine County"
-]
+],
+"lat": 39.8431,
+"lon": -114.0464
 },
 {
 "name": "Las Vegas Indian Colony",
@@ -4978,7 +6150,9 @@
 "sq_mi": 6.1,
 "counties": [
 "Clark County"
-]
+],
+"lat": 36.3508,
+"lon": -115.3416
 },
 {
 "name": "Lovelock Indian Colony",
@@ -4986,7 +6160,9 @@
 "sq_mi": 0.0,
 "counties": [
 "Pershing County"
-]
+],
+"lat": 40.1739,
+"lon": -118.4832
 },
 {
 "name": "Moapa River Indian Reservation",
@@ -4994,7 +6170,9 @@
 "sq_mi": 111.0,
 "counties": [
 "Clark County"
-]
+],
+"lat": 36.5458,
+"lon": -114.7218
 },
 {
 "name": "Pyramid Lake Paiute Reservation",
@@ -5004,7 +6182,9 @@
 "Washoe County",
 "Storey County",
 "Lyon County"
-]
+],
+"lat": 40.1062,
+"lon": -119.5418
 },
 {
 "name": "Reno-Sparks Indian Colony",
@@ -5012,7 +6192,9 @@
 "sq_mi": 25.1,
 "counties": [
 "Washoe County"
-]
+],
+"lat": 39.7146,
+"lon": -119.7641
 },
 {
 "name": "South Fork Reservation",
@@ -5020,7 +6202,9 @@
 "sq_mi": 26.6,
 "counties": [
 "Elko County"
-]
+],
+"lat": 40.5738,
+"lon": -115.5919
 },
 {
 "name": "Stewart Community",
@@ -5029,7 +6213,9 @@
 "counties": [
 "Douglas County",
 "Carson City"
-]
+],
+"lat": 39.0525,
+"lon": -119.7955
 },
 {
 "name": "Summit Lake Reservation",
@@ -5037,7 +6223,9 @@
 "sq_mi": 19.0,
 "counties": [
 "Humboldt County"
-]
+],
+"lat": 41.5305,
+"lon": -119.0516
 },
 {
 "name": "Timbi-Sha Shoshone Reservation",
@@ -5046,7 +6234,9 @@
 "counties": [
 "Esmeralda County",
 "Nye County"
-]
+],
+"lat": 37.4716,
+"lon": -117.5089
 },
 {
 "name": "Walker River Reservation",
@@ -5056,7 +6246,9 @@
 "Mineral County",
 "Lyon County",
 "Churchill County"
-]
+],
+"lat": 38.9945,
+"lon": -118.7112
 },
 {
 "name": "Washoe Ranches Trust Land",
@@ -5066,7 +6258,9 @@
 "Douglas County",
 "Carson City",
 "Lyon County"
-]
+],
+"lat": 38.9567,
+"lon": -119.544
 },
 {
 "name": "Wells Colony",
@@ -5074,7 +6268,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Elko County"
-]
+],
+"lat": 41.117,
+"lon": -114.979
 },
 {
 "name": "Winnemucca Indian Colony",
@@ -5082,7 +6278,9 @@
 "sq_mi": 0.6,
 "counties": [
 "Humboldt County"
-]
+],
+"lat": 40.9524,
+"lon": -117.7208
 },
 {
 "name": "Yerington Colony",
@@ -5090,7 +6288,9 @@
 "sq_mi": 0.0,
 "counties": [
 "Lyon County"
-]
+],
+"lat": 38.9808,
+"lon": -119.1707
 },
 {
 "name": "Yomba Reservation",
@@ -5098,7 +6298,9 @@
 "sq_mi": 7.3,
 "counties": [
 "Nye County"
-]
+],
+"lat": 38.9352,
+"lon": -117.4812
 }
 ],
 "NY": [
@@ -5108,7 +6310,9 @@
 "sq_mi": 40.9,
 "counties": [
 "Cattaraugus County"
-]
+],
+"lat": 42.1379,
+"lon": -78.7839
 },
 {
 "name": "Cattaraugus Reservation",
@@ -5118,7 +6322,9 @@
 "Erie County",
 "Cattaraugus County",
 "Chautauqua County"
-]
+],
+"lat": 42.5447,
+"lon": -79.0194
 },
 {
 "name": "Cayuga Nation TDSA",
@@ -5127,7 +6333,9 @@
 "counties": [
 "Seneca County",
 "Cayuga County"
-]
+],
+"lat": 42.7748,
+"lon": -76.7387
 },
 {
 "name": "Oil Springs Reservation",
@@ -5136,7 +6344,9 @@
 "counties": [
 "Allegany County",
 "Cattaraugus County"
-]
+],
+"lat": 42.2317,
+"lon": -78.307
 },
 {
 "name": "Oneida Nation Reservation",
@@ -5145,7 +6355,9 @@
 "counties": [
 "Madison County",
 "Oneida County"
-]
+],
+"lat": 43.0702,
+"lon": -75.6448
 },
 {
 "name": "Onondaga Nation Reservation",
@@ -5153,7 +6365,9 @@
 "sq_mi": 9.2,
 "counties": [
 "Onondaga County"
-]
+],
+"lat": 42.9361,
+"lon": -76.1573
 },
 {
 "name": "Poospatuck Reservation",
@@ -5161,7 +6375,9 @@
 "sq_mi": 0.1,
 "counties": [
 "Suffolk County"
-]
+],
+"lat": 40.7892,
+"lon": -72.8319
 },
 {
 "name": "Shinnecock Reservation",
@@ -5169,7 +6385,9 @@
 "sq_mi": 1.3,
 "counties": [
 "Suffolk County"
-]
+],
+"lat": 40.8741,
+"lon": -72.4312
 },
 {
 "name": "St. Regis Mohawk Reservation",
@@ -5177,7 +6395,9 @@
 "sq_mi": 19.0,
 "counties": [
 "Franklin County"
-]
+],
+"lat": 44.9789,
+"lon": -74.6228
 },
 {
 "name": "Tonawanda Reservation",
@@ -5187,7 +6407,9 @@
 "Genesee County",
 "Erie County",
 "Niagara County"
-]
+],
+"lat": 43.0689,
+"lon": -78.437
 },
 {
 "name": "Tuscarora Nation Reservation",
@@ -5195,7 +6417,9 @@
 "sq_mi": 9.1,
 "counties": [
 "Niagara County"
-]
+],
+"lat": 43.1624,
+"lon": -78.9508
 }
 ],
 "OK": [
@@ -5208,7 +6432,9 @@
 "Grady County",
 "Canadian County",
 "Blaine County"
-]
+],
+"lat": 35.3204,
+"lon": -98.378
 },
 {
 "name": "Cherokee OTSA",
@@ -5229,7 +6455,9 @@
 "Ottawa County",
 "McIntosh County",
 "Wagoner County"
-]
+],
+"lat": 36.2132,
+"lon": -94.9635
 },
 {
 "name": "Cheyenne and Arapaho OTSA",
@@ -5246,7 +6474,9 @@
 "Canadian County",
 "Ellis County",
 "Caddo County"
-]
+],
+"lat": 35.6396,
+"lon": -99.1612
 },
 {
 "name": "Chickasaw OTSA",
@@ -5266,7 +6496,9 @@
 "Marshall County",
 "Bryan County",
 "Coal County"
-]
+],
+"lat": 34.4154,
+"lon": -97.3266
 },
 {
 "name": "Choctaw OTSA",
@@ -5286,7 +6518,9 @@
 "Hughes County",
 "Johnston County",
 "Pontotoc County"
-]
+],
+"lat": 34.5971,
+"lon": -95.4023
 },
 {
 "name": "Citizen Potawatomi Nation-Absentee Shawnee OTSA",
@@ -5296,7 +6530,9 @@
 "Pottawatomie County",
 "Cleveland County",
 "Oklahoma County"
-]
+],
+"lat": 35.1658,
+"lon": -97.1223
 },
 {
 "name": "Creek OTSA",
@@ -5313,7 +6549,9 @@
 "Muskogee County",
 "Rogers County",
 "Mayes County"
-]
+],
+"lat": 35.6553,
+"lon": -96.0011
 },
 {
 "name": "Creek/Seminole joint-use OTSA",
@@ -5321,7 +6559,9 @@
 "sq_mi": 65.2,
 "counties": [
 "Seminole County"
-]
+],
+"lat": 35.287,
+"lon": -96.4661
 },
 {
 "name": "Eastern Shawnee OTSA",
@@ -5329,7 +6569,9 @@
 "sq_mi": 20.3,
 "counties": [
 "Ottawa County"
-]
+],
+"lat": 36.8509,
+"lon": -94.692
 },
 {
 "name": "Iowa OTSA",
@@ -5340,7 +6582,9 @@
 "Logan County",
 "Payne County",
 "Oklahoma County"
-]
+],
+"lat": 35.8284,
+"lon": -97.0904
 },
 {
 "name": "Kaw OTSA",
@@ -5348,7 +6592,9 @@
 "sq_mi": 476.2,
 "counties": [
 "Kay County"
-]
+],
+"lat": 36.8788,
+"lon": -96.9675
 },
 {
 "name": "Kaw/Ponca joint-use OTSA",
@@ -5356,7 +6602,9 @@
 "sq_mi": 108.7,
 "counties": [
 "Kay County"
-]
+],
+"lat": 36.7497,
+"lon": -97.1329
 },
 {
 "name": "Kickapoo OTSA",
@@ -5366,7 +6614,9 @@
 "Lincoln County",
 "Oklahoma County",
 "Pottawatomie County"
-]
+],
+"lat": 35.5623,
+"lon": -97.0474
 },
 {
 "name": "Kiowa-Comanche-Apache-Fort Sill Apache OTSA",
@@ -5384,7 +6634,9 @@
 "Stephens County",
 "Jefferson County",
 "Grady County"
-]
+],
+"lat": 34.6476,
+"lon": -98.9115
 },
 {
 "name": "Kiowa-Comanche-Apache-Ft Sill Apache/Caddo-Wichita-Delaware joint-use OTSA",
@@ -5393,7 +6645,9 @@
 "counties": [
 "Caddo County",
 "Grady County"
-]
+],
+"lat": 35.0515,
+"lon": -98.2341
 },
 {
 "name": "Miami OTSA",
@@ -5401,7 +6655,9 @@
 "sq_mi": 27.7,
 "counties": [
 "Ottawa County"
-]
+],
+"lat": 36.9668,
+"lon": -94.9603
 },
 {
 "name": "Miami/Peoria joint-use OTSA",
@@ -5409,7 +6665,9 @@
 "sq_mi": 12.5,
 "counties": [
 "Ottawa County"
-]
+],
+"lat": 36.9036,
+"lon": -94.9133
 },
 {
 "name": "Modoc OTSA",
@@ -5417,7 +6675,9 @@
 "sq_mi": 6.2,
 "counties": [
 "Ottawa County"
-]
+],
+"lat": 36.8619,
+"lon": -94.6409
 },
 {
 "name": "Osage Reservation",
@@ -5425,7 +6685,9 @@
 "sq_mi": 2246.6,
 "counties": [
 "Osage County"
-]
+],
+"lat": 36.677,
+"lon": -96.3453
 },
 {
 "name": "Otoe-Missouria OTSA",
@@ -5434,7 +6696,9 @@
 "counties": [
 "Noble County",
 "Pawnee County"
-]
+],
+"lat": 36.4202,
+"lon": -97.0944
 },
 {
 "name": "Ottawa OTSA",
@@ -5442,7 +6706,9 @@
 "sq_mi": 23.4,
 "counties": [
 "Ottawa County"
-]
+],
+"lat": 36.851,
+"lon": -94.7901
 },
 {
 "name": "Pawnee OTSA",
@@ -5450,7 +6716,9 @@
 "sq_mi": 515.0,
 "counties": [
 "Pawnee County"
-]
+],
+"lat": 36.294,
+"lon": -96.697
 },
 {
 "name": "Peoria OTSA",
@@ -5458,7 +6726,9 @@
 "sq_mi": 39.3,
 "counties": [
 "Ottawa County"
-]
+],
+"lat": 36.9,
+"lon": -94.7478
 },
 {
 "name": "Ponca OTSA",
@@ -5467,7 +6737,9 @@
 "counties": [
 "Noble County",
 "Kay County"
-]
+],
+"lat": 36.5976,
+"lon": -97.1519
 },
 {
 "name": "Quapaw OTSA",
@@ -5475,7 +6747,9 @@
 "sq_mi": 86.4,
 "counties": [
 "Ottawa County"
-]
+],
+"lat": 36.9594,
+"lon": -94.7626
 },
 {
 "name": "Sac and Fox OTSA",
@@ -5485,7 +6759,9 @@
 "Lincoln County",
 "Payne County",
 "Pottawatomie County"
-]
+],
+"lat": 35.7129,
+"lon": -96.7686
 },
 {
 "name": "Seminole OTSA",
@@ -5493,7 +6769,9 @@
 "sq_mi": 567.6,
 "counties": [
 "Seminole County"
-]
+],
+"lat": 35.1577,
+"lon": -96.6325
 },
 {
 "name": "Seneca-Cayuga OTSA",
@@ -5502,7 +6780,9 @@
 "counties": [
 "Ottawa County",
 "Delaware County"
-]
+],
+"lat": 36.6859,
+"lon": -94.6828
 },
 {
 "name": "Tonkawa OTSA",
@@ -5510,7 +6790,9 @@
 "sq_mi": 142.5,
 "counties": [
 "Kay County"
-]
+],
+"lat": 36.6808,
+"lon": -97.3546
 },
 {
 "name": "Wyandotte OTSA",
@@ -5518,7 +6800,9 @@
 "sq_mi": 32.6,
 "counties": [
 "Ottawa County"
-]
+],
+"lat": 36.7958,
+"lon": -94.7073
 }
 ],
 "OR": [
@@ -5528,7 +6812,9 @@
 "sq_mi": 18.9,
 "counties": [
 "Harney County"
-]
+],
+"lat": 43.5472,
+"lon": -118.7978
 },
 {
 "name": "Celilo Village",
@@ -5536,7 +6822,9 @@
 "sq_mi": 0.2,
 "counties": [
 "Wasco County"
-]
+],
+"lat": 45.6453,
+"lon": -120.9621
 },
 {
 "name": "Coos, Lower Umpqua, and Siuslaw Reservation",
@@ -5546,7 +6834,9 @@
 "Lane County",
 "Coos County",
 "Curry County"
-]
+],
+"lat": 43.9803,
+"lon": -124.0864
 },
 {
 "name": "Coquille Reservation",
@@ -5554,7 +6844,9 @@
 "sq_mi": 10.1,
 "counties": [
 "Coos County"
-]
+],
+"lat": 42.9452,
+"lon": -123.9539
 },
 {
 "name": "Cow Creek Reservation",
@@ -5562,7 +6854,9 @@
 "sq_mi": 35.5,
 "counties": [
 "Douglas County"
-]
+],
+"lat": 43.0501,
+"lon": -122.9482
 },
 {
 "name": "Fort McDermitt Indian Reservation",
@@ -5570,7 +6864,9 @@
 "sq_mi": 28.3,
 "counties": [
 "Malheur County"
-]
+],
+"lat": 42.0355,
+"lon": -117.5875
 },
 {
 "name": "Grand Ronde Community",
@@ -5580,7 +6876,9 @@
 "Yamhill County",
 "Polk County",
 "Lane County"
-]
+],
+"lat": 45.1455,
+"lon": -123.6538
 },
 {
 "name": "Klamath Reservation",
@@ -5588,7 +6886,9 @@
 "sq_mi": 0.5,
 "counties": [
 "Klamath County"
-]
+],
+"lat": 42.5352,
+"lon": -121.8837
 },
 {
 "name": "Siletz Reservation",
@@ -5597,7 +6897,9 @@
 "counties": [
 "Lincoln County",
 "Marion County"
-]
+],
+"lat": 44.7252,
+"lon": -123.7905
 },
 {
 "name": "Umatilla Reservation",
@@ -5606,7 +6908,9 @@
 "counties": [
 "Umatilla County",
 "Union County"
-]
+],
+"lat": 45.6613,
+"lon": -118.5121
 },
 {
 "name": "Warm Springs Reservation",
@@ -5620,7 +6924,9 @@
 "Gilliam County",
 "Sherman County",
 "Hood River County"
-]
+],
+"lat": 44.8711,
+"lon": -121.4553
 }
 ],
 "RI": [
@@ -5630,7 +6936,9 @@
 "sq_mi": 3.2,
 "counties": [
 "Washington County"
-]
+],
+"lat": 41.417,
+"lon": -71.6738
 }
 ],
 "SC": [
@@ -5641,7 +6949,9 @@
 "counties": [
 "Orangeburg County",
 "Aiken County"
-]
+],
+"lat": 33.5299,
+"lon": -81.2985
 },
 {
 "name": "Catawba Reservation",
@@ -5649,7 +6959,9 @@
 "sq_mi": 1.6,
 "counties": [
 "York County"
-]
+],
+"lat": 34.9019,
+"lon": -80.8849
 },
 {
 "name": "Edisto Natchez Kusso SDTSA",
@@ -5657,7 +6969,9 @@
 "sq_mi": 70.2,
 "counties": [
 "Dorchester County"
-]
+],
+"lat": 32.9744,
+"lon": -80.3641
 },
 {
 "name": "Pee Dee SDTSA",
@@ -5665,7 +6979,9 @@
 "sq_mi": 51.0,
 "counties": [
 "Marlboro County"
-]
+],
+"lat": 34.7118,
+"lon": -79.6461
 },
 {
 "name": "Santee SDTSA",
@@ -5673,7 +6989,9 @@
 "sq_mi": 7.7,
 "counties": [
 "Orangeburg County"
-]
+],
+"lat": 33.3535,
+"lon": -80.3829
 },
 {
 "name": "Upper South Carolina Pee Dee SDTSA",
@@ -5681,7 +6999,9 @@
 "sq_mi": 39.5,
 "counties": [
 "Dillon County"
-]
+],
+"lat": 34.5313,
+"lon": -79.4147
 },
 {
 "name": "Waccamaw SDTSA",
@@ -5689,7 +7009,9 @@
 "sq_mi": 1.3,
 "counties": [
 "Horry County"
-]
+],
+"lat": 33.974,
+"lon": -79.198
 },
 {
 "name": "Wassamasaw SDTSA",
@@ -5697,7 +7019,9 @@
 "sq_mi": 12.3,
 "counties": [
 "Berkeley County"
-]
+],
+"lat": 33.0688,
+"lon": -80.1082
 }
 ],
 "SD": [
@@ -5712,7 +7036,9 @@
 "Haakon County",
 "Meade County",
 "Sully County"
-]
+],
+"lat": 45.0797,
+"lon": -101.2985
 },
 {
 "name": "Crow Creek Reservation",
@@ -5722,7 +7048,9 @@
 "Buffalo County",
 "Hughes County",
 "Hyde County"
-]
+],
+"lat": 44.135,
+"lon": -99.4115
 },
 {
 "name": "Flandreau Reservation",
@@ -5730,7 +7058,9 @@
 "sq_mi": 3.5,
 "counties": [
 "Moody County"
-]
+],
+"lat": 44.0804,
+"lon": -96.5891
 },
 {
 "name": "Lake Traverse Reservation",
@@ -5742,7 +7072,9 @@
 "Day County",
 "Grant County",
 "Codington County"
-]
+],
+"lat": 45.7056,
+"lon": -97.1057
 },
 {
 "name": "Lower Brule Reservation",
@@ -5751,7 +7083,9 @@
 "counties": [
 "Lyman County",
 "Stanley County"
-]
+],
+"lat": 44.0747,
+"lon": -99.7713
 },
 {
 "name": "Northern Cheyenne Indian Reservation",
@@ -5759,7 +7093,9 @@
 "sq_mi": 1.0,
 "counties": [
 "Meade County"
-]
+],
+"lat": 45.539,
+"lon": -106.6848
 },
 {
 "name": "Pine Ridge Reservation",
@@ -5769,7 +7105,9 @@
 "Oglala Lakota County",
 "Bennett County",
 "Jackson County"
-]
+],
+"lat": 43.3426,
+"lon": -102.1004
 },
 {
 "name": "Rosebud Indian Reservation",
@@ -5781,7 +7119,9 @@
 "Tripp County",
 "Gregory County",
 "Lyman County"
-]
+],
+"lat": 43.1939,
+"lon": -100.7266
 },
 {
 "name": "Shakopee Mdewakanton Sioux Community",
@@ -5789,7 +7129,9 @@
 "sq_mi": 3.2,
 "counties": [
 "Pennington County"
-]
+],
+"lat": 44.0618,
+"lon": -103.7892
 },
 {
 "name": "Standing Rock Reservation",
@@ -5799,7 +7141,9 @@
 "Corson County",
 "Dewey County",
 "Ziebach County"
-]
+],
+"lat": 45.793,
+"lon": -101.1323
 },
 {
 "name": "Turtle Mountain Reservation",
@@ -5807,7 +7151,9 @@
 "sq_mi": 0.8,
 "counties": [
 "Perkins County"
-]
+],
+"lat": 48.849,
+"lon": -99.8498
 },
 {
 "name": "Yankton Reservation",
@@ -5815,7 +7161,9 @@
 "sq_mi": 665.5,
 "counties": [
 "Charles Mix County"
-]
+],
+"lat": 43.0858,
+"lon": -98.3454
 }
 ],
 "TN": [
@@ -5825,7 +7173,9 @@
 "sq_mi": 0.3,
 "counties": [
 "Lauderdale County"
-]
+],
+"lat": 32.7922,
+"lon": -89.2467
 }
 ],
 "TX": [
@@ -5835,7 +7185,9 @@
 "sq_mi": 14.2,
 "counties": [
 "Polk County"
-]
+],
+"lat": 30.711,
+"lon": -94.6841
 },
 {
 "name": "Kickapoo (TX) Reservation",
@@ -5843,7 +7195,9 @@
 "sq_mi": 0.3,
 "counties": [
 "Maverick County"
-]
+],
+"lat": 28.611,
+"lon": -100.4365
 },
 {
 "name": "Ysleta del Sur Pueblo",
@@ -5851,7 +7205,9 @@
 "sq_mi": 5.0,
 "counties": [
 "El Paso County"
-]
+],
+"lat": 31.9114,
+"lon": -106.0187
 }
 ],
 "UT": [
@@ -5862,7 +7218,9 @@
 "counties": [
 "Juab County",
 "Tooele County"
-]
+],
+"lat": 39.8431,
+"lon": -114.0464
 },
 {
 "name": "Navajo Nation Reservation",
@@ -5870,7 +7228,9 @@
 "sq_mi": 1999.1,
 "counties": [
 "San Juan County"
-]
+],
+"lat": 36.3391,
+"lon": -109.383
 },
 {
 "name": "Northwestern Shoshone Reservation",
@@ -5878,7 +7238,9 @@
 "sq_mi": 0.3,
 "counties": [
 "Box Elder County"
-]
+],
+"lat": 41.9461,
+"lon": -112.2343
 },
 {
 "name": "Paiute (UT) Reservation",
@@ -5889,7 +7251,9 @@
 "Iron County",
 "Sevier County",
 "Millard County"
-]
+],
+"lat": 37.1685,
+"lon": -113.7785
 },
 {
 "name": "Skull Valley Reservation",
@@ -5897,7 +7261,9 @@
 "sq_mi": 28.2,
 "counties": [
 "Tooele County"
-]
+],
+"lat": 40.3794,
+"lon": -112.7359
 },
 {
 "name": "Uintah and Ouray Reservation",
@@ -5911,7 +7277,9 @@
 "Carbon County",
 "Utah County",
 "Emery County"
-]
+],
+"lat": 40.3323,
+"lon": -110.5448
 },
 {
 "name": "Ute Mountain Reservation",
@@ -5919,7 +7287,9 @@
 "sq_mi": 23.4,
 "counties": [
 "San Juan County"
-]
+],
+"lat": 37.1079,
+"lon": -108.6669
 }
 ],
 "VA": [
@@ -5929,7 +7299,9 @@
 "sq_mi": 51.9,
 "counties": [
 "Charles City County"
-]
+],
+"lat": 37.4075,
+"lon": -77.1268
 },
 {
 "name": "Eastern Chickahominy TDSA",
@@ -5937,7 +7309,9 @@
 "sq_mi": 2.2,
 "counties": [
 "New Kent County"
-]
+],
+"lat": 37.437,
+"lon": -76.9771
 },
 {
 "name": "Mattaponi Reservation",
@@ -5945,7 +7319,9 @@
 "sq_mi": 0.1,
 "counties": [
 "King William County"
-]
+],
+"lat": 37.6624,
+"lon": -76.9146
 },
 {
 "name": "Pamunkey Reservation",
@@ -5953,7 +7329,9 @@
 "sq_mi": 1.7,
 "counties": [
 "King William County"
-]
+],
+"lat": 37.5722,
+"lon": -77.004
 },
 {
 "name": "Rappahannock TDSA",
@@ -5962,7 +7340,9 @@
 "counties": [
 "Essex County",
 "King and Queen County"
-]
+],
+"lat": 37.9229,
+"lon": -77.0465
 }
 ],
 "WA": [
@@ -5974,7 +7354,9 @@
 "Grays Harbor County",
 "Thurston County",
 "Lewis County"
-]
+],
+"lat": 46.811,
+"lon": -123.1712
 },
 {
 "name": "Colville Reservation",
@@ -5984,7 +7366,9 @@
 "Ferry County",
 "Okanogan County",
 "Chelan County"
-]
+],
+"lat": 48.2118,
+"lon": -118.6852
 },
 {
 "name": "Cowlitz Reservation",
@@ -5992,7 +7376,9 @@
 "sq_mi": 0.3,
 "counties": [
 "Clark County"
-]
+],
+"lat": 45.852,
+"lon": -122.7078
 },
 {
 "name": "Hoh Indian Reservation",
@@ -6000,7 +7386,9 @@
 "sq_mi": 1.4,
 "counties": [
 "Jefferson County"
-]
+],
+"lat": 47.7396,
+"lon": -124.4176
 },
 {
 "name": "Jamestown S'Klallam Reservation",
@@ -6008,7 +7396,9 @@
 "sq_mi": 0.9,
 "counties": [
 "Clallam County"
-]
+],
+"lat": 48.0171,
+"lon": -123.0126
 },
 {
 "name": "Kalispel Reservation",
@@ -6017,7 +7407,9 @@
 "counties": [
 "Pend Oreille County",
 "Spokane County"
-]
+],
+"lat": 48.3533,
+"lon": -117.2734
 },
 {
 "name": "Lower Elwha Reservation",
@@ -6025,7 +7417,9 @@
 "sq_mi": 2.8,
 "counties": [
 "Clallam County"
-]
+],
+"lat": 48.1397,
+"lon": -123.5523
 },
 {
 "name": "Lummi Reservation",
@@ -6033,7 +7427,9 @@
 "sq_mi": 20.9,
 "counties": [
 "Whatcom County"
-]
+],
+"lat": 48.7974,
+"lon": -122.6286
 },
 {
 "name": "Makah Indian Reservation",
@@ -6041,7 +7437,9 @@
 "sq_mi": 46.8,
 "counties": [
 "Clallam County"
-]
+],
+"lat": 48.3211,
+"lon": -124.6134
 },
 {
 "name": "Muckleshoot Reservation",
@@ -6050,7 +7448,9 @@
 "counties": [
 "King County",
 "Pierce County"
-]
+],
+"lat": 47.2468,
+"lon": -122.1126
 },
 {
 "name": "Nisqually Reservation",
@@ -6059,7 +7459,9 @@
 "counties": [
 "Pierce County",
 "Thurston County"
-]
+],
+"lat": 47.0172,
+"lon": -122.6533
 },
 {
 "name": "Nooksack Reservation",
@@ -6067,7 +7469,9 @@
 "sq_mi": 4.4,
 "counties": [
 "Whatcom County"
-]
+],
+"lat": 48.8142,
+"lon": -122.1804
 },
 {
 "name": "Port Gamble Reservation",
@@ -6075,7 +7479,9 @@
 "sq_mi": 2.6,
 "counties": [
 "Kitsap County"
-]
+],
+"lat": 47.846,
+"lon": -122.5594
 },
 {
 "name": "Port Madison Reservation",
@@ -6083,7 +7489,9 @@
 "sq_mi": 12.1,
 "counties": [
 "Kitsap County"
-]
+],
+"lat": 47.7254,
+"lon": -122.5861
 },
 {
 "name": "Puyallup Reservation",
@@ -6092,7 +7500,9 @@
 "counties": [
 "Pierce County",
 "King County"
-]
+],
+"lat": 47.2344,
+"lon": -122.366
 },
 {
 "name": "Quileute Reservation",
@@ -6100,7 +7510,9 @@
 "sq_mi": 2.9,
 "counties": [
 "Clallam County"
-]
+],
+"lat": 47.906,
+"lon": -124.6227
 },
 {
 "name": "Quinault Reservation",
@@ -6109,7 +7521,9 @@
 "counties": [
 "Grays Harbor County",
 "Jefferson County"
-]
+],
+"lat": 47.4043,
+"lon": -124.1438
 },
 {
 "name": "Samish TDSA",
@@ -6118,7 +7532,9 @@
 "counties": [
 "San Juan County",
 "Skagit County"
-]
+],
+"lat": 48.5388,
+"lon": -123.0902
 },
 {
 "name": "Sauk-Suiattle Reservation",
@@ -6127,7 +7543,9 @@
 "counties": [
 "Skagit County",
 "Snohomish County"
-]
+],
+"lat": 48.321,
+"lon": -121.5497
 },
 {
 "name": "Shoalwater Bay Indian Reservation",
@@ -6135,7 +7553,9 @@
 "sq_mi": 1.5,
 "counties": [
 "Pacific County"
-]
+],
+"lat": 46.727,
+"lon": -124.0268
 },
 {
 "name": "Skokomish Reservation",
@@ -6143,7 +7563,9 @@
 "sq_mi": 9.5,
 "counties": [
 "Mason County"
-]
+],
+"lat": 47.3286,
+"lon": -123.1608
 },
 {
 "name": "Snoqualmie Reservation",
@@ -6151,7 +7573,9 @@
 "sq_mi": 0.1,
 "counties": [
 "King County"
-]
+],
+"lat": 47.5191,
+"lon": -121.8419
 },
 {
 "name": "Spokane Reservation",
@@ -6161,7 +7585,9 @@
 "Stevens County",
 "Spokane County",
 "Lincoln County"
-]
+],
+"lat": 47.9114,
+"lon": -118.0481
 },
 {
 "name": "Squaxin Island Reservation",
@@ -6169,7 +7595,9 @@
 "sq_mi": 3.3,
 "counties": [
 "Mason County"
-]
+],
+"lat": 47.2041,
+"lon": -122.9158
 },
 {
 "name": "Stillaguamish Reservation",
@@ -6177,7 +7605,9 @@
 "sq_mi": 1.5,
 "counties": [
 "Snohomish County"
-]
+],
+"lat": 48.2035,
+"lon": -122.2176
 },
 {
 "name": "Swinomish Reservation",
@@ -6185,7 +7615,9 @@
 "sq_mi": 11.9,
 "counties": [
 "Skagit County"
-]
+],
+"lat": 48.4176,
+"lon": -122.5255
 },
 {
 "name": "Tulalip Reservation",
@@ -6193,7 +7625,9 @@
 "sq_mi": 34.7,
 "counties": [
 "Snohomish County"
-]
+],
+"lat": 48.0766,
+"lon": -122.2309
 },
 {
 "name": "Umatilla Reservation",
@@ -6201,7 +7635,9 @@
 "sq_mi": 0.0,
 "counties": [
 "Walla Walla County"
-]
+],
+"lat": 45.6613,
+"lon": -118.5121
 },
 {
 "name": "Upper Skagit Reservation",
@@ -6209,7 +7645,9 @@
 "sq_mi": 1.4,
 "counties": [
 "Skagit County"
-]
+],
+"lat": 48.5687,
+"lon": -122.3522
 },
 {
 "name": "Yakama Nation Reservation",
@@ -6219,7 +7657,9 @@
 "Yakima County",
 "Klickitat County",
 "Lewis County"
-]
+],
+"lat": 46.2661,
+"lon": -120.7741
 }
 ],
 "WI": [
@@ -6230,7 +7670,9 @@
 "counties": [
 "Ashland County",
 "Iron County"
-]
+],
+"lat": 46.5296,
+"lon": -90.6865
 },
 {
 "name": "Fond du Lac Reservation",
@@ -6238,7 +7680,9 @@
 "sq_mi": 0.5,
 "counties": [
 "Douglas County"
-]
+],
+"lat": 46.7615,
+"lon": -92.6184
 },
 {
 "name": "Forest County Potawatomi Community",
@@ -6249,7 +7693,9 @@
 "Oconto County",
 "Fond du Lac County",
 "Milwaukee County"
-]
+],
+"lat": 45.5614,
+"lon": -88.8295
 },
 {
 "name": "Ho-Chunk Nation Reservation",
@@ -6270,7 +7716,9 @@
 "La Crosse County",
 "Adams County",
 "Dane County"
-]
+],
+"lat": 44.3312,
+"lon": -90.7766
 },
 {
 "name": "Lac Courte Oreilles Reservation",
@@ -6280,7 +7728,9 @@
 "Sawyer County",
 "Burnett County",
 "Washburn County"
-]
+],
+"lat": 45.9057,
+"lon": -91.3526
 },
 {
 "name": "Lac du Flambeau Reservation",
@@ -6290,7 +7740,9 @@
 "Vilas County",
 "Iron County",
 "Oneida County"
-]
+],
+"lat": 45.9838,
+"lon": -89.8772
 },
 {
 "name": "Menominee Reservation",
@@ -6299,7 +7751,9 @@
 "counties": [
 "Menominee County",
 "Shawano County"
-]
+],
+"lat": 45.0247,
+"lon": -88.7142
 },
 {
 "name": "Oneida (WI) Reservation",
@@ -6308,7 +7762,9 @@
 "counties": [
 "Outagamie County",
 "Brown County"
-]
+],
+"lat": 44.4714,
+"lon": -88.2186
 },
 {
 "name": "Red Cliff Reservation",
@@ -6316,7 +7772,9 @@
 "sq_mi": 22.8,
 "counties": [
 "Bayfield County"
-]
+],
+"lat": 46.9477,
+"lon": -90.8637
 },
 {
 "name": "Sokaogon Chippewa Community",
@@ -6324,7 +7782,9 @@
 "sq_mi": 5.1,
 "counties": [
 "Forest County"
-]
+],
+"lat": 45.4976,
+"lon": -88.9888
 },
 {
 "name": "St. Croix Reservation",
@@ -6334,7 +7794,9 @@
 "Burnett County",
 "Polk County",
 "Barron County"
-]
+],
+"lat": 45.5238,
+"lon": -92.2762
 },
 {
 "name": "Stockbridge Munsee Community",
@@ -6342,7 +7804,9 @@
 "sq_mi": 27.2,
 "counties": [
 "Shawano County"
-]
+],
+"lat": 44.9065,
+"lon": -88.8901
 }
 ],
 "WY": [
@@ -6353,7 +7817,9 @@
 "counties": [
 "Fremont County",
 "Hot Springs County"
-]
+],
+"lat": 43.2762,
+"lon": -108.8055
 }
 ]
 }

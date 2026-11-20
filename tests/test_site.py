@@ -69,8 +69,9 @@ paths = [u[len(base):] or 'index.html' for u in re.findall(r'<loc>([^<]+)</loc>'
 pages = {p: parse(p) for p in paths + ['404.html']}
 
 # 1. Every page has the basics.
-if len(paths) != 9 + len(build.STATES):
-    fail(f'expected {9 + len(build.STATES)} pages in the sitemap, found {len(paths)}')
+world_pages = 1 + sum(1 for c in build.COUNTRIES if c['slug'])
+if len(paths) != 9 + world_pages + len(build.STATES):
+    fail(f'expected {9 + world_pages + len(build.STATES)} pages in the sitemap, found {len(paths)}')
 for path, page in pages.items():
     if page.h1 != 1:
         fail(f'{path}: {page.h1} h1 headings')
@@ -105,7 +106,7 @@ for path, page in pages.items():
     folder = Path(path).parent
     for href in page.hrefs:
         if href.startswith(('mailto:', 'tel:', 'sms:')):
-            if href.startswith('tel:') and not re.match(r'^tel:(\+1\d{10}(,\d{1,6})?|\d{3})$', href):
+            if href.startswith('tel:') and not re.match(r'^tel:(\+1\d{10}(,\d{1,6})?|\+(?!1)\d{8,14}|\d{3,6})$', href):
                 fail(f'{path}: odd phone link {href}')
             continue
         if href.startswith('http://') or href.startswith('https://'):
@@ -122,15 +123,18 @@ for path, page in pages.items():
             fail(f'{path}: link to missing anchor {href}')
 
 # 3. Every listing is on the page it belongs to, with its phone number and its source.
-for record in build.RES:
-    path = 'help.html' if record['area'] == 'US' else f'states/{build.STATE_SLUG[record["area"]]}.html'
+for record in build.RES + build.WORLD:
+    if record['area'] in build.COUNTRY and build.COUNTRY[record['area']]['slug']:
+        path = f'world/{build.COUNTRY[record["area"]]["slug"]}.html'
+    else:
+        path = 'help.html' if record['area'] == 'US' else f'states/{build.STATE_SLUG[record["area"]]}.html'
     page = pages[path]
     if f'r-{record["id"]}' not in page.ids:
         fail(f'{path}: listing {record["id"]} is missing')
         continue
     start = page.text.index(f'id="r-{record["id"]}"')
     block = page.text[start:page.text.index('</article>', start)]
-    if record.get('phone') and f'tel:{build.tel(record["phone"])}' not in block:
+    if record.get('phone') and f'tel:{build.tel_of(record)}' not in block:
         fail(f'{path}: {record["id"]} has no phone link')
     if build.E(record['source']) not in block or 'Checked ' not in block:
         fail(f'{path}: {record["id"]} has no source or date')
@@ -202,13 +206,50 @@ for banned in ('firstname', 'lastname', 'salutation', 'jobtitle', '"email"', '"f
 if len(build.NATIONS) < 550:
     fail('data/nations.json looks truncated')
 
-# 6. The map covers every state and shows every office that could be placed.
-home = pages['index.html']
+# 6. The state map covers every state and shows every office that could be placed.
+statemap = pages['states/index.html']
 for code, _ in build.STATES:
-    if f'href="states/{build.STATE_SLUG[code]}.html"><title>' not in home.text:
-        fail(f'index.html: map has no link for {code}')
-if home.circles != len(build.MAP['points']):
-    fail(f'index.html: {home.circles} dots on the map, expected {len(build.MAP["points"])}')
+    if f'href="../states/{build.STATE_SLUG[code]}.html"><title>' not in statemap.text:
+        fail(f'states/index.html: map has no link for {code}')
+if statemap.circles != len(build.MAP['points']):
+    fail(f'states/index.html: {statemap.circles} dots on the map, expected {len(build.MAP["points"])}')
+
+# 7. The map finder on the home page: every place has a position and a way in, and nothing is left off.
+finder = json.loads((ROOT / 'assets/finder/data.json').read_text(encoding='utf-8'))
+col = {name: i for i, name in enumerate(finder['cols'])}
+home = pages['index.html']
+for asset in ('assets/finder.js', 'assets/vendor/leaflet.js', 'assets/vendor/leaflet.markercluster.js', 'assets/finder/lands.geojson'):
+    if not (ROOT / asset).is_file():
+        fail(f'{asset} is missing')
+if 'assets/finder.js' not in home.text or 'id="map"' not in home.text:
+    fail('index.html: the map finder is missing')
+codes = {c['code'] for c in finder['countries']}
+for row in finder['points']:
+    lat, lon = row[col['lat']], row[col['lon']]
+    if not (-90 <= lat <= 90 and -180 <= lon <= 180):
+        fail(f'finder: {row[col["name"]]} has a bad position')
+    if row[col['country']] not in codes or row[col['kind']] not in finder['kinds']:
+        fail(f'finder: {row[col["name"]]} has an unknown country or kind')
+    if not (row[col['tel']] or row[col['url']] or row[col['page']]):
+        fail(f'finder: {row[col["name"]]} has no way to reach it')
+    page_link = row[col['page']].partition('#')[0]
+    if page_link and not (ROOT / page_link).is_file():
+        fail(f'finder: {row[col["name"]]} links to missing page {page_link}')
+    for need in filter(None, row[col['needs']].split(',')):
+        if need not in build.NEED:
+            fail(f'finder: {row[col["name"]]} has unknown need {need}')
+placed = sum(1 for n in build.NATIONS if n.get('lat') is not None)
+if sum(1 for r in finder['points'] if r[col['kind']] == 'nation') != placed:
+    fail('finder: not every placed Nation office is on the map')
+if sum(1 for r in finder['points'] if r[col['kind']] == 'fn') != len(build.CA_PLACES['first_nations']['items']):
+    fail('finder: not every First Nation in Canada is on the map')
+canada = pages['world/canada.html'].text
+for n in build.CA_PLACES['first_nations']['items']:
+    if build.E(n['name']) not in canada:
+        fail(f'world/canada.html: {n["name"]} is missing')
+for c in build.COUNTRIES:
+    if c['slug'] and c['urgent'] and 'class="urgent country"' not in pages[f'world/{c["slug"]}.html'].text:
+        fail(f'world/{c["slug"]}.html: the help strip is missing')
 if {p['id'] for p in build.MAP['points']} - set(build.NATION):
     fail('data/map/us.json is out of date: run npm run map')
 
@@ -217,4 +258,4 @@ if problems:
     for message in problems:
         print('  -', message)
     sys.exit(1)
-print(f'ok: {len(pages)} pages, {len(build.RES)} listings, {len(build.NATIONS)} Nation offices checked')
+print(f'ok: {len(pages)} pages, {len(build.RES) + len(build.WORLD)} listings, {len(finder["points"])} map places, {len(build.NATIONS)} Nation offices checked')

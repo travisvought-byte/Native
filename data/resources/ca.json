@@ -19,7 +19,10 @@
      "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
      "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
     }
-   ]
+   ],
+   "lat": 34.4006,
+   "lon": -119.713,
+   "pin": "town"
   },
   {
    "id": "ca-bakersfield-aihp",
@@ -39,7 +42,10 @@
      "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
      "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
     }
-   ]
+   ],
+   "lat": 35.3536,
+   "lon": -119.0369,
+   "pin": "town"
   },
   {
    "id": "ca-fresno-aihp",
@@ -59,7 +65,10 @@
      "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
      "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
     }
-   ]
+   ],
+   "lat": 36.7827,
+   "lon": -119.7934,
+   "pin": "town"
   },
   {
    "id": "ca-friendship-house",
@@ -79,7 +88,10 @@
      "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
      "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
     }
-   ]
+   ],
+   "lat": 37.7272,
+   "lon": -123.0322,
+   "pin": "town"
   },
   {
    "id": "ca-ihc-santa-clara",
@@ -99,7 +111,10 @@
      "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
      "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
     }
-   ]
+   ],
+   "lat": 37.296,
+   "lon": -121.8146,
+   "pin": "town"
   },
   {
    "id": "ca-nahc-oakland",
@@ -119,7 +134,10 @@
      "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
      "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
     }
-   ]
+   ],
+   "lat": 37.7698,
+   "lon": -122.2257,
+   "pin": "town"
   },
   {
    "id": "ca-native-directions",
@@ -139,7 +157,10 @@
      "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
      "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
     }
-   ]
+   ],
+   "lat": 37.7928,
+   "lon": -121.2261,
+   "pin": "town"
   },
   {
    "id": "ca-snahc",
@@ -159,7 +180,10 @@
      "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
      "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
     }
-   ]
+   ],
+   "lat": 38.5677,
+   "lon": -121.4682,
+   "pin": "town"
   },
   {
    "id": "ca-sdaihc",
@@ -179,7 +203,10 @@
      "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
      "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
     }
-   ]
+   ],
+   "lat": 32.815,
+   "lon": -117.1356,
+   "pin": "town"
   }
  ]
 }

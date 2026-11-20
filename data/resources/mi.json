@@ -42,7 +42,10 @@
    "url": "https://aihfs.org/",
    "url_label": "aihfs.org",
    "source": "https://uihi.org/uihp-profiles/detroit",
-   "checked": "2026-11-17"
+   "checked": "2026-11-17",
+   "lat": 42.328,
+   "lon": -83.147,
+   "pin": "address"
   },
   {
    "id": "mi-naia-detroit",
@@ -62,7 +65,10 @@
    "url": "https://nai.msu.edu/resources-container/native-american-resource-guide/native-education-legal-health-and-other-resources/employment",
    "url_label": "Listing in the MSU Native American Resource Guide",
    "source": "https://nai.msu.edu/resources-container/native-american-resource-guide/native-education-legal-health-and-other-resources/employment",
-   "checked": "2026-11-17"
+   "checked": "2026-11-17",
+   "lat": 42.3716,
+   "lon": -83.2646,
+   "pin": "address"
   },
   {
    "id": "mi-miets",
@@ -153,7 +159,10 @@
     }
    ],
    "source": "https://sites.google.com/a/mils3.org/www/home",
-   "checked": "2026-11-17"
+   "checked": "2026-11-17",
+   "lat": 44.753,
+   "lon": -85.5954,
+   "pin": "address"
   },
   {
    "id": "mi-three-fires",

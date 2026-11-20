@@ -1,0 +1,193 @@
+{
+ "note": "Countries and homelands beyond the United States. Each listing is read from the organization's own page or a government page, written in plain words, with its source and the date it was checked.",
+ "countries": [
+  {
+   "code": "US",
+   "slug": null,
+   "name": "United States",
+   "peoples": "American Indian, Alaska Native and Native Hawaiian peoples",
+   "center": [
+    39.5,
+    -98.5
+   ],
+   "zoom": 4,
+   "emergency": "911",
+   "urgent": [
+    {
+     "label": "Suicide or any crisis",
+     "phone": "988",
+     "tel": "988",
+     "sms": "988"
+    },
+    {
+     "label": "StrongHearts Native Helpline (violence)",
+     "phone": "1-844-762-8483",
+     "tel": "+18447628483",
+     "sms": "+18447628483"
+    }
+   ]
+  },
+  {
+   "code": "CAN",
+   "slug": "canada",
+   "name": "Canada",
+   "peoples": "First Nations, Inuit and Métis",
+   "center": [
+    57,
+    -96
+   ],
+   "zoom": 3,
+   "emergency": "911",
+   "intro": "Canada recognizes three groups of Indigenous peoples in its Constitution: First Nations, Inuit and Métis. The map shows the administrative office of every First Nation registered with Indigenous Services Canada and every Inuit community, from the Government of Canada's open data. Each First Nation links to its official profile, which has its address and phone.",
+   "intro_sources": [
+    {
+     "label": "Indigenous Services Canada: First Nations Location (open data)",
+     "url": "https://open.canada.ca/data/en/dataset/b6567c5c-8339-4055-99fa-63f92114d9e4"
+    },
+    {
+     "label": "Inuit Communities Location (open data)",
+     "url": "https://open.canada.ca/data/en/dataset/2bcf34b5-4e9a-431b-9e43-1eace6c873bd"
+    }
+   ],
+   "urgent": [
+    {
+     "label": "Hope for Wellness, for all Indigenous people",
+     "phone": "1-855-242-3310",
+     "tel": "+18552423310"
+    },
+    {
+     "label": "Suicide or any crisis",
+     "phone": "988",
+     "tel": "988",
+     "sms": "988"
+    }
+   ]
+  },
+  {
+   "code": "MEX",
+   "slug": "mexico",
+   "name": "México",
+   "peoples": "Pueblos indígenas y el pueblo afromexicano",
+   "center": [
+    23.6,
+    -102.5
+   ],
+   "zoom": 5,
+   "emergency": "911",
+   "intro": "Mexico's National Institute of Indigenous Peoples (INPI) counts 68 Indigenous peoples and the Afro-Mexican people. About 25.7 million people in Mexico identify as Indigenous, and 7.4 million speak an Indigenous language.",
+   "intro_sources": [
+    {
+     "label": "INPI: el INPI, institución al servicio de los pueblos indígenas y afromexicanos (2020)",
+     "url": "https://www.gob.mx/cms/uploads/attachment/file/568898/inpi-dia-pueblos-indigenas-9-agosto-2020.pdf"
+    }
+   ],
+   "urgent": [
+    {
+     "label": "Línea de la Vida (crisis, 24 horas)",
+     "phone": "800 911 2000",
+     "tel": "+528009112000"
+    }
+   ]
+  },
+  {
+   "code": "AUS",
+   "slug": "australia",
+   "name": "Australia",
+   "peoples": "Aboriginal and Torres Strait Islander peoples",
+   "center": [
+    -26,
+    134
+   ],
+   "zoom": 4,
+   "emergency": "000",
+   "intro": "Aboriginal and Torres Strait Islander people run their own health services across Australia: Aboriginal Community Controlled Health Organisations, started and governed by the local community. The first opened in Redfern, Sydney, in 1971. There is also a national crisis line answered by Aboriginal and Torres Strait Islander people.",
+   "intro_sources": [
+    {
+     "label": "NACCHO (via the Royal Australian College of GPs)",
+     "url": "https://www.racgp.org.au/the-racgp/faculties/aboriginal-and-torres-strait-islander-health/about-us/partnerships/naccho"
+    },
+    {
+     "label": "Lifeline: 13YARN",
+     "url": "https://www.lifeline.org.au/get-help/national-services/13yarn"
+    }
+   ],
+   "urgent": [
+    {
+     "label": "13YARN, Aboriginal and Torres Strait Islander crisis support",
+     "phone": "13 92 76",
+     "tel": "139276"
+    }
+   ]
+  },
+  {
+   "code": "NZL",
+   "slug": "aotearoa-new-zealand",
+   "name": "Aotearoa New Zealand",
+   "peoples": "Māori",
+   "center": [
+    -41,
+    173
+   ],
+   "zoom": 5,
+   "emergency": "111",
+   "intro": "Te Kāhui Māngai, run by Te Puni Kōkiri (the Ministry of Māori Development), is the government's directory of iwi, hapū and marae and the organizations that represent them. Whānau Ora navigators help whānau plan and reach the support they need.",
+   "intro_sources": [
+    {
+     "label": "Te Kāhui Māngai",
+     "url": "https://tkm.govt.nz/"
+    },
+    {
+     "label": "Te Puni Kōkiri: Whānau Ora for whānau",
+     "url": "https://www.tpk.govt.nz/en/a-matou-whakaarotau/whanau-ora/for-whanau"
+    }
+   ],
+   "urgent": [
+    {
+     "label": "Need to talk? Free call or text, any time",
+     "phone": "1737",
+     "tel": "1737",
+     "sms": "1737"
+    }
+   ]
+  },
+  {
+   "code": "SAPMI",
+   "slug": "sapmi",
+   "name": "Sápmi (Norway, Sweden, Finland)",
+   "peoples": "Sámi",
+   "center": [
+    68.3,
+    21
+   ],
+   "zoom": 5,
+   "emergency": "112",
+   "intro": "The Sámi are an Indigenous people whose homeland, Sápmi, stretches across northern Norway, Sweden, Finland and Russia. Each of the three Nordic countries has an elected Sámi Parliament. The Sámi Parliament of Finland notes that the Sámi are the only Indigenous people in the European Union.",
+   "intro_sources": [
+    {
+     "label": "Sámi Parliament of Norway",
+     "url": "https://sametinget.no/about-the-sami-parliament/"
+    },
+    {
+     "label": "Sámi Parliament of Finland",
+     "url": "https://samediggi.fi/en/embed"
+    }
+   ],
+   "urgent": []
+  },
+  {
+   "code": "WORLD",
+   "slug": "worldwide",
+   "name": "Worldwide",
+   "peoples": "Indigenous peoples everywhere",
+   "center": [
+    20,
+    10
+   ],
+   "zoom": 2,
+   "emergency": null,
+   "intro": "Help that reaches Indigenous peoples in any country: international bodies and funds led by Indigenous people.",
+   "intro_sources": [],
+   "urgent": []
+  }
+ ]
+}

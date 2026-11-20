@@ -221,6 +221,10 @@
   "ask": {
    "label": "Rules differ: ask",
    "explain": "Each tribe, office or program sets its own rule about who it serves."
+  },
+  "indigenous": {
+   "label": "For Indigenous people",
+   "explain": "Serves Indigenous people. Ask whether any proof of identity or membership is needed."
   }
  }
 }

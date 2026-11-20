@@ -19,7 +19,10 @@
      "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
      "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
     }
-   ]
+   ],
+   "lat": 46.8744,
+   "lon": -114.0261,
+   "pin": "town"
   },
   {
    "id": "mt-billings-uihwc",
@@ -39,7 +42,10 @@
      "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
      "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
     }
-   ]
+   ],
+   "lat": 45.7895,
+   "lon": -108.5525,
+   "pin": "town"
   },
   {
    "id": "mt-helena-indian-alliance",
@@ -59,7 +65,10 @@
      "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
      "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
     }
-   ]
+   ],
+   "lat": 46.5955,
+   "lon": -112.0187,
+   "pin": "town"
   },
   {
    "id": "mt-ifhc-great-falls",
@@ -80,7 +89,10 @@
      "label": "Indian Health Service directory of Urban Indian Organizations (phone numbers and websites)",
      "url": "https://www.ihs.gov/sites/urban/themes/responsive2017/display_objects/documents/staff/IHS_UIO_ED-CEO_Directory.pdf"
     }
-   ]
+   ],
+   "lat": 47.5025,
+   "lon": -111.3,
+   "pin": "town"
   },
   {
    "id": "mt-butte-native-wellness",

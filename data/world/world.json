@@ -1,0 +1,34 @@
+{
+ "area": "WORLD",
+ "records": [
+  {
+   "id": "world-keepers-of-the-earth",
+   "name": "Keepers of the Earth Fund (Cultural Survival)",
+   "need": "money",
+   "also": [
+    "community"
+   ],
+   "access": "indigenous",
+   "what": "Grants of up to 12,000 US dollars that go straight to Indigenous communities, collectives, organizations and traditional governments for projects they design themselves. Groups without government registration can apply.",
+   "who": "Indigenous communities and groups in any country.",
+   "start": "Read the fund's page and watch for its yearly call for proposals.",
+   "url": "https://www.culturalsurvival.org/node/11948",
+   "url_label": "Keepers of the Earth Fund",
+   "source": "https://www.culturalsurvival.org/node/11948",
+   "checked": "2026-11-20"
+  },
+  {
+   "id": "world-unpfii",
+   "name": "UN Permanent Forum on Indigenous Issues",
+   "need": "legal",
+   "access": "anyone",
+   "what": "The United Nations advisory body on Indigenous peoples' issues: development, culture, environment, education, health and human rights. It meets each year in New York, where Indigenous peoples' organizations can take part.",
+   "who": "Indigenous peoples and their organizations everywhere.",
+   "start": "Read about the Forum and how to take part in its yearly session.",
+   "url": "https://social.desa.un.org/unpfii",
+   "url_label": "UNPFII",
+   "source": "https://social.desa.un.org/unpfii",
+   "checked": "2026-11-20"
+  }
+ ]
+}

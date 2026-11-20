@@ -1,0 +1,76 @@
+{
+ "area": "AUS",
+ "records": [
+  {
+   "id": "au-13yarn",
+   "name": "13YARN",
+   "need": "safety",
+   "also": [
+    "recovery"
+   ],
+   "access": "indigenous",
+   "urgent": 1,
+   "what": "A free, confidential crisis line, 24 hours a day, answered by Aboriginal and Torres Strait Islander Crisis Supporters. Run by and for mob.",
+   "who": "Aboriginal and Torres Strait Islander people in Australia.",
+   "start": "Call 13 92 76 from any phone, any time.",
+   "phone": "13 92 76",
+   "tel": "139276",
+   "url": "https://www.13yarn.org.au/",
+   "url_label": "13yarn.org.au",
+   "source": "https://www.lifeline.org.au/get-help/national-services/13yarn",
+   "checked": "2026-11-20"
+  },
+  {
+   "id": "au-acchos",
+   "name": "Aboriginal Community Controlled Health Organisations (ACCHOs)",
+   "need": "health",
+   "also": [
+    "recovery",
+    "family"
+   ],
+   "access": "indigenous",
+   "what": "Primary health care started and run by the local Aboriginal community through an elected board. NACCHO is the national body for about 150 of them.",
+   "who": "Aboriginal and Torres Strait Islander people and families.",
+   "start": "Find the service nearest you on the map of Aboriginal and Torres Strait Islander health services.",
+   "url": "https://healthinfonet.ecu.edu.au/key-resources/health-professionals/health-workers/map-of-aboriginal-and-islander-healthmedical-services/",
+   "url_label": "Map of health services",
+   "more": [
+    {
+     "label": "NACCHO",
+     "url": "https://www.naccho.org.au/"
+    }
+   ],
+   "source": "https://www.racgp.org.au/the-racgp/faculties/aboriginal-and-torres-strait-islander-health/about-us/partnerships/naccho",
+   "checked": "2026-11-20"
+  },
+  {
+   "id": "au-link-up",
+   "name": "Link-Up family tracing and reunion",
+   "need": "nation",
+   "also": [
+    "recovery"
+   ],
+   "access": "ask",
+   "what": "Help for members of the Stolen Generations to research family records, trace family, and be reunited with family, Country, community or gravesites, with support before, during and after.",
+   "who": "Members of the Stolen Generations, their families and descendants. There is no Link-Up service in the ACT or Tasmania.",
+   "start": "Contact the Link-Up service in your state or territory.",
+   "url": "https://aiatsis.gov.au/family-history/you-start/link",
+   "url_label": "Link-Up services (AIATSIS)",
+   "source": "https://aiatsis.gov.au/family-history/you-start/link",
+   "checked": "2026-11-20"
+  },
+  {
+   "id": "au-atsils",
+   "name": "Aboriginal and Torres Strait Islander Legal Services",
+   "need": "legal",
+   "access": "indigenous",
+   "what": "Community-controlled legal services in each state and territory: advice, court representation and support for people in contact with the justice system. NATSILS is their national body.",
+   "who": "Aboriginal and Torres Strait Islander people.",
+   "start": "Find your state or territory's service through NATSILS.",
+   "url": "https://www.natsils.org.au/",
+   "url_label": "natsils.org.au",
+   "source": "https://www.natsils.org.au/about/",
+   "checked": "2026-11-20"
+  }
+ ]
+}

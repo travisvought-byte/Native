@@ -15,7 +15,10 @@
    "url": "https://www.naicco.com/",
    "url_label": "naicco.com",
    "source": "https://www.naicco.com/",
-   "checked": "2026-11-17"
+   "checked": "2026-11-17",
+   "lat": 39.9262,
+   "lon": -82.9937,
+   "pin": "address"
   },
   {
    "id": "oh-urban-native-collective",
@@ -34,7 +37,10 @@
    "url": "https://urbannativecollective.org/",
    "url_label": "urbannativecollective.org",
    "source": "https://urbannativecollective.org/",
-   "checked": "2026-11-17"
+   "checked": "2026-11-17",
+   "lat": 39.1609,
+   "lon": -84.5448,
+   "pin": "address"
   },
   {
    "id": "oh-cleveland-coalition",
@@ -58,7 +64,10 @@
     }
    ],
    "source": "https://www.mlb.com/indians/fans/cleteamname/native-american-partnership",
-   "checked": "2026-11-17"
+   "checked": "2026-11-17",
+   "lat": 41.4785,
+   "lon": -81.6794,
+   "pin": "town"
   },
   {
    "id": "oh-job-training",
@@ -72,7 +81,10 @@
    "url": "https://www.dol.gov/agencies/eta/dinap",
    "url_label": "Division of Indian and Native American Programs",
    "source": "https://www.dol.gov/sites/dolgov/files/ETA/advisories/TEGL/2024/TEGL%2012-24/TEGL%2012-24.pdf",
-   "checked": "2026-11-17"
+   "checked": "2026-11-17",
+   "lat": 41.1061,
+   "lon": -81.4248,
+   "pin": "town"
   },
   {
    "id": "oh-wellbriety",
@@ -123,7 +135,10 @@
    "address": "Myaamia Center, 200 Bonham House, Oxford, OH 45056",
    "url": "https://miamioh.edu/miami-tribe-relations/myaamia-students/myaamia-heritage-award-program.html",
    "source": "https://miamioh.edu/miami-tribe-relations/myaamia-students/myaamia-heritage-award-program.html",
-   "checked": "2026-11-18"
+   "checked": "2026-11-18",
+   "lat": 39.5056,
+   "lon": -84.7443,
+   "pin": "town"
   },
   {
    "id": "oh-osu-american-indian-studies",
@@ -139,7 +154,10 @@
    "start": "Check the program's website for upcoming events. If you are a student, ask the program how to reach American Indian and Indigenous student services.",
    "url": "https://americanindianstudies.osu.edu/resources",
    "source": "https://americanindianstudies.osu.edu/resources",
-   "checked": "2026-11-18"
+   "checked": "2026-11-18",
+   "lat": 39.9855,
+   "lon": -82.9856,
+   "pin": "town"
   }
  ]
 }

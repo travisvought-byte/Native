@@ -123,3 +123,79 @@ footer{max-width:1112px;margin:0 auto;padding:18px 16px 44px;border-top:1px soli
 @media (max-width:640px){body{font-size:17px}.top{padding-top:10px;padding-bottom:10px}.top nav a{padding:7px 8px}.cards,.nations{grid-template-columns:1fr}.card .actions .btn{flex:1 1 100%}.exit span{display:none}.usmap circle{r:3.4px}}
 @media print{.exit,.top nav,.skip,.filter,.picker,.search,.chips,.usmap,.statebox{display:none}body{background:#fff;font-size:12pt}.top{background:#fff;color:#000;padding:0}.brand{color:#000}.card,.nations li,.urgent{break-inside:avoid;border-color:#999}.btn{border:0;background:none;color:#000;padding:0;min-height:0;font-weight:700}.btn::after{content:""}a{color:#000}details.prep{display:none}}
 .nations a[href^="tel:"]{white-space:nowrap}
+
+/* Map finder (home page) */
+.finder-head h1{max-width:30ch;margin-bottom:.25em}
+.finder-head .lede{margin:.2em 0 .3em;max-width:68ch}
+.finder-controls{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:flex-end;margin:14px 0 6px}
+.ctl{margin:0;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center}
+.ctl label{font-weight:700}
+.ctl.grow{flex:1 1 300px}
+.ctl.grow input{flex:1 1 200px}
+.ctl.small{font-size:16px;gap:6px 22px;margin:8px 0 12px}
+.ctl.small label{font-weight:500;display:inline-flex;gap:8px;align-items:center;min-height:36px}
+.ctl.small input{width:20px;height:20px;accent-color:var(--water)}
+button.btn{font:inherit;font-weight:700;cursor:pointer}
+.needs-bar{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+.chip{font:inherit;font-size:16px;cursor:pointer;padding:8px 14px;min-height:42px;border:1px solid var(--water);border-radius:999px;background:#fff;color:var(--link)}
+.chip:hover{background:#eef4f3}
+.chip[aria-pressed=true]{background:var(--water);color:#fff;font-weight:700}
+.finder-body{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(300px,1fr);gap:18px;align-items:start;margin-top:6px}
+#map{height:min(68vh,640px);min-height:380px;border-radius:10px;border:1px solid var(--line);background:#dfe7e4;z-index:0}
+.mapwrap .meta{margin:.4em 0}
+.legend{list-style:none;padding:0;margin:8px 0 0;display:flex;flex-wrap:wrap;gap:4px 16px;font-size:15px}
+.legend li{display:flex;align-items:center;gap:6px;max-width:none}
+.key{display:inline-block;width:13px;height:13px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.25);flex:none}
+.k-nation .key,.key.k-nation,.key.k-fn{background:#9c4421}.key.k-inuit{background:#7a3b8f}.key.k-clinic{background:#0e4a5a}
+.key.k-college{background:#b7791f}.key.k-land{background:#6b7d3a}.key.k-place{background:#2c5a4c}
+.results{max-height:min(78vh,760px);overflow:auto;background:#fff;border:1px solid var(--line);border-radius:10px;padding:0 14px 10px}
+.results h2{font-size:21px;margin:.8em 0 .2em;position:sticky;top:0;background:#fff;padding:6px 0;z-index:1}
+.hits,.wide{list-style:none;padding:0;margin:4px 0 10px}
+.hit{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--soft);max-width:none}
+.hit .key{margin-top:7px}
+.hit-name{all:unset;cursor:pointer;font-weight:700;color:var(--deep);line-height:1.3;display:block}
+.hit-name:hover{text-decoration:underline}
+.hit-name:focus-visible{outline:3px solid var(--clay);outline-offset:2px}
+.hit .sub,.wide .sub{display:block;font-size:15px;color:#4c5a5e;line-height:1.4}
+.acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.btn.sm{min-height:38px;padding:5px 12px;font-size:15px;border-width:1.5px}
+.wide li{padding:10px 0;border-bottom:1px solid var(--soft);max-width:none}
+.wide-name{font-weight:700}
+.wide .tagline{font-weight:600;color:var(--leaf);margin-top:2px}
+.urgent-line{border-left:5px solid var(--clay);padding:6px 10px!important;background:#fbf3ee;margin:6px 0;border-bottom:0!important}
+.pop .acts{margin:8px 0 0}
+.pop .btn.sm{min-height:34px;padding:4px 10px;font-size:14px;color:#fff}
+.pop .btn.sm.line{color:var(--link)}
+.leaflet-container{font:15px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.leaflet-popup-content{margin:12px 14px}
+.marker-cluster{background:rgba(14,74,90,.25);border-radius:50%}
+.marker-cluster div{background:rgba(14,74,90,.85);color:#fff;font-weight:700;width:30px;height:30px;margin:5px;border-radius:50%;text-align:center;line-height:30px;font-size:13px}
+.marker-cluster-large div{background:rgba(156,68,33,.88)}
+.world-cards .meta{display:block;margin-top:6px}
+.urgent.country{margin-top:10px}
+.nations.cols{grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+@media (max-width:860px){.finder-body{grid-template-columns:1fr}#map{height:56vh;min-height:320px}.results{max-height:none}}
+@media print{.finder-controls,.needs-bar,#map,.legend,.ctl{display:none}}
+.finder-head h1{font-size:clamp(28px,4.4vw,40px);margin:.2em 0 .2em}
+.finder-head .lede{font-size:18px}
+.finder-head .dedication{display:inline;font-size:17px}
+.ctl,.finder-controls p{max-width:none}
+.finder-controls{margin:8px 0 2px}
+.needs-bar{margin:8px 0 0}
+.chip{min-height:38px;padding:6px 13px;font-size:15.5px}
+@media (max-width:640px){
+ .top{gap:4px 16px}
+ .top nav{width:100%;margin:0 -8px}
+ .top nav ul{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px}
+ .top nav ul::-webkit-scrollbar{display:none}
+ .top nav a{white-space:nowrap;font-size:15.5px}
+ .finder-head .lede{font-size:16px;line-height:1.45}
+ .finder-controls{gap:8px 10px}
+ .finder-controls .ctl:first-child label,.finder-controls .ctl.grow label{position:absolute;left:-9999px}
+ .finder-controls .ctl:first-child{flex:1 1 55%}
+ .finder-controls .ctl:first-child select{width:100%}
+ .finder-controls .ctl.grow{flex:1 1 100%}
+ .needs-bar{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+ .chip{white-space:nowrap;flex:none}
+ .ctl.small{font-size:15px;gap:2px 16px}
+}

@@ -16,12 +16,15 @@ ROOT = Path(__file__).resolve().parent.parent
 
 def main():
     raw = json.loads(Path(sys.argv[1]).read_text()) if len(sys.argv) > 1 else json.loads(
-        urllib.request.urlopen(LAYER + '/query?where=1%3D1&outFields=*&returnGeometry=false&f=json', timeout=120).read())
+        urllib.request.urlopen(LAYER + '/query?where=1%3D1&outFields=*&returnGeometry=true&outSR=4326&f=json', timeout=120).read())
     out = {}
     for f in raw['features']:
         x = f['attributes']
         rec = {'name': ' '.join(x['school_name'].split()), 'kind': x.get('operation_type'), 'city': x.get('city'),
                'phone': x.get('telephone_1'), 'url': x.get('website')}
+        g = f.get('geometry') or {}
+        if g.get('y') and g.get('x'):
+            rec['lat'], rec['lon'] = round(g['y'], 4), round(g['x'], 4)
         out.setdefault(x['state_abbre'], []).append({k: v for k, v in rec.items() if v})
     for v in out.values():
         v.sort(key=lambda r: r['name'])
