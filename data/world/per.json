@@ -1,0 +1,25 @@
+{
+ "area": "PER",
+ "records": [
+  {
+   "id": "per-linea-113",
+   "name": "Línea 113 Salud, opción 5 (salud mental)",
+   "need": "safety",
+   "also": [
+    "recovery",
+    "health"
+   ],
+   "access": "anyone",
+   "urgent": 1,
+   "what": "Orientación y apoyo psicológico gratuito del Ministerio de Salud, las 24 horas, todos los días. (Free psychological support from the Ministry of Health, 24 hours.)",
+   "who": "Cualquier persona en el Perú. (Anyone in Peru.)",
+   "start": "Marque 113 desde cualquier teléfono y elija la opción 5.",
+   "phone": "113, opción 5",
+   "tel": "113",
+   "url": "https://www.gob.pe/555",
+   "url_label": "gob.pe: Línea 113",
+   "source": "https://www.gob.pe/555",
+   "checked": "2026-11-20"
+  }
+ ]
+}

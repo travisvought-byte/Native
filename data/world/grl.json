@@ -1,0 +1,24 @@
+{
+ "area": "GRL",
+ "records": [
+  {
+   "id": "grl-naalakkersuisut",
+   "name": "Naalakkersuisut: Government of Greenland",
+   "place": "Nuuk",
+   "need": "nation",
+   "access": "anyone",
+   "what": "Greenland's self-government, with ministries for fisheries and hunting, housing, education, culture and more.",
+   "who": "People in Greenland, and Kalaallit anywhere with a question for the government.",
+   "start": "Call the central switchboard or visit the website.",
+   "phone": "+299 34 50 00",
+   "tel": "+299345000",
+   "url": "https://naalakkersuisut.gl/",
+   "url_label": "naalakkersuisut.gl",
+   "source": "https://naalakkersuisut.gl/-/media/horinger/2025/07/1107_laks/hringsbrev-kal.docx",
+   "lat": 64.1814,
+   "lon": -51.6941,
+   "pin": "town",
+   "checked": "2026-11-20"
+  }
+ ]
+}

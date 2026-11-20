@@ -1,0 +1,45 @@
+{
+ "area": "CHL",
+ "records": [
+  {
+   "id": "chl-4141",
+   "name": "Línea de prevención del suicidio *4141",
+   "need": "safety",
+   "also": [
+    "recovery"
+   ],
+   "access": "anyone",
+   "urgent": 1,
+   "what": "Línea gratuita y confidencial del Ministerio de Salud, atendida por psicólogos, las 24 horas, todos los días. (Free, confidential suicide prevention line answered by psychologists, 24 hours.)",
+   "who": "Cualquier persona en Chile. (Anyone in Chile.)",
+   "start": "Llame al *4141 desde un celular de cualquier compañía.",
+   "phone": "*4141",
+   "tel": "*4141",
+   "url": "https://www.minsal.cl/linea-de-atencion-4141-no-estas-solo-no-estas-sola/",
+   "url_label": "minsal.cl",
+   "source": "https://www.minsal.cl/linea-de-atencion-4141-no-estas-solo-no-estas-sola/",
+   "checked": "2026-11-20"
+  },
+  {
+   "id": "chl-conadi",
+   "name": "CONADI: Corporación Nacional de Desarrollo Indígena",
+   "place": "Temuco",
+   "need": "nation",
+   "also": [
+    "money",
+    "legal"
+   ],
+   "access": "indigenous",
+   "what": "Organismo del Estado creado por la Ley Indígena 19.253 que coordina programas de desarrollo y tierras para los nueve pueblos indígenas reconocidos. Atiende consultas en línea y en sus oficinas. (State body for Indigenous development and land programs; takes questions online and in its offices.)",
+   "who": "Personas y comunidades de los pueblos indígenas reconocidos en Chile.",
+   "start": "Haga su consulta en el sitio de CONADI o en una de sus oficinas.",
+   "url": "https://www.conadi.gob.cl/",
+   "url_label": "conadi.gob.cl",
+   "source": "https://www.chileatiende.gob.cl/fichas/4444/1/pdf",
+   "lat": -38.7359,
+   "lon": -72.5904,
+   "pin": "town",
+   "checked": "2026-11-20"
+  }
+ ]
+}

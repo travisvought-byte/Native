@@ -1,0 +1,28 @@
+{
+ "area": "PHL",
+ "records": [
+  {
+   "id": "phl-ncip",
+   "name": "National Commission on Indigenous Peoples (NCIP)",
+   "place": "Quezon City",
+   "need": "nation",
+   "also": [
+    "legal",
+    "school"
+   ],
+   "access": "indigenous",
+   "what": "The national government agency that protects the rights of Indigenous Cultural Communities and Indigenous Peoples, including ancestral domain titles, under the Indigenous Peoples' Rights Act of 1997.",
+   "who": "Indigenous peoples in the Philippines.",
+   "start": "Email the central office or contact the NCIP office for your region.",
+   "email": "osec@ncip.gov.ph",
+   "address": "6th and 7th Floors, Sunnymede IT Center, 1614 Quezon Avenue, South Triangle, Quezon City",
+   "url": "https://ncip.gov.ph/",
+   "url_label": "ncip.gov.ph",
+   "source": "https://absch.cbd.int/es/database/CNA/ABSCH-CNA-PH-300143-1",
+   "lat": 14.643,
+   "lon": 121.036,
+   "pin": "town",
+   "checked": "2026-11-20"
+  }
+ ]
+}

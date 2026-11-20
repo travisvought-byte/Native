@@ -1,0 +1,26 @@
+{
+ "area": "JPN",
+ "records": [
+  {
+   "id": "jpn-upopoy",
+   "name": "Upopoy: National Ainu Museum and Park",
+   "place": "Shiraoi, Hokkaido",
+   "need": "community",
+   "also": [
+    "school"
+   ],
+   "access": "anyone",
+   "what": "The national center for learning about and reviving Ainu history and culture, with the National Ainu Museum, an open-air park and a memorial site, on the shore of Lake Poroto.",
+   "who": "Ainu people and anyone who wants to learn about Ainu culture.",
+   "start": "Check opening hours and tickets on the official website.",
+   "address": "2-3 Wakakusa-chō, Shiraoi, Hokkaido, Japan",
+   "url": "https://ainu-upopoy.jp/en/",
+   "url_label": "ainu-upopoy.jp",
+   "source": "https://www.gov-online.go.jp/eng/publicity/book/hlj/html/202201/202201_09_en.html",
+   "lat": 42.5613,
+   "lon": 141.3669,
+   "pin": "address",
+   "checked": "2026-11-20"
+  }
+ ]
+}

@@ -106,7 +106,7 @@ for path, page in pages.items():
     folder = Path(path).parent
     for href in page.hrefs:
         if href.startswith(('mailto:', 'tel:', 'sms:')):
-            if href.startswith('tel:') and not re.match(r'^tel:(\+1\d{10}(,\d{1,6})?|\+(?!1)\d{8,14}|\d{3,6})$', href):
+            if href.startswith('tel:') and not re.match(r'^tel:(\+1\d{10}(,\d{1,6})?|\+(?!1)\d{8,14}|\*?\d{3,6})$', href):
                 fail(f'{path}: odd phone link {href}')
             continue
         if href.startswith('http://') or href.startswith('https://'):

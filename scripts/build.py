@@ -880,10 +880,34 @@ CLINIC_NEED = {'hospital': ['health'], 'clinic': ['health'], 'behavioral': ['rec
                'dental': ['health'], 'elder': ['elders', 'health']}
 KIND_LABEL = {'nation': 'Nation government office', 'fn': 'First Nation', 'inuit': 'Inuit community',
               'clinic': 'Health care', 'college': 'Tribal college', 'land': 'Reservation or tribal land',
-              'place': 'Community and help'}
+              'place': 'Community and help', 'guide': 'Country guide'}
 LAND_LABEL = {'reservation': 'Reservation', 'hawaiian': 'Hawaiian home land', 'alaska': 'Alaska Native village area',
               'oklahoma': 'Oklahoma tribal area', 'state-area': 'State-designated tribal area', 'tribal-area': 'Tribal designated area',
               'joint': 'Joint-use area', 'state-reservation': 'State reservation'}
+
+
+REGIONS = ['North America', 'Latin America', 'Arctic and Europe', 'Pacific', 'Asia', 'Africa', 'Worldwide']
+
+
+def country_cards(prefix='', lines=True):
+    """Country cards grouped by region, for the home page and the world page."""
+    out = ''
+    for region in REGIONS:
+        here = [c for c in COUNTRIES if c['slug'] and c.get('region') == region]
+        if not here:
+            continue
+        cards = ''
+        for c in here:
+            first = c['urgent'][0] if c['urgent'] and lines else None
+            line = f'<span class="meta">{E(first["label"])}: {E(first["phone"])}</span>' if first else ''
+            cards += f'<li id="{c["slug"]}"><a href="{prefix}{c["slug"]}.html"><strong>{E(c["name"])}</strong><span>{E(c["peoples"])}</span>{line}</a></li>'
+        out += f'<h3 class="region">{E(region)}</h3><ul class="needs world-cards">{cards}</ul>'
+    return out
+
+
+def country_names():
+    names = [c['name'] for c in COUNTRIES if c['slug'] and c['code'] != 'WORLD']
+    return ', '.join(names[:-1]) + ' and ' + names[-1]
 
 
 def world_slug(code):
@@ -947,6 +971,11 @@ def finder_data():
                 r.get('phone'), tel_of(r) if r.get('phone') else None, r.get('url'),
                 f'world/{world_slug(r["area"])}.html#r-{r["id"]}', r['access'], r.get('pin'))
 
+    for c in COUNTRIES:
+        if c['slug'] and c['code'] != 'WORLD':
+            add(c['center'][0], c['center'][1], 'guide', f'{c["name"]}: country guide', c['peoples'], FINDER_NEEDS, c['code'],
+                page=f'world/{c["slug"]}.html')
+
     def wide(r, page_path):
         return {'id': r['id'], 'name': r['name'], 'needs': [r['need']] + r.get('also', []), 'what': r['what'],
                 'access': r['access'], 'phone': r.get('phone'), 'tel': tel_of(r) if r.get('phone') else None,
@@ -980,11 +1009,13 @@ def urgent_world(up=''):
         link = f'<a href="tel:{u["tel"]}">{E(u["phone"])}</a>'
         if u.get('sms'):
             link += f' (call or <a href="sms:{u["sms"]}">text</a>)'
-        others += f'<li><strong>{E(c["name"])}:</strong> {E(u["label"])}, {link}. Emergency: {E(c["emergency"])}.</li>'
+        emergency = f' Emergency: {E(c["emergency"])}.' if c.get('emergency') else ''
+        others += f'<li><strong>{E(c["name"])}:</strong> {E(u["label"])}, {link}.{emergency}</li>'
     return ('<aside class="urgent" aria-labelledby="urgent-h"><h2 id="urgent-h">Need help right now?</h2><ul>'
             '<li><strong>United States:</strong> thinking about suicide, or in any crisis: <a href="tel:988">call 988</a> or <a href="sms:988">text 988</a>, any time. '
             'Hurt or threatened by a partner or family member: <a href="tel:+18447628483">call</a> or <a href="sms:+18447628483">text</a> the StrongHearts Native Helpline, 1-844-762-8483. In immediate danger, call 911.</li>'
-            f'{others}</ul>'
+            '</ul>'
+            f'<details class="statebox"><summary>Crisis lines in other countries</summary><ul>{others}</ul></details>'
             f'<p><a href="{up}help.html#safety">All crisis and safety lines</a> · <a href="{up}help.html#housing">Shelter and housing help</a> · <a href="{up}world/index.html">Help in other countries</a></p></aside>')
 
 
@@ -996,9 +1027,7 @@ def build_home():
     counts = Counter(p[2] for p in data['points'])
     legend = ''.join(f'<li><span class="key k-{k}" aria-hidden="true"></span>{E(label)} <span class="count">{counts.get(k, 0):,}</span></li>'
                      for k, label in KIND_LABEL.items() if counts.get(k))
-    world_cards = ''.join(
-        f'<li id="{c["slug"]}"><a href="world/{c["slug"]}.html"><strong>{E(c["name"])}</strong><span>{E(c["peoples"])}</span></a></li>'
-        for c in COUNTRIES if c['slug'])
+    world_cards = country_cards('world/', lines=False)
     total = len(data['points'])
     body = f'''<section class="finder" aria-labelledby="find-h">
 <div class="finder-head"><h1 id="find-h">Find help, your Nation and your people</h1>
@@ -1033,9 +1062,9 @@ def build_home():
 </div></section>
 <section aria-labelledby="world-h"><h2 id="world-h">First Peoples around the world</h2>
 <p>Nina's Map started in the United States and is growing country by country, each one in its own peoples' terms.</p>
-<ul class="needs world-cards">{world_cards}</ul></section>
+{world_cards}</section>
 <section class="panel" aria-labelledby="who-h"><h2 id="who-h">Who made this, and who it needs</h2>
-<p>This guide was built by {E(SITE['maintainer'])} from what Nations, governments and Indigenous organizations publish about themselves. It is not a tribal government and does not speak for any Nation. It covers the United States in the most detail, with Ohio and Michigan the deepest, and now Canada, Mexico, Australia, Aotearoa New Zealand and Sápmi.</p>
+<p>This guide was built by {E(SITE['maintainer'])} from what Nations, governments and Indigenous organizations publish about themselves. It is not a tribal government and does not speak for any Nation. It covers the United States in the most detail, with Ohio and Michigan the deepest, and now reaches {len([c for c in COUNTRIES if c['slug'] and c['code'] != 'WORLD'])} more countries and homelands: {E(country_names())}.</p>
 <p>It needs Indigenous people to look it over. If you work for a Nation, a tribal program or an Indigenous organization, or you know something here is wrong or missing, <a href="mailto:{E(SITE['email'])}">write to us</a>. <a href="about.html">Read how the site is put together</a>.</p></section>'''
     head = ('<link rel="stylesheet" href="assets/vendor/leaflet.css"><link rel="stylesheet" href="assets/vendor/markercluster.css">'
             '<script src="assets/vendor/leaflet.js" defer></script><script src="assets/vendor/leaflet.markercluster.js" defer></script>'
@@ -1068,6 +1097,9 @@ def build_world():
                 f'<p class="lede">{E(c["intro"])}</p>')
         if c.get('intro_sources'):
             body += '<p class="meta">Sources: ' + ' · '.join(f'<a href="{E(s["url"])}">{E(s["label"])}</a>' for s in c['intro_sources']) + '.</p>'
+        if c.get('report'):
+            body += (f'<p class="panel report">Background: <a href="{E(c["report"])}">read the {E(c["name"])} chapter of <em>The Indigenous World 2026</em></a>, '
+                     'the yearly report of the International Work Group for Indigenous Affairs (IWGIA), on land, rights, health and recent events.</p>')
         body += country_urgent(c, up)
         body += f'<p><a class="btn" href="../index.html#{c["slug"]}">See {E(c["name"])} on the map</a></p>'
         for need in NEED_LIST:
@@ -1104,8 +1136,8 @@ def build_world():
         cards += f'<li><a href="{c["slug"]}.html"><strong>{E(c["name"])}</strong><span>{E(c["peoples"])}</span>{line}</a></li>'
     body = f'''<h1>First Peoples around the world</h1>
 <p class="lede">Nina's Map began in the United States. These pages carry it to other countries, one at a time, using each people's own terms. Every listing shows where it came from and when it was checked.</p>
-<p>Country pages so far: Canada, Mexico, Australia, Aotearoa New Zealand, Sápmi, and help that reaches Indigenous peoples anywhere. More are on the way. If you want your country next, <a href="mailto:{E(SITE['email'])}">tell us</a>.</p>
-<ul class="needs world-cards">{cards}</ul>
+<p>Country pages so far: {E(country_names())}, and help that reaches Indigenous peoples anywhere. Some pages are starters, with background and the help we could confirm; more are on the way. If you want your country next, or know what belongs on its page, <a href="mailto:{E(SITE['email'])}">tell us</a>.</p>
+{country_cards()}
 <p><a class="btn" href="../index.html">Open the map</a> <a class="btn line" href="../help.html">Help in the United States</a></p>'''
     page('world/index.html', f'Help and community for Indigenous peoples around the world | {SITE["name"]}',
          'Help lines, health care, family support and Nation and community directories for Indigenous peoples in Canada, Mexico, Australia, Aotearoa New Zealand, Sápmi and worldwide.', body)

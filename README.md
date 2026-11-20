@@ -6,7 +6,7 @@ A free guide for Native people looking for help, for their Nation, or for commun
 
 Live site: https://ninas-map.com/ (GitHub Pages; the `CNAME` file sets the address, and the domain's records are kept at Wix).
 
-It covers the United States in the most detail (Ohio and Michigan deepest) and has begun going worldwide: Canada, Mexico, Australia, Aotearoa New Zealand, Sápmi, and help that reaches Indigenous peoples anywhere.
+It covers the United States in the most detail (Ohio and Michigan deepest) and is going worldwide: country guides for North America, Latin America, the Arctic, the Pacific, Asia and Africa (see `data/world/countries.json`), each with its peoples' own terms, crisis lines we could confirm, national Indigenous institutions on the map, and a link to that country's chapter of IWGIA's yearly report *The Indigenous World*.
 
 ## What is on the site
 
@@ -44,7 +44,7 @@ Edit the files in `data/`, never the built pages. The workflow in `.github/workf
 | `data/nations.json` | Nation government offices, from the Bureau of Indian Affairs Tribal Leaders Directory. Do not edit by hand. |
 | `data/map/us.json` | State outlines and the map position of each office. Do not edit by hand. |
 | `data/map/lands.geojson`, `data/map/land-points.json` | Reservation and tribal land outlines and inside points (`npm run lands`). Do not edit by hand. |
-| `data/world/countries.json` | Each country: name, its peoples' own terms, map view, emergency number and crisis lines. Country codes must not clash with state codes (Canada is `CAN`). |
+| `data/world/countries.json` | Each country: name, region, its peoples' own terms, map view, emergency number, crisis lines and `report` (its IWGIA chapter). Each country also gets a "country guide" marker on the map. Country codes must not clash with state codes (Canada is `CAN`). |
 | `data/world/<code>.json` | Listings for one country, same format as state listings. Add `tel` with the full international number (`+52...`) for numbers outside North America, and `lat`/`lon`/`pin` for a place on the map. |
 | `data/world/ca-places.json` | First Nations and Inuit communities in Canada (`python3 scripts/import_canada.py`). Do not edit by hand. |
 

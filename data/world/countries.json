@@ -25,7 +25,8 @@
      "tel": "+18447628483",
      "sms": "+18447628483"
     }
-   ]
+   ],
+   "region": "North America"
   },
   {
    "code": "CAN",
@@ -61,7 +62,8 @@
      "tel": "988",
      "sms": "988"
     }
-   ]
+   ],
+   "region": "North America"
   },
   {
    "code": "MEX",
@@ -87,7 +89,8 @@
      "phone": "800 911 2000",
      "tel": "+528009112000"
     }
-   ]
+   ],
+   "region": "North America"
   },
   {
    "code": "AUS",
@@ -117,7 +120,8 @@
      "phone": "13 92 76",
      "tel": "139276"
     }
-   ]
+   ],
+   "region": "Pacific"
   },
   {
    "code": "NZL",
@@ -148,7 +152,9 @@
      "tel": "1737",
      "sms": "1737"
     }
-   ]
+   ],
+   "region": "Pacific",
+   "report": "https://iwgia.org/en/aotearoa-new-zealand/6004-iw-2026-aotearoa-new-zealand.html"
   },
   {
    "code": "SAPMI",
@@ -172,7 +178,278 @@
      "url": "https://samediggi.fi/en/embed"
     }
    ],
-   "urgent": []
+   "urgent": [],
+   "region": "Arctic and Europe",
+   "report": "https://www.iwgia.org/en/news/iw-2026-sapmi?lang=en"
+  },
+  {
+   "code": "BRA",
+   "slug": "brazil",
+   "name": "Brasil",
+   "peoples": "Povos indígenas",
+   "center": [
+    -12,
+    -52
+   ],
+   "zoom": 4,
+   "emergency": null,
+   "intro": "The Fundação Nacional dos Povos Indígenas (Funai) is the Brazilian state's official Indigenous agency. Its mission is to protect and promote the rights of Indigenous peoples in Brazil, and its headquarters are in Brasília.",
+   "intro_sources": [
+    {
+     "label": "Funai: a Funai",
+     "url": "https://www.gov.br/funai/pt-br/acesso-a-informacao/Institucional"
+    }
+   ],
+   "urgent": [
+    {
+     "label": "CVV, apoio emocional (24 horas, gratuito)",
+     "phone": "188",
+     "tel": "188"
+    }
+   ],
+   "region": "Latin America",
+   "report": "https://iwgia.org/en/brazil/5981-iw-2026-brazil.html"
+  },
+  {
+   "code": "PER",
+   "slug": "peru",
+   "name": "Perú",
+   "peoples": "Pueblos indígenas",
+   "center": [
+    -9.5,
+    -75
+   ],
+   "zoom": 5,
+   "emergency": null,
+   "intro": "Peru officially recognizes 47 Indigenous languages, spoken by 55 peoples. In the 2017 census almost six million people, just over a quarter of the population, identified as Indigenous; most identified as Quechua or Aymara.",
+   "intro_sources": [
+    {
+     "label": "The Indigenous World 2026 (IWGIA): Peru",
+     "url": "https://iwgia.org/en/peru/5994-iw-2026-peru.html"
+    }
+   ],
+   "urgent": [
+    {
+     "label": "Línea 113 Salud, opción 5: salud mental (24 horas, gratuita)",
+     "phone": "113, opción 5",
+     "tel": "113"
+    }
+   ],
+   "region": "Latin America",
+   "report": "https://iwgia.org/en/peru/5994-iw-2026-peru.html"
+  },
+  {
+   "code": "GTM",
+   "slug": "guatemala",
+   "name": "Guatemala",
+   "peoples": "Pueblos indígenas",
+   "center": [
+    15.6,
+    -90.3
+   ],
+   "zoom": 7,
+   "emergency": null,
+   "intro": "More than four in ten people in Guatemala are Indigenous, most of them from the Maya peoples, among them the K'iche', Kaqchikel, Mam and Q'eqchi'. Guatemala's population was projected at 18.8 million for 2025, 43.75% of them Indigenous.",
+   "intro_sources": [
+    {
+     "label": "The Indigenous World 2026 (IWGIA): Guatemala",
+     "url": "https://iwgia.org/en/guatemala/5987-iw-2026-guatemala.html"
+    }
+   ],
+   "urgent": [],
+   "region": "Latin America",
+   "report": "https://iwgia.org/en/guatemala/5987-iw-2026-guatemala.html"
+  },
+  {
+   "code": "CHL",
+   "slug": "chile",
+   "name": "Chile",
+   "peoples": "Pueblos indígenas",
+   "center": [
+    -37,
+    -71.5
+   ],
+   "zoom": 5,
+   "emergency": null,
+   "intro": "Chile's Indigenous Law (Ley 19.253) of 1993 recognizes nine Indigenous peoples and created the National Corporation for Indigenous Development (CONADI), which runs Indigenous development programs and has its national office in Temuco.",
+   "intro_sources": [
+    {
+     "label": "CONADI: Dirección Regional Osorno, perfil de cargo (Servicio Civil)",
+     "url": "https://adp.serviciocivil.cl/concursos-spl/opencms/permalink/ee3ae230-da5d-11e8-84f5-6755d96a8f20"
+    }
+   ],
+   "urgent": [
+    {
+     "label": "Línea de prevención del suicidio *4141 (24 horas, gratuita, desde celulares)",
+     "phone": "*4141",
+     "tel": "*4141"
+    }
+   ],
+   "region": "Latin America"
+  },
+  {
+   "code": "GRL",
+   "slug": "greenland",
+   "name": "Kalaallit Nunaat (Greenland)",
+   "peoples": "Kalaallit (Greenlandic Inuit)",
+   "center": [
+    71,
+    -42
+   ],
+   "zoom": 3,
+   "emergency": null,
+   "intro": "Kalaallit Nunaat has governed itself since 1979 within the Kingdom of Denmark. Of its 56,740 people (February 2026), 88.9% are Greenlandic Inuit, most of whom call themselves Kalaallit. About 17,000 Kalaallit live in Denmark.",
+   "intro_sources": [
+    {
+     "label": "The Indigenous World 2026 (IWGIA): Kalaallit Nunaat (Greenland)",
+     "url": "https://www.iwgia.org/en/news/iw-2026-kalaallit-nunaat-greenland?lang=en"
+    }
+   ],
+   "urgent": [],
+   "region": "Arctic and Europe",
+   "report": "https://www.iwgia.org/en/news/iw-2026-kalaallit-nunaat-greenland?lang=en"
+  },
+  {
+   "code": "TWN",
+   "slug": "taiwan",
+   "name": "Taiwan",
+   "peoples": "Indigenous peoples of Taiwan",
+   "center": [
+    23.7,
+    121
+   ],
+   "zoom": 7,
+   "emergency": null,
+   "intro": "Taiwan officially recognizes 16 Indigenous peoples, who numbered 629,456 people, 2.7% of the population, at the end of 2025. They are represented at every level of government, including the central government's Council of Indigenous Peoples. Lowland Pingpu peoples are still seeking recognition.",
+   "intro_sources": [
+    {
+     "label": "The Indigenous World 2026 (IWGIA): Taiwan",
+     "url": "https://www.iwgia.org/en/news/iw-2026-taiwan?lang=en"
+    }
+   ],
+   "urgent": [
+    {
+     "label": "1925 Care Hotline, suicide prevention (24 hours, free)",
+     "phone": "1925",
+     "tel": "1925"
+    }
+   ],
+   "region": "Asia",
+   "report": "https://www.iwgia.org/en/news/iw-2026-taiwan?lang=en"
+  },
+  {
+   "code": "JPN",
+   "slug": "japan",
+   "name": "Japan",
+   "peoples": "Ainu and Ryūkyūans",
+   "center": [
+    38,
+    138
+   ],
+   "zoom": 5,
+   "emergency": null,
+   "intro": "Japan has two Indigenous peoples: the Ainu in the far north and the Ryūkyūans (Okinawans) in the far south. The Ainu have been officially recognized as an Indigenous people since June 2008. Upopoy, the national center for Ainu history and culture, opened in Shiraoi, Hokkaido, in July 2020.",
+   "intro_sources": [
+    {
+     "label": "The Indigenous World 2026 (IWGIA): Japan",
+     "url": "https://iwgia.org/en/japan/5970-iw-2026-japan.html"
+    },
+    {
+     "label": "Government of Japan: Experience the Ainu world",
+     "url": "https://www.japan.go.jp/tomodachi/2020/summer2020/experience_the_ainu_world.html"
+    }
+   ],
+   "urgent": [],
+   "region": "Asia",
+   "report": "https://iwgia.org/en/japan/5970-iw-2026-japan.html"
+  },
+  {
+   "code": "PHL",
+   "slug": "philippines",
+   "name": "Philippines",
+   "peoples": "Indigenous Cultural Communities / Indigenous Peoples",
+   "center": [
+    12.5,
+    122
+   ],
+   "zoom": 5,
+   "emergency": null,
+   "intro": "The 2020 census counted 9,841,785 Indigenous people in the Philippines: 63% in Mindanao, where the Lumad are the largest group, 34% in Luzon and 3% in the Visayas. The National Commission on Indigenous Peoples was created under the Indigenous Peoples' Rights Act of 1997.",
+   "intro_sources": [
+    {
+     "label": "The Indigenous World 2026 (IWGIA): Philippines",
+     "url": "https://iwgia.org/en/philippines/5975-iw-2026-philippines.html"
+    }
+   ],
+   "urgent": [],
+   "region": "Asia",
+   "report": "https://iwgia.org/en/philippines/5975-iw-2026-philippines.html"
+  },
+  {
+   "code": "BWA",
+   "slug": "botswana",
+   "name": "Botswana",
+   "peoples": "San (Basarwa), Balala and Nama",
+   "center": [
+    -22.3,
+    24.7
+   ],
+   "zoom": 6,
+   "emergency": null,
+   "intro": "Botswana's government does not recognize any specific group as Indigenous, holding that all citizens are. But 3.41% of people identify with an Indigenous group, among them about 76,231 San (called Basarwa in Botswana), the Balala and the Nama.",
+   "intro_sources": [
+    {
+     "label": "The Indigenous World 2026 (IWGIA): Botswana",
+     "url": "https://www.iwgia.org/en/news/iw-2026-botswana?lang=en"
+    }
+   ],
+   "urgent": [],
+   "region": "Africa",
+   "report": "https://www.iwgia.org/en/news/iw-2026-botswana?lang=en"
+  },
+  {
+   "code": "NAM",
+   "slug": "namibia",
+   "name": "Namibia",
+   "peoples": "San, Ovahimba, Ovatue, Ovatjimba and others",
+   "center": [
+    -22,
+    17.5
+   ],
+   "zoom": 6,
+   "emergency": null,
+   "intro": "Namibia's Indigenous peoples include the San groups, the Ovatue, Ovahimba and Ovatjimba, and possibly others such as the Nama and Topnaars. Together they are less than 3% of the population. More than 80% of the San have lost their ancestral lands.",
+   "intro_sources": [
+    {
+     "label": "The Indigenous World 2026 (IWGIA): Namibia",
+     "url": "https://www.iwgia.org/en/news/iw-2026-namibia?lang=en"
+    }
+   ],
+   "urgent": [],
+   "region": "Africa",
+   "report": "https://www.iwgia.org/en/news/iw-2026-namibia?lang=en"
+  },
+  {
+   "code": "ZAF",
+   "slug": "south-africa",
+   "name": "South Africa",
+   "peoples": "Khoikhoi and San (Khoisan)",
+   "center": [
+    -29,
+    24.5
+   ],
+   "zoom": 5,
+   "emergency": null,
+   "intro": "The Khoikhoi and San peoples (the Khoisan) identify as South Africa's Indigenous peoples. Their largest representative bodies are the National Khoisan Council and the San Council of South Africa. Full legal recognition is still incomplete.",
+   "intro_sources": [
+    {
+     "label": "The Indigenous World 2026 (IWGIA): South Africa",
+     "url": "https://iwgia.org/en/south-africa/5959-iw-2026-south-africa.html"
+    }
+   ],
+   "urgent": [],
+   "region": "Africa",
+   "report": "https://iwgia.org/en/south-africa/5959-iw-2026-south-africa.html"
   },
   {
    "code": "WORLD",
@@ -181,13 +458,14 @@
    "peoples": "Indigenous peoples everywhere",
    "center": [
     20,
-    10
+    0
    ],
-   "zoom": 2,
+   "zoom": 1,
    "emergency": null,
    "intro": "Help that reaches Indigenous peoples in any country: international bodies and funds led by Indigenous people.",
    "intro_sources": [],
-   "urgent": []
+   "urgent": [],
+   "region": "Worldwide"
   }
  ]
 }

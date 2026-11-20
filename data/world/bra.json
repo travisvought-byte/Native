@@ -1,0 +1,44 @@
+{
+ "area": "BRA",
+ "records": [
+  {
+   "id": "bra-cvv",
+   "name": "CVV: Centro de Valorização da Vida",
+   "need": "safety",
+   "also": [
+    "recovery"
+   ],
+   "access": "anyone",
+   "urgent": 1,
+   "what": "Apoio emocional e prevenção do suicídio, gratuito e sigiloso, 24 horas, por telefone, chat ou e-mail. (Free, confidential emotional support and suicide prevention, 24 hours.)",
+   "who": "Qualquer pessoa no Brasil. (Anyone in Brazil.)",
+   "start": "Ligue 188 de qualquer telefone, ou use o chat no site.",
+   "phone": "188",
+   "tel": "188",
+   "url": "https://cvv.org.br/",
+   "url_label": "cvv.org.br (chat)",
+   "source": "https://cvv.org.br/wp-content/uploads/2025/03/CVV-_-Relatorio-_-4Tri_2024.pdf",
+   "checked": "2026-11-20"
+  },
+  {
+   "id": "bra-funai",
+   "name": "Funai: Fundação Nacional dos Povos Indígenas",
+   "place": "Brasília",
+   "need": "nation",
+   "also": [
+    "legal"
+   ],
+   "access": "indigenous",
+   "what": "O órgão indigenista oficial do Estado brasileiro, que protege e promove os direitos dos povos indígenas, inclusive a demarcação de terras e a assistência jurídica. (Brazil's official Indigenous agency: rights, land demarcation and legal assistance.)",
+   "who": "Povos e comunidades indígenas no Brasil. (Indigenous peoples and communities in Brazil.)",
+   "start": "Procure a Funai pelo site ou pela Ouvidoria na plataforma Fala.BR.",
+   "url": "https://www.gov.br/funai/",
+   "url_label": "gov.br/funai",
+   "source": "https://www.gov.br/funai/pt-br/acesso-a-informacao/Institucional",
+   "lat": -15.7939,
+   "lon": -47.8828,
+   "pin": "town",
+   "checked": "2026-11-20"
+  }
+ ]
+}

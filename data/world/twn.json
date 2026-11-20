@@ -1,0 +1,46 @@
+{
+ "area": "TWN",
+ "records": [
+  {
+   "id": "twn-1925",
+   "name": "1925 Care Hotline (安心專線)",
+   "need": "safety",
+   "also": [
+    "recovery"
+   ],
+   "access": "anyone",
+   "urgent": 1,
+   "what": "The Ministry of Health and Welfare's suicide prevention line, open 24 hours a day and free to call.",
+   "who": "Anyone in Taiwan.",
+   "start": "Call 1925.",
+   "phone": "1925",
+   "tel": "1925",
+   "url": "https://findahelpline.com/countries/tw",
+   "url_label": "Find A Helpline: Taiwan",
+   "source": "https://findahelpline.com/ko-KR/countries/tw",
+   "checked": "2026-11-20"
+  },
+  {
+   "id": "twn-cip",
+   "name": "Council of Indigenous Peoples (原住民族委員會)",
+   "place": "Xinzhuang, New Taipei",
+   "need": "nation",
+   "also": [
+    "school",
+    "work",
+    "money"
+   ],
+   "access": "indigenous",
+   "what": "The central government's council for Indigenous peoples, one of the ways Taiwan's 16 recognized Indigenous peoples are represented in government.",
+   "who": "Indigenous peoples of Taiwan.",
+   "start": "Visit the council's website for its programs and offices.",
+   "url": "https://www.cip.gov.tw/portal/index.html?lang=en_US",
+   "url_label": "cip.gov.tw (English)",
+   "source": "https://www.iwgia.org/en/news/iw-2026-taiwan?lang=en",
+   "lat": 25.0359,
+   "lon": 121.4505,
+   "pin": "town",
+   "checked": "2026-11-20"
+  }
+ ]
+}

@@ -10,7 +10,7 @@
   var $ = function (id) { return document.getElementById(id); };
   var list = $('f-list'), wide = $('f-wide'), status = $('f-status'), cname = $('f-cname'), more = $('f-more');
   var countrySel = $('f-country'), search = $('f-search'), openOnly = $('f-open'), landsBox = $('f-lands');
-  var COLORS = { nation: '#9c4421', fn: '#9c4421', inuit: '#7a3b8f', clinic: '#0e4a5a', college: '#b7791f', land: '#6b7d3a', place: '#2c5a4c' };
+  var COLORS = { nation: '#9c4421', fn: '#9c4421', inuit: '#7a3b8f', clinic: '#0e4a5a', college: '#b7791f', land: '#6b7d3a', place: '#2c5a4c', guide: '#ffffff' };
   var OPEN = { anyone: 1, native: 1, indigenous: 1, descendants: 1 };
 
   var data, pts = [], countries = {}, need = '', userLoc = null, current = 'US', byCountryLock = false;
@@ -22,6 +22,7 @@
     disableClusteringAtZoom: 10 });
   map.addLayer(cluster);
   var youLayer = L.layerGroup().addTo(map);
+  var guides = L.layerGroup().addTo(map); // country guides stay visible, never clustered
   var landsLayer = null, landsLoading = false;
 
   function esc(s) {
@@ -44,9 +45,9 @@
   function buttons(p) {
     var b = '';
     if (p.tel) b += '<a class="btn sm call" href="tel:' + esc(p.tel) + '">Call</a>';
-    if (p.kind !== 'land') b += '<a class="btn sm line" href="' + directions(p) + '" rel="noopener">Directions</a>';
+    if (p.kind !== 'land' && p.kind !== 'guide') b += '<a class="btn sm line" href="' + directions(p) + '" rel="noopener">Directions</a>';
     if (p.url) b += '<a class="btn sm line" href="' + esc(p.url) + '" rel="noopener">' + (p.kind === 'fn' ? 'Profile' : 'Website') + '</a>';
-    if (p.page) b += '<a class="btn sm line" href="' + esc(p.page) + '">More</a>';
+    if (p.page) b += '<a class="btn sm ' + (p.kind === 'guide' ? '' : 'line') + '" href="' + esc(p.page) + '">' + (p.kind === 'guide' ? 'Open the guide' : 'More') + '</a>';
     return b;
   }
   function popup(p) {
@@ -59,7 +60,7 @@
 
   function visible(p) {
     if (need && p.needs.indexOf(need) === -1) return false;
-    if (openOnly.checked && !(p.access && OPEN[p.access]) && p.kind !== 'land' && p.kind !== 'nation' && p.kind !== 'fn' && p.kind !== 'inuit') return false;
+    if (openOnly.checked && !(p.access && OPEN[p.access]) && p.kind !== 'land' && p.kind !== 'nation' && p.kind !== 'fn' && p.kind !== 'inuit' && p.kind !== 'guide') return false;
     var q = search.value.trim().toLowerCase();
     if (q && p.key.indexOf(q) === -1) return false;
     return true;
@@ -68,7 +69,8 @@
   function redrawMarkers() {
     cluster.clearLayers();
     var shown = [];
-    pts.forEach(function (p) { if (visible(p)) shown.push(p.marker); });
+    guides.clearLayers();
+    pts.forEach(function (p) { if (visible(p)) { if (p.kind === 'guide') guides.addLayer(p.marker); else shown.push(p.marker); } });
     cluster.addLayers(shown);
     return shown.length;
   }
@@ -195,7 +197,8 @@
     var b = e.target.closest('.hit-name');
     if (!b) return;
     var p = pts[+b.getAttribute('data-i')];
-    cluster.zoomToShowLayer(p.marker, function () { p.marker.openPopup(); });
+    if (p.kind === 'guide') { map.setView([p.lat, p.lon], Math.max(map.getZoom(), 4)); p.marker.openPopup(); }
+    else cluster.zoomToShowLayer(p.marker, function () { p.marker.openPopup(); });
     mapEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
   $('f-locate').addEventListener('click', function () {
@@ -226,10 +229,10 @@
       p.i = i;
       p.needs = p.needs ? p.needs.split(',') : [];
       p.key = (p.name + ' ' + p.sub).toLowerCase();
-      var land = p.kind === 'land';
-      p.marker = L.circleMarker([p.lat, p.lon], {
-        radius: land ? 5 : 7, color: '#fff', weight: 1.5, fillColor: COLORS[p.kind] || '#333', fillOpacity: land ? 0.75 : 0.95
-      }).bindPopup(function () { return popup(p); }, { maxWidth: 300 });
+      var land = p.kind === 'land', guide = p.kind === 'guide';
+      p.marker = L.circleMarker([p.lat, p.lon], guide
+        ? { radius: 11, color: '#9c4421', weight: 4, fillColor: '#ffffff', fillOpacity: 1 }
+        : { radius: land ? 5 : 7, color: '#fff', weight: 1.5, fillColor: COLORS[p.kind] || '#333', fillOpacity: land ? 0.75 : 0.95 }).bindPopup(function () { return popup(p); }, { maxWidth: 300 });
       return p;
     });
     redrawMarkers();

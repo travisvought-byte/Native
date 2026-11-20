@@ -29,6 +29,23 @@
    "url_label": "UNPFII",
    "source": "https://social.desa.un.org/unpfii",
    "checked": "2026-11-20"
+  },
+  {
+   "id": "world-indigenous-world",
+   "name": "The Indigenous World 2026 (IWGIA)",
+   "need": "legal",
+   "also": [
+    "nation",
+    "community"
+   ],
+   "access": "anyone",
+   "what": "A yearly report, free to read, on the situation and rights of Indigenous peoples in more than 60 countries, written mostly by Indigenous and expert authors. The 2026 edition is the 40th.",
+   "who": "Anyone who wants to know where things stand for Indigenous peoples in a country.",
+   "start": "Open the report and choose a country.",
+   "url": "https://iwgia.org/en/resources/publications/6151-the-indigenous-world-2026.html",
+   "url_label": "Read the report",
+   "source": "https://iwgia.org/en/resources/indigenous-world.html",
+   "checked": "2026-11-20"
   }
  ]
 }
