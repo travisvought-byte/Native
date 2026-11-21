@@ -1,0 +1,140 @@
+{
+ "area": "AK",
+ "records": [
+  {
+   "id": "ak-careline",
+   "name": "Careline Alaska (crisis line)",
+   "place": "Fairbanks",
+   "need": "safety",
+   "also": [
+    "recovery"
+   ],
+   "access": "anyone",
+   "urgent": 1,
+   "what": "Alaska's own crisis line, run by Alaskans for Alaskans. It offers free, confidential help 24 hours a day, every day, for anyone thinking about suicide, in crisis, isolated or depressed, and supports people who have lost someone to suicide. Calls and texts to 988 from a 907 area code are answered by Careline.",
+   "who": "Anyone in Alaska.",
+   "start": "Call 1-877-266-4357 any time, or call or text 988. You can also text 4help to 839863, Tuesday to Saturday, 3 pm to 11 pm. In immediate danger, call 911.",
+   "phone": "1-877-266-4357",
+   "sms": {
+    "to": "839863",
+    "body": "4help",
+    "label": "Text 4help to 839863"
+   },
+   "url": "https://carelinealaska.com/about-careline/",
+   "url_label": "carelinealaska.com",
+   "source": "https://health.alaska.gov/dbh/pages/prevention/programs/suicideprevention/default.aspx",
+   "checked": "2026-11-20",
+   "more": [
+    {
+     "label": "Alaska Division of Behavioral Health: 988 and Careline work together",
+     "url": "https://health.alaska.gov/dbh/Pages/Prevention/988/Social-Media.aspx"
+    }
+   ]
+  },
+  {
+   "id": "ak-anmc",
+   "name": "Alaska Native Medical Center (ANMC)",
+   "place": "Anchorage",
+   "need": "health",
+   "also": [
+    "recovery"
+   ],
+   "access": "ask",
+   "what": "The statewide hospital for Alaska Native and American Indian people, giving acute, specialty, primary and behavioral health care. It is jointly owned and managed by the Alaska Native Tribal Health Consortium (ANTHC) and Southcentral Foundation, and works with rural health facilities across Alaska. ANTHC runs patient housing for people who travel in for care.",
+   "who": "Alaska Native and American Indian people living in Alaska. Call Eligibility at 907-729-2353 to check what you need to show.",
+   "start": "The main switchboard answers 24 hours. The Emergency Department (907-729-1729) is open 24 hours. For care coordination, call toll-free 855-482-4382.",
+   "phone": "907-563-2662",
+   "address": "4315 Diplomacy Dr, Anchorage, AK 99508",
+   "url": "https://anthc.org/",
+   "url_label": "anthc.org",
+   "source": "https://www.anthc.org/wp-content/uploads/2022/05/FY-2021-ANMC-Fact-Sheet_v2.pdf",
+   "checked": "2026-11-20",
+   "more": [
+    {
+     "label": "Southcentral Foundation: Emergency Department, 24 hours",
+     "url": "https://www.southcentralfoundation.com/services/emergency-department/"
+    }
+   ],
+   "lat": 61.18194,
+   "lon": -149.802877,
+   "pin": "address"
+  },
+  {
+   "id": "ak-scf",
+   "name": "Southcentral Foundation (Nuka System of Care)",
+   "place": "Anchorage",
+   "need": "health",
+   "also": [
+    "recovery",
+    "family"
+   ],
+   "access": "ask",
+   "what": "An Alaska Native-owned health care organization serving about 70,000 Alaska Native and American Indian people in Anchorage, the Matanuska-Susitna Borough and nearby villages. Its Nuka System of Care, managed by Alaska Native people, covers physical, mental, emotional and spiritual wellness, including primary care, behavioral health and traditional healing.",
+   "who": "Alaska Native and American Indian people in the Anchorage Service Unit. Ask about eligibility when you call.",
+   "start": "For primary care, call the Anchorage Native Primary Care Center at 907-729-3300 (4320 Diplomacy Drive). The administrative office's toll-free number is 800-478-3343.",
+   "phone": "907-729-4955",
+   "address": "4501 Diplomacy Drive, Anchorage, AK 99508",
+   "url": "https://www.southcentralfoundation.com/",
+   "url_label": "southcentralfoundation.com",
+   "source": "https://southcentralfoundation.com/",
+   "checked": "2026-11-20",
+   "more": [
+    {
+     "label": "Primary care clinics and hours",
+     "url": "https://www.southcentralfoundation.com/?p=36814"
+    }
+   ],
+   "lat": 61.182033,
+   "lon": -149.798026,
+   "pin": "address"
+  },
+  {
+   "id": "ak-citc",
+   "name": "Cook Inlet Tribal Council (CITC)",
+   "place": "Anchorage",
+   "need": "work",
+   "also": [
+    "school",
+    "money",
+    "recovery",
+    "family"
+   ],
+   "access": "native",
+   "what": "A Tribal nonprofit giving social, education and employment services to Alaska Native and American Indian people in the Cook Inlet region of Southcentral Alaska, including job training, financial assistance, recovery and family services.",
+   "who": "Alaska Native and American Indian people living in the Cook Inlet region.",
+   "start": "Visit or call CITC. For questions about getting services, call 1-800-546-8080.",
+   "phone": "1-800-546-8080",
+   "address": "3600 San Jeronimo Drive, Anchorage, AK 99508",
+   "url": "https://citci.org/",
+   "url_label": "citci.org",
+   "source": "https://citci.org/?p=15059",
+   "checked": "2026-11-20",
+   "lat": 61.21158,
+   "lon": -149.812319,
+   "pin": "address"
+  },
+  {
+   "id": "ak-citc-victim-services",
+   "name": "CITC Victim Services (formerly Alaska Native Justice Center)",
+   "place": "Anchorage",
+   "need": "safety",
+   "also": [
+    "legal"
+   ],
+   "access": "native",
+   "what": "Free, confidential help for victims and survivors of domestic violence, sexual assault, trafficking and other crimes. These services moved from the Alaska Native Justice Center to Cook Inlet Tribal Council in October 2025.",
+   "who": "Alaska Native and American Indian people in Southcentral Alaska. Call to ask about help in your situation.",
+   "start": "Call 907-793-3550, email VictimServicesInfo@citci.org, or walk in. In immediate danger, call 911.",
+   "phone": "907-793-3550",
+   "email": "VictimServicesInfo@citci.org",
+   "address": "2550 Denali St, Anchorage, AK 99503",
+   "url": "https://citci.org/?p=34248",
+   "url_label": "citci.org: Victim Services",
+   "source": "https://citci.org/?p=34248",
+   "checked": "2026-11-20",
+   "lat": 61.197488,
+   "lon": -149.876814,
+   "pin": "address"
+  }
+ ]
+}

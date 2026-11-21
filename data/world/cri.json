@@ -1,0 +1,25 @@
+{
+ "area": "CRI",
+ "records": [
+  {
+   "id": "cri-1322",
+   "name": "Línea 1322, Despacho de Apoyo Psicológico",
+   "need": "safety",
+   "also": [
+    "recovery",
+    "health"
+   ],
+   "access": "anyone",
+   "urgent": 1,
+   "what": "Proyecto conjunto del Ministerio de Salud, el Sistema de Emergencias 9-1-1 y el Colegio de Profesionales en Psicología: atención 24/7 por profesionales en psicología para crisis emocionales. (A joint Ministry of Health, 911 and College of Psychologists line answered by psychologists, 24 hours.)",
+   "who": "Cualquier persona en Costa Rica. (Anyone in Costa Rica.)",
+   "start": "Llame al 1322, o al 9-1-1 y pida apoyo psicológico. En una emergencia, llame al 9-1-1.",
+   "phone": "1322",
+   "tel": "1322",
+   "url": "https://devmep.mep.go.cr/sites/default/files/2025-06/GuiaSaludMental.pdf",
+   "url_label": "MEP: Guía de salud mental",
+   "source": "https://devmep.mep.go.cr/sites/default/files/2025-06/GuiaSaludMental.pdf",
+   "checked": "2026-11-20"
+  }
+ ]
+}

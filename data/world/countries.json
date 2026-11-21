@@ -597,7 +597,8 @@
    ],
    "urgent": [],
    "region": "Africa",
-   "report": "https://iwgia.org/en/kenya/5627-iw-2025-kenya.html"
+   "report": "https://iwgia.org/en/kenya/5627-iw-2025-kenya.html",
+   "report_year": 2025
   },
   {
    "code": "NPL",
@@ -776,6 +777,106 @@
    ],
    "region": "Latin America",
    "report": "https://iwgia.org/es/panama/6080-mi-2026-panama.html"
+  },
+  {
+   "code": "THA",
+   "slug": "thailand",
+   "name": "Thailand",
+   "peoples": "Indigenous peoples",
+   "center": [
+    15.5,
+    100.5
+   ],
+   "zoom": 6,
+   "emergency": null,
+   "intro": "Indigenous peoples in Thailand live across the northern highlands, the western forests and the southern coasts; estimates of their number range from 1 to 6 million. Thailand endorsed the UN Declaration on the Rights of Indigenous Peoples but does not legally recognize Indigenous peoples as a distinct group, and many face statelessness and insecure land rights.",
+   "intro_sources": [
+    {
+     "label": "Minority Rights Group: Indigenous peoples in Thailand",
+     "url": "https://minorityrights.org/communities/highland-indigenous-peoples/"
+    }
+   ],
+   "urgent": [
+    {
+     "label": "Mental Health Hotline 1323, Department of Mental Health (24 hours, free)",
+     "phone": "1323",
+     "tel": "1323"
+    }
+   ],
+   "region": "Asia",
+   "report": null
+  },
+  {
+   "code": "KHM",
+   "slug": "cambodia",
+   "name": "Cambodia",
+   "peoples": "Indigenous peoples",
+   "center": [
+    12.6,
+    104.9
+   ],
+   "zoom": 7,
+   "emergency": null,
+   "intro": "Cambodia is home to 24 different Indigenous peoples, who make up 2 to 3% of the national population.",
+   "intro_sources": [
+    {
+     "label": "The Indigenous World 2026 (IWGIA): Cambodia",
+     "url": "https://iwgia.org/en/cambodia/5966-iw-2026-cambodia.html"
+    }
+   ],
+   "urgent": [],
+   "region": "Asia",
+   "report": "https://iwgia.org/en/cambodia/5966-iw-2026-cambodia.html"
+  },
+  {
+   "code": "CRI",
+   "slug": "costa-rica",
+   "name": "Costa Rica",
+   "peoples": "Pueblos indígenas",
+   "center": [
+    9.8,
+    -84.0
+   ],
+   "zoom": 8,
+   "emergency": "911",
+   "intro": "Costa Rica recognizes eight Indigenous peoples: Bribri, Cabécar, Maleku, Ngöbe, Huetar, Brunca (Boruca), Térraba (Teribe) and Chorotega. They live in 24 Indigenous territories across the country.",
+   "intro_sources": [
+    {
+     "label": "Defensoría de los Habitantes de Costa Rica, junio 2025",
+     "url": "https://www.dhr.go.cr/informacion_relevante/comunicados/2025/junio25/024_Defensoria_solicita_avances_Politica_Publica_Pueblos_Indigenas.pdf"
+    }
+   ],
+   "urgent": [
+    {
+     "label": "Línea 1322, Despacho de Apoyo Psicológico (24 horas)",
+     "phone": "1322",
+     "tel": "1322"
+    }
+   ],
+   "region": "Latin America",
+   "report": null
+  },
+  {
+   "code": "TZA",
+   "slug": "tanzania",
+   "name": "Tanzania",
+   "peoples": "Pastoralist and hunter-gatherer peoples",
+   "center": [
+    -6.0,
+    35.0
+   ],
+   "zoom": 6,
+   "emergency": null,
+   "intro": "Tanzania has an estimated 125 to 130 ethnic groups, mainly in four groups: Bantu, Cushite, Nilo-Hamite and San. Tanzania voted for the UN Declaration on the Rights of Indigenous Peoples in 2007 but does not recognize any Indigenous peoples in the country.",
+   "intro_sources": [
+    {
+     "label": "The Indigenous World 2026 (IWGIA): Tanzania",
+     "url": "https://iwgia.org/en/tanzania/5960-iw-2026-tanzania.html"
+    }
+   ],
+   "urgent": [],
+   "region": "Africa",
+   "report": "https://iwgia.org/en/tanzania/5960-iw-2026-tanzania.html"
   },
   {
    "code": "WORLD",

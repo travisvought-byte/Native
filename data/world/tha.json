@@ -1,0 +1,25 @@
+{
+ "area": "THA",
+ "records": [
+  {
+   "id": "tha-1323",
+   "name": "Mental Health Hotline 1323",
+   "need": "safety",
+   "also": [
+    "recovery",
+    "health"
+   ],
+   "access": "anyone",
+   "urgent": 1,
+   "what": "The Department of Mental Health (Ministry of Public Health) runs this free, confidential hotline 24 hours a day, every day, for stress, anxiety, sadness, loss and crisis. Counselling psychologists answer.",
+   "who": "Anyone in Thailand. Help is given in Thai.",
+   "start": "Call 1323 at any time. You can also book a call-back on the 1323 website.",
+   "phone": "1323",
+   "tel": "1323",
+   "url": "https://www.thailand.go.th/issue-focus-detail/001_07_045",
+   "url_label": "thailand.go.th: 1323",
+   "source": "https://thailand.go.th/event-detail/--3---24-",
+   "checked": "2026-11-20"
+  }
+ ]
+}

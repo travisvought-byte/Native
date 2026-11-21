@@ -1098,7 +1098,7 @@ def build_world():
         if c.get('intro_sources'):
             body += '<p class="meta">Sources: ' + ' · '.join(f'<a href="{E(s["url"])}">{E(s["label"])}</a>' for s in c['intro_sources']) + '.</p>'
         if c.get('report'):
-            body += (f'<p class="panel report">Background: <a href="{E(c["report"])}">read the {E(c["name"])} chapter of <em>The Indigenous World 2026</em></a>, '
+            body += (f'<p class="panel report">Background: <a href="{E(c["report"])}">read the {E(c["name"])} chapter of <em>The Indigenous World {c.get("report_year", 2026)}</em></a>, '
                      'the yearly report of the International Work Group for Indigenous Affairs (IWGIA), on land, rights, health and recent events.</p>')
         body += country_urgent(c, up)
         body += f'<p><a class="btn" href="../index.html#{c["slug"]}">See {E(c["name"])} on the map</a></p>'
