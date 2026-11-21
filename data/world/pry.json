@@ -1,0 +1,25 @@
+{
+ "area": "PRY",
+ "records": [
+  {
+   "id": "pry-linea-155",
+   "name": "Línea 155 Salud Mental",
+   "need": "safety",
+   "also": [
+    "recovery",
+    "health"
+   ],
+   "access": "anyone",
+   "urgent": 1,
+   "what": "La línea de crisis en salud mental del Ministerio de Salud Pública y Bienestar Social: gratuita, confidencial, las 24 horas, todo el año, en todo el país. (The Ministry of Health's free, confidential mental health crisis line, 24 hours, nationwide.)",
+   "who": "Cualquier persona en el Paraguay. (Anyone in Paraguay.)",
+   "start": "Llame al 155. Ante un riesgo inminente, llame al 911; ambulancia SEME: 141.",
+   "phone": "155",
+   "tel": "155",
+   "url": "https://www.ip.gov.py/ip/2025/12/11/linea-155-disponible-para-acompanar-durante-las-fiestas-de-fin-de-ano/",
+   "url_label": "Agencia IP (gobierno): Línea 155",
+   "source": "https://www.hoy.com.py/nacionales/2026/09/10/dia-mundial-para-prevencion-del-suicidio-cambiemos-la-narrativa-lo-que-te-pasa-importa",
+   "checked": "2026-11-20"
+  }
+ ]
+}

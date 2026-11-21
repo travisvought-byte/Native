@@ -1,0 +1,96 @@
+{
+ "area": "HI",
+ "records": [
+  {
+   "id": "hi-oha",
+   "name": "Office of Hawaiian Affairs (OHA)",
+   "place": "Honolulu",
+   "need": "nation",
+   "also": [
+    "money",
+    "school",
+    "housing"
+   ],
+   "access": "native",
+   "what": "A semi-autonomous state agency led by a board of trustees elected statewide. It is responsible for improving the wellbeing of all Native Hawaiians, regardless of blood quantum, and offers grants, loans and scholarship information.",
+   "who": "Native Hawaiians, with no blood quantum requirement.",
+   "start": "Call OHA, or use its website for loans (loans.oha.org) and scholarships.",
+   "phone": "808-594-1835",
+   "address": "560 N. Nimitz Hwy #200, Honolulu, HI 96817",
+   "url": "https://www.oha.org/about/",
+   "url_label": "oha.org",
+   "source": "https://www.oha.org/about/",
+   "checked": "2026-11-20",
+   "lat": 21.314233,
+   "lon": -157.868887,
+   "pin": "address"
+  },
+  {
+   "id": "hi-papa-ola-lokahi",
+   "name": "Papa Ola Lōkahi and the Native Hawaiian Health Care Systems",
+   "place": "Honolulu",
+   "need": "health",
+   "also": [
+    "recovery",
+    "family"
+   ],
+   "access": "native",
+   "what": "The Native Hawaiian health board. It works with five Native Hawaiian Health Care Systems, one for each island area, which serve Native Hawaiians in their communities.",
+   "who": "Native Hawaiians and their families.",
+   "start": "Contact the health care system for your island (linked below), or call Papa Ola Lōkahi.",
+   "phone": "808-597-6550",
+   "address": "677 Ala Moana Blvd, Ste 720, Honolulu, HI 96813",
+   "url": "https://www.papaolalokahi.org/",
+   "url_label": "papaolalokahi.org",
+   "source": "https://www.papaolalokahi.org/",
+   "checked": "2026-11-20",
+   "lat": 21.297685,
+   "lon": -157.861983,
+   "pin": "address",
+   "more": [
+    {
+     "label": "Ke Ola Mamo (Oʻahu)",
+     "url": "http://keolamamo.org/"
+    },
+    {
+     "label": "Hoʻōla Lāhui Hawaiʻi (Kauaʻi)",
+     "url": "http://www.hoolalahui.org/"
+    },
+    {
+     "label": "Hui No Ke Ola Pono (Maui)",
+     "url": "https://hnkop.org/"
+    },
+    {
+     "label": "Nā Puʻuwai (Molokaʻi and Lānaʻi)",
+     "url": "https://napuuwai.org/"
+    },
+    {
+     "label": "Hui Mālama Ola Nā ʻŌiwi (Hawaiʻi Island)",
+     "url": "https://hmono.org/"
+    }
+   ]
+  },
+  {
+   "id": "hi-dhhl",
+   "name": "Department of Hawaiian Home Lands (DHHL)",
+   "place": "Kapolei",
+   "need": "housing",
+   "also": [
+    "nation"
+   ],
+   "access": "ask",
+   "what": "The state department that manages Hawaiian home lands and awards homestead leases under the Hawaiian Homes Commission Act of 1921.",
+   "who": "To apply for a homestead lease you must be at least 18 and at least 50% Native Hawaiian (descended from the people of the islands before 1778).",
+   "start": "Call 808-730-0279 to begin a homestead application. The main line is 808-620-9500, Monday to Friday, 7:45 am to 4:30 pm.",
+   "phone": "808-620-9500",
+   "address": "91-5420 Kapolei Parkway, Kapolei, HI 96707",
+   "url": "https://dhhl.hawaii.gov/applications/",
+   "url_label": "dhhl.hawaii.gov: applications",
+   "source": "https://dhhl.hawaii.gov/applications/",
+   "checked": "2026-11-20",
+   "lat": 21.3355,
+   "lon": -158.0581,
+   "pin": "town"
+  }
+ ]
+}

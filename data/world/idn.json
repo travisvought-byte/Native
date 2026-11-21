@@ -1,0 +1,22 @@
+{
+ "area": "IDN",
+ "records": [
+  {
+   "id": "idn-aman",
+   "name": "AMAN, Aliansi Masyarakat Adat Nusantara",
+   "need": "nation",
+   "also": [
+    "legal",
+    "community"
+   ],
+   "access": "indigenous",
+   "what": "The national alliance of Indigenous peoples in Indonesia. It works for the rights of Masyarakat Adat through its programmes, policy work and campaigns, and has affiliated bodies for youth (BPAN) and women (Perempuan AMAN).",
+   "who": "Indigenous communities (Masyarakat Adat) across Indonesia.",
+   "start": "Use the Kontak Kami (Contact Us) page on the AMAN website to reach the alliance.",
+   "url": "https://aman.or.id/",
+   "url_label": "aman.or.id",
+   "source": "https://aman.or.id/",
+   "checked": "2026-11-20"
+  }
+ ]
+}

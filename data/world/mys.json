@@ -1,0 +1,56 @@
+{
+ "area": "MYS",
+ "records": [
+  {
+   "id": "mys-heal-15555",
+   "name": "Talian HEAL 15555 (mental health crisis line)",
+   "need": "safety",
+   "also": [
+    "recovery",
+    "health"
+   ],
+   "access": "anyone",
+   "urgent": 1,
+   "what": "The national mental health crisis line, run by counselling officers of the Ministry of Health (KKM). It gives emotional support and early help in a crisis, including thoughts of suicide, depression, anxiety, panic and stress.",
+   "who": "Anyone in Malaysia. Help is given in English, Malay and Tamil.",
+   "start": "Call 15555, any day from 8 am to midnight, public holidays included. In immediate danger, call 999.",
+   "phone": "15555",
+   "tel": "15555",
+   "url": "https://findahelpline.com/organizations/talian-heal-help-with-empathy-and-love-15555",
+   "url_label": "Find A Helpline: Talian HEAL 15555",
+   "source": "https://findahelpline.com/organizations/talian-heal-help-with-empathy-and-love-15555",
+   "checked": "2026-11-20",
+   "more": [
+    {
+     "label": "RTM (government news): Talian HEAL 15555 calls, January 2026",
+     "url": "https://berita.rtm.gov.my/?p=362821"
+    }
+   ]
+  },
+  {
+   "id": "mys-jakoa",
+   "name": "JAKOA, Department of Orang Asli Development (Jabatan Kemajuan Orang Asli)",
+   "need": "nation",
+   "also": [
+    "school",
+    "money",
+    "health"
+   ],
+   "access": "indigenous",
+   "what": "The federal department responsible for Orang Asli development on Peninsular Malaysia, including education, economic and community programmes in Orang Asli villages.",
+   "who": "Orang Asli people and villages on Peninsular Malaysia.",
+   "start": "Call the head office in Putrajaya, or contact your state JAKOA office, and ask which programme fits your need.",
+   "phone": "03-8090 3600",
+   "tel": "+60380903600",
+   "address": "Aras 10, Blok A, Bangunan Suasana PjH, Presint 2, Putrajaya",
+   "place": "Putrajaya",
+   "url": "https://www.jakoa.gov.my/?p=62990",
+   "url_label": "jakoa.gov.my: contact",
+   "source": "https://www.jakoa.gov.my/?p=62990",
+   "checked": "2026-11-20",
+   "lat": 2.9264,
+   "lon": 101.6964,
+   "pin": "town"
+  }
+ ]
+}

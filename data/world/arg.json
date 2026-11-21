@@ -1,0 +1,46 @@
+{
+ "area": "ARG",
+ "records": [
+  {
+   "id": "arg-salud-mental-0800",
+   "name": "Línea de salud mental 0800-999-0091",
+   "need": "safety",
+   "also": [
+    "recovery",
+    "health"
+   ],
+   "access": "anyone",
+   "urgent": 1,
+   "what": "La línea nacional de urgencias en salud mental del Ministerio de Salud: atención gratuita las 24 horas. (Argentina's national mental health urgency line: free, 24 hours.)",
+   "who": "Cualquier persona en la Argentina. (Anyone in Argentina.)",
+   "start": "Llame gratis al 0800-999-0091, a cualquier hora.",
+   "phone": "0800-999-0091",
+   "tel": "+548009990091",
+   "url": "https://www.argentina.gob.ar/node/356435",
+   "url_label": "argentina.gob.ar",
+   "source": "https://www.argentina.gob.ar/node/356435",
+   "checked": "2026-11-20"
+  },
+  {
+   "id": "arg-inai",
+   "name": "INAI, Instituto Nacional de Asuntos Indígenas",
+   "need": "nation",
+   "also": [
+    "legal",
+    "school"
+   ],
+   "access": "indigenous",
+   "what": "El organismo nacional creado por la Ley 23.302 que lleva adelante las políticas sociales para los pueblos originarios. (The national institute for Indigenous affairs, created by Law 23,302, which carries out social policies for Indigenous peoples.)",
+   "who": "Pueblos originarios y comunidades indígenas de la Argentina.",
+   "start": "Consulte el sitio del INAI para sus programas y cómo contactarlo.",
+   "place": "Buenos Aires",
+   "url": "https://www.argentina.gob.ar/derechoshumanos/inai",
+   "url_label": "argentina.gob.ar: INAI",
+   "source": "https://www.argentina.gob.ar/derechoshumanos/inai",
+   "checked": "2026-11-20",
+   "lat": -34.6037,
+   "lon": -58.3816,
+   "pin": "town"
+  }
+ ]
+}

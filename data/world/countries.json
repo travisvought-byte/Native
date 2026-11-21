@@ -600,6 +600,184 @@
    "report": "https://iwgia.org/en/kenya/5627-iw-2025-kenya.html"
   },
   {
+   "code": "NPL",
+   "slug": "nepal",
+   "name": "Nepal",
+   "peoples": "Adivasi Janajati (Indigenous Nationalities)",
+   "center": [
+    28.2,
+    84.0
+   ],
+   "zoom": 7,
+   "emergency": null,
+   "intro": "In Nepal's 2021 census, Indigenous peoples were 35.08% of the population. The government recognizes 60 Indigenous peoples, and 19 more have been identified but are not yet recognized.",
+   "intro_sources": [
+    {
+     "label": "The Indigenous World 2026 (IWGIA): Nepal",
+     "url": "https://www.iwgia.org/en/news/iw-2026-nepal?lang=en"
+    }
+   ],
+   "urgent": [],
+   "region": "Asia",
+   "report": "https://www.iwgia.org/en/news/iw-2026-nepal?lang=en"
+  },
+  {
+   "code": "BGD",
+   "slug": "bangladesh",
+   "name": "Bangladesh",
+   "peoples": "Adivasi peoples",
+   "center": [
+    23.8,
+    90.3
+   ],
+   "zoom": 7,
+   "emergency": null,
+   "intro": "More than 54 Indigenous peoples live in Bangladesh, speaking at least 35 languages. The 2022 census counted about 1.65 million Indigenous people (1%), while Indigenous peoples put their own number near 4 million. Most live in the plains; the rest live in the Chittagong Hill Tracts.",
+   "intro_sources": [
+    {
+     "label": "The Indigenous World 2026 (IWGIA): Bangladesh",
+     "url": "https://www.iwgia.org/en/articles/iw-2026-bangladesh"
+    }
+   ],
+   "urgent": [],
+   "region": "Asia",
+   "report": "https://www.iwgia.org/en/articles/iw-2026-bangladesh"
+  },
+  {
+   "code": "MYS",
+   "slug": "malaysia",
+   "name": "Malaysia",
+   "peoples": "Orang Asal",
+   "center": [
+    4.0,
+    109.0
+   ],
+   "zoom": 5,
+   "emergency": null,
+   "intro": "Indigenous peoples, together called Orang Asal, are about 11% of Malaysia's 32.4 million people (2020 census). On the Peninsula they are known as Orang Asli and number about 227,900 (2025); most Orang Asal live in Sabah and Sarawak on Borneo.",
+   "intro_sources": [
+    {
+     "label": "The Indigenous World 2026 (IWGIA): Malaysia",
+     "url": "https://iwgia.org/en/malaysia/5972-iw-2026-malaysia.html"
+    }
+   ],
+   "urgent": [
+    {
+     "label": "Talian HEAL 15555, Ministry of Health mental health crisis line (daily, 8 am to midnight)",
+     "phone": "15555",
+     "tel": "15555"
+    }
+   ],
+   "region": "Asia",
+   "report": "https://iwgia.org/en/malaysia/5972-iw-2026-malaysia.html"
+  },
+  {
+   "code": "IDN",
+   "slug": "indonesia",
+   "name": "Indonesia",
+   "peoples": "Masyarakat Adat",
+   "center": [
+    -2.5,
+    118.0
+   ],
+   "zoom": 4,
+   "emergency": null,
+   "intro": "AMAN, the national alliance of Indigenous peoples (Aliansi Masyarakat Adat Nusantara), represents 2,596 communities with about 21 million members. AMAN estimates that 50 to 70 million Indigenous people live in Indonesia.",
+   "intro_sources": [
+    {
+     "label": "The Indigenous World 2026 (IWGIA): Indonesia",
+     "url": "https://iwgia.org/en/indonesia/5969-iw-2026-indonesia.html"
+    }
+   ],
+   "urgent": [],
+   "region": "Asia",
+   "report": "https://iwgia.org/en/indonesia/5969-iw-2026-indonesia.html"
+  },
+  {
+   "code": "ARG",
+   "slug": "argentina",
+   "name": "Argentina",
+   "peoples": "Pueblos originarios",
+   "center": [
+    -38.4,
+    -63.6
+   ],
+   "zoom": 4,
+   "emergency": null,
+   "intro": "Argentina's 2022 census counted 1,306,730 people who identify as Indigenous, 2.9% of the population, belonging to 58 peoples.",
+   "intro_sources": [
+    {
+     "label": "The Indigenous World 2026 (IWGIA): Argentina",
+     "url": "https://www.iwgia.org/en/news/iw-2026-argentina"
+    }
+   ],
+   "urgent": [
+    {
+     "label": "Línea de salud mental 0800-999-0091 (24 horas, gratuita)",
+     "phone": "0800-999-0091",
+     "tel": "+548009990091"
+    }
+   ],
+   "region": "Latin America",
+   "report": "https://www.iwgia.org/en/news/iw-2026-argentina"
+  },
+  {
+   "code": "PRY",
+   "slug": "paraguay",
+   "name": "Paraguay",
+   "peoples": "Pueblos indígenas",
+   "center": [
+    -23.4,
+    -58.4
+   ],
+   "zoom": 6,
+   "emergency": "911",
+   "intro": "Paraguay's 2022 census counted 140,206 Indigenous people, 2.29% of the population, belonging to 19 peoples.",
+   "intro_sources": [
+    {
+     "label": "The Indigenous World 2026 (IWGIA): Paraguay",
+     "url": "https://iwgia.org/en/paraguay/5993-iw-2026-paraguay.html"
+    }
+   ],
+   "urgent": [
+    {
+     "label": "Línea 155 Salud Mental (24 horas, gratuita)",
+     "phone": "155",
+     "tel": "155"
+    }
+   ],
+   "region": "Latin America",
+   "report": "https://iwgia.org/en/paraguay/5993-iw-2026-paraguay.html"
+  },
+  {
+   "code": "PAN",
+   "slug": "panama",
+   "name": "Panamá",
+   "peoples": "Pueblos indígenas",
+   "center": [
+    8.5,
+    -80.0
+   ],
+   "zoom": 7,
+   "emergency": null,
+   "intro": "Panama's 2023 census recorded eight Indigenous peoples: Ngäbe, Buglé, Gunadule, Emberá, Wounaan, Naso Tjër Di, Bribri and Bokota. Together they are 17.2% of the population, 698,114 people.",
+   "intro_sources": [
+    {
+     "label": "El Mundo Indígena 2026 (IWGIA): Panamá",
+     "url": "https://iwgia.org/es/panama/6080-mi-2026-panama.html"
+    }
+   ],
+   "urgent": [
+    {
+     "label": "Línea 147, Mides (24 horas, gratuita)",
+     "phone": "147",
+     "tel": "147"
+    }
+   ],
+   "region": "Latin America",
+   "report": "https://iwgia.org/es/panama/6080-mi-2026-panama.html"
+  },
+  {
    "code": "WORLD",
    "slug": "worldwide",
    "name": "Worldwide",

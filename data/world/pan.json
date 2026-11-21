@@ -1,0 +1,25 @@
+{
+ "area": "PAN",
+ "records": [
+  {
+   "id": "pan-linea-147",
+   "name": "Línea 147, Ministerio de Desarrollo Social (Mides)",
+   "need": "safety",
+   "also": [
+    "recovery",
+    "health"
+   ],
+   "access": "anyone",
+   "urgent": 1,
+   "what": "Línea gratuita y confidencial de apoyo emocional y orientación en salud mental, las 24 horas, todos los días, para crisis emocionales, ideación suicida y ansiedad. (Free, confidential mental health support line, 24 hours.)",
+   "who": "Cualquier persona en Panamá. (Anyone in Panama.)",
+   "start": "Llame gratis al 147. También hay un número de mensajería, 6694-2747, disponible las 24 horas.",
+   "phone": "147",
+   "tel": "147",
+   "url": "https://www.tvn-2.com/nacionales/salud-mental-linea-telefonica-atencion_1_2193705.html",
+   "url_label": "TVN: Línea 147",
+   "source": "https://www.tvn-2.com/nacionales/salud-mental-linea-telefonica-atencion_1_2193705.html",
+   "checked": "2026-11-20"
+  }
+ ]
+}
