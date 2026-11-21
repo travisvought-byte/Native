@@ -308,7 +308,7 @@ def page(path, title, description, body, head=''):
 <meta name="twitter:card" content="summary_large_image">
 {structured_data(path, title, description, canonical)}
 <link rel="icon" href="{up}assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="{up}assets/site.css">
-<script data-goatcounter="{E(SITE['counter'])}" async src="https://gc.zgo.at/count.js"></script>
+<script>window.goatcounter={{path:function(p){{return "/"+location.hostname.replace(/^www\\./,"")+p.replace(/[?#].*$/,"")}},referrer:function(){{try{{var u=new URL(document.referrer);return u.origin+u.pathname}}catch(e){{return ""}}}}}};</script><script data-goatcounter="{E(SITE['counter'])}" async src="https://gc.zgo.at/count.js"></script>
 <script src="{up}assets/site.js" defer></script>{head}</head>
 <body><a class="skip" href="#main">Skip to main content</a>
 <div class="exit"><a id="quick-exit" href="{E(SITE['exit_url'])}" rel="noreferrer">Leave this site now</a> <span>or press Esc twice. This does not clear your browser history.</span></div>
