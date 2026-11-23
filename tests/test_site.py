@@ -66,18 +66,23 @@ def parse(path):
 sitemap = (ROOT / 'sitemap.xml').read_text(encoding='utf-8')
 base = build.SITE['base_url']
 paths = [u[len(base):] or 'index.html' for u in re.findall(r'<loc>([^<]+)</loc>', sitemap)]
-pages = {p: parse(p) for p in paths + ['404.html']}
+demo_pages = [f'communities/{c["slug"]}.html' for c in build.COMMUNITIES if c.get('demo')]
+pages = {p: parse(p) for p in paths + ['404.html'] + demo_pages}
 
 # 1. Every page has the basics.
 world_pages = 1 + sum(1 for c in build.COUNTRIES if c['slug'])
-if len(paths) != 9 + world_pages + len(build.STATES):
-    fail(f'expected {9 + world_pages + len(build.STATES)} pages in the sitemap, found {len(paths)}')
+expected = 11 + world_pages + len(build.STATES) + len(build.LIVE_COMMUNITIES)
+if len(paths) != expected:
+    fail(f'expected {expected} pages in the sitemap, found {len(paths)}')
 for path, page in pages.items():
     if page.h1 != 1:
         fail(f'{path}: {page.h1} h1 headings')
     if not page.title.strip():
         fail(f'{path}: no title')
     if path != '404.html':
+        if path in demo_pages:
+            if '<meta name="robots" content="noindex">' not in page.text or 'Example page.' not in page.text:
+                fail(f'{path}: an example page must say so and be noindex')
         if not page.description or not 50 <= len(page.description) <= 260:
             fail(f'{path}: meta description missing or an odd length')
         if page.canonical != base + ('' if path == 'index.html' else path):
@@ -115,6 +120,22 @@ for path, page in pages.items():
         fail(f'{path}: no opening lede')
 if 'class="chips iam"' not in pages['index.html'].text:
     fail('index.html: the "I\'m..." chooser is missing')
+
+# 1c. Free community pages: each says who writes it and when it was updated, and is linked from the group's listing and the hub.
+for c in build.COMMUNITIES:
+    path = f'communities/{c["slug"]}.html'
+    text = pages[path].text
+    if f'This page is written and maintained by {build.E(c["maintained_by"])}. Last updated {build.nice_date(c["updated"])}.' not in text:
+        fail(f'{path}: the "written and maintained by" line is missing')
+    if not c.get('demo'):
+        if f'communities/{c["slug"]}.html' not in pages['community.html'].text:
+            fail(f'community.html: no link to {path}')
+        if c.get('nation_id') and f'communities/{c["slug"]}.html' not in pages['nations.html'].text:
+            fail(f'nations.html: no link to {path}')
+        if c.get('help') and f'communities/{c["slug"]}.html' not in pages['support.html'].text:
+            fail(f'support.html: no link to {path}')
+if f'mailto:{build.SITE["intake_email"]}' not in pages['free-page.html'].text:
+    fail('free-page.html: the request address is missing')
 
 # 2. Links inside the site lead somewhere, and links out are well formed.
 for path, page in pages.items():

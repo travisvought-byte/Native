@@ -219,3 +219,23 @@ h3.region{font-size:19px;margin:1.1em 0 .4em;color:var(--leaf);font-family:syste
 }
 .iam a{border-color:var(--leaf);color:var(--leaf);font-weight:600}
 .iam a:hover{background:var(--leaf);color:#fff}
+/* Free community pages */
+.demo{display:block;background:#fff4e5;border:2px dashed var(--clay);border-radius:8px;padding:10px 16px;margin:12px 0;font-size:17px}
+.cp-head{display:flex;gap:16px;align-items:center}
+.cp-head h1{margin-bottom:.1em}
+.cp-head .meta{margin:0}
+.cp-logo{width:96px;height:96px;object-fit:contain;border-radius:8px;background:#fff;border:1px solid var(--line);flex:none}
+.owner{font-size:15.5px;background:#fff;border:1px solid var(--line);border-left:6px solid var(--leaf);border-radius:8px;padding:8px 14px}
+.events,.asks{list-style:none;padding:0}
+.events>li,.asks>li{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 16px;margin:10px 0;max-width:none}
+.events .where{display:block;color:var(--leaf);font-weight:600;font-size:16px}
+.asks>li>strong{display:block;font:700 19px/1.3 Georgia,serif;color:var(--deep)}
+.asks .btn{margin-top:8px}
+.cp-photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.cp-photos figure{margin:0}
+.cp-photos img{width:100%;height:auto;border-radius:8px;border:1px solid var(--line);background:#fff}
+.cp-photos figcaption{font-size:15px;color:#4c5a5e;margin-top:4px}
+.cplink{font-weight:600}
+.checklist li{margin:4px 0}
+.share-box textarea{width:100%;max-width:70ch;font:inherit;font-size:16px;padding:10px;border:1px solid var(--line);border-radius:6px}
+@media print{.share-box textarea{border:0;resize:none;height:auto}[data-print]{display:none}.demo{border-style:solid}}

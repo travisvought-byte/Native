@@ -18,6 +18,7 @@ It covers the United States in the most detail (Ohio and Michigan deepest) and i
 - `states/`: a page for every state and D.C. with the Nations whose governments are there, local listings where we have them (Ohio and Michigan so far), and links to national help. The Ohio page also lists Nations with ties to Ohio whose governments are now elsewhere.
 - `find-your-nation.html`: tracing your family, how enrollment works, CDIB cards, DNA tests, and help for people who were adopted or in foster care.
 - `community.html`: Native community centers and groups, youth councils, recovery circles and tribal colleges.
+- `free-page.html`: the offer of a free community page, for tribal staff and Native organizers, with how to ask. `support.html`: what groups are asking for, and how to help Native-led groups. `communities/`: the groups' own pages (`communities/example.html` is a made-up demo).
 - `about.html`: who made it, sources, labels, privacy, and how a Nation or organization can correct or remove a listing.
 
 ## Build and test
@@ -46,6 +47,7 @@ Edit the files in `data/`, never the built pages. The workflow in `.github/workf
 | `data/map/lands.geojson`, `data/map/land-points.json` | Reservation and tribal land outlines and inside points (`npm run lands`). Do not edit by hand. |
 | `data/world/countries.json` | Each country: name, region, its peoples' own terms, map view, emergency number, crisis lines and `report` (its IWGIA chapter). `welcome` is the page's opening, written to the people the page is for, from what is on that page. Each country also gets a "country guide" marker on the map. Country codes must not clash with state codes (Canada is `CAN`). |
 | `data/world/<code>.json` | Listings for one country, same format as state listings. Add `tel` with the full international number (`+52...`) for numbers outside North America, and `lat`/`lon`/`pin` for a place on the map. |
+| `data/communities/<slug>.json` | A free community page, written and maintained by the group itself, built to `communities/<slug>.html`. Made or changed only at the group's own request (`request_note` says how it asked; for a Nation, confirm with its government office). Fields: `name`, `kind` (nation, reservation, program, urban, powwow, language, business, grassroots), `place`, `maintained_by`, `requested`, `updated`, `intro`, and optionally `message`, `announcements`, `events`, `programs`, `help` (asks of kind donate, volunteer, attend, buy, share or supplies, with an optional `until` date), `logo` and `photos` (files in `assets/communities/<slug>/`, each with alt text), `contact`, `links`, and `nation_id` or `listing_id` to link the page from that Nation's or listing's entry. `example.json` is the demo page (`"demo": true`, never indexed). Requests go to `intake_email` in `data/site.json`. |
 | `data/world/ca-places.json` | First Nations and Inuit communities in Canada (`python3 scripts/import_canada.py`). Do not edit by hand. |
 
 ### Adding a listing

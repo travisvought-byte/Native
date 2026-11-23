@@ -1,0 +1,42 @@
+{
+ "slug": "example",
+ "demo": true,
+ "name": "Example Community Group",
+ "kind": "grassroots",
+ "place": "Anytown",
+ "maintained_by": "Example Community Group",
+ "requested": "2026-11-23",
+ "updated": "2026-11-23",
+ "intro": "This is a sample page. A real group would put its own welcome here, in its own words, for the people it wants to reach.",
+ "message": [
+  "Here a group says who it is, who it serves and what it wants people to know. It can be as short or as long as the group likes.",
+  "Everything on this page is invented to show how a page looks. The group, the town, the events and the numbers are not real."
+ ],
+ "logo": {"src": "logo.svg", "alt": "Sample logo: a circle with the word Example"},
+ "announcements": [
+  {"date": "2026-11-23", "title": "A sample announcement", "text": "A group can post news here: a new program, a closing for the holidays, a call for volunteers."}
+ ],
+ "events": [
+  {"date": "2027-01-16", "time": "1 to 4 pm", "title": "Sample community meal", "where": "Example Hall, Anytown", "text": "Events show their date, time and place. They drop off the page on their own once the date has passed."},
+  {"date": "2027-02-06", "title": "Sample language circle", "where": "Online", "text": "An event can link to a sign-up page or a map.", "url": "https://example.org/"}
+ ],
+ "programs": [
+  {"name": "Sample youth program", "text": "A group lists what it runs, who can join and how to start.", "url": "https://example.org/"},
+  {"name": "Sample elder lunch", "text": "One or two plain sentences are enough."}
+ ],
+ "help": [
+  {"kind": "donate", "text": "A group can say how to give money, and what the money pays for.", "url": "https://example.org/"},
+  {"kind": "volunteer", "text": "Or ask for hands: drivers, cooks, people to help set up."},
+  {"kind": "attend", "text": "Or simply ask people to come to the next event."},
+  {"kind": "buy", "text": "A Native-owned business or artist can say where to buy."},
+  {"kind": "share", "text": "Or ask people to pass the page along."},
+  {"kind": "supplies", "text": "Or list exactly what is needed, and until when, so nobody sends things that are not wanted.", "items": ["Sample item: winter coats, children's sizes", "Sample item: canned vegetables"], "until": "2027-03-31"}
+ ],
+ "photos": [
+  {"src": "photo.svg", "alt": "Sample photo placeholder", "caption": "A group's own photos go here, with a caption it writes."}
+ ],
+ "contact": {"phone": "555-555-0100", "email": "info@example.org", "address": "100 Example Street, Anytown", "url": "https://example.org/"},
+ "links": [
+  {"label": "Sample link: the group's own website", "url": "https://example.org/"}
+ ]
+}

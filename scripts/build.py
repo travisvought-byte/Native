@@ -91,6 +91,78 @@ def load_world():
 WORLD = load_world()
 
 
+# ---------- free community pages: one data file per group, written and maintained by that group ----------
+
+COMMUNITY_KINDS = {
+    'nation': 'Nation', 'reservation': 'Reservation community', 'program': 'Tribal program',
+    'urban': 'Urban Indian organization', 'powwow': 'Powwow committee', 'language': 'Language program',
+    'business': 'Native-owned business', 'grassroots': 'Community group',
+}
+ASK_KINDS = {
+    'donate': 'Donate', 'volunteer': 'Volunteer', 'attend': 'Come to an event', 'buy': 'Buy from us',
+    'share': 'Share the word', 'supplies': 'Supplies needed',
+}
+
+
+def load_communities():
+    out = []
+    for path in sorted((ROOT / 'data/communities').glob('*.json')):
+        data = json.loads(path.read_text(encoding='utf-8'))
+        data['_file'] = path.name
+        out.append(data)
+    return out
+
+
+COMMUNITIES = load_communities()
+LIVE_COMMUNITIES = [c for c in COMMUNITIES if not c.get('demo')]
+COMMUNITY_BY_NATION = {c['nation_id']: c for c in LIVE_COMMUNITIES if c.get('nation_id')}
+COMMUNITY_BY_LISTING = {c['listing_id']: c for c in LIVE_COMMUNITIES if c.get('listing_id')}
+
+
+def check_communities():
+    """A community page exists only at the group's own request, says who maintains it, and points only at real files."""
+    problems = []
+    date = re.compile(r'^\d{4}-\d{2}-\d{2}$')
+    slugs = Counter(c.get('slug') for c in COMMUNITIES)
+    for c in COMMUNITIES:
+        f = c['_file']
+        for field in ('slug', 'name', 'kind', 'place', 'maintained_by', 'requested', 'updated', 'intro'):
+            if not c.get(field):
+                problems.append(f'communities/{f}: missing {field}')
+        if c.get('slug') and f != c['slug'] + '.json':
+            problems.append(f'communities/{f}: file name must be the slug')
+        if slugs[c.get('slug')] > 1 or c.get('slug') in ('index', 'example') and not c.get('demo'):
+            problems.append(f'communities/{f}: slug is taken')
+        if c.get('kind') not in COMMUNITY_KINDS:
+            problems.append(f'communities/{f}: unknown kind {c.get("kind")}')
+        for field in ('requested', 'updated'):
+            if c.get(field) and not date.match(c[field]):
+                problems.append(f'communities/{f}: {field} must be a date like 2026-11-23')
+        if not c.get('demo') and not c.get('request_note'):
+            problems.append(f'communities/{f}: say how the group asked for this page (request_note); pages are made only at a group\'s own request')
+        if c.get('nation_id') and c['nation_id'] not in NATION:
+            problems.append(f'communities/{f}: no Nation with id {c["nation_id"]}')
+        if c.get('listing_id') and c['listing_id'] not in RES_BY_ID:
+            problems.append(f'communities/{f}: no listing with id {c["listing_id"]}')
+        for ask in c.get('help', []):
+            if ask.get('kind') not in ASK_KINDS or not ask.get('text'):
+                problems.append(f'communities/{f}: each "help" entry needs a kind ({", ".join(ASK_KINDS)}) and text')
+            if ask.get('until') and not date.match(ask['until']):
+                problems.append(f'communities/{f}: help "until" must be a date')
+        for ev in c.get('events', []):
+            if not ev.get('title') or not date.match(ev.get('date', '')):
+                problems.append(f'communities/{f}: each event needs a title and a date')
+        for img in ([c['logo']] if c.get('logo') else []) + c.get('photos', []):
+            if not img.get('alt'):
+                problems.append(f'communities/{f}: every picture needs alt text')
+            if not (ROOT / 'assets/communities' / c.get('slug', '') / img.get('src', '')).is_file():
+                problems.append(f'communities/{f}: picture not found: assets/communities/{c.get("slug")}/{img.get("src")}')
+        for link in [x.get('url') for x in c.get('links', []) + c.get('help', []) + c.get('events', []) + c.get('programs', [])] + [c.get('contact', {}).get('url')]:
+            if link and not link.startswith('https://'):
+                problems.append(f'communities/{f}: links must start with https:// ({link})')
+    return problems
+
+
 def check_data():
     """Stop the build on data mistakes that would put a wrong or broken listing on a page."""
     problems = []
@@ -128,6 +200,7 @@ def check_data():
     for n in NATIONS:
         if n['state'] not in STATE_NAME:
             problems.append(f'nations.json: {n["id"]} has unknown state {n["state"]}')
+    problems += check_communities()
     if problems:
         sys.exit('Data problems:\n  ' + '\n  '.join(problems))
 
@@ -179,7 +252,7 @@ def actions(r):
     return out
 
 
-def card(r, level=3):
+def card(r, level=3, up=''):
     h = f'h{level}'
     access = ACCESS[r['access']]
     tags = f'<span class="tag acc-{r["access"]}">{E(access["label"])}</span>'
@@ -198,6 +271,9 @@ def card(r, level=3):
         parts.append('<p class="actions">' + ' '.join(acts) + '</p>')
     if r.get('phone_note'):
         parts.append(f'<p class="meta">{E(r["phone"])}: {E(r["phone_note"])}.</p>')
+    if r['id'] in COMMUNITY_BY_LISTING:
+        cp = COMMUNITY_BY_LISTING[r['id']]
+        parts.append(f'<p class="cplink"><a href="{up}communities/{cp["slug"]}.html">{E(cp["name"])}: their own community page</a></p>')
     if r.get('more'):
         parts.append('<p class="more">More: ' + ' · '.join(
             f'<a href="{E(m["url"])}">{E(m["label"])}</a>' for m in r['more']) + '</p>')
@@ -228,13 +304,15 @@ def urgent(up=''):
             f'<p><a href="{up}help.html#safety">All crisis and safety lines</a> · <a href="{up}help.html#housing">Shelter and housing help</a></p></aside>')
 
 
-def nation_item(n, show_state=False):
+def nation_item(n, show_state=False, up=''):
     where = ', '.join(x for x in [n.get('city'), STATE_NAME[n['state']] if show_state else None] if x)
     contact = []
     if n.get('phone'):
         contact.append(f'<a href="tel:{n["phone"]["tel"]}">{E(n["phone"]["display"])}</a>')
     if n.get('url'):
         contact.append(f'<a href="{E(n["url"])}">Website</a>')
+    if n['id'] in COMMUNITY_BY_NATION:
+        contact.append(f'<a href="{up}communities/{COMMUNITY_BY_NATION[n["id"]]["slug"]}.html">Community page</a>')
     key = ' '.join(x for x in [n['name'], n.get('also') or '', n.get('city') or '', STATE_NAME[n['state']]]).lower()
     out = f'<li id="n-{n["id"]}" data-k="{E(key)}"><span class="nm">{E(n["name"])}</span>'
     if n.get('also'):
@@ -291,7 +369,7 @@ def structured_data(path, title, description, canonical):
     return f'<script type="application/ld+json">{text}</script>'
 
 
-def page(path, title, description, body, head=''):
+def page(path, title, description, body, head='', noindex=False):
     up = '../' * path.count('/')
     canonical = SITE['base_url'] + ('' if path == 'index.html' else path)
     current = ' aria-current="page"'
@@ -302,7 +380,7 @@ def page(path, title, description, body, head=''):
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{E(title)}</title>
 <meta name="description" content="{E(description)}">
-<link rel="canonical" href="{E(canonical)}">
+<link rel="canonical" href="{E(canonical)}">{'<meta name="robots" content="noindex">' if noindex else ''}
 <meta property="og:type" content="website"><meta property="og:site_name" content="{E(SITE['name'])}"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(description)}"><meta property="og:url" content="{E(canonical)}">
 <meta property="og:image" content="{E(SITE['base_url'])}assets/share.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="{E(SITE['name'])}: a map of Nation government offices across the United States">
 <meta name="twitter:card" content="summary_large_image">
@@ -316,19 +394,20 @@ def page(path, title, description, body, head=''):
 <main id="main">
 {body}
 </main>
-<footer><p><strong>{E(SITE['dedication'])}</strong> Built and maintained by <a href="{E(SITE['maintainer_url'])}">{E(SITE['maintainer'])}</a>. <a href="mailto:{E(SITE['email'])}">Send a correction</a> · <a href="{up}about.html">About and sources</a></p>
+<footer><p><strong>{E(SITE['dedication'])}</strong> Built and maintained by <a href="{E(SITE['maintainer_url'])}">{E(SITE['maintainer'])}</a>. <a href="mailto:{E(SITE['email'])}">Send a correction</a> · <a href="{up}about.html">About and sources</a> · <a href="{up}free-page.html">Free pages for Native communities</a></p>
 <p>Listings come from tribal governments, government agencies and the organizations themselves, with the date each was checked. This site is not a tribal government, does not speak for any Nation, is not legal advice and does not decide who qualifies for anything. Nations and organizations can ask to have a listing corrected or removed.</p></footer>
 </body></html>
 '''
     target = ROOT / path
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(doc, encoding='utf-8')
-    PAGES.append(path)
+    if not noindex:
+        PAGES.append(path)
 
 
 # ---------- pages ----------
 
-def need_section(need, area='US', level=2, compact=False):
+def need_section(need, area='US', level=2, compact=False, up=''):
     """One kind of help with its listings. State pages use the compact form; the full form is on the help page."""
     cards = records_for(area, need['key'])
     also = [r for r in records_for(area, need['key'], primary_only=False) if r['need'] != need['key']]
@@ -339,7 +418,7 @@ def need_section(need, area='US', level=2, compact=False):
     if not compact:
         out += f'<p>{E(need["blurb"])}</p>{prep(need, level + 1)}'
     if cards:
-        out += '<div class="cards">' + ''.join(card(r, level + 1) for r in cards) + '</div>'
+        out += '<div class="cards">' + ''.join(card(r, level + 1, up) for r in cards) + '</div>'
     if also:
         out += '<p class="also">Also useful here: ' + ' · '.join(
             f'<a href="#r-{r["id"]}">{E(r["name"])}</a>' for r in also) + '</p>'
@@ -784,11 +863,11 @@ def build_states():
         sections = {}
         if records:
             sections['local'] = (f'<section aria-labelledby="local-h"><h2 id="local-h">Native community and help in {E(name)}</h2>'
-                                 + ''.join(need_section(need, code, level=3, compact=True) for need in NEED_LIST) + '</section>')
+                                 + ''.join(need_section(need, code, level=3, compact=True, up=up) for need in NEED_LIST) + '</section>')
         sections['colleges'] = colleges_section(code)
         if nations:
             sections['nations'] = (f'<section aria-labelledby="nations-h"><h2 id="nations-h">Nations with their government in {E(name)}</h2>'
-                                   '<ul class="nations">' + ''.join(nation_item(n) for n in nations) + '</ul>'
+                                   '<ul class="nations">' + ''.join(nation_item(n, up=up) for n in nations) + '</ul>'
                                    f'<p class="meta">From the <a href="{E(NATIONS_FILE["source_page"])}">Bureau of Indian Affairs Tribal Leaders Directory</a>, retrieved {nice_date(NATIONS_FILE["retrieved"])}. '
                                    'Names are shown as the Bureau lists them. Nations: tell us if you want a listing changed.</p></section>')
         sections['state'] = state_nations_section(code)
@@ -796,7 +875,7 @@ def build_states():
         sections['lands'] = lands_section(code)
         if note.get('ties'):
             sections['ties'] = (f'<section aria-labelledby="ties-h"><h2 id="ties-h">{E(note["ties_title"])}</h2><p>{E(note["ties_intro"])}</p>'
-                                '<ul class="nations">' + ''.join(nation_item(NATION[i], show_state=True) for i in note['ties']) + '</ul>'
+                                '<ul class="nations">' + ''.join(nation_item(NATION[i], show_state=True, up=up) for i in note['ties']) + '</ul>'
                                 f'<p class="meta">List of Nations: <a href="{E(note["ties_source"]["url"])}">{E(note["ties_source"]["label"])}</a>, checked {nice_date(note["checked"])}. '
                                 f'Phone numbers and websites: Bureau of Indian Affairs directory, retrieved {nice_date(NATIONS_FILE["retrieved"])}.</p></section>')
         body += ''.join(sections.get(k, '') for k in state_order(code, nations, records))
@@ -917,6 +996,7 @@ def build_community():
     body = f'''<h1>Finding community</h1>
 <p class="lede">If you want to be around Native people where you live, whether you are new to a city or coming back to your culture, here are the places and groups where Native people gather: community centers, youth councils, recovery circles and tribal colleges.</p>
 <p>Local groups and state Native affairs offices are listed so far for {and_list(community_states)}. Urban Indian centers and tribal colleges are further down, and every state page lists its Nations, clinics and tribal lands.</p>
+{community_pages_section()}
 <section aria-labelledby="c-local"><h2 id="c-local">Community centers and groups, by state</h2>{local}
 <p>In another state? Start with the <a href="help.html#r-urban-indian-health">map of Urban Indian Organizations</a>, whose services can include youth, elder and community programs, or <a href="states/index.html">open your state's page</a>.</p></section>
 <section aria-labelledby="c-urban"><h2 id="c-urban">Urban Indian centers</h2>
@@ -986,7 +1066,7 @@ def build_404():
     page('404.html', f'Page not found | {SITE["name"]}', 'That page is not here.', body)
     path = ROOT / '404.html'
     text = path.read_text(encoding='utf-8')
-    for target in ['assets/', 'index.html', 'about.html'] + [href for href, _ in NAV]:
+    for target in ['assets/', 'index.html', 'about.html', 'free-page.html'] + [href for href, _ in NAV]:
         text = text.replace(f'href="{target}', f'href="{SITE["base_url"]}{target}').replace(f'src="{target}', f'src="{SITE["base_url"]}{target}')
     text = text.replace(f'<link rel="canonical" href="{E(SITE["base_url"])}404.html">', '<meta name="robots" content="noindex">')
     path.write_text(text, encoding='utf-8')
@@ -1270,8 +1350,12 @@ WHO = [
      [('help.html#recovery', 'Recovery and wellness'), ('help.html#r-wellbriety-circles', 'Wellbriety circles'),
       ('help.html#r-ihs-yrtc', 'Youth Regional Treatment Centers'), ('help.html#r-samhsa-helpline', 'SAMHSA National Helpline')]),
     ('staff', 'working for a Nation or a tribal program',
-     'Programs with measured results, and how to correct or add your own listing.',
-     [('what-works.html', 'What has worked'), ('about.html#a5', 'For Nations and organizations'), ('nations.html', 'Nations directory')]),
+     'A free page for your Nation or program, programs with measured results, and how to correct your listing.',
+     [('free-page.html', 'Get a free page for your community'), ('what-works.html', 'What has worked'),
+      ('about.html#a5', 'For Nations and organizations'), ('nations.html', 'Nations directory')]),
+    ('ally', 'looking for ways to support Native-led groups',
+     'What groups are asking for, in their own words, and how to give in ways that help.',
+     [('support.html', 'Support Native-led groups'), ('community.html#c-pages', 'Community pages'), ('what-works.html', 'What has worked')]),
     ('world', 'Indigenous, outside the United States',
      'Country guides in each people\'s own terms, from Canada and Mexico to Aotearoa, Sápmi and beyond.',
      [('world/index.html', 'First Peoples around the world'), ('world/canada.html', 'Canada'), ('world/aotearoa-new-zealand.html', 'Aotearoa New Zealand'),
@@ -1379,7 +1463,7 @@ def build_world():
             if here:
                 label = 'Peoples, Nations and their governments' if need['key'] == 'nation' else need['label']
                 body += (f'<section class="need" id="{need["key"]}" aria-labelledby="h-{need["key"]}"><h2 id="h-{need["key"]}">{E(label)}</h2>'
-                         '<div class="cards">' + ''.join(card(r, 3) for r in here) + '</div></section>')
+                         '<div class="cards">' + ''.join(card(r, 3, up) for r in here) + '</div></section>')
         if c['code'] == 'CAN':
             fns = CA_PLACES['first_nations']
             body += (f'<section id="first-nations" aria-labelledby="fn-h"><h2 id="fn-h">First Nations ({len(fns["items"])})</h2>'
@@ -1429,6 +1513,259 @@ def build_sitemap():
     (ROOT / 'robots.txt').write_text(f'User-agent: *\nAllow: /\nSitemap: {SITE["base_url"]}sitemap.xml\n', encoding='utf-8')
 
 
+# ---------- free community pages, the offer, and ways to help ----------
+
+INTAKE = SITE['intake_email']  # The one address for page requests. Change it in data/site.json.
+
+HELP_SOURCES = [
+    ('Federal Trade Commission: Donating safely and avoiding scams', 'https://consumer.ftc.gov/features/donating-safely-and-avoiding-scams'),
+    ('Federal Trade Commission: Buying American Indian arts and crafts', 'https://consumer.ftc.gov/articles/buying-american-indian-arts-and-crafts'),
+    ('Indian Arts and Crafts Board: Consumer tips', 'https://www.doi.gov/iacb/consumer-tips'),
+    ('Indian Arts and Crafts Board: Source Directory of Arts and Crafts Businesses', 'https://www.doi.gov/iacb/source-directory'),
+    ('FEMA: Three ways to help after Hurricane Maria', 'https://www.fema.gov/press-release/20250121/three-ways-help-after-hurricane-maria'),
+    ('The Bridgespan Group with Native Americans in Philanthropy: The impact and opportunity of investing in Native communities', 'https://www.bridgespan.org/insights/the-impact-and-opportunity-of-investing-in-native-communities'),
+]
+HELP_CHECKED = '2026-11-23'
+
+
+def intake_mailto(subject, body):
+    return f'mailto:{INTAKE}?subject={urllib.parse.quote(subject)}&body={urllib.parse.quote(body)}'
+
+
+def ask_item(c, ask, up, show_group=False):
+    """One "how you can help" entry, in the group's own words. Dated asks drop off the page once their date passes."""
+    until = f' data-until="{ask["until"]}"' if ask.get('until') else ''
+    out = f'<li class="ask ask-{ask["kind"]}"{until}><strong>{E(ASK_KINDS[ask["kind"]])}'
+    if show_group:
+        out += f': <a href="{up}communities/{c["slug"]}.html">{E(c["name"])}</a>'
+    out += f'</strong> <span>{E(ask["text"])}</span>'
+    if ask.get('items'):
+        out += '<ul>' + ''.join(f'<li>{E(i)}</li>' for i in ask['items']) + '</ul>'
+    if ask.get('until'):
+        out += f'<span class="meta"> Through {nice_date(ask["until"])}.</span>'
+    if ask.get('url'):
+        out += f' <a class="btn line" href="{E(ask["url"])}">{E(ask.get("label") or ASK_KINDS[ask["kind"]])}</a>'
+    return out + '</li>'
+
+
+def community_contact_buttons(c):
+    ct = c.get('contact', {})
+    out = []
+    if ct.get('phone'):
+        out.append(f'<a class="btn call" href="tel:{tel(ct["phone"])}">Call {E(ct["phone"])}</a>')
+    if ct.get('email'):
+        out.append(f'<a class="btn line" href="mailto:{E(ct["email"])}">Email {E(ct["email"])}</a>')
+    if ct.get('url'):
+        out.append(f'<a class="btn line" href="{E(ct["url"])}">Website</a>')
+    return '<p class="actions">' + ' '.join(out) + '</p>' if out else ''
+
+
+def community_page(c):
+    up = '../'
+    slug, name = c['slug'], c['name']
+    kind = COMMUNITY_KINDS[c['kind']]
+    body = f'<p class="crumb"><a href="{up}community.html">Community</a> · <a href="{up}free-page.html">Get a free page for your community</a></p>'
+    if c.get('demo'):
+        body += ('<aside class="demo" aria-label="This is a demonstration page"><strong>Example page.</strong> Everything here is made up to show '
+                 'what a free community page looks like. It is not a real group. '
+                 f'<a href="{up}free-page.html">Get a real page for your community</a>.</aside>')
+    logo = f'<img class="cp-logo" src="{up}assets/communities/{slug}/{E(c["logo"]["src"])}" alt="{E(c["logo"]["alt"])}" width="96" height="96">' if c.get('logo') else ''
+    body += f'<div class="cp-head">{logo}<div><h1>{E(name)}</h1><p class="meta">{E(kind)} · {E(c["place"])}</p></div></div>'
+    body += f'<p class="lede">{E(c["intro"])}</p>' + community_contact_buttons(c)
+    body += (f'<p class="owner">This page is written and maintained by {E(c["maintained_by"])}. Last updated {nice_date(c["updated"])}. '
+             f'{E(SITE["name"])} hosts it for free and does not speak for {E(name)}. To change or remove it, {E(c["maintained_by"])} can write to '
+             f'<a href="mailto:{E(INTAKE)}">{E(INTAKE)}</a>.</p>')
+    chips = []
+    sections = ''
+    if c.get('message'):
+        sections += '<section aria-labelledby="cp-msg"><h2 id="cp-msg">In our words</h2>' + ''.join(f'<p>{E(x)}</p>' for x in c['message']) + '</section>'
+    if c.get('announcements'):
+        chips.append(('cp-news', 'News'))
+        sections += ('<section aria-labelledby="cp-news"><h2 id="cp-news">News and announcements</h2>' + ''.join(
+            f'<article class="card"><h3>{E(a["title"])}</h3><p class="meta">{nice_date(a["date"])}</p><p>{E(a["text"])}</p></article>'
+            for a in sorted(c['announcements'], key=lambda a: a['date'], reverse=True)) + '</section>')
+    if c.get('events'):
+        chips.append(('cp-events', 'Events'))
+        items = ''
+        for ev in sorted(c['events'], key=lambda e: e['date']):
+            when = nice_date(ev['date']) + (f' to {nice_date(ev["end"])}' if ev.get('end') else '') + (f', {ev["time"]}' if ev.get('time') else '')
+            more = f' <a href="{E(ev["url"])}">More about it</a>' if ev.get('url') else ''
+            items += (f'<li data-until="{ev.get("end") or ev["date"]}"><strong>{E(ev["title"])}</strong> <span class="where">{E(when)}'
+                      + (f' · {E(ev["where"])}' if ev.get('where') else '') + f'</span> <span>{E(ev.get("text", ""))}</span>{more}</li>')
+        sections += (f'<section aria-labelledby="cp-events"><h2 id="cp-events">Coming up</h2><ul class="events" data-expiring>{items}</ul>'
+                     '<p class="meta" data-none hidden>No upcoming events are posted right now.</p></section>')
+    if c.get('help'):
+        chips.append(('cp-help', 'How you can help'))
+        sections += ('<section aria-labelledby="cp-help" class="panel helpbox"><h2 id="cp-help">How you can help</h2>'
+                     f'<p>In {E(c["maintained_by"])}\'s own words: what would help right now.</p><ul class="asks" data-expiring>'
+                     + ''.join(ask_item(c, a, up) for a in c['help']) + '</ul><p class="meta" data-none hidden>Nothing is posted right now.</p></section>')
+    if c.get('programs'):
+        chips.append(('cp-programs', 'Programs'))
+        sections += ('<section aria-labelledby="cp-programs"><h2 id="cp-programs">Programs</h2><div class="cards">' + ''.join(
+            f'<article class="card"><h3>{E(pr["name"])}</h3><p>{E(pr["text"])}</p>'
+            + (f'<p class="actions"><a class="btn line" href="{E(pr["url"])}">Learn more</a></p>' if pr.get('url') else '') + '</article>'
+            for pr in c['programs']) + '</div></section>')
+    if c.get('photos'):
+        sections += ('<section aria-labelledby="cp-photos"><h2 id="cp-photos">Photos</h2><div class="cp-photos">' + ''.join(
+            f'<figure><img src="{up}assets/communities/{slug}/{E(ph["src"])}" alt="{E(ph["alt"])}" loading="lazy">'
+            + (f'<figcaption>{E(ph["caption"])}</figcaption>' if ph.get('caption') else '') + '</figure>' for ph in c['photos']) + '</div></section>')
+    ct = c.get('contact', {})
+    contact = ''
+    if ct.get('address'):
+        contact += f'<p><strong>Address:</strong> {E(ct["address"])}</p>'
+    contact += community_contact_buttons(c)
+    if c.get('links'):
+        contact += '<ul>' + ''.join(f'<li><a href="{E(l["url"])}">{E(l["label"])}</a></li>' for l in c['links']) + '</ul>'
+    if contact:
+        chips.append(('cp-contact', 'Contact'))
+        sections += f'<section aria-labelledby="cp-contact"><h2 id="cp-contact">Contact and links</h2>{contact}</section>'
+    if chips:
+        body += '<nav class="chips" aria-label="On this page"><ul>' + ''.join(f'<li><a href="#{i}">{E(l)}</a></li>' for i, l in chips) + '</ul></nav>'
+    body += sections
+    if c.get('nation_id'):
+        n = NATION[c['nation_id']]
+        body += f'<p class="meta">{E(name)} in the <a href="{up}states/{STATE_SLUG[n["state"]]}.html#n-{n["id"]}">Nations directory</a>.</p>'
+    body += (f'<section class="panel"><h2>Want a page like this?</h2><p>Nations, tribal programs, urban Indian organizations, powwow committees, language programs, '
+             f'Native-owned businesses and community groups can have one for free. <a href="{up}free-page.html">Here is how</a>.</p></section>')
+    if c.get('demo'):
+        title = f'Example community page (demo) | {SITE["name"]}'
+        desc = 'A made-up example of a free community page on Nina\'s Map, showing what a Native community group can post: news, events, programs, photos and how people can help.'
+    else:
+        title = f'{name}: {kind.lower() if c["kind"] != "nation" else "Nation"} in {c["place"]} | {SITE["name"]}'
+        desc = clip(c['intro'])
+    page(f'communities/{slug}.html', title, desc, body, noindex=bool(c.get('demo')))
+
+
+def build_community_pages():
+    for c in COMMUNITIES:
+        community_page(c)
+
+
+def community_pages_section():
+    """The list of community pages on the Community hub."""
+    if LIVE_COMMUNITIES:
+        lst = '<ul class="nations">' + ''.join(
+            f'<li><span class="nm"><a href="communities/{c["slug"]}.html">{E(c["name"])}</a></span> <span class="where">{E(COMMUNITY_KINDS[c["kind"]])} · {E(c["place"])}</span></li>'
+            for c in sorted(LIVE_COMMUNITIES, key=lambda c: c['name'].lower())) + '</ul>'
+    else:
+        lst = '<p>No group has a page yet. The first ones are being set up; each will be listed here.</p>'
+    return ('<section aria-labelledby="c-pages"><h2 id="c-pages">Community pages, in each group\'s own words</h2>'
+            '<p>Pages written and kept up by the groups themselves: their news, events, programs and what would help.</p>'
+            f'{lst}<p><a class="btn" href="free-page.html">Get a free page for your community</a> <a class="btn line" href="communities/example.html">See an example page</a></p></section>')
+
+
+def build_offer():
+    mail = E(INTAKE)
+    body_text = ('Name of our Nation, program or group:\n'
+                 'Town and state (or country):\n'
+                 'Who we are, in a few sentences:\n'
+                 'Contact we want shown (phone, email, website):\n'
+                 'Upcoming events or news:\n'
+                 'How people can help (donate, volunteer, attend, buy, share, supplies):\n'
+                 'My name and my role with the group:\n'
+                 'A phone number or email where you can confirm this request with us:\n')
+    href = E(intake_mailto('Free community page request', body_text))
+    share = (f'Free pages for Native communities: {SITE["name"]} will set up a page for your Nation, tribal program, urban Indian organization, '
+             f'powwow committee, language program, Native-owned business or community group, at no cost. You decide what it says and can remove it '
+             f'at any time. Details: {SITE["base_url"]}free-page.html')
+    body = f'''<h1>Get a free page for your community</h1>
+<p class="lede">If you work for a Nation or a tribal program, or you organize a Native community group, powwow, language class or business, {E(SITE['name'])} will set up a page for you, free. You say what goes on it; it is there for your news, your events and what you need.</p>
+<p class="actions"><a class="btn" href="{href}">Ask for a page by email</a> <a class="btn line" href="communities/example.html">See an example page</a></p>
+
+<section aria-labelledby="o1"><h2 id="o1">What you get</h2>
+<ul>
+<li>Your own page at an address like {E(SITE['base_url'])}communities/your-name.html, with your name, logo and photos.</li>
+<li>Your message, in your own words, and your announcements and events. Past events drop off on their own.</li>
+<li>Your programs, your contact details and your links.</li>
+<li>A "How you can help" section for what you need right now: donations, volunteers, people at your events, customers, people to share the word, or a list of supplies.</li>
+<li>Links to your page from your listing on {E(SITE['name'])}, from the Community page, and, when you post an ask, from <a href="support.html">Support Native-led groups</a>.</li>
+</ul></section>
+
+<section aria-labelledby="o2"><h2 id="o2">Free, with no catch</h2>
+<ul>
+<li>There is no fee, now or later, and nothing to sign up for.</li>
+<li>The page is yours. It says what you want it to say, and it says on the page that you wrote it and keep it up.</li>
+<li>You can change it whenever you like, and have it taken down at any time, for any reason. Just ask.</li>
+<li>{E(SITE['name'])} does not speak for your Nation or your group, and does not add anything to your page that you did not send or approve.</li>
+<li>The page has no ads. Visits are counted without cookies, as on the rest of the site, and nothing about your visitors is sold.</li>
+</ul></section>
+
+<section aria-labelledby="o3"><h2 id="o3">What to send</h2>
+<p>Send whatever you have; a name and a few sentences are enough to start.</p>
+<ul class="checklist">
+<li>Your group's name as you want it written, and your town and state or country.</li>
+<li>A few sentences about who you are and who you serve.</li>
+<li>The phone number, email and website you want shown. Only contacts you want public.</li>
+<li>Upcoming events and news, with dates.</li>
+<li>Programs you run, and how people can join.</li>
+<li>How people can help, and until when.</li>
+<li>Your logo and a few photos, if you like, with a line about each. Send only photos you have the right to share, and only of people who agreed to be shown.</li>
+<li>Your name and your role, and a way to confirm the request with you.</li>
+</ul></section>
+
+<section aria-labelledby="o4"><h2 id="o4">How we help you set it up</h2>
+<ol class="steps">
+<li><strong>You send what you have</strong> by email, in any form: a flyer, a website, a few lines.</li>
+<li><strong>We check that the request comes from your group,</strong> using your group's public phone or email. For a Nation, that means its government office. A page is never made for a group that did not ask for one.</li>
+<li><strong>We put the page together</strong> from what you sent, and send you a preview.</li>
+<li><strong>You approve it,</strong> or tell us what to change. It goes live only when you say so.</li>
+<li><strong>Send updates any time:</strong> a new event, a new ask, a new photo. Each page shows the date it was last updated.</li>
+</ol>
+<p>If you are not sure what to say, or what kind of help to ask for, say so, and we will work it out with you.</p></section>
+
+<section aria-labelledby="o5"><h2 id="o5">Send your request</h2>
+<p>Email <a href="{href}">{mail}</a>. The link opens an email with a short list of questions; answer the ones you can.</p></section>
+
+<section aria-labelledby="o6" class="panel share-box"><h2 id="o6">Share this offer</h2>
+<p>Know a group that should have a page? Pass this along, or print this page and post it.</p>
+<p><label for="share-text">Text to copy and share</label></p>
+<textarea id="share-text" readonly rows="5">{E(share)}</textarea>
+<p><button type="button" class="btn" data-print hidden>Print this page</button></p></section>'''
+    page('free-page.html', f'Free community pages for Nations and Native groups | {SITE["name"]}',
+         'For tribal staff and Native community organizers: a free page on Nina\'s Map for your Nation, program or group, with your news, events and what you need. You own it and can remove it any time.', body)
+
+
+def build_support():
+    asks = [(c, a) for c in sorted(LIVE_COMMUNITIES, key=lambda c: c['name'].lower()) for a in c.get('help', [])]
+    if asks:
+        current = ('<ul class="asks" data-expiring>' + ''.join(ask_item(c, a, '', show_group=True) for c, a in asks) + '</ul>'
+                   '<p class="meta" data-none hidden>Nothing is posted right now. Check back, or see the general advice below.</p>')
+    else:
+        current = ('<p>No group has posted an ask yet. As Nations and Native-led groups set up their free pages, what they ask for will appear here, '
+                   'in their own words, with a link to their page. Until then, the advice below is a good place to start.</p>')
+    sources = ' · '.join(f'<a href="{E(u)}">{E(l)}</a>' for l, u in HELP_SOURCES)
+    body = f'''<h1>Support Native-led groups</h1>
+<p class="lede">If you want to help Native communities, the surest way is to ask Native-led groups what they need and give that. This page gathers what groups on {E(SITE['name'])} are asking for, and how to give in ways that help.</p>
+
+<section aria-labelledby="s1"><h2 id="s1">What groups are asking for now</h2>
+{current}
+<p>Run a Native-led group? <a href="free-page.html">Get a free page</a> and post what would help.</p></section>
+
+<section aria-labelledby="s2"><h2 id="s2">Giving money</h2>
+<ul>
+<li>Only a small share of philanthropy goes to Native communities, and Native-led organizations receive only part of that share, research by the Bridgespan Group with Native Americans in Philanthropy finds. Giving directly to groups led by Native people is one way to change that.</li>
+<li>Before you give, the Federal Trade Commission suggests searching the group's name with words like "complaint", "review" or "scam", and using the IRS Tax Exempt Organization Search to see whether a gift is tax deductible.</li>
+<li>Pay by credit card or check. The FTC warns against anyone who asks for donations in cash, by gift card or by wire transfer, and against anyone who rushes you.</li>
+</ul></section>
+
+<section aria-labelledby="s3"><h2 id="s3">Giving things</h2>
+<p>Ask first. After disasters, FEMA advises that money usually helps most, and that unrequested goods can pull volunteers away from helping people because they have to be sorted, moved and stored. Confirm with the group exactly what it needs before you collect or ship anything. When a group on this site posts a supplies list, it says what is needed and until when.</p></section>
+
+<section aria-labelledby="s4"><h2 id="s4">Buying from Native artists and businesses</h2>
+<ul>
+<li>Under federal law, work made after 1935 can be sold as "Indian", "Native American" or as the work of a particular Tribe only if the maker is a member of a federally or state-recognized Tribe, or is certified as an Indian artisan by their Tribe. The FTC says to be careful with words like "descent", "heritage" or "ancestry" next to a Tribe's name.</li>
+<li>Get written proof of any claim about who made a piece, and a receipt that lists the maker and their Tribe.</li>
+<li>The Indian Arts and Crafts Board keeps a Source Directory of arts and crafts businesses.</li>
+</ul></section>
+
+<section aria-labelledby="s5"><h2 id="s5">Giving time and attention</h2>
+<p>Go to the events groups invite the public to. Share their pages and their news. Offer the skills a group asks for, on its terms.</p></section>
+<p class="meta">Sources: {sources}. Checked {nice_date(HELP_CHECKED)}.</p>'''
+    page('support.html', f'Support Native-led groups: ways to help | {SITE["name"]}',
+         'How to help Native communities: what Native-led groups on Nina\'s Map are asking for, in their own words, and how to give money, goods, time and business in ways that help.', body)
+
+
+
 def main():
     check_data()
     build_home()
@@ -1441,6 +1778,9 @@ def main():
     build_works()
     build_world()
     build_about()
+    build_community_pages()
+    build_offer()
+    build_support()
     build_404()
     build_sitemap()
     print(f'{len(PAGES)} pages, {len(RES) + len(WORLD)} listings, {len(NATIONS)} Nation offices')

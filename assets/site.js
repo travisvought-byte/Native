@@ -1,5 +1,6 @@
 // Nina's Map. Everything on the site works without this file; it only adds
-// the fast exit, the state picker, the filter on the help page and the search on the Nations page.
+// the fast exit, the state picker, the filter on the help page, the search on the Nations page,
+// hiding events and asks whose date has passed, and the print button.
 // Nothing is stored and nothing is sent anywhere.
 (function () {
   'use strict';
@@ -68,4 +69,25 @@
     search.addEventListener('input', run);
     if (search.value) run();
   }
+  // Community pages: events and asks carry a last date; hide them once it has passed.
+  var d = new Date();
+  var today = d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2);
+  document.querySelectorAll('[data-expiring]').forEach(function (list) {
+    var left = 0;
+    Array.prototype.forEach.call(list.children, function (item) {
+      var until = item.getAttribute('data-until');
+      if (until && until < today) item.hidden = true; else left++;
+    });
+    if (!left) {
+      list.hidden = true;
+      var none = list.parentNode.querySelector('[data-none]');
+      if (none) none.hidden = false;
+    }
+  });
+
+  // Print button on the free page offer
+  document.querySelectorAll('[data-print]').forEach(function (btn) {
+    btn.hidden = false;
+    btn.addEventListener('click', function () { window.print(); });
+  });
 })();
