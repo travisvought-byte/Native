@@ -99,6 +99,23 @@ for path, page in pages.items():
     if 'class="foothelp"' in page.text or 'No safe place to sleep tonight' in page.text.split('<main', 1)[0]:
         fail(f'{path}: help lines are not repeated in the page chrome')
 
+# 1b. Every landing page is its own: no two pages share a title, a description or a heading, and each opens with a lede.
+for label, getter in (('title', lambda pg: pg.title.strip()), ('description', lambda pg: pg.description),
+                      ('h1', lambda pg: re.search(r'<h1[^>]*>(.*?)</h1>', pg.text).group(1))):
+    seen = {}
+    for path, page in pages.items():
+        if path == '404.html':
+            continue
+        value = getter(page)
+        if value in seen:
+            fail(f'{path}: same {label} as {seen[value]}')
+        seen[value] = path
+for path, page in pages.items():
+    if path not in ('404.html', 'about.html') and '<p class="lede">' not in page.text:
+        fail(f'{path}: no opening lede')
+if 'class="chips iam"' not in pages['index.html'].text:
+    fail('index.html: the "I\'m..." chooser is missing')
+
 # 2. Links inside the site lead somewhere, and links out are well formed.
 for path, page in pages.items():
     if path == '404.html':

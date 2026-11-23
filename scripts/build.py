@@ -351,7 +351,8 @@ def build_help():
     labels = ''.join(f'<dt><span class="tag acc-{k}">{E(v["label"])}</span></dt><dd>{E(v["explain"])}</dd>' for k, v in ACCESS.items())
     sections = ''.join(need_section(n) for n in NEED_LIST)
     body = f'''<h1>Get help</h1>
-<p class="lede">National help for Native people, sorted by what you need. For Nations, community groups and programs near you, <a href="states/index.html">choose your state</a>.</p>
+<p class="lede">Whatever brought you here, start with what you need: help for Native people anywhere in the United States, sorted by need. Many listings do not ask for a tribal card, and the filter below can show only those.</p>
+<p>For your Nation, the clinics near you and Native community in your area, <a href="states/index.html">choose your state</a>.</p>
 {urgent()}
 <nav class="chips" aria-label="Kinds of help"><ul>{chips}</ul></nav>
 <p class="filter"><label for="who-filter">Show</label> <select id="who-filter" data-access-filter>
@@ -497,25 +498,228 @@ def lands_section(code):
 
 
 def state_intro(code, nations, records):
+    """The sourced background note for a state, from data/states.json, below the opening written to the visitor."""
     name = STATE_NAME[code]
     note = STATE_NOTES.get(code, {})
     parts = []
     if note.get('intro'):
-        first, _, rest = note['intro'].partition('. ')
-        parts.append(f'<p class="lede">{E(first)}.</p>' if rest else f'<p class="lede">{E(first)}</p>')
-        if rest:
-            parts.append(f'<p>{E(rest)}</p>')
+        parts.append(f'<p>{E(note["intro"])}</p>')
         if note.get('intro_sources'):
             parts.append('<p class="meta">Sources: ' + ' · '.join(
                 f'<a href="{E(s["url"])}">{E(s["label"])}</a>' for s in note['intro_sources'])
                 + f'. Checked {nice_date(note["checked"])}.</p>')
-    elif nations:
-        parts.append(f'<p class="lede">Nations with their governments in {E(name)}, with the national help that works here too.</p>')
-    else:
-        parts.append(f'<p class="lede">The Bureau of Indian Affairs directory lists no federally recognized Nation with its government in {E(name)}. Native people live in every state, and the national help on this page works here.</p>')
     if not records:
-        parts.append(f'<p>Local Native organizations, state programs and state-recognized Nations are not listed for {E(name)} yet. If you know one that belongs here, <a href="mailto:{E(SITE["email"])}">tell us</a>.</p>')
+        missing = 'Local Native organizations and state programs are' if STATE_NATIONS.get(code) else 'Local Native organizations, state programs and state-recognized Nations are'
+        parts.append(f'<p>{missing} not listed for {E(name)} yet. If you know one that belongs here, <a href="mailto:{E(SITE["email"])}">tell us</a>.</p>')
     return ''.join(parts)
+
+
+# ---------- landing pages: each page opens by speaking to the person most likely to arrive there ----------
+
+def and_list(items):
+    items = [x for x in items if x]
+    if len(items) <= 2:
+        return ' and '.join(items)
+    return ', '.join(items[:-1]) + ' and ' + items[-1]
+
+
+def plain(text):
+    """Text without tags, for meta descriptions."""
+    return html.unescape(re.sub(r'<[^>]+>', '', text))
+
+
+def clip(text, limit=255):
+    """A description cut at a sentence end, so it never stops mid-thought."""
+    if len(text) <= limit:
+        return text
+    cut = text[:limit]
+    end = max(cut.rfind('. '), cut.rfind('.'))
+    if end >= 60:
+        return cut[:end + 1]
+    comma = cut.rfind(', ')
+    cut = cut[:comma] if comma >= 60 else cut[:cut.rfind(' ')]
+    return re.sub(r'\s+(?:and|or|the|a|of|for|to|in)$', '', cut.rstrip(',;: ')) + '.'
+
+
+STATE_WORDS = '|'.join(sorted((re.escape(n) for _, n in STATES), key=len, reverse=True))
+ARTICLE_WORDS = re.compile(r'\b(?:Tribe|Nation|Band|Community|Pueblo|Indians|Village|Tribes|Colony|Rancheria|Council|'
+                           r'Confederated|Oyate|Chapter|Commission|Center|Coalition|Collective|Association|Department|Office)\b')
+
+
+def short_nation(name):
+    """A Nation's name as the Bureau lists it, without the trailing state names and repeated reservation names
+    the Bureau adds. Returns None for combined entries (several bands in one line) that read badly in a sentence."""
+    if ';' in name or 'constituent' in name or 'component' in name:
+        return None
+    n = re.sub(r'\s*\((?:previously|formerly|See)[^)]*\)+', '', name).strip()
+    band = re.match(r'^(.*?),\s*(?:' + STATE_WORDS + r')\s*\(([^()]+ Band)\)$', n)
+    if band:
+        return f'{band.group(2)} of the {band.group(1)}'
+    if '(' in n:
+        return None
+    n = re.sub(r',\s*(?:' + STATE_WORDS + r')(?:(?:\s*(?:,|&|and)\s*)+(?:' + STATE_WORDS + r'))*\s*$', '', n)
+    m = re.search(r' of the ((?:(?! of the ).)*?)\s*(?:Indian )?Reservation\b', n)
+    if m and m.group(1).split()[0].lower() in n[:m.start()].lower():
+        n = n[:m.start()]
+    return n.strip(' ,')
+
+
+def with_article(name):
+    if name.startswith('The '):
+        return 'the ' + name[4:]
+    return 'the ' + name if ARTICLE_WORDS.search(name) else name
+
+
+def land_core(name):
+    core = re.sub(r'\s*\([^)]*\)', '', name)
+    core = re.sub(r'\s+(?:Indian Reservation|Reservation|Trust Land|ANVSA|OTSA|TDSA|SDTSA|Settlement)$', '', core)
+    return core.lower().strip()
+
+
+def pick_nations(code, nations, limit=3):
+    """Nations to name first: those whose lands are largest in the state, then the rest in directory order."""
+    chosen = []
+
+    def fresh(short):
+        # Skip a second entry for the same Nation (a division or a band office listed beside the Nation itself).
+        return all(short.split()[:2] != c.split()[:2] for c in chosen)
+
+    for a in sorted(LANDS.get(code, []), key=lambda a: -a['sq_mi']):
+        if a['kind'] in ('state-area', 'tribal-area', 'state-reservation'):
+            continue
+        core = land_core(a['name'])
+        if len(core) < 4:
+            continue
+        for n in nations:
+            short, full = short_nation(n['name']), n['name'].lower()
+            if short and fresh(short) and (full.startswith(core) or re.search(r'of the ' + re.escape(core) + r'( indian)? reservation', full)):
+                chosen.append(short)
+                break
+        if len(chosen) >= limit:
+            return chosen
+    for n in nations:
+        short = short_nation(n['name'])
+        if short and fresh(short):
+            chosen.append(short)
+        if len(chosen) >= limit:
+            break
+    return chosen
+
+
+def state_cities(code, records):
+    """Cities with an urban Indian program, from the state's listings and the Indian Health Service map."""
+    cities = []
+    for r in records:
+        if is_urban_center(r) and r.get('place'):
+            cities += [c.strip() for c in re.split(r'\band\b|,', r['place']) if c.strip()]
+    for c in CLINICS.get(code, []):
+        if c['run'] == 'urban' and c.get('city'):
+            cities.append(c['city'])
+    out = []
+    for c in cities:
+        c = re.sub(r'^Saint ', 'St. ', c)
+        if c not in out:
+            out.append(c)
+    return out
+
+
+def local_profile(records):
+    urban = [r for r in records if is_urban_center(r)]
+    community = [r for r in records if not is_urban_center(r) and (r['need'] == 'community' or 'community' in r.get('also', []))]
+    other = [r for r in records if not is_urban_center(r) and r not in community]
+    return urban, community, other
+
+
+def state_order(code, nations, records):
+    """The sections of a state page, in the order a visitor most likely wants them. Where a state has local
+    community listings, or no Nation of its own, those come first; otherwise the Nations' offices do."""
+    urban, community, other = local_profile(records)
+    if len(community + other) >= 2 or not nations:
+        order = ['local', 'ties', 'nations', 'state', 'clinics', 'colleges', 'lands']
+    else:
+        order = ['nations', 'local', 'state', 'clinics', 'colleges', 'lands']
+    present = {'local': bool(records), 'ties': bool(STATE_NOTES.get(code, {}).get('ties')), 'nations': bool(nations),
+               'state': bool(STATE_NATIONS.get(code)), 'clinics': bool(CLINICS.get(code)), 'colleges': bool(COLLEGES.get(code)),
+               'lands': bool(LANDS.get(code))}
+    return [k for k in order if present[k]]
+
+
+def state_landing(code, nations, records):
+    """H1, title, description and opening lines for a state page, built from what that state's page actually holds."""
+    name = STATE_NAME[code]
+    note = STATE_NOTES.get(code, {})
+    the_name = 'the District of Columbia' if code == 'DC' else name
+    urban, community, other = local_profile(records)
+    cities = state_cities(code, records)
+    state_rec = [n['name'] for n in STATE_NATIONS.get(code, {}).get('nations', [])]
+    clinics = CLINICS.get(code, [])
+    hospitals = []
+    for c in clinics:
+        if c['kind'] == 'hospital' and c['run'] in ('ihs', 'tribal') and c.get('city') and c['city'] not in hospitals:
+            hospitals.append(c['city'])
+    colleges = [c['name'] for c in COLLEGES.get(code, [])]
+    lands = sorted(LANDS.get(code, []), key=lambda a: -a['sq_mi'])
+    land_kinds = {a['kind'] for a in lands}
+
+    # What the page offers, in the order it appears on the page, for the heading and the title.
+    labels = {'local': 'community' if community else 'local help' if other else 'urban Indian health',
+              'ties': f'Nations with {name} homelands', 'nations': 'Alaska Native tribes' if code == 'AK' else 'tribal Nations',
+              'state': 'state-recognized Nations', 'clinics': 'Indian health care', 'colleges': 'tribal colleges',
+              'lands': 'Hawaiian home lands' if 'hawaiian' in land_kinds else 'tribal lands'}
+    features = [labels[k] for k in state_order(code, nations, records)
+                if k != 'lands' or land_kinds & {'reservation', 'oklahoma', 'alaska', 'hawaiian'}][:3]
+    if 0 < len(features) < 3:
+        features.append('help')
+
+    # The opening: who this page is for, then what is here for them.
+    if note.get('lede'):
+        lede = E(note['lede'])
+    else:
+        sentences = []
+        if nations:
+            picked = [with_article(n) for n in pick_nations(code, nations)]
+            if len(nations) == 1:
+                sentences.append(f'{picked[0][0].upper() + picked[0][1:]} has its government in {the_name}. If you are a citizen or a descendant, its office is on this page with a way to reach it.')
+            elif len(nations) <= 3 and len(picked) == len(nations):
+                lst = and_list(picked)
+                sentences.append(f'{lst[0].upper() + lst[1:]} have their governments in {the_name}. If one of them is your Nation, its office is on this page with a way to reach it.')
+            else:
+                sentences.append(f'{name} is home to the governments of Nations such as {and_list(picked)}. If your Nation is here, its office is on this page with a way to reach it.')
+        elif state_rec:
+            sentences.append(f'No federally recognized Nation has its government in {the_name}, but the state recognizes Nations of its own, among them {and_list([with_article(n) for n in state_rec[:2]])}. If you belong to one, it is listed here with the official source.')
+        else:
+            sentences.append(f'No federally recognized Nation has its government in {the_name}, so if you are enrolled, your Nation\'s office is in another state; the <a href="../nations.html">Nations directory</a> has every one.')
+        bits = []
+        if cities:
+            bits.append(f'urban Indian programs in {and_list(cities[:3])}, which often serve any Native person')
+        for r in (community + other)[:2]:
+            where = f' in {r["place"]}' if r.get('place') and r['place'] not in r['name'] else ''
+            bits.append(f'{with_article(r["name"])}{where}')
+        if hospitals:
+            bits.append(f'Indian health hospitals in {and_list(hospitals[:3])}')
+        elif {c['run'] for c in clinics} & {'tribal', 'ihs'}:
+            runs = {c['run'] for c in clinics}
+            bits.append('tribal and Indian Health Service clinics' if {'tribal', 'ihs'} <= runs else
+                        'tribal health clinics' if 'tribal' in runs else 'Indian Health Service clinics')
+        if colleges:
+            bits.append(f'tribal colleges such as {and_list(colleges[:2])}' if len(colleges) > 1 else f'a tribal college, {colleges[0]}')
+        if 'reservation' in land_kinds and len(bits) < 3:
+            res = [a['name'] for a in lands if a['kind'] == 'reservation'][:2]
+            bits.append(f'tribal lands such as the {and_list(res)}')
+        if bits:
+            lead = 'Also on this page' if nations or state_rec else 'What is here'
+            bits = bits[:3]
+            joined = '; '.join(bits[:-1]) + '; and ' + bits[-1] if len(bits) > 2 or (len(bits) == 2 and ', ' in bits[0]) else and_list(bits)
+            sentences.append(f'{lead}: {joined}.')
+        elif not nations:
+            sentences.append('The help further down works from anywhere in the country.')
+        lede = ' '.join(sentences)
+    h1 = note.get('h1') or (f'Native {name}: {and_list(features)}' if features else f'Native people in {the_name}: help and how to reach your Nation')
+    title = note.get('title') or f'{name} Native resources: {and_list(features) if features else "help and your Nation"} | {SITE["name"]}'
+    description = clip(plain(lede))
+    if len(description) < 80:
+        description = clip(description + f' Crisis lines, health care, school, housing and legal help for Native people in {the_name}.')
+    return {'h1': h1, 'title': title, 'description': description, 'lede': lede}
 
 
 def is_urban_center(r):
@@ -545,18 +749,20 @@ def colleges_section(code):
             '<ul class="nations">' + ''.join(college_item(c) for c in items) + '</ul>' + colleges_note() + '</section>')
 
 
+JUMP = {'local': ('local-h', 'Community and help'), 'ties': ('ties-h', 'Nations tied to this state'),
+        'colleges': ('tcu-h', 'Tribal colleges'), 'clinics': ('clinics-h', 'Clinics'), 'lands': ('lands-h', 'Lands')}
+
+
 def jump_bar(code, nations, records):
     links = []
-    if records:
-        links.append(('local-h', 'Community and help'))
-    if COLLEGES.get(code):
-        links.append(('tcu-h', 'Tribal colleges'))
-    if nations or STATE_NATIONS.get(code):
-        links.append(('nations-h' if nations else 'hsr-' + code, 'Nations'))
-    if CLINICS.get(code):
-        links.append(('clinics-h', 'Clinics'))
-    if LANDS.get(code):
-        links.append(('lands-h', 'Lands'))
+    for key in state_order(code, nations, records):
+        if key == 'nations':
+            links.append(('nations-h', 'Nations'))
+        elif key == 'state':
+            if not nations:
+                links.append(('hsr-' + code, 'Nations'))
+        else:
+            links.append(JUMP[key])
     links.append(('nat-h', 'Help anywhere'))
     return '<nav class="chips" aria-label="On this page"><ul>' + ''.join(f'<li><a href="#{i}">{E(l)}</a></li>' for i, l in links) + '</ul></nav>'
 
@@ -571,45 +777,46 @@ def build_states():
         records = [r for r in RES if r['area'] == code]
         note = STATE_NOTES.get(code, {})
         up = '../'
-        body = f'<p class="crumb"><a href="index.html">All states</a></p><h1>{E(name)}: Nations and help for Native people</h1>'
+        land = state_landing(code, nations, records)
+        body = (f'<p class="crumb"><a href="index.html">All states</a></p><h1>{E(land["h1"])}</h1>'
+                f'<p class="lede">{land["lede"]}</p>')
         body += state_intro(code, nations, records) + urgent(up) + jump_bar(code, nations, records)
+        sections = {}
         if records:
-            body += f'<section aria-labelledby="local-h"><h2 id="local-h">Native community and help in {E(name)}</h2>'
-            body += ''.join(need_section(need, code, level=3, compact=True) for need in NEED_LIST) + '</section>'
-        body += colleges_section(code)
+            sections['local'] = (f'<section aria-labelledby="local-h"><h2 id="local-h">Native community and help in {E(name)}</h2>'
+                                 + ''.join(need_section(need, code, level=3, compact=True) for need in NEED_LIST) + '</section>')
+        sections['colleges'] = colleges_section(code)
         if nations:
-            body += (f'<section aria-labelledby="nations-h"><h2 id="nations-h">Nations with their government in {E(name)}</h2>'
-                     '<ul class="nations">' + ''.join(nation_item(n) for n in nations) + '</ul>'
-                     f'<p class="meta">From the <a href="{E(NATIONS_FILE["source_page"])}">Bureau of Indian Affairs Tribal Leaders Directory</a>, retrieved {nice_date(NATIONS_FILE["retrieved"])}. '
-                     'Names are shown as the Bureau lists them. Nations: tell us if you want a listing changed.</p></section>')
-        body += state_nations_section(code)
-        body += clinics_section(code)
-        body += lands_section(code)
+            sections['nations'] = (f'<section aria-labelledby="nations-h"><h2 id="nations-h">Nations with their government in {E(name)}</h2>'
+                                   '<ul class="nations">' + ''.join(nation_item(n) for n in nations) + '</ul>'
+                                   f'<p class="meta">From the <a href="{E(NATIONS_FILE["source_page"])}">Bureau of Indian Affairs Tribal Leaders Directory</a>, retrieved {nice_date(NATIONS_FILE["retrieved"])}. '
+                                   'Names are shown as the Bureau lists them. Nations: tell us if you want a listing changed.</p></section>')
+        sections['state'] = state_nations_section(code)
+        sections['clinics'] = clinics_section(code)
+        sections['lands'] = lands_section(code)
         if note.get('ties'):
-            body += (f'<section aria-labelledby="ties-h"><h2 id="ties-h">{E(note["ties_title"])}</h2><p>{E(note["ties_intro"])}</p>'
-                     '<ul class="nations">' + ''.join(nation_item(NATION[i], show_state=True) for i in note['ties']) + '</ul>'
-                     f'<p class="meta">List of Nations: <a href="{E(note["ties_source"]["url"])}">{E(note["ties_source"]["label"])}</a>, checked {nice_date(note["checked"])}. '
-                     f'Phone numbers and websites: Bureau of Indian Affairs directory, retrieved {nice_date(NATIONS_FILE["retrieved"])}.</p></section>')
+            sections['ties'] = (f'<section aria-labelledby="ties-h"><h2 id="ties-h">{E(note["ties_title"])}</h2><p>{E(note["ties_intro"])}</p>'
+                                '<ul class="nations">' + ''.join(nation_item(NATION[i], show_state=True) for i in note['ties']) + '</ul>'
+                                f'<p class="meta">List of Nations: <a href="{E(note["ties_source"]["url"])}">{E(note["ties_source"]["label"])}</a>, checked {nice_date(note["checked"])}. '
+                                f'Phone numbers and websites: Bureau of Indian Affairs directory, retrieved {nice_date(NATIONS_FILE["retrieved"])}.</p></section>')
+        body += ''.join(sections.get(k, '') for k in state_order(code, nations, records))
         body += (f'<section aria-labelledby="nat-h"><h2 id="nat-h">Help that works in every state</h2>{national_links(up)}</section>'
                  f'<section class="panel"><h2>Know something that belongs on this page?</h2><p>A Nation, a community group, a clinic, a program: write to <a href="mailto:{E(SITE["email"])}">{E(SITE["email"])}</a>.</p></section>')
-        if nations:
-            description = f'Federally recognized Nations with their governments in {name}, with phone numbers and websites, plus help for Native people in {name}: crisis lines, health care, school, housing, legal help and community.'
-        else:
-            description = f'Help for Native people living in {name}: crisis lines, health care, recovery, school, housing, legal help and how to reach your Nation.'
-        page(f'states/{STATE_SLUG[code]}.html', f'{name}: Native resources and tribal Nations | {SITE["name"]}', description, body)
+        page(f'states/{STATE_SLUG[code]}.html', land['title'], land['description'], body)
         count = f' <span class="count">{len(nations)} government office{"s" if len(nations) != 1 else ""}</span>' if nations else ''
         local = ' <span class="count">local listings</span>' if records else ''
         index_items += f'<li><a href="{STATE_SLUG[code]}.html">{E(name)}</a>{count}{local}</li>'
     body = f'''<h1>Find help by state</h1>
-<p class="lede">Every state has a page with the Nations whose governments are there and the national help that works anywhere. Ohio and Michigan also list community groups and state programs, and 21 more states list their urban Indian health programs. More is being filled in.</p>
+<p class="lede">Choose the state where you live, or where your family is from. Each page starts with what is there for Native people: the Nations whose governments are there, local community and help where we have it, Indian health clinics, tribal colleges and tribal lands.</p>
 <p class="picker"><label for="state-pick">Go to a state</label> <select id="state-pick" data-go>{state_options("../")}</select></p>
+<p>Every page also has the national help that works anywhere. More local listings are being filled in.</p>
 <ul class="statelist big">{index_items}</ul>
 <section aria-labelledby="map-h"><h2 id="map-h">Where Nations have their governments</h2>
 <p>Each dot is the government office of a federally recognized Nation, from the Bureau of Indian Affairs directory. Each state is a link to its page. For a map you can zoom, search and use near you, <a href="../index.html">open the main map</a>.</p>
 {map_svg("../")}
 <p class="meta">Office locations: <a href="{E(NATIONS_FILE['source_page'])}">Bureau of Indian Affairs Tribal Leaders Directory</a>, retrieved {nice_date(NATIONS_FILE['retrieved'])}. A dot shows where a government office is, not the extent of a Nation's homelands.</p></section>'''
     page('states/index.html', f'Native resources by state | {SITE["name"]}',
-         'Choose a state to see the federally recognized Nations with governments there, and help for Native people who live there.', body)
+         'Choose your state to see the Nations with governments there, local Native community and help, Indian health clinics, tribal colleges and tribal lands.', body)
 
 
 def build_nations():
@@ -628,22 +835,22 @@ def build_nations():
                         '<p>These Nations are recognized by their state government and are not on the federal list. So far: '
                         + ', '.join(STATE_NAME[c] for c, _ in STATES if c in STATE_NATIONS) + '. More states are being added.</p>'
                         + ''.join(state_nations_section(c, level=3, linked=True) for c, _ in STATES) + '</section>')
-    body = f'''<h1>Nations directory</h1>
-<p class="lede">The government office of every federally recognized Nation in the United States, by state, with a phone number and website where the directory has one.</p>
+    body = f'''<h1>Nations directory: find your Nation's office</h1>
+<p class="lede">Looking for your Nation's office, to ask about enrollment, services or events? Search by name, town or state; each Nation's government office is here with a phone number and website where the directory has one.</p>
+<p class="search"><label for="q">Search by name, town or state</label> <input id="q" type="search" autocomplete="off" data-nation-search> <span id="q-count" role="status"></span></p>
 <p>This list is built from the <a href="{E(NATIONS_FILE['source_page'])}">Bureau of Indian Affairs Tribal Leaders Directory</a>, retrieved {nice_date(NATIONS_FILE['retrieved'])}. The Bureau counts 575 federally recognized tribes as of January 30, 2026, and lists some bands and communities separately. It says the directory is not the official list (that is the notice it publishes in the Federal Register) and may contain errors. A Nation is listed under the state where its government office is; its homelands and citizens may reach far beyond that state.</p>
 <p>Names appear as the Bureau lists them. Nations recognized by a state and not on the federal list are in <a href="#state-recognized">their own section below</a>, added one state at a time from the official list of each state. Nations with neither kind of recognition are not listed yet; write to us to be added. If you speak for a Nation and want its listing changed, write to <a href="mailto:{E(SITE['email'])}">{E(SITE['email'])}</a>.</p>
-<p class="search"><label for="q">Search by name, town or state</label> <input id="q" type="search" autocomplete="off" data-nation-search> <span id="q-count" role="status"></span></p>
 <nav class="chips" aria-label="States with Nations listed"><ul>{chips}</ul></nav>
 {sections}
 {state_recognized}'''
-    page('nations.html', f'Directory of federally recognized tribal Nations by state | {SITE["name"]}',
-         'Phone numbers and websites for the government office of every federally recognized tribal Nation in the United States, listed by state, from the Bureau of Indian Affairs directory.', body)
+    page('nations.html', f'Find your Nation: directory of tribal Nations by state | {SITE["name"]}',
+         'Find your Nation\'s government office: phone numbers and websites for every federally recognized tribal Nation in the United States, by state, and a separate section for Nations recognized by a state.', body)
 
 
 def build_find():
     mail = E(SITE['email'])
     body = f'''<h1>Finding your Nation</h1>
-<p class="lede">If you grew up away from your Nation, or you are not sure which Nation your family comes from, this page explains how to trace your family and how enrollment works.</p>
+<p class="lede">If you are reconnecting with your family's Nation, whether you grew up away from it, were adopted, or have only a name and a family story to go on, this page walks you through tracing your family and how enrollment works.</p>
 <p>Enrollment is a legal status that each Nation decides for itself. Finding community is a separate thing, and you can start on both at once: see <a href="community.html">Finding community</a>.</p>
 
 <section aria-labelledby="f1"><h2 id="f1">What enrollment is</h2>
@@ -680,7 +887,7 @@ def build_find():
 <p>No federally recognized Nation has its government in Ohio today, but dozens of Nations are tied to Ohio by homelands and treaties, and their governments are in other states now. The <a href="states/ohio.html#ties-h">Ohio page</a> lists the Nations the Ohio History Connection names, with a phone number for each.</p></section>
 
 <section aria-labelledby="f7"><h2 id="f7">If your Nation is not federally recognized</h2>
-<p>Our directory comes from the federal list, so Nations recognized only by a state, and Nations still seeking recognition, are not in it yet. Some help does not depend on federal recognition: the American Indian College Fund, for example, accepts members and descendants of state-recognized tribes. On the <a href="help.html">help page</a> you can show only the listings that do not ask for tribal enrollment.</p></section>
+<p>Nations recognized by a state have <a href="nations.html#state-recognized">their own section of the Nations directory</a>, added one state at a time from each state's official list. Nations still seeking recognition are not listed yet. Some help does not depend on federal recognition: the American Indian College Fund, for example, accepts members and descendants of state-recognized tribes. On the <a href="help.html">help page</a> you can show only the listings that do not ask for tribal enrollment.</p></section>
 
 <section class="panel"><h2>Something here wrong, or missing?</h2><p>If you work in tribal enrollment, or you have walked this road yourself and see a step we got wrong, write to <a href="mailto:{mail}">{mail}</a>.</p></section>'''
     page('find-your-nation.html', f'Finding your Nation: tracing Native ancestry and tribal enrollment | {SITE["name"]}',
@@ -688,6 +895,8 @@ def build_find():
 
 
 def build_community():
+    community_states = [name for code, name in STATES if any(
+        r['area'] == code and (r['need'] == 'community' or 'community' in r.get('also', [])) for r in RES)]
     local = ''
     for code, name in STATES:
         recs = [r for r in RES if r['area'] == code and (r['need'] == 'community' or 'community' in r.get('also', []))]
@@ -706,8 +915,8 @@ def build_community():
                          for c, _ in STATES if c in urban)
     colleges_html = '<ul class="nations">' + ''.join(college_item(x, show_state=c) for c, _ in STATES for x in COLLEGES.get(c, [])) + '</ul>'
     body = f'''<h1>Finding community</h1>
-<p class="lede">Places and groups where Native people gather: community centers, youth councils, recovery circles and tribal colleges.</p>
-<p>Community groups are listed so far for Ohio and Michigan. Urban Indian centers in 21 states and 33 tribal colleges in 13 states are further down, and every state page lists its Nations, clinics and tribal lands.</p>
+<p class="lede">If you want to be around Native people where you live, whether you are new to a city or coming back to your culture, here are the places and groups where Native people gather: community centers, youth councils, recovery circles and tribal colleges.</p>
+<p>Local groups and state Native affairs offices are listed so far for {and_list(community_states)}. Urban Indian centers and tribal colleges are further down, and every state page lists its Nations, clinics and tribal lands.</p>
 <section aria-labelledby="c-local"><h2 id="c-local">Community centers and groups, by state</h2>{local}
 <p>In another state? Start with the <a href="help.html#r-urban-indian-health">map of Urban Indian Organizations</a>, whose services can include youth, elder and community programs, or <a href="states/index.html">open your state's page</a>.</p></section>
 <section aria-labelledby="c-urban"><h2 id="c-urban">Urban Indian centers</h2>
@@ -718,8 +927,8 @@ def build_community():
 <section aria-labelledby="c-nation"><h2 id="c-nation">Your own Nation</h2>
 <p>If you know which Nation you come from, call its government office and ask what gatherings, classes or events are coming up, and whether descendants are welcome. The <a href="nations.html">Nations directory</a> has the numbers. If you are not sure which Nation, start with <a href="find-your-nation.html">Finding your Nation</a>.</p></section>
 <section class="panel"><h2>Run a Native community group?</h2><p>We would like to list it, the way you want it described. Write to <a href="mailto:{E(SITE['email'])}">{E(SITE['email'])}</a>.</p></section>'''
-    page('community.html', f'Native community centers, youth councils and recovery circles | {SITE["name"]}',
-         'Find Native community: urban Indian centers and Native organizations in Ohio and Michigan, national youth councils, Wellbriety recovery circles and tribal colleges.', body)
+    page('community.html', f'Find Native community: centers, youth councils and recovery circles | {SITE["name"]}',
+         'Find Native people near you: urban Indian centers, Native community groups, youth councils, Wellbriety recovery circles and tribal colleges, for Native people in cities and those coming back to their culture.', body)
 
 
 def build_about():
@@ -734,8 +943,8 @@ def build_about():
 <p>It needs Native people to look it over. If you are a tribal citizen or descendant, or you work for a Nation, a tribal program or a Native organization, your corrections and your judgment about what belongs here are wanted: <a href="mailto:{mail}">{mail}</a>.</p></section>
 
 <section aria-labelledby="a2"><h2 id="a2">What it covers so far</h2>
-<p>This first version covers the United States: national help by need, the government office of every federally recognized Nation, and a page for every state. Ohio and Michigan also list community groups and state programs. More states are being filled in. Help for First Nations, Inuit and Métis people in Canada and for Indigenous peoples in Mexico comes next.</p>
-<p>Not here yet: Nations recognized only by a state, Nations still seeking recognition, and most local organizations outside Ohio and Michigan.</p></section>
+<p>The United States is covered in the most detail: national help by need, the government office of every federally recognized Nation, Nations recognized by a state (one state at a time), and a page for every state. Ohio and Michigan also list community groups and state programs, and more states are being filled in. <a href="world/index.html">Country guides</a> carry the map beyond the United States.</p>
+<p>Not here yet: Nations still seeking recognition, and most local organizations outside Ohio and Michigan.</p></section>
 
 <section aria-labelledby="a3"><h2 id="a3">Where the listings come from</h2>
 <ul>
@@ -847,7 +1056,7 @@ PROUD = [
 
 def build_proud():
     cats = ''
-    body = ('<h1>Proud history</h1><p class="lede">Some of what First Peoples built, invented, defended and won. A few stories to start; there are thousands more.</p>'
+    body = ('<h1>Proud history</h1><p class="lede">For anyone looking for stories to be proud of, or to teach: some of what First Peoples built, invented, defended and won. A few to start; there are thousands more.</p>'
             '<p>Every entry links to the museum, government or Nation source it comes from. If your Nation or family has a story that belongs here, '
             f'<a href="mailto:{E(SITE["email"])}">send it</a>, told the way you want it told.</p>')
     for i, (cat, title, what, more, sources) in enumerate(PROUD):
@@ -859,7 +1068,7 @@ def build_proud():
 
 
 def build_works():
-    body = ('<h1>What has worked</h1><p class="lede">Programs with published results behind them, for Native families, clinics and tribal governments.</p>'
+    body = ('<h1>What has worked</h1><p class="lede">If you run a program for a Nation or a Native community, or want to start one, these programs have measured, published results behind them, for families, clinics and tribal governments.</p>'
             '<p>This page lists only programs whose results were measured and published by the agency or university named in each entry. It is short on purpose and will grow one sourced entry at a time. '
             f'If you know a program with results to show, <a href="mailto:{E(SITE["email"])}">tell us</a>.</p>')
     for i, w in enumerate(WORKS):
@@ -1019,6 +1228,72 @@ def urgent_world(up=''):
             f'<p><a href="{up}help.html#safety">All crisis and safety lines</a> · <a href="{up}help.html#housing">Shelter and housing help</a> · <a href="{up}world/index.html">Help in other countries</a></p></aside>')
 
 
+# The "I'm..." chooser on the home page. Each person gets a short line and links to what already exists on the site.
+WHO = [
+    ('land', 'living on a reservation or tribal land',
+     'Your Nation\'s own offices come first, then the clinics, colleges and programs that serve tribal lands.',
+     [('nations.html', 'Your Nation\'s government office'), ('states/index.html', 'Tribal lands, Indian health clinics and tribal colleges in your state'),
+      ('help.html#r-tribal-housing', 'Tribal housing programs'), ('help.html#r-fdpir', 'Food Distribution Program on Indian Reservations'),
+      ('what-works.html', 'Programs that have worked in Native communities')]),
+    ('urban', 'Native and living in a city',
+     'Urban Indian centers and health programs, and Native community groups near you.',
+     [('community.html#c-urban', 'Urban Indian centers'), ('help.html#r-urban-indian-health', 'Urban Indian health programs'),
+      ('community.html#c-local', 'Community centers and groups by state'), ('nations.html', 'Reach your Nation from wherever you live')]),
+    ('reconnect', 'reconnecting with my family or my heritage',
+     'How to trace your family, how enrollment works, and how to find community while you look.',
+     [('find-your-nation.html', 'Finding your Nation'), ('find-your-nation.html#f5', 'If you were adopted, in foster care, or your family was separated'),
+      ('help.html#r-boarding-school-archive', 'Indian boarding school records'), ('community.html', 'Finding community')]),
+    ('nonfed', 'from a Nation without federal recognition',
+     'Nations recognized by a state have their own section, and much of the help here does not ask for a tribal card.',
+     [('nations.html#state-recognized', 'Nations recognized by a state'), ('find-your-nation.html#f7', 'If your Nation is not federally recognized'),
+      ('help.html', 'Help, with a filter for listings that do not ask for enrollment')]),
+    ('veteran', 'a Native veteran',
+     'VA help written for Native veterans, and the crisis line for veterans.',
+     [('help.html#veterans', 'Help for veterans'), ('help.html#r-va-copay-exemption', 'No VA copays for Native veterans'),
+      ('help.html#r-va-nadl', 'VA home loans on trust land'), ('help.html#r-homeless-veterans-call-center', 'If you are a veteran with no place to stay'),
+      ('help.html#r-veterans-crisis-line', 'Veterans Crisis Line'),
+      ('proud-history.html#p3', 'Serving at the highest rate')]),
+    ('student', 'a Native student',
+     'Scholarships, tribal colleges, and youth councils and resources for Native young people.',
+     [('help.html#school', 'School and scholarships'), ('community.html#c-tcu', 'Tribal colleges'),
+      ('help.html#r-unity', 'UNITY youth councils'), ('help.html#r-we-r-native', 'We R Native')]),
+    ('family', 'raising Native children',
+     'Your family\'s rights under the Indian Child Welfare Act, and help for parents and young families.',
+     [('help.html#family', 'Children, youth and family'), ('help.html#r-icwa-rights', 'The Indian Child Welfare Act: your family\'s rights'),
+      ('help.html#r-nicwa', 'National Indian Child Welfare Association'), ('what-works.html#w1', 'Home visits for young families')]),
+    ('elder', 'an elder, or caring for one',
+     'Elder programs run by tribes, and help with food, bills and health care.',
+     [('help.html#elders', 'Elders'), ('help.html#r-title-vi-elders', 'Elder programs run by tribes'),
+      ('help.html#money', 'Food, money and bills'), ('help.html#health', 'Health care')]),
+    ('recovery', 'in recovery, or want to be',
+     'Wellbriety circles, treatment for Native youth, and the national helpline.',
+     [('help.html#recovery', 'Recovery and wellness'), ('help.html#r-wellbriety-circles', 'Wellbriety circles'),
+      ('help.html#r-ihs-yrtc', 'Youth Regional Treatment Centers'), ('help.html#r-samhsa-helpline', 'SAMHSA National Helpline')]),
+    ('staff', 'working for a Nation or a tribal program',
+     'Programs with measured results, and how to correct or add your own listing.',
+     [('what-works.html', 'What has worked'), ('about.html#a5', 'For Nations and organizations'), ('nations.html', 'Nations directory')]),
+    ('world', 'Indigenous, outside the United States',
+     'Country guides in each people\'s own terms, from Canada and Mexico to Aotearoa, Sápmi and beyond.',
+     [('world/index.html', 'First Peoples around the world'), ('world/canada.html', 'Canada'), ('world/aotearoa-new-zealand.html', 'Aotearoa New Zealand'),
+      ('world/australia.html', 'Australia')]),
+]
+
+
+def who_chooser():
+    """The short "I'm..." row near the top of the home page; each choice opens its own panel lower down."""
+    return ('<nav class="chips iam" aria-labelledby="iam-h"><p id="iam-h" class="iam-h">I\'m…</p><ul>'
+            + ''.join(f'<li><a href="#who-{k}">{E(label)}</a></li>' for k, label, _, _ in WHO)
+            + '<li><a href="help.html#safety">in danger, or in crisis right now</a></li></ul></nav>')
+
+
+def who_panels():
+    out = ''
+    for k, label, line, links in WHO:
+        lst = ''.join(f'<li><a href="{E(href)}">{E(text)}</a></li>' for href, text in links)
+        out += f'<article id="who-{k}"><h3>I\'m {E(label)}</h3><p>{E(line)}</p><ul>{lst}</ul></article>'
+    return f'<section aria-labelledby="paths-h"><h2 id="paths-h">Start where you are</h2><div class="paths who">{out}</div></section>'
+
+
 def build_home():
     data = finder_data()
     country_opts = ''.join(f'<option value="{c["code"]}">{E(c["name"])}</option>' for c in COUNTRIES)
@@ -1028,10 +1303,10 @@ def build_home():
     legend = ''.join(f'<li><span class="key k-{k}" aria-hidden="true"></span>{E(label)} <span class="count">{counts.get(k, 0):,}</span></li>'
                      for k, label in KIND_LABEL.items() if counts.get(k))
     world_cards = country_cards('world/', lines=False)
-    total = len(data['points'])
     body = f'''<section class="finder" aria-labelledby="find-h">
 <div class="finder-head"><h1 id="find-h">Find help, your Nation and your people</h1>
-<p class="lede">A free map for First Peoples with {total:,} places: Nations, clinics, community centers, tribal colleges and tribal lands. Tap a place to call, get directions or open its website. <span class="dedication">{E(SITE['dedication'])}</span></p></div>
+<p class="lede">A free map for First Peoples: Nations, clinics, community centers, tribal colleges and tribal lands. Tap a place to call, get directions or open its website. <span class="dedication">{E(SITE['dedication'])}</span></p></div>
+{who_chooser()}
 <form class="finder-controls" role="search" onsubmit="return false">
 <p class="ctl"><label for="f-country">Where</label> <select id="f-country">{country_opts}</select></p>
 <p class="ctl"><button type="button" class="btn" id="f-locate">Use my location</button></p>
@@ -1055,11 +1330,7 @@ def build_home():
 <noscript><p class="panel">The map needs JavaScript. Everything on it is also on the <a href="states/index.html">state pages</a>, the <a href="nations.html">Nations directory</a> and the <a href="world/index.html">country pages</a>.</p></noscript>
 </section>
 {urgent_world()}
-<section aria-labelledby="paths-h"><h2 id="paths-h">Start where you are</h2><div class="paths">
-<article><h3>I am not sure which Nation I come from</h3><p>How to trace your family, what enrollment is, and who can help you look.</p><p><a class="btn" href="find-your-nation.html">Finding your Nation</a></p></article>
-<article><h3>I want to be around Native people near me</h3><p>Community centers, youth councils, recovery circles and tribal colleges.</p><p><a class="btn" href="community.html">Find community</a></p></article>
-<article><h3>I know my Nation and need to reach it</h3><p>The phone number and website of the government office of every federally recognized Nation.</p><p><a class="btn" href="nations.html">Nations directory</a></p></article>
-</div></section>
+{who_panels()}
 <section aria-labelledby="world-h"><h2 id="world-h">First Peoples around the world</h2>
 <p>Nina's Map started in the United States and is growing country by country, each one in its own peoples' terms.</p>
 {world_cards}</section>
@@ -1093,8 +1364,9 @@ def build_world():
         if not c['slug']:
             continue
         recs = [r for r in WORLD if r['area'] == c['code']]
-        body = (f'<p class="crumb"><a href="index.html">All countries</a></p><h1>{E(c["name"])}: help and community for {E(c["peoples"])}</h1>'
-                f'<p class="lede">{E(c["intro"])}</p>')
+        h1 = (f'{c["name"]}: help and community for {c["peoples"]}' if recs else f'{c["peoples"]} in {c["name"]}: where to start')
+        body = (f'<p class="crumb"><a href="index.html">All countries</a></p><h1>{E(h1)}</h1>'
+                + (f'<p class="lede">{E(c["welcome"])}</p><p>{E(c["intro"])}</p>' if c.get('welcome') else f'<p class="lede">{E(c["intro"])}</p>'))
         if c.get('intro_sources'):
             body += '<p class="meta">Sources: ' + ' · '.join(f'<a href="{E(s["url"])}">{E(s["label"])}</a>' for s in c['intro_sources']) + '.</p>'
         if c.get('report'):
@@ -1130,13 +1402,14 @@ def build_world():
             body += f'<p class="meta">From <a href="{E(inuit["source_page"])}">Inuit Communities Location</a>, {E(inuit["publisher"])}, retrieved {nice_date(CA_PLACES["retrieved"])}.</p></section>'
         body += (f'<section class="panel"><h2>Help us fill in {E(c["name"])}</h2><p>This page is new and short on purpose: everything on it is read from the organization\'s own page or a government page. '
                  f'If you know a program, a community center or a correction that belongs here, write to <a href="mailto:{E(SITE["email"])}">{E(SITE["email"])}</a>.</p></section>')
-        desc = f'Help for {c["peoples"]} in {c["name"]}: crisis lines, health care, family support, legal help, and how to reach Nations and communities, with sources.'
-        page(f'world/{c["slug"]}.html', f'{c["name"]}: help and community for {c["peoples"]} | {SITE["name"]}', desc[:255], body)
+        desc = clip(c.get('welcome') or f'Help for {c["peoples"]} in {c["name"]}, with sources.')
+        page(f'world/{c["slug"]}.html', f'{h1} | {SITE["name"]}', desc, body)
         first = c['urgent'][0] if c['urgent'] else None
         line = f'<span class="meta">{E(first["label"])}: {E(first["phone"])}</span>' if first else ''
         cards += f'<li><a href="{c["slug"]}.html"><strong>{E(c["name"])}</strong><span>{E(c["peoples"])}</span>{line}</a></li>'
     body = f'''<h1>First Peoples around the world</h1>
-<p class="lede">Nina's Map began in the United States. These pages carry it to other countries, one at a time, using each people's own terms. Every listing shows where it came from and when it was checked.</p>
+<p class="lede">If you are Indigenous outside the United States, find your country or homeland below. Each page uses its peoples' own terms and starts with the help we could confirm there.</p>
+<p>Nina's Map began in the United States and is growing one country at a time. Every listing shows where it came from and when it was checked.</p>
 <p>Country pages so far: {E(country_names())}, and help that reaches Indigenous peoples anywhere. Some pages are starters, with background and the help we could confirm; more are on the way. If you want your country next, or know what belongs on its page, <a href="mailto:{E(SITE['email'])}">tell us</a>.</p>
 {country_cards()}
 <p><a class="btn" href="../index.html">Open the map</a> <a class="btn line" href="../help.html">Help in the United States</a></p>'''

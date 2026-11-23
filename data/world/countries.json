@@ -39,6 +39,7 @@
    ],
    "zoom": 3,
    "emergency": "911",
+   "welcome": "If you are First Nations, Inuit or Métis, this page brings together help made for you: Hope for Wellness for any Indigenous person in Canada, Non-Insured Health Benefits, Jordan's Principle and the Inuit Child First Initiative for children, and Friendship Centres if you live in a city or town. Every First Nation and Inuit community is listed further down.",
    "intro": "Canada recognizes three groups of Indigenous peoples in its Constitution: First Nations, Inuit and Métis. The map shows the administrative office of every First Nation registered with Indigenous Services Canada and every Inuit community, from the Government of Canada's open data. Each First Nation links to its official profile, which has its address and phone.",
    "intro_sources": [
     {
@@ -76,6 +77,7 @@
    ],
    "zoom": 5,
    "emergency": "911",
+   "welcome": "If you belong to one of Mexico's Indigenous peoples or to the Afro-Mexican people, start with the Instituto Nacional de los Pueblos Indígenas (INPI), the federal authority for your peoples, with offices in the states and Centros Coordinadores in Indigenous regions.",
    "intro": "Mexico's National Institute of Indigenous Peoples (INPI) counts 68 Indigenous peoples and the Afro-Mexican people. About 25.7 million people in Mexico identify as Indigenous, and 7.4 million speak an Indigenous language.",
    "intro_sources": [
     {
@@ -103,6 +105,7 @@
    ],
    "zoom": 4,
    "emergency": "000",
+   "welcome": "If you are Aboriginal or Torres Strait Islander, start with services your own communities run: health care from your local Aboriginal Community Controlled Health Organisation, and legal help from Aboriginal and Torres Strait Islander Legal Services. If you are a member of the Stolen Generations, Link-Up helps you trace family and return to Country.",
    "intro": "Aboriginal and Torres Strait Islander people run their own health services across Australia: Aboriginal Community Controlled Health Organisations, started and governed by the local community. The first opened in Redfern, Sydney, in 1971. There is also a national crisis line answered by Aboriginal and Torres Strait Islander people.",
    "intro_sources": [
     {
@@ -134,6 +137,7 @@
    ],
    "zoom": 5,
    "emergency": "111",
+   "welcome": "If you are Māori, whether you grew up close to your marae or are reconnecting with your iwi, this page starts with finding your iwi, hapū and marae, and with support for your whānau.",
    "intro": "Te Kāhui Māngai, run by Te Puni Kōkiri (the Ministry of Māori Development), is the government's directory of iwi, hapū and marae and the organizations that represent them. Whānau Ora navigators help whānau plan and reach the support they need.",
    "intro_sources": [
     {
@@ -167,6 +171,7 @@
    ],
    "zoom": 5,
    "emergency": "112",
+   "welcome": "If you are Sámi, the Sámi Parliament where you live, in Norway, Sweden or Finland, is listed here, and in Norway SANKS gives mental health and substance use care that fits Sámi language and culture.",
    "intro": "The Sámi are an Indigenous people whose homeland, Sápmi, stretches across northern Norway, Sweden, Finland and Russia. Each of the three Nordic countries has an elected Sámi Parliament. The Sámi Parliament of Finland notes that the Sámi are the only Indigenous people in the European Union.",
    "intro_sources": [
     {
@@ -193,6 +198,7 @@
    ],
    "zoom": 4,
    "emergency": null,
+   "welcome": "If you are Indigenous in Brazil, this page starts with the agency responsible for your people's rights, including land demarcation and legal assistance.",
    "intro": "The Fundação Nacional dos Povos Indígenas (Funai) is the Brazilian state's official Indigenous agency. Its mission is to protect and promote the rights of Indigenous peoples in Brazil, and its headquarters are in Brasília.",
    "intro_sources": [
     {
@@ -221,6 +227,7 @@
    ],
    "zoom": 5,
    "emergency": null,
+   "welcome": "If you are Quechua, Aymara or from another of Peru's Indigenous peoples, this page is a start: background on land, rights and recent events from The Indigenous World, and a free mental health line.",
    "intro": "Peru officially recognizes 47 Indigenous languages, spoken by 55 peoples. In the 2017 census almost six million people, just over a quarter of the population, identified as Indigenous; most identified as Quechua or Aymara.",
    "intro_sources": [
     {
@@ -249,6 +256,7 @@
    ],
    "zoom": 7,
    "emergency": null,
+   "welcome": "If you are K'iche', Kaqchikel, Mam, Q'eqchi' or from another of Guatemala's Indigenous peoples, this page is just beginning: it has background on land, rights and recent events from The Indigenous World.",
    "intro": "More than four in ten people in Guatemala are Indigenous, most of them from the Maya peoples, among them the K'iche', Kaqchikel, Mam and Q'eqchi'. Guatemala's population was projected at 18.8 million for 2025, 43.75% of them Indigenous.",
    "intro_sources": [
     {
@@ -271,6 +279,7 @@
    ],
    "zoom": 5,
    "emergency": null,
+   "welcome": "If you belong to one of Chile's Indigenous peoples, start with CONADI, the state body for Indigenous development and land programs, which takes questions online and in its offices.",
    "intro": "Chile's Indigenous Law (Ley 19.253) of 1993 recognizes nine Indigenous peoples and created the National Corporation for Indigenous Development (CONADI), which runs Indigenous development programs and has its national office in Temuco.",
    "intro_sources": [
     {
@@ -298,6 +307,7 @@
    ],
    "zoom": 3,
    "emergency": null,
+   "welcome": "If you are Kalaallit, in Kalaallit Nunaat or in Denmark, Naalakkersuisut, the Government of Greenland, is where questions about housing, education, fishing and hunting, and culture go.",
    "intro": "Kalaallit Nunaat has governed itself since 1979 within the Kingdom of Denmark. Of its 56,740 people (February 2026), 88.9% are Greenlandic Inuit, most of whom call themselves Kalaallit. About 17,000 Kalaallit live in Denmark.",
    "intro_sources": [
     {
@@ -320,6 +330,7 @@
    ],
    "zoom": 7,
    "emergency": null,
+   "welcome": "If you are from one of Taiwan's Indigenous peoples, or Pingpu and still seeking recognition, this page starts with the Council of Indigenous Peoples, the central government's council for Indigenous peoples.",
    "intro": "Taiwan officially recognizes 16 Indigenous peoples, who numbered 629,456 people, 2.7% of the population, at the end of 2025. They are represented at every level of government, including the central government's Council of Indigenous Peoples. Lowland Pingpu peoples are still seeking recognition.",
    "intro_sources": [
     {
@@ -348,6 +359,7 @@
    ],
    "zoom": 5,
    "emergency": null,
+   "welcome": "If you are Ainu or Ryūkyūan, this page is a start: Upopoy is listed for Ainu history and culture, and help for Ryūkyūans is not listed yet.",
    "intro": "Japan has two Indigenous peoples: the Ainu in the far north and the Ryūkyūans (Okinawans) in the far south. The Ainu have been officially recognized as an Indigenous people since June 2008. Upopoy, the national center for Ainu history and culture, opened in Shiraoi, Hokkaido, in July 2020.",
    "intro_sources": [
     {
@@ -374,6 +386,7 @@
    ],
    "zoom": 5,
    "emergency": null,
+   "welcome": "If you belong to one of the Indigenous Cultural Communities / Indigenous Peoples, from the Lumad of Mindanao to the peoples of Luzon and the Visayas, start with the National Commission on Indigenous Peoples, which handles rights and ancestral domain titles under the Indigenous Peoples' Rights Act.",
    "intro": "The 2020 census counted 9,841,785 Indigenous people in the Philippines: 63% in Mindanao, where the Lumad are the largest group, 34% in Luzon and 3% in the Visayas. The National Commission on Indigenous Peoples was created under the Indigenous Peoples' Rights Act of 1997.",
    "intro_sources": [
     {
@@ -402,6 +415,7 @@
    ],
    "zoom": 6,
    "emergency": null,
+   "welcome": "If you are San (Basarwa), Balala or Nama, this page is just beginning: it has background on land, rights and recent events in Botswana from The Indigenous World.",
    "intro": "Botswana's government does not recognize any specific group as Indigenous, holding that all citizens are. But 3.41% of people identify with an Indigenous group, among them about 76,231 San (called Basarwa in Botswana), the Balala and the Nama.",
    "intro_sources": [
     {
@@ -424,6 +438,7 @@
    ],
    "zoom": 6,
    "emergency": null,
+   "welcome": "If you are San, Ovahimba, Ovatue, Ovatjimba or from another of Namibia's Indigenous peoples, this page is just beginning: it has background on land, rights and recent events from The Indigenous World.",
    "intro": "Namibia's Indigenous peoples include the San groups, the Ovatue, Ovahimba and Ovatjimba, and possibly others such as the Nama and Topnaars. Together they are less than 3% of the population. More than 80% of the San have lost their ancestral lands.",
    "intro_sources": [
     {
@@ -446,6 +461,7 @@
    ],
    "zoom": 5,
    "emergency": null,
+   "welcome": "If you are Khoikhoi or San, this page is a start: background on land, rights and recent events from The Indigenous World, and a free suicide crisis line.",
    "intro": "The Khoikhoi and San peoples (the Khoisan) identify as South Africa's Indigenous peoples. Their largest representative bodies are the National Khoisan Council and the San Council of South Africa. Full legal recognition is still incomplete.",
    "intro_sources": [
     {
@@ -474,6 +490,7 @@
    ],
    "zoom": 5,
    "emergency": null,
+   "welcome": "If you belong to one of Colombia's Indigenous peoples, on the coasts, in the Amazon, on the Orinoco plains or in the Andes, start with ONIC, the national organization of Indigenous peoples.",
    "intro": "Colombia is home to some 115 Indigenous peoples, living on the Caribbean and Pacific coasts, in the Amazon, on the Orinoco plains and in the Andes. In 2025 a decree created Indigenous Territorial Entities, Indigenous governments with powers over health, education, justice and land.",
    "intro_sources": [
     {
@@ -506,6 +523,7 @@
    ],
    "zoom": 6,
    "emergency": null,
+   "welcome": "If you belong to one of Ecuador's Indigenous nationalities, in the highlands, the Amazon or on the coast, start with CONAIE and its regional branches, Ecuarunari, Confeniae and Conaice.",
    "intro": "Ecuador has 14 Indigenous nationalities, 1,301,887 people or 7.7% of the population. About two in three live in the highlands, a quarter in the Amazon and the rest on the coast.",
    "intro_sources": [
     {
@@ -534,6 +552,7 @@
    ],
    "zoom": 5,
    "emergency": null,
+   "welcome": "If you are Quechua, Aymara or from another of Bolivia's Indigenous peoples, this page is just beginning: it has background on land, rights and recent events from The Indigenous World.",
    "intro": "Bolivia recognizes 36 Indigenous peoples and calls itself a plurinational state. In the 2012 census 41% of people over 15 were of Indigenous origin, and the national statistics office projected 48% by 2017. Most Indigenous people in the Andes are Quechua or Aymara.",
    "intro_sources": [
     {
@@ -556,6 +575,7 @@
    ],
    "zoom": 4,
    "emergency": null,
+   "welcome": "If you are Adivasi or a member of a Scheduled Tribe, the Ministry of Tribal Affairs is where national scholarships, hostels and forest rights schemes start, though most are carried out by state governments.",
    "intro": "India lists some 705 ethnic groups as Scheduled Tribes. In central India they are often called Adivasis, meaning original inhabitants. The Ministry of Tribal Affairs, set up in 1999, leads national programs for Scheduled Tribes, from scholarships to forest rights.",
    "intro_sources": [
     {
@@ -588,6 +608,7 @@
    ],
    "zoom": 6,
    "emergency": null,
+   "welcome": "If you are Ogiek, Sengwer, Endorois, Maasai, Samburu, Turkana or from another of Kenya's pastoralist or hunter-gatherer peoples, this page is just beginning: it has background on land, rights and recent events from The Indigenous World.",
    "intro": "The peoples who identify as Indigenous in Kenya are mainly pastoralists and hunter-gatherers, with some fisher peoples and small farming communities. They include hunter-gatherers such as the Ogiek, Sengwer, Yaaku, Waata and Sanya, and pastoralists such as the Endorois, Turkana, Maasai and Samburu.",
    "intro_sources": [
     {
@@ -611,6 +632,7 @@
    ],
    "zoom": 7,
    "emergency": null,
+   "welcome": "If you are Adivasi Janajati, from a recognized people or one not yet recognized, this page is just beginning: it has background on land, rights and recent events from The Indigenous World.",
    "intro": "In Nepal's 2021 census, Indigenous peoples were 35.08% of the population. The government recognizes 60 Indigenous peoples, and 19 more have been identified but are not yet recognized.",
    "intro_sources": [
     {
@@ -633,6 +655,7 @@
    ],
    "zoom": 7,
    "emergency": null,
+   "welcome": "If you are Adivasi, in the plains or in the Chittagong Hill Tracts, this page is just beginning: it has background on land, rights and recent events from The Indigenous World.",
    "intro": "More than 54 Indigenous peoples live in Bangladesh, speaking at least 35 languages. The 2022 census counted about 1.65 million Indigenous people (1%), while Indigenous peoples put their own number near 4 million. Most live in the plains; the rest live in the Chittagong Hill Tracts.",
    "intro_sources": [
     {
@@ -655,6 +678,7 @@
    ],
    "zoom": 5,
    "emergency": null,
+   "welcome": "If you are Orang Asli on the Peninsula, JAKOA runs education, economic and community programmes in Orang Asli villages. Help for Orang Asal in Sabah and Sarawak is not listed yet.",
    "intro": "Indigenous peoples, together called Orang Asal, are about 11% of Malaysia's 32.4 million people (2020 census). On the Peninsula they are known as Orang Asli and number about 227,900 (2025); most Orang Asal live in Sabah and Sarawak on Borneo.",
    "intro_sources": [
     {
@@ -683,6 +707,7 @@
    ],
    "zoom": 4,
    "emergency": null,
+   "welcome": "If you belong to a Masyarakat Adat community, start with AMAN, the national alliance of Indigenous peoples, and its youth (BPAN) and women's (Perempuan AMAN) bodies.",
    "intro": "AMAN, the national alliance of Indigenous peoples (Aliansi Masyarakat Adat Nusantara), represents 2,596 communities with about 21 million members. AMAN estimates that 50 to 70 million Indigenous people live in Indonesia.",
    "intro_sources": [
     {
@@ -705,6 +730,7 @@
    ],
    "zoom": 4,
    "emergency": null,
+   "welcome": "If you belong to one of Argentina's pueblos originarios, start with INAI, the national institute for Indigenous affairs.",
    "intro": "Argentina's 2022 census counted 1,306,730 people who identify as Indigenous, 2.9% of the population, belonging to 58 peoples.",
    "intro_sources": [
     {
@@ -733,6 +759,7 @@
    ],
    "zoom": 6,
    "emergency": "911",
+   "welcome": "If you belong to one of Paraguay's Indigenous peoples, this page is a start: background on land, rights and recent events from The Indigenous World, and a free mental health line.",
    "intro": "Paraguay's 2022 census counted 140,206 Indigenous people, 2.29% of the population, belonging to 19 peoples.",
    "intro_sources": [
     {
@@ -761,6 +788,7 @@
    ],
    "zoom": 7,
    "emergency": null,
+   "welcome": "If you are Ngäbe, Buglé, Gunadule, Emberá, Wounaan, Naso Tjër Di, Bribri or Bokota, this page is a start: background on land, rights and recent events from The Indigenous World, and a free support line.",
    "intro": "Panama's 2023 census recorded eight Indigenous peoples: Ngäbe, Buglé, Gunadule, Emberá, Wounaan, Naso Tjër Di, Bribri and Bokota. Together they are 17.2% of the population, 698,114 people.",
    "intro_sources": [
     {
@@ -789,6 +817,7 @@
    ],
    "zoom": 6,
    "emergency": null,
+   "welcome": "If you belong to one of the Indigenous peoples of Thailand's northern highlands, western forests or southern coasts, this page is just beginning, with the national mental health hotline.",
    "intro": "Indigenous peoples in Thailand live across the northern highlands, the western forests and the southern coasts; estimates of their number range from 1 to 6 million. Thailand endorsed the UN Declaration on the Rights of Indigenous Peoples but does not legally recognize Indigenous peoples as a distinct group, and many face statelessness and insecure land rights.",
    "intro_sources": [
     {
@@ -817,6 +846,7 @@
    ],
    "zoom": 7,
    "emergency": null,
+   "welcome": "If you belong to one of Cambodia's Indigenous peoples, this page is just beginning: it has background on land, rights and recent events from The Indigenous World.",
    "intro": "Cambodia is home to 24 different Indigenous peoples, who make up 2 to 3% of the national population.",
    "intro_sources": [
     {
@@ -839,6 +869,7 @@
    ],
    "zoom": 8,
    "emergency": "911",
+   "welcome": "If you are Bribri, Cabécar, Maleku, Ngöbe, Huetar, Brunca, Térraba or Chorotega, this page is just beginning, with a psychological support line answered around the clock.",
    "intro": "Costa Rica recognizes eight Indigenous peoples: Bribri, Cabécar, Maleku, Ngöbe, Huetar, Brunca (Boruca), Térraba (Teribe) and Chorotega. They live in 24 Indigenous territories across the country.",
    "intro_sources": [
     {
@@ -867,6 +898,7 @@
    ],
    "zoom": 6,
    "emergency": null,
+   "welcome": "If you are from one of Tanzania's pastoralist or hunter-gatherer peoples, this page is just beginning: it has background on land, rights and recent events from The Indigenous World.",
    "intro": "Tanzania has an estimated 125 to 130 ethnic groups, mainly in four groups: Bantu, Cushite, Nilo-Hamite and San. Tanzania voted for the UN Declaration on the Rights of Indigenous Peoples in 2007 but does not recognize any Indigenous peoples in the country.",
    "intro_sources": [
     {
@@ -889,6 +921,7 @@
    ],
    "zoom": 1,
    "emergency": null,
+   "welcome": "If you are Indigenous anywhere, or your community is organizing, these reach across borders: grants for projects your community designs itself, the UN Permanent Forum on Indigenous Issues, and a yearly report on where things stand in each country.",
    "intro": "Help that reaches Indigenous peoples in any country: international bodies and funds led by Indigenous people.",
    "intro_sources": [],
    "urgent": [],

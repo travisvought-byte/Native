@@ -10,7 +10,7 @@ It covers the United States in the most detail (Ohio and Michigan deepest) and i
 
 ## What is on the site
 
-- `index.html`: the map finder. A zoomable map (Leaflet, OpenStreetMap tiles) of every Nation office, Indian health clinic, community listing, tribal college and tribal land in the U.S., and every First Nation and Inuit community in Canada, with need filters, "use my location", search, and a list of the closest places with Call, Directions and Website buttons. Beside it: the help lines that work anywhere in the country being viewed. Code: `assets/finder.js`; data: `assets/finder/` (built).
+- `index.html`: the map finder. A zoomable map (Leaflet, OpenStreetMap tiles) of every Nation office, Indian health clinic, community listing, tribal college and tribal land in the U.S., and every First Nation and Inuit community in Canada, with need filters, "use my location", search, and a list of the closest places with Call, Directions and Website buttons. Beside it: the help lines that work anywhere in the country being viewed. Above it, an "I'm…" chooser (living on tribal land, in a city, reconnecting, a veteran, a student, an elder, and more) leads each person to the parts of the site meant for them. Code: `assets/finder.js`; data: `assets/finder/` (built).
 - `world/`: a page for each country beyond the U.S., and `world/index.html`.
 - `states/index.html`: also holds the U.S. map of Nation offices.
 - `help.html`: national help by need (crisis and safety, health care, recovery, family, school, housing, food and money, work, legal help, enrollment, elders, veterans, community). Each listing says who can use it, how to start, when it was checked and where it came from. A filter shows only listings that do not ask for tribal enrollment.
@@ -40,11 +40,11 @@ Edit the files in `data/`, never the built pages. The workflow in `.github/workf
 | `data/needs.json` | The kinds of help, the "before you call" reminders, and the labels for who can use a listing. |
 | `data/resources/us.json` | National listings. |
 | `data/resources/<state>.json` | Listings for one state, for example `mi.json`. Add a file to start a new state. |
-| `data/states.json` | A short introduction for a state, with sources, and for Ohio the Nations with ties to the state. |
+| `data/states.json` | A short introduction for a state, with sources, and for Ohio the Nations with ties to the state. Optional `lede`, `h1` and `title` replace the opening that `scripts/build.py` otherwise writes from the state's own listings, Nations, clinics, colleges and lands. |
 | `data/nations.json` | Nation government offices, from the Bureau of Indian Affairs Tribal Leaders Directory. Do not edit by hand. |
 | `data/map/us.json` | State outlines and the map position of each office. Do not edit by hand. |
 | `data/map/lands.geojson`, `data/map/land-points.json` | Reservation and tribal land outlines and inside points (`npm run lands`). Do not edit by hand. |
-| `data/world/countries.json` | Each country: name, region, its peoples' own terms, map view, emergency number, crisis lines and `report` (its IWGIA chapter). Each country also gets a "country guide" marker on the map. Country codes must not clash with state codes (Canada is `CAN`). |
+| `data/world/countries.json` | Each country: name, region, its peoples' own terms, map view, emergency number, crisis lines and `report` (its IWGIA chapter). `welcome` is the page's opening, written to the people the page is for, from what is on that page. Each country also gets a "country guide" marker on the map. Country codes must not clash with state codes (Canada is `CAN`). |
 | `data/world/<code>.json` | Listings for one country, same format as state listings. Add `tel` with the full international number (`+52...`) for numbers outside North America, and `lat`/`lon`/`pin` for a place on the map. |
 | `data/world/ca-places.json` | First Nations and Inuit communities in Canada (`python3 scripts/import_canada.py`). Do not edit by hand. |
 

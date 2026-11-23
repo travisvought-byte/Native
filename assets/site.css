@@ -204,3 +204,18 @@ h3.region{font-size:19px;margin:1.1em 0 .4em;color:var(--leaf);font-family:syste
 .urgent details.statebox{margin:6px 0 4px}
 .urgent details ul{padding-left:1.1em}
 .key.k-guide{background:#fff;box-shadow:0 0 0 3px #9c4421}
+/* "I'm..." chooser on the home page */
+.iam{display:flex;flex-wrap:wrap;align-items:center;gap:0 10px;margin:4px 0 8px}
+.iam-h{margin:0;font:700 19px/1.2 Georgia,serif;color:var(--deep)}
+.iam ul{margin:6px 0}
+.paths.who article p:first-of-type{flex:0}
+.paths.who article ul{margin:0 0 8px;padding-left:1.1em}
+.paths.who article li{margin:4px 0}
+.paths.who article:target{border-color:var(--clay);box-shadow:0 0 0 3px var(--clay)}
+@media (max-width:640px){
+ .iam{flex-wrap:nowrap}
+ .iam ul{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin;padding-bottom:4px;margin:4px 0}
+ .iam a{white-space:nowrap;font-size:15.5px}
+}
+.iam a{border-color:var(--leaf);color:var(--leaf);font-weight:600}
+.iam a:hover{background:var(--leaf);color:#fff}
