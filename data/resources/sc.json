@@ -1,0 +1,25 @@
+{
+ "area": "SC",
+ "records": [
+  {
+   "id": "sc-native-american-affairs",
+   "name": "South Carolina Native American Affairs (Commission for Community Advancement and Engagement)",
+   "place": "Columbia",
+   "need": "nation",
+   "also": [
+    "community"
+   ],
+   "access": "anyone",
+   "what": "The state agency that is South Carolina's official point of contact for Native American affairs. It handles state recognition of Native American tribes and groups and keeps the state's list of them, with contacts for each.",
+   "who": "Native people, tribes and anyone with a question about Native American affairs in South Carolina.",
+   "start": "Call or email the agency, or start from its list of state-recognized tribes and groups to reach a tribe directly.",
+   "phone": "803-333-9621",
+   "email": "info@advance.sc.gov",
+   "address": "246 Stoneridge Dr., Ste. 250, Columbia, SC 29210",
+   "url": "https://advance.sc.gov/community-resources/native-american-affairs",
+   "url_label": "advance.sc.gov",
+   "source": "https://advance.sc.gov/community-resources/native-american-affairs",
+   "checked": "2026-11-23"
+  }
+ ]
+}

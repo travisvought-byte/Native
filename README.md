@@ -83,6 +83,10 @@ Map positions: `scripts/import_clinics.py` and `scripts/import_colleges.py` keep
 
 The import keeps each office's name, town, state, phone, website and map position. It leaves out the names of elected leaders, fax numbers, email addresses and the Bureau's internal notes.
 
+## Finding and checking new listings
+
+The sourcing pipeline lives in `pipeline/`: a registry of every source, each state's Indian affairs office and recognition list, a queue of leads not yet confirmed, and a coverage report that ranks states thinnest first. `python3 scripts/mine.py check` and `python3 scripts/mine.py report` run in CI. See `pipeline/README.md` for how a run works.
+
 ## Moving to a domain
 
 Change `base_url` in `data/site.json`, add a `CNAME` file with the domain, run the build, and set the custom domain in the repository's Pages settings.

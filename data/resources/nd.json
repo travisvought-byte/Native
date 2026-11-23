@@ -1,0 +1,20 @@
+{
+ "area": "ND",
+ "records": [
+  {
+   "id": "nd-indian-affairs-commission",
+   "name": "North Dakota Indian Affairs Commission",
+   "place": "Bismarck",
+   "need": "nation",
+   "access": "anyone",
+   "what": "The state office that links North Dakota's governor and state agencies with the tribes in the state. Its website gathers links on tribal enrollment and other resources.",
+   "who": "Tribes, Native people and anyone working with tribes in North Dakota.",
+   "start": "Use the contact page on its website.",
+   "address": "600 E. Boulevard Ave., 1st Floor Judicial Wing, Rm. 117, Bismarck, ND 58505",
+   "url": "https://indianaffairs.nd.gov/",
+   "url_label": "indianaffairs.nd.gov",
+   "source": "https://indianaffairs.nd.gov/",
+   "checked": "2026-11-23"
+  }
+ ]
+}

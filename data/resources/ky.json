@@ -1,0 +1,19 @@
+{
+ "area": "KY",
+ "records": [
+  {
+   "id": "ky-native-american-heritage-commission",
+   "name": "Kentucky Native American Heritage Commission",
+   "place": "Frankfort",
+   "need": "community",
+   "access": "anyone",
+   "what": "A state commission, set up in 1996, that recognizes and promotes Native American contributions to Kentucky's history and culture and serves as a clearinghouse for information for and about Native Americans in Kentucky.",
+   "who": "Native people and anyone looking for information about Native Americans in Kentucky.",
+   "start": "Use the Kentucky Heritage Council's contact page to reach the commission.",
+   "url": "https://heritage.ky.gov/aa-na/Pages/na-commission.aspx",
+   "url_label": "heritage.ky.gov",
+   "source": "https://heritage.ky.gov/aa-na/Pages/na-commission.aspx",
+   "checked": "2026-11-23"
+  }
+ ]
+}
