@@ -1,0 +1,21 @@
+{
+ "area": "NH",
+ "records": [
+  {
+   "id": "nh-commission-native-american-affairs",
+   "name": "New Hampshire Commission on Native American Affairs",
+   "place": "Concord",
+   "need": "community",
+   "access": "anyone",
+   "what": "A state commission that recognizes the history and cultural contributions of Native Americans in New Hampshire and works to promote and strengthen Native heritage in the state.",
+   "who": "Native people and anyone with a question about Native American affairs in New Hampshire.",
+   "start": "Email the commission with your question.",
+   "email": "nhcnativeamericanaffairs@gmail.com",
+   "address": "Department of Natural and Cultural Resources, 172 Pembroke Road, Concord, NH 03301",
+   "url": "https://www.dncr.nh.gov/commission-native-american-affairs",
+   "url_label": "dncr.nh.gov",
+   "source": "https://www.dncr.nh.gov/commission-native-american-affairs",
+   "checked": "2026-11-23"
+  }
+ ]
+}

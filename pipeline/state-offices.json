@@ -1,0 +1,213 @@
+{
+ "note": "Where each state publishes its own Indian affairs office and its list of state-recognized Nations. 'office' and 'list' are pages read on 'checked'. status: 'published' = on the site; 'queued' = found, waiting on a read or a fix (see pipeline/queue.json); 'todo' = not looked at yet. Only pages actually read are recorded; nothing here is filled in from memory.",
+ "states": {
+  "AL": {
+   "status": "published",
+   "office": "Alabama Indian Affairs Commission",
+   "list": "https://aiac.alabama.gov/wp-content/uploads/2026/06/2026-REVISED-Chief-List-6-11-2026.pdf",
+   "checked": "2026-11-18"
+  },
+  "NC": {
+   "status": "published",
+   "office": "North Carolina Commission of Indian Affairs",
+   "list": "https://www.doa.nc.gov/divisions/american-indian-affairs/tribes",
+   "checked": "2026-11-18"
+  },
+  "SC": {
+   "status": "published",
+   "office": "South Carolina Commission for Community Advancement and Engagement, Native American Affairs",
+   "office_url": "https://advance.sc.gov/community-resources/native-american-affairs",
+   "list": "https://advance.sc.gov/community-resources/native-american-affairs/sc-recognized-tribes",
+   "checked": "2026-11-23"
+  },
+  "LA": {
+   "status": "published",
+   "office": "Governor's Office of Indian Affairs",
+   "office_url": "https://gov.louisiana.gov/page/indian-affairs",
+   "list": "https://gov.louisiana.gov/federal-and-state-recognized-tribes",
+   "checked": "2026-11-23",
+   "open": "Office page not read yet; three tribe website links on the state's list are broken."
+  },
+  "VA": {
+   "status": "published",
+   "office": "Secretary of the Commonwealth (Governor's liaison to Virginia Indian tribes)",
+   "office_url": "https://www.commonwealth.virginia.gov/virginia-indians/",
+   "list": "https://www.commonwealth.virginia.gov/virginia-indians/state-recognized-tribes/",
+   "checked": "2026-11-23"
+  },
+  "NJ": {
+   "status": "published",
+   "office": "New Jersey Commission on American Indian Affairs",
+   "office_url": "https://www.nj.gov/state/njcaia-about.shtml",
+   "checked": "2026-11-23",
+   "open": "The commission page names three tribes as seats but does not call them state-recognized; find the state's own recognition statement before listing them."
+  },
+  "NH": {
+   "status": "published",
+   "office": "New Hampshire Commission on Native American Affairs",
+   "office_url": "https://www.dncr.nh.gov/commission-native-american-affairs",
+   "checked": "2026-11-23"
+  },
+  "MA": {
+   "status": "published",
+   "office": "Massachusetts Commission on Indian Affairs",
+   "office_url": "https://www.mass.gov/info-details/indian-affairs",
+   "checked": "2026-11-23",
+   "open": "The page lists tribes as resources, not as state-recognized; no recognition list published from it."
+  },
+  "ND": {
+   "status": "published",
+   "office": "North Dakota Indian Affairs Commission",
+   "office_url": "https://indianaffairs.nd.gov/",
+   "checked": "2026-11-23"
+  },
+  "KY": {
+   "status": "published",
+   "office": "Kentucky Native American Heritage Commission",
+   "office_url": "https://heritage.ky.gov/aa-na/Pages/na-commission.aspx",
+   "checked": "2026-11-23"
+  },
+  "GA": {
+   "status": "published",
+   "office": "Georgia Council on American Indian Concerns",
+   "office_url": "https://georgia.gov/organization/georgia-council-american-indian-concerns",
+   "checked": "2026-11-23",
+   "open": "The council's tribes page does not clearly state which groups the General Assembly recognized; not published as a list."
+  },
+  "VT": {
+   "status": "published",
+   "office": "Vermont Commission on Native American Affairs",
+   "list": "https://legislature.vermont.gov/statutes/fullchapter/01/023",
+   "checked": "2026-11-23",
+   "open": "No contact for the commission on the statute pages; find its own page before adding a listing."
+  },
+  "IN": {
+   "status": "published",
+   "office": "Indiana Native American Indian Affairs Commission (now a subcommittee of the Indiana Cultural Commission)",
+   "office_url": "https://www.in.gov/icc/native-american-indian-affairs",
+   "checked": "2026-11-23"
+  },
+  "AK": {
+   "status": "todo"
+  },
+  "AZ": {
+   "status": "todo"
+  },
+  "AR": {
+   "status": "todo"
+  },
+  "CA": {
+   "status": "todo"
+  },
+  "CO": {
+   "status": "todo"
+  },
+  "CT": {
+   "status": "published",
+   "office": "Connecticut DEEP Tribal Affairs",
+   "office_url": "https://portal.ct.gov/deep/environmental-justice/tribal-affairs",
+   "list": "https://portal.ct.gov/deep/environmental-justice/tribal-affairs",
+   "checked": "2026-11-23",
+   "open": "Conn. Gen. Stat. chapter 824 could not be read (site did not answer). The office lists only a named liaison, so no office listing was added."
+  },
+  "DE": {
+   "status": "published",
+   "office": "None found; recognition is in statute (29 Del. C. 106, 107)",
+   "list": "https://delcode.delaware.gov/title29/c001/index.html",
+   "checked": "2026-11-23"
+  },
+  "DC": {
+   "status": "todo"
+  },
+  "FL": {
+   "status": "todo"
+  },
+  "HI": {
+   "status": "todo"
+  },
+  "ID": {
+   "status": "todo"
+  },
+  "IL": {
+   "status": "todo"
+  },
+  "IA": {
+   "status": "todo"
+  },
+  "KS": {
+   "status": "todo"
+  },
+  "ME": {
+   "status": "todo"
+  },
+  "MD": {
+   "status": "todo"
+  },
+  "MI": {
+   "status": "todo"
+  },
+  "MN": {
+   "status": "todo"
+  },
+  "MS": {
+   "status": "todo"
+  },
+  "MO": {
+   "status": "todo"
+  },
+  "MT": {
+   "status": "todo"
+  },
+  "NE": {
+   "status": "todo"
+  },
+  "NV": {
+   "status": "todo"
+  },
+  "NM": {
+   "status": "todo"
+  },
+  "NY": {
+   "status": "todo"
+  },
+  "OH": {
+   "status": "todo"
+  },
+  "OK": {
+   "status": "todo"
+  },
+  "OR": {
+   "status": "todo"
+  },
+  "PA": {
+   "status": "todo"
+  },
+  "RI": {
+   "status": "todo"
+  },
+  "SD": {
+   "status": "todo"
+  },
+  "TN": {
+   "status": "todo"
+  },
+  "TX": {
+   "status": "todo"
+  },
+  "UT": {
+   "status": "todo"
+  },
+  "WA": {
+   "status": "todo"
+  },
+  "WV": {
+   "status": "todo"
+  },
+  "WI": {
+   "status": "todo"
+  },
+  "WY": {
+   "status": "todo"
+  }
+ }
+}

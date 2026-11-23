@@ -1,0 +1,23 @@
+{
+ "area": "IN",
+ "records": [
+  {
+   "id": "in-native-american-indian-affairs",
+   "name": "Indiana Native American Indian Affairs Commission",
+   "place": "Indianapolis",
+   "need": "nation",
+   "also": [
+    "community"
+   ],
+   "access": "anyone",
+   "what": "The state body for issues affecting Native American Indian communities in Indiana. Its work now continues as the Native American Indian Affairs Subcommittee of the Indiana Cultural Commission.",
+   "who": "Native American Indian people and communities in Indiana.",
+   "start": "Send a question through the feedback form on the commission's contact page.",
+   "address": "Indiana Government Center North, 100 North Senate Avenue, Room N300, Indianapolis, IN 46204",
+   "url": "https://in.gov/inaiac/contact-us",
+   "url_label": "in.gov",
+   "source": "https://www.in.gov/icc/native-american-indian-affairs",
+   "checked": "2026-11-23"
+  }
+ ]
+}

@@ -12,6 +12,9 @@ jobs:
       - name: Built pages match the data
         run: |
           python3 scripts/build.py
+          python3 scripts/mine.py report
           git diff --exit-code
       - name: Check the pages against the data
         run: python3 tests/test_site.py
+      - name: Check the sourcing pipeline
+        run: python3 scripts/mine.py check

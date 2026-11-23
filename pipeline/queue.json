@@ -1,0 +1,61 @@
+{
+ "note": "Leads and blocked reads that are NOT on the site yet. Each says what is missing and the next step. A failed or blocked read is recorded here with the date tried; it never becomes a check date on a listing. Remove an item when it is published or ruled out (say which in the commit message).",
+ "items": [
+  {
+   "area": "LA",
+   "name": "Grand Caillou/Dulac Band of Biloxi Chitimacha Choctaw, Jean Charles Choctaw Nation, Natchitoches Tribe of Louisiana: websites",
+   "lead": "https://gov.louisiana.gov/federal-and-state-recognized-tribes",
+   "tried": "2026-11-23",
+   "missing": "The state's links to these tribes' sites are broken relative links.",
+   "next": "Confirm each tribe's own site, then add url in data/state-nations.json."
+  },
+  {
+   "area": "LA",
+   "name": "Governor's Office of Indian Affairs (listing)",
+   "lead": "https://gov.louisiana.gov/page/indian-affairs",
+   "tried": "2026-11-23",
+   "missing": "Office description and contact not read.",
+   "next": "Read the office page and add a listing to data/resources/la.json."
+  },
+  {
+   "area": "GA",
+   "name": "Georgia state-recognized tribes",
+   "lead": "https://georgiaindiancouncil.com/georgia_tribes",
+   "tried": "2026-11-23",
+   "missing": "The page does not clearly say which groups the General Assembly recognized.",
+   "next": "Find the General Assembly resolutions or the council's own recognized list."
+  },
+  {
+   "area": "NJ",
+   "name": "New Jersey state-recognized tribes",
+   "lead": "https://www.nj.gov/state/njcaia-about.shtml",
+   "tried": "2026-11-23",
+   "missing": "The commission page names tribes as seats, not as recognized.",
+   "next": "Find the state's own recognition statement (Attorney General settlement releases, 2018-2019) and publish as the state names them."
+  },
+  {
+   "area": "SC",
+   "name": "South Carolina Indian groups and special interest organizations",
+   "lead": "https://advance.sc.gov/community-resources/native-american-affairs/sc-recognized-tribes",
+   "tried": "2026-11-23",
+   "missing": "The state lists these separately from tribes; each needs its own page read for what it offers.",
+   "next": "Read each group's own site and add community listings to data/resources/sc.json where they offer help."
+  },
+  {
+   "area": "US",
+   "name": "Federal rosters not reachable from the build machine",
+   "lead": "pipeline/sources.json: ihs-uio, bia-regions, va-tribal, hud-onap, lsc-native, dol-ina, acl-title-vi",
+   "tried": "2026-11-23",
+   "missing": "The cloud build machine has no direct internet; rosters were not pulled in this run.",
+   "next": "Read each roster page (browser or a machine with internet), one state at a time, thinnest states first per pipeline/COVERAGE.md."
+  },
+  {
+   "area": "CT",
+   "name": "Connecticut General Statutes chapter 824 (tribes the statute names)",
+   "lead": "https://www.cga.ct.gov/current/pub/chap_824.htm",
+   "tried": "2026-11-23",
+   "missing": "The legislature's site did not answer. The state list published comes from DEEP Tribal Affairs instead.",
+   "next": "Read chapter 824 and confirm the names match the DEEP page."
+  }
+ ]
+}

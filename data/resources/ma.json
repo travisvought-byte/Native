@@ -23,6 +23,26 @@
    "lat": 42.3386,
    "lon": -71.0183,
    "pin": "town"
+  },
+  {
+   "id": "ma-commission-indian-affairs",
+   "name": "Massachusetts Commission on Indian Affairs",
+   "place": "Boston",
+   "need": "nation",
+   "also": [
+    "school"
+   ],
+   "access": "native",
+   "what": "A state commission, created in 1974, whose job is to help Native American people, tribes and organizations deal with state and local government agencies. Its page also explains the state's Native American tuition credit.",
+   "who": "Native American people, tribes and organizations in Massachusetts.",
+   "start": "Call the main office of the state housing agency the commission belongs to and ask for the Commission on Indian Affairs.",
+   "phone": "617-573-1100",
+   "phone_note": "Executive Office of Housing and Livable Communities main office",
+   "address": "100 Cambridge St., Suite 300, Boston, MA 02114",
+   "url": "https://www.mass.gov/info-details/indian-affairs",
+   "url_label": "mass.gov",
+   "source": "https://www.mass.gov/info-details/indian-affairs",
+   "checked": "2026-11-23"
   }
  ]
 }

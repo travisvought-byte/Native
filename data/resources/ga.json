@@ -1,0 +1,24 @@
+{
+ "area": "GA",
+ "records": [
+  {
+   "id": "ga-council-american-indian-concerns",
+   "name": "Georgia Council on American Indian Concerns",
+   "place": "Stockbridge",
+   "need": "nation",
+   "also": [
+    "community"
+   ],
+   "access": "anyone",
+   "what": "The state body for the concerns of American Indians in Georgia, part of the Department of Natural Resources. It helps protect graves and burial objects, advises state and local governments, and supports economic development in American Indian communities.",
+   "who": "American Indian people and communities in Georgia, and anyone who finds or is concerned about Native graves.",
+   "start": "Call the council.",
+   "phone": "470-890-1027",
+   "address": "2610 GA Hwy 155 SW, Stockbridge, GA 30281",
+   "url": "https://georgiaindiancouncil.com/",
+   "url_label": "georgiaindiancouncil.com",
+   "source": "https://georgia.gov/organization/georgia-council-american-indian-concerns",
+   "checked": "2026-11-23"
+  }
+ ]
+}

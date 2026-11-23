@@ -1,0 +1,24 @@
+{
+ "area": "NJ",
+ "records": [
+  {
+   "id": "nj-commission-american-indian-affairs",
+   "name": "New Jersey Commission on American Indian Affairs",
+   "place": "Trenton",
+   "need": "nation",
+   "also": [
+    "community"
+   ],
+   "access": "anyone",
+   "what": "A state commission that acts as a go-between for the tribes in New Jersey and the state and federal governments, and develops programs on New Jersey's American Indian history and culture. Its seats are held by members of the Nanticoke Lenni-Lenape, Powhatan Renape and Ramapough Lenape, and by Native people in New Jersey from tribes elsewhere.",
+   "who": "Tribes and Native people in New Jersey.",
+   "start": "Call the Department of State line on the commission's page or write to it by mail.",
+   "phone": "609-633-9627",
+   "address": "P.O. Box 300, Trenton, NJ 08625",
+   "url": "https://www.nj.gov/state/njcaia-about.shtml",
+   "url_label": "nj.gov",
+   "source": "https://www.nj.gov/state/njcaia-about.shtml",
+   "checked": "2026-11-23"
+  }
+ ]
+}
