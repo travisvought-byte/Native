@@ -389,7 +389,7 @@ def page(path, title, description, body, head='', noindex=False):
 <script>window.goatcounter={{path:function(p){{return "/"+location.hostname.replace(/^www\\./,"")+p.replace(/[?#].*$/,"")}},referrer:function(){{try{{var u=new URL(document.referrer);return u.origin+u.pathname}}catch(e){{return ""}}}}}};</script><script data-goatcounter="{E(SITE['counter'])}" async src="https://gc.zgo.at/count.js"></script>
 <script src="{up}assets/site.js" defer></script>{head}</head>
 <body><a class="skip" href="#main">Skip to main content</a>
-<div class="exit"><a id="quick-exit" href="{E(SITE['exit_url'])}" rel="noreferrer">Leave this site now</a> <span>or press Esc twice. This does not clear your browser history.</span></div>
+<div class="exit" role="region" aria-label="Quick exit"><a id="quick-exit" href="{E(SITE['exit_url'])}" rel="noreferrer">Leave this site now</a> <span>or press Esc twice. This does not clear your browser history.</span></div>
 <header class="top"><a class="brand" href="{up}index.html">{E(SITE['name'])}</a><nav aria-label="Main"><ul>{nav}</ul></nav></header>
 <main id="main">
 {body}
@@ -474,7 +474,10 @@ def state_nations_section(code, level=2, linked=False):
         return ''
     name = STATE_NAME[code]
     head = f'<a href="states/{STATE_SLUG[code]}.html">{E(name)}</a>' if linked else f'Nations recognized by the state of {E(name)}'
-    return (f'<section class="st" id="sr-{STATE_SLUG[code]}" aria-labelledby="hsr-{code}"><h{level} id="hsr-{code}">{head}</h{level}>'
+    # Under "Nations recognized by a state" the heading is only the state's name, so the section's name adds that
+    # list's title and does not repeat the federal section for the same state.
+    named = f'hsr-{code} sr-h' if linked else f'hsr-{code}'
+    return (f'<section class="st" id="sr-{STATE_SLUG[code]}" aria-labelledby="{named}"><h{level} id="hsr-{code}">{head}</h{level}>'
             '<ul class="nations">' + ''.join(state_nation_item(code, n) for n in entry['nations']) + '</ul>'
             f'<p class="meta">Recognized by the state and not on the federal list. From the <a href="{E(entry["source"])}">{E(entry["authority"])}</a>, checked {nice_date(entry["checked"])}. '
             'Names are shown as the state lists them. Programs that require enrollment in a federally recognized tribe may not accept these memberships; each listing on this site says who can use it.</p></section>')
@@ -1178,7 +1181,7 @@ LAND_LABEL = {'reservation': 'Reservation', 'hawaiian': 'Hawaiian home land', 'a
 REGIONS = ['North America', 'Latin America', 'Arctic and Europe', 'Pacific', 'Asia', 'Africa', 'Worldwide']
 
 
-def country_cards(prefix='', lines=True):
+def country_cards(prefix='', lines=True, level=3):
     """Country cards grouped by region, for the home page and the world page."""
     out = ''
     for region in REGIONS:
@@ -1190,7 +1193,7 @@ def country_cards(prefix='', lines=True):
             first = c['urgent'][0] if c['urgent'] and lines else None
             line = f'<span class="meta">{E(first["label"])}: {E(first["phone"])}</span>' if first else ''
             cards += f'<li id="{c["slug"]}"><a href="{prefix}{c["slug"]}.html"><strong>{E(c["name"])}</strong><span>{E(c["peoples"])}</span>{line}</a></li>'
-        out += f'<h3 class="region">{E(region)}</h3><ul class="needs world-cards">{cards}</ul>'
+        out += f'<h{level} class="region">{E(region)}</h{level}><ul class="needs world-cards">{cards}</ul>'
     return out
 
 
@@ -1495,7 +1498,7 @@ def build_world():
 <p class="lede">If you are Indigenous outside the United States, find your country or homeland below. Each page uses its peoples' own terms and starts with the help we could confirm there.</p>
 <p>Nina's Map began in the United States and is growing one country at a time. Every listing shows where it came from and when it was checked.</p>
 <p>Country pages so far: {E(country_names())}, and help that reaches Indigenous peoples anywhere. Some pages are starters, with background and the help we could confirm; more are on the way. If you want your country next, or know what belongs on its page, <a href="mailto:{E(SITE['email'])}">tell us</a>.</p>
-{country_cards()}
+{country_cards(level=2)}
 <p><a class="btn" href="../index.html">Open the map</a> <a class="btn line" href="../help.html">Help in the United States</a></p>'''
     page('world/index.html', f'Help and community for Indigenous peoples around the world | {SITE["name"]}',
          'Help lines, health care, family support and Nation and community directories for Indigenous peoples in Canada, Mexico, Australia, Aotearoa New Zealand, Sápmi and worldwide.', body)
