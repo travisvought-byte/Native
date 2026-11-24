@@ -31,6 +31,8 @@ python3 tests/test_site.py   # checks the pages against the data
 python3 scripts/build_share.py  # redraws assets/share.png, the picture shown when a link is shared (needs rsvg-convert)
 ```
 
+Pictures: the symbols in `assets/icons.svg` are drawn for this site (plain, neutral shapes; no seals, flags or cultural imagery) and always sit beside words that say the same thing. The charts, the state tile map on the Nations page, the step diagrams and the Proud history timeline are built by `scripts/build.py` from the data and the page text, with their numbers written out on the page. `tests/test_site.py` checks that every picture is either hidden as decoration or named, that every symbol exists, and that the timeline and charts show only dates and numbers their stories already give.
+
 Edit the files in `data/`, never the built pages. The workflow in `.github/workflows/validate.yml` runs both commands on every push and fails if a built page is out of date.
 
 ## The data

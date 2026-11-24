@@ -249,3 +249,65 @@ main a[href^="mailto:"]:not(.btn):not(:has(svg,img))::before{--sym:url("data:ima
 @media print{main a[href^="tel:"]::before,main a[href^="sms:"]::before,main a[href^="mailto:"]::before{display:none!important}}
 @media (forced-colors:active){main a[href^="tel:"]::before,main a[href^="sms:"]::before,main a[href^="mailto:"]::before{background:LinkText;forced-color-adjust:none}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* Pictures. Symbols come from assets/icons.svg (drawn for this site) and sit beside words that say the same thing.
+ Charts are drawn in HTML with their numbers written out; the state tile map has a key and a table. */
+.ico{display:inline-block;width:1.2em;height:1.2em;flex:none;vertical-align:-.22em;margin-right:.38em}
+.hico{width:1.05em;height:1.05em;vertical-align:-.12em;margin-right:.35em;color:var(--leaf)}
+.natlinks .ico,.asks .ico,ol.steps .ico,.timeline .ico{color:var(--leaf)}
+.glance .n{display:inline-block;min-width:1.7em;margin-left:.2em;padding:0 .45em;border:1px solid transparent;border-radius:999px;background:var(--soft);color:var(--deep);font-size:14px;font-weight:700;line-height:1.55;text-align:center}
+.chart,.timeline-fig{margin:18px 0;padding:12px 18px 14px;background:#fff;border:1px solid var(--line);border-radius:8px;max-width:780px}
+.chart figcaption,.timeline-fig figcaption{font-size:16px;line-height:1.45;color:#4c5a5e;max-width:70ch}
+.chart figcaption strong,.timeline-fig figcaption strong{display:block;margin-bottom:2px;font:700 19px/1.3 Georgia,"Times New Roman",serif;color:var(--deep)}
+.bars{list-style:none;margin:12px 0 0;padding:0}
+.bars li{margin:0 0 10px;max-width:none}
+.bars .lab{display:block;font-size:16px;line-height:1.35}
+.bars .row{display:flex;align-items:center;gap:10px;margin-top:4px}
+.bars .track{flex:1 1 auto;height:18px;background:var(--soft);border-radius:4px;overflow:hidden;forced-color-adjust:none}
+.bars .bar{display:block;height:100%;min-width:3px;background:var(--water);border-radius:0 4px 4px 0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.bars .num{flex:none;min-width:6.4em;font-size:16px;font-weight:700;color:var(--deep);font-variant-numeric:tabular-nums}
+@media (min-width:560px){.bars.side li{display:grid;grid-template-columns:9.5em minmax(0,1fr);align-items:center;gap:0 12px;margin-bottom:7px}.bars.side .row{margin-top:0}}
+.tilefig{max-width:700px}
+.tilemap{display:block;width:100%;max-width:640px;height:auto;margin:10px 0 4px;forced-color-adjust:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.tilemap rect{stroke:#6b7f83;stroke-width:1}
+.tilemap text{font:700 15px system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;text-anchor:middle;fill:#0a3743}
+.tilemap .nu{font-size:16px}
+.tilemap .tb0 rect{fill:#fff;stroke-dasharray:3 3}
+.tilemap .tb0 text{fill:#4c5a5e;font-weight:600}
+.tilemap .tb1 rect{fill:#e2eeec}
+.tilemap .tb2 rect{fill:#a9cfcb}
+.tilemap .tb3 rect{fill:#286a77;stroke:#286a77}
+.tilemap .tb4 rect{fill:#0a3743;stroke:#0a3743}
+.tilemap .tb3 text,.tilemap .tb4 text{fill:#fff}
+@media (max-width:480px){.tilemap text{font-size:19px}.tilemap .nu{font-size:20px}}
+.tilekey{list-style:none;display:flex;flex-wrap:wrap;gap:4px 18px;margin:6px 0 8px;padding:0;font-size:15px}
+.tilekey li{display:flex;align-items:center;gap:7px;max-width:none}
+.tilekey .sw{width:18px;height:18px;border:1px solid #6b7f83;border-radius:3px;forced-color-adjust:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.sw.tb0{background:#fff;border-style:dashed}.sw.tb1{background:#e2eeec}.sw.tb2{background:#a9cfcb}.sw.tb3{background:#286a77}.sw.tb4{background:#0a3743}
+.chartdata summary{font-size:16px}
+.chartdata table{border-collapse:collapse;margin:2px 0 10px;font-size:16px}
+.chartdata th,.chartdata td{padding:4px 22px 4px 0;border-bottom:1px solid var(--soft);text-align:left;font-weight:400}
+.chartdata thead th{font-size:14px;font-weight:700;color:#4c5a5e}
+.chartdata td{text-align:right;font-variant-numeric:tabular-nums}
+
+/* Step diagrams: the numbered lists of steps, with a number in a circle and a line leading to the next step. */
+ol.steps{list-style:none;counter-reset:step;margin:16px 0;padding:0}
+ol.steps>li{counter-increment:step;position:relative;min-height:58px;margin:0;padding:6px 0 18px 62px}
+ol.steps>li::before{content:counter(step);position:absolute;left:0;top:0;width:44px;height:44px;border:2px solid var(--water);border-radius:50%;background:var(--water);color:#fff;font:700 21px/40px Georgia,"Times New Roman",serif;text-align:center}
+ol.steps>li:not(:last-child)::after{content:"";position:absolute;left:20.5px;top:48px;bottom:4px;width:3px;border-radius:2px;background:#c2bba8}
+ol.steps .ico{width:1.3em;height:1.3em;vertical-align:-.28em}
+
+/* Timeline on the Proud history page */
+.timeline{list-style:none;margin:12px 0 4px;padding:0}
+.timeline li{position:relative;display:grid;grid-template-columns:3.6em minmax(0,1fr);gap:0 28px;padding:0 0 14px;max-width:none}
+.timeline li::before{content:"";position:absolute;left:calc(3.6em + 12.5px);top:0;bottom:0;width:3px;background:#c2bba8}
+.timeline li:first-child::before{top:.75em}
+.timeline li:last-child::before{bottom:auto;height:.75em}
+.timeline li::after{content:"";position:absolute;left:calc(3.6em + 6px);top:.4em;width:16px;height:16px;box-sizing:border-box;border:3px solid #fff;border-radius:50%;background:var(--clay);box-shadow:0 0 0 1.5px var(--clay)}
+.timeline .yr{font:700 20px/1.35 Georgia,"Times New Roman",serif;color:var(--deep);text-align:right;font-variant-numeric:lining-nums}
+.timeline .ev{line-height:1.5}
+.kicker{margin:2.2em 0 0;font:700 14px/1.3 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--leaf)}
+.kicker .ico{width:1.45em;height:1.45em;vertical-align:-.4em}
+.kicker+h2{margin-top:.2em}
+@media (max-width:640px){.chart,.timeline-fig{padding:10px 12px 12px}.bars .num{min-width:5.6em;font-size:15px}.timeline li{grid-template-columns:3em minmax(0,1fr);gap:0 24px}.timeline li::before{left:calc(3em + 10.5px)}.timeline li::after{left:calc(3em + 4px)}.timeline .yr{font-size:18px}ol.steps>li{padding-left:56px}}
+@media print{.chart,.timeline-fig{break-inside:avoid;border-color:#999}.chartdata{display:none}ol.steps>li::before{background:#fff;color:#000;border-color:#000}ol.steps>li::after,.timeline li::before{background:#999}.timeline li::after{background:#000;box-shadow:none}}
