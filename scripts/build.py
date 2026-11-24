@@ -102,6 +102,7 @@ ASK_KINDS = {
     'donate': 'Donate', 'volunteer': 'Volunteer', 'attend': 'Come to an event', 'buy': 'Buy from us',
     'share': 'Share the word', 'supplies': 'Supplies needed',
 }
+ASK_ICON = {'donate': 'coins', 'volunteer': 'clock', 'attend': 'calendar', 'buy': 'bag', 'share': 'share', 'supplies': 'box'}
 
 
 def load_communities():
@@ -339,6 +340,90 @@ def map_svg(up=''):
             f'<g class="st">{"".join(shapes)}</g><g class="dots" aria-hidden="true">{dots}</g></svg>')
 
 
+# ---------- pictures: symbols, charts and step diagrams ----------
+# Every picture re-presents what the page or the data already says, and the words or numbers are always on the page
+# as text too. Symbols are drawn for this site in assets/icons.svg; nothing is loaded from elsewhere.
+
+NEED_ICON = {'safety': 'safety', 'health': 'health', 'recovery': 'recovery', 'family': 'family', 'school': 'school',
+             'housing': 'housing', 'money': 'money', 'work': 'work', 'legal': 'legal', 'nation': 'nation',
+             'elders': 'elders', 'veterans': 'veterans', 'community': 'community'}
+
+
+def icon(name, up='', cls='ico'):
+    """A small symbol beside words that already say the same thing, so screen readers skip it."""
+    if not name:
+        return ''
+    return (f'<svg class="{cls}" width="20" height="20" aria-hidden="true" focusable="false">'
+            f'<use href="{up}assets/icons.svg#i-{name}"/></svg>')
+
+
+def need_icon(key, up='', cls='ico'):
+    return icon(NEED_ICON.get(key), up, cls)
+
+
+def bar_chart(caption, rows, scale=None, note='', side=False):
+    """A bar chart drawn in HTML. Each row is a label, a bar and its number written out, so the chart is its own text
+    equivalent and reflows on a small screen. rows: (label HTML, value, value as words). scale: the value of a full
+    bar (the largest value if not given). side: short labels sit beside their bars on wider screens."""
+    top = scale or max(v for _, v, _ in rows) or 1
+    items = ''.join(
+        f'<li><span class="lab">{label}</span><span class="row"><span class="track" aria-hidden="true">'
+        f'<span class="bar" style="width:{100 * v / top:.1f}%"></span></span><span class="num">{text}</span></span></li>'
+        for label, v, text in rows)
+    return f'<figure class="chart"><figcaption>{caption}</figcaption><ul class="bars{" side" if side else ""}">{items}</ul>{note}</figure>'
+
+
+# A square for each state, placed roughly where the state is (column, row), so every state reads the same size.
+TILE_GRID = {
+    'AK': (0, 0), 'ME': (11, 0), 'WI': (6, 1), 'VT': (10, 1), 'NH': (11, 1),
+    'WA': (1, 2), 'ID': (2, 2), 'MT': (3, 2), 'ND': (4, 2), 'MN': (5, 2), 'IL': (6, 2), 'MI': (7, 2), 'NY': (9, 2), 'MA': (10, 2),
+    'OR': (1, 3), 'NV': (2, 3), 'WY': (3, 3), 'SD': (4, 3), 'IA': (5, 3), 'IN': (6, 3), 'OH': (7, 3), 'PA': (8, 3), 'NJ': (9, 3),
+    'CT': (10, 3), 'RI': (11, 3),
+    'CA': (1, 4), 'UT': (2, 4), 'CO': (3, 4), 'NE': (4, 4), 'MO': (5, 4), 'KY': (6, 4), 'WV': (7, 4), 'VA': (8, 4), 'MD': (9, 4),
+    'DE': (10, 4),
+    'AZ': (2, 5), 'NM': (3, 5), 'KS': (4, 5), 'AR': (5, 5), 'TN': (6, 5), 'NC': (7, 5), 'SC': (8, 5), 'DC': (9, 5),
+    'OK': (4, 6), 'LA': (5, 6), 'MS': (6, 6), 'AL': (7, 6), 'GA': (8, 6),
+    'HI': (0, 7), 'TX': (4, 7), 'FL': (9, 7),
+}
+TILE_BINS = [(0, 0, 'None listed'), (1, 4, '1 to 4'), (5, 19, '5 to 19'), (20, 99, '20 to 99'), (100, 10 ** 9, '100 or more')]
+
+
+def tile_bin(n):
+    return next(i for i, (lo, hi, _) in enumerate(TILE_BINS) if lo <= n <= hi)
+
+
+def nations_tile_map():
+    """Nations directory: how many government offices are listed in each state, as a tile map with a key and a table."""
+    counts = Counter(n['state'] for n in NATIONS)
+    cell, size = 50, 46
+    tiles = ''
+    for code, (col, row) in TILE_GRID.items():
+        n = counts.get(code, 0)
+        x, y = col * cell + 2, row * cell + 2
+        num = f'<text class="nu" x="{x + size // 2}" y="{y + 39}">{n}</text>' if n else ''
+        tiles += (f'<g class="tb{tile_bin(n)}"><rect x="{x}" y="{y}" width="{size}" height="{size}" rx="5"/>'
+                  f'<text x="{x + size // 2}" y="{y + (19 if n else 28)}">{code}</text>{num}</g>')
+    ranked = sorted(((n, STATE_NAME[c]) for c, n in counts.items()), key=lambda t: (-t[0], t[1]))
+    top = and_list([f'{name} ({n})' for n, name in ranked[:5]])
+    none = [STATE_NAME[c] for c, _ in STATES if not counts.get(c)]
+    none_states = [x for x in none if x != 'District of Columbia']
+    none_line = f'{len(none_states)} states' + (' and the District of Columbia' if 'District of Columbia' in none else '')
+    svg = (f'<svg class="tilemap" viewBox="0 0 {12 * cell} {8 * cell}" width="600" height="400" role="img" aria-labelledby="tm-t tm-d">'
+           f'<title id="tm-t">Map: Nation government offices listed in each state</title>'
+           f'<desc id="tm-d">One square for each state and the District of Columbia, placed roughly where it is, shaded by how many offices are listed there. '
+           f'The five with the most: {top}. {len(counts)} states have at least one; {none_line} have none listed. The numbers are also in the table after the map.</desc>'
+           f'{tiles}</svg>')
+    key = ''.join(f'<li><span class="sw tb{i}" aria-hidden="true"></span>{E(label)}</li>' for i, (_, _, label) in enumerate(TILE_BINS))
+    rows = ''.join(f'<tr><th scope="row"><a href="#{STATE_SLUG[c]}">{E(STATE_NAME[c])}</a></th><td>{n}</td></tr>'
+                   for n, c in sorted(((n, c) for c, n in counts.items()), key=lambda t: (-t[0], STATE_NAME[t[1]])))
+    return (f'<figure class="chart tilefig"><figcaption><strong>Where the Nations\' governments are</strong> '
+            f'How many Nation government offices the directory below lists in each state ({len(NATIONS)} offices in all).</figcaption>'
+            f'{svg}<ul class="tilekey" aria-label="Key: offices listed in the state">{key}</ul>'
+            f'<details class="chartdata"><summary>The numbers as a table</summary><table><thead><tr><th scope="col">State</th>'
+            f'<th scope="col">Offices listed</th></tr></thead><tbody>{rows}</tbody></table>'
+            f'<p>None listed: {E(and_list(none))}.</p></details></figure>')
+
+
 def state_options(up=''):
     return '<option value="">Choose a state</option>' + ''.join(
         f'<option value="{up}states/{STATE_SLUG[c]}.html">{E(n)}</option>' for c, n in STATES)
@@ -414,7 +499,7 @@ def need_section(need, area='US', level=2, compact=False, up=''):
     if not cards and not also:
         return ''
     h = f'h{level}'
-    out = f'<section class="need" id="{need["key"]}" aria-labelledby="h-{need["key"]}"><{h} id="h-{need["key"]}">{E(need["label"])}</{h}>'
+    out = f'<section class="need" id="{need["key"]}" aria-labelledby="h-{need["key"]}"><{h} id="h-{need["key"]}">{need_icon(need["key"], up, "ico hico")}{E(need["label"])}</{h}>'
     if not compact:
         out += f'<p>{E(need["blurb"])}</p>{prep(need, level + 1)}'
     if cards:
@@ -426,9 +511,14 @@ def need_section(need, area='US', level=2, compact=False, up=''):
 
 
 def build_help():
-    chips = ''.join(f'<li><a href="#{n["key"]}">{E(n["short"])}</a></li>' for n in NEED_LIST if records_for('US', n['key']))
+    chips = ''.join(f'<li><a href="#{n["key"]}">{need_icon(n["key"])}{E(n["short"])}</a></li>' for n in NEED_LIST if records_for('US', n['key']))
     labels = ''.join(f'<dt><span class="tag acc-{k}">{E(v["label"])}</span></dt><dd>{E(v["explain"])}</dd>' for k, v in ACCESS.items())
     sections = ''.join(need_section(n) for n in NEED_LIST)
+    national = records_for('US')
+    by_access = Counter(r['access'] for r in national)
+    who_chart = bar_chart(f'<strong>Who can use the {len(national)} listings on this page</strong> Each listing carries one of these labels, taken from what the program itself says.',
+                          [(f'<span class="tag acc-{k}">{E(v["label"])}</span>', by_access[k], f'{by_access[k]} listing{"s" if by_access[k] != 1 else ""}')
+                           for k, v in ACCESS.items() if by_access.get(k)])
     body = f'''<h1>Get help</h1>
 <p class="lede">Whatever brought you here, start with what you need: help for Native people anywhere in the United States, sorted by need. Many listings do not ask for a tribal card, and the filter below can show only those.</p>
 <p>For your Nation, the clinics near you and Native community in your area, <a href="states/index.html">choose your state</a>.</p>
@@ -441,6 +531,7 @@ def build_help():
 <option value="enrolled ask">Listings for enrolled members, or where rules differ</option>
 </select> <span id="filter-count" role="status"></span></p>
 <details class="prep"><summary>What the labels on each listing mean</summary><dl class="labels">{labels}</dl></details>
+{who_chart}
 {sections}
 <section class="panel"><h2>Did we miss something?</h2><p>Tell us about a program that belongs here, or a listing that is wrong: <a href="mailto:{E(SITE['email'])}">{E(SITE['email'])}</a>.</p></section>'''
     page('help.html', f'Help for Native people: crisis lines, health, housing, school, legal | {SITE["name"]}',
@@ -455,7 +546,7 @@ def national_links(up):
         if not recs:
             continue
         links = ' · '.join(f'<a href="{up}help.html#r-{r["id"]}">{E(r["name"])}</a>' for r in recs)
-        out += f'<li><strong><a href="{up}help.html#{need["key"]}">{E(need["label"])}</a>:</strong> {links}</li>'
+        out += f'<li><strong>{need_icon(need["key"], up)}<a href="{up}help.html#{need["key"]}">{E(need["label"])}</a>:</strong> {links}</li>'
     return out + '</ul>'
 
 
@@ -835,18 +926,28 @@ JUMP = {'local': ('local-h', 'Community and help'), 'ties': ('ties-h', 'Nations 
         'colleges': ('tcu-h', 'Tribal colleges'), 'clinics': ('clinics-h', 'Clinics'), 'lands': ('lands-h', 'Lands')}
 
 
+JUMP_ICON = {'local': 'community', 'ties': 'nation', 'nations': 'nation', 'state': 'nation', 'colleges': 'cap',
+             'clinics': 'health', 'lands': 'land', 'nat': 'phone'}
+
+
 def jump_bar(code, nations, records):
+    """The "On this page" row of a state page: a symbol and the number of entries for each part, as an at-a-glance view."""
+    count = {'local': len(records), 'ties': len(STATE_NOTES.get(code, {}).get('ties', [])), 'nations': len(nations),
+             'state': len(STATE_NATIONS.get(code, {}).get('nations', [])), 'colleges': len(COLLEGES.get(code, [])),
+             'clinics': len(CLINICS.get(code, [])), 'lands': len(LANDS.get(code, [])), 'nat': len(records_for('US'))}
     links = []
     for key in state_order(code, nations, records):
         if key == 'nations':
-            links.append(('nations-h', 'Nations'))
+            links.append(('nations-h', 'Nations', key))
         elif key == 'state':
             if not nations:
-                links.append(('hsr-' + code, 'Nations'))
+                links.append(('hsr-' + code, 'Nations', key))
         else:
-            links.append(JUMP[key])
-    links.append(('nat-h', 'Help anywhere'))
-    return '<nav class="chips" aria-label="On this page"><ul>' + ''.join(f'<li><a href="#{i}">{E(l)}</a></li>' for i, l in links) + '</ul></nav>'
+            links.append(JUMP[key] + (key,))
+    links.append(('nat-h', 'Help anywhere', 'nat'))
+    return ('<nav class="chips glance" aria-label="On this page"><ul>' + ''.join(
+        f'<li><a href="#{i}">{icon(JUMP_ICON[k], "../")}{E(l)} <span class="n">{count[k]}</span></a></li>' for i, l, k in links)
+        + '</ul></nav>')
 
 
 def build_states():
@@ -922,6 +1023,7 @@ def build_nations():
 <p class="search"><label for="q">Search by name, town or state</label> <input id="q" type="search" autocomplete="off" data-nation-search> <span id="q-count" role="status"></span></p>
 <p>This list is built from the <a href="{E(NATIONS_FILE['source_page'])}">Bureau of Indian Affairs Tribal Leaders Directory</a>, retrieved {nice_date(NATIONS_FILE['retrieved'])}. The Bureau counts 575 federally recognized tribes as of January 30, 2026, and lists some bands and communities separately. It says the directory is not the official list (that is the notice it publishes in the Federal Register) and may contain errors. A Nation is listed under the state where its government office is; its homelands and citizens may reach far beyond that state.</p>
 <p>Names appear as the Bureau lists them. Nations recognized by a state and not on the federal list are in <a href="#state-recognized">their own section below</a>, added one state at a time from the official list of each state. Nations with neither kind of recognition are not listed yet; write to us to be added. If you speak for a Nation and want its listing changed, write to <a href="mailto:{E(SITE['email'])}">{E(SITE['email'])}</a>.</p>
+{nations_tile_map()}
 <nav class="chips" aria-label="States with Nations listed"><ul>{chips}</ul></nav>
 {sections}
 {state_recognized}'''
@@ -941,12 +1043,12 @@ def build_find():
 <p class="meta">Sources: <a href="https://www.doi.gov/tribes/enrollment">Department of the Interior, Tribal Enrollment Process</a> · <a href="https://www.bia.gov/guide/tracing-american-indian-and-alaska-native-aian-ancestry">BIA, Tracing American Indian and Alaska Native Ancestry</a> · <a href="https://www.bia.gov/frequently-asked-questions">BIA, Frequently Asked Questions</a>. Checked November 17, 2026.</p></section>
 
 <section aria-labelledby="f2"><h2 id="f2">Tracing your family, step by step</h2>
-<ol class="steps">
-<li><strong>Write down what your family knows.</strong> Names, birth dates and birthplaces of parents, grandparents and great-grandparents, and any papers kept at home. Note who told you which Nation the family comes from.</li>
-<li><strong>Work out which Nation your ancestor belonged to.</strong> You will be dealing with that tribe's government, so this is the question everything else depends on.</li>
-<li><strong>Build the paper trail.</strong> The BIA says you need to show your link to an ancestor with records the tribe accepts. Birth and death certificates come from the vital records office of the state where the person was born or died. The BIA also points to the National Archives (federal census records, including the Bureau's own censuses, the Dawes Rolls and military records), county courthouses, and town, school and church records, newspapers, libraries and historical societies.</li>
-<li><strong>Contact the tribe's enrollment office.</strong> Ask for its membership rules and the papers it accepts. Our <a href="nations.html">Nations directory</a> has a phone number and website for each government office.</li>
-<li><strong>Apply to the tribe</strong> if you meet its rules. The tribe decides.</li>
+<ol class="steps" role="list">
+<li>{icon("notes")}<strong>Write down what your family knows.</strong> Names, birth dates and birthplaces of parents, grandparents and great-grandparents, and any papers kept at home. Note who told you which Nation the family comes from.</li>
+<li>{icon("search")}<strong>Work out which Nation your ancestor belonged to.</strong> You will be dealing with that tribe's government, so this is the question everything else depends on.</li>
+<li>{icon("papers")}<strong>Build the paper trail.</strong> The BIA says you need to show your link to an ancestor with records the tribe accepts. Birth and death certificates come from the vital records office of the state where the person was born or died. The BIA also points to the National Archives (federal census records, including the Bureau's own censuses, the Dawes Rolls and military records), county courthouses, and town, school and church records, newspapers, libraries and historical societies.</li>
+<li>{icon("phone")}<strong>Contact the tribe's enrollment office.</strong> Ask for its membership rules and the papers it accepts. Our <a href="nations.html">Nations directory</a> has a phone number and website for each government office.</li>
+<li>{icon("apply")}<strong>Apply to the tribe</strong> if you meet its rules. The tribe decides.</li>
 </ol>
 <p class="meta">Source: <a href="https://www.bia.gov/guide/tracing-american-indian-and-alaska-native-aian-ancestry">BIA, Tracing American Indian and Alaska Native Ancestry</a>. Checked November 17, 2026.</p></section>
 
@@ -996,18 +1098,25 @@ def build_community():
                                    + (f' · {phone_links(r["phone"])}' if r.get('phone') else '') + '</span></li>' for r in urban[c]) + '</ul>'
                          for c, _ in STATES if c in urban)
     colleges_html = '<ul class="nations">' + ''.join(college_item(x, show_state=c) for c, _ in STATES for x in COLLEGES.get(c, [])) + '</ul>'
+    per_state = sorted(((len(v), c) for c, v in COLLEGES.items()), key=lambda t: (-t[0], STATE_NAME[t[1]]))
+    colleges_chart = bar_chart(f'<strong>Tribal colleges by state</strong> The {sum(n for n, _ in per_state)} colleges listed below, in {len(per_state)} states.',
+                               [(f'<a href="states/{STATE_SLUG[c]}.html">{E(STATE_NAME[c])}</a>', n, f'{n} college{"s" if n != 1 else ""}') for n, c in per_state], side=True)
+    jump = [('c-pages', 'Community pages', 'layout'), ('c-local', 'Centers and groups', 'community'), ('c-urban', 'Urban Indian centers', 'city'),
+            ('c-tcu', 'Tribal colleges', 'cap'), ('c-any', 'From anywhere', 'phone'), ('c-nation', 'Your own Nation', 'nation')]
+    jump_nav = '<nav class="chips" aria-label="On this page"><ul>' + ''.join(f'<li><a href="#{i}">{icon(k)}{E(l)}</a></li>' for i, l, k in jump) + '</ul></nav>'
     body = f'''<h1>Finding community</h1>
 <p class="lede">If you want to be around Native people where you live, whether you are new to a city or coming back to your culture, here are the places and groups where Native people gather: community centers, youth councils, recovery circles and tribal colleges.</p>
 <p>Local groups and state Native affairs offices are listed so far for {and_list(community_states)}. Urban Indian centers and tribal colleges are further down, and every state page lists its Nations, clinics and tribal lands.</p>
+{jump_nav}
 {community_pages_section()}
-<section aria-labelledby="c-local"><h2 id="c-local">Community centers and groups, by state</h2>{local}
+<section aria-labelledby="c-local"><h2 id="c-local">{icon('community', cls='ico hico')}Community centers and groups, by state</h2>{local}
 <p>In another state? Start with the <a href="help.html#r-urban-indian-health">map of Urban Indian Organizations</a>, whose services can include youth, elder and community programs, or <a href="states/index.html">open your state's page</a>.</p></section>
-<section aria-labelledby="c-urban"><h2 id="c-urban">Urban Indian centers</h2>
+<section aria-labelledby="c-urban"><h2 id="c-urban">{icon('city', cls='ico hico')}Urban Indian centers</h2>
 <p>Funded by the Indian Health Service to serve Native people living in cities. Many run community programs, youth and elder activities and gatherings as well as health care. Any Native person can usually walk in; ask what they need from you.</p>{urban_html}</section>
-<section aria-labelledby="c-tcu"><h2 id="c-tcu">Tribal colleges</h2>
-<p>Colleges chartered by Nations. They are community anchors: classes, language programs, powwows and events, often open to the public.</p>{colleges_html}{colleges_note()}</section>
-<section aria-labelledby="c-any"><h2 id="c-any">From anywhere</h2><div class="cards">{''.join(card(r, 3) for r in anywhere)}</div></section>
-<section aria-labelledby="c-nation"><h2 id="c-nation">Your own Nation</h2>
+<section aria-labelledby="c-tcu"><h2 id="c-tcu">{icon('cap', cls='ico hico')}Tribal colleges</h2>
+<p>Colleges chartered by Nations. They are community anchors: classes, language programs, powwows and events, often open to the public.</p>{colleges_chart}{colleges_html}{colleges_note()}</section>
+<section aria-labelledby="c-any"><h2 id="c-any">{icon('phone', cls='ico hico')}From anywhere</h2><div class="cards">{''.join(card(r, 3) for r in anywhere)}</div></section>
+<section aria-labelledby="c-nation"><h2 id="c-nation">{icon('nation', cls='ico hico')}Your own Nation</h2>
 <p>If you know which Nation you come from, call its government office and ask what gatherings, classes or events are coming up, and whether descendants are welcome. The <a href="nations.html">Nations directory</a> has the numbers. If you are not sure which Nation, start with <a href="find-your-nation.html">Finding your Nation</a>.</p></section>
 <section class="panel"><h2>Run a Native community group?</h2><p>We would like to list it, the way you want it described. Write to <a href="mailto:{E(SITE['email'])}">{E(SITE['email'])}</a>.</p></section>'''
     page('community.html', f'Find Native community: centers, youth councils and recovery circles | {SITE["name"]}',
@@ -1083,6 +1192,10 @@ WORKS = [
                  'Hospital stays for uncontrolled diabetes fell 84 percent from 2000 to 2015.',
                  'Deaths related to diabetes fell 37 percent from 1999 to 2017.',
                  'The share of Native adults with diabetes went down, from 15.4 percent in 2013 to 14.6 percent in 2017.'],
+     # The same three results as a chart: what fell, over which years, and by how many percent.
+     'chart': [('New cases of diabetes-related kidney failure in Native adults, 1996 to 2013', 54),
+               ('Hospital stays for uncontrolled diabetes, 2000 to 2015', 84),
+               ('Deaths related to diabetes, 1999 to 2017', 37)],
      'use': 'Ask your tribal or urban Indian clinic whether it runs a diabetes program under this funding. Most do.',
      'sources': [('Indian Health Service: Special Diabetes Program for Indians fact sheet, 2020', 'https://www.ihs.gov/sites/sdpi/themes/responsive2017/display_objects/documents/factsheets/SDPIFactSheet2020.pdf'),
                  ('Indian Health Service: reports to Congress', 'https://www.ihs.gov/sdpi/reports-to-congress/')]},
@@ -1137,13 +1250,36 @@ PROUD = [
 ]
 
 
+PROUD_ICON = {'Government': 'council', 'Language': 'speech', 'Food': 'food', 'Service': 'veterans', 'Science': 'rocket',
+              'Sport': 'stopwatch'}
+# The timeline on the Proud history page: only dates that the stories themselves give, each pointing to its story (index in PROUD).
+PROUD_DATES = [
+    (1821, 1, 'Sequoyah finishes his syllabary for the Cherokee language.'),
+    (1828, 1, 'The Cherokee Nation prints the Cherokee Phoenix, the first newspaper published in a Native language in North America.'),
+    (1964, 6, 'Billy Mills, Oglala Lakota, wins the 10,000 meters at the Tokyo Olympics.'),
+    (1968, 4, 'The code that Navajo Marines built in World War II is no longer kept secret.'),
+    (1988, 0, 'Both houses of Congress pass a resolution acknowledging the contribution of the Iroquois Confederacy to the development of the United States Constitution.'),
+    (2001, 4, 'The original 29 Navajo Code Talkers receive the Congressional Gold Medal.'),
+    (2002, 5, 'John Herrington, a citizen of the Chickasaw Nation, becomes the first Native American in space.'),
+    (2019, 5, 'The Native American dollar coin shows Mary Golda Ross, a citizen of the Cherokee Nation, at work.'),
+    (2020, 3, 'The National Native American Veterans Memorial opens in Washington.'),
+]
+
+
+def proud_timeline():
+    items = ''.join(f'<li><span class="yr">{year}</span><span class="ev">{icon(PROUD_ICON[PROUD[i][0]])}'
+                    f'<a href="#p{i}">{E(text)}</a></span></li>' for year, i, text in PROUD_DATES)
+    return ('<figure class="timeline-fig"><figcaption><strong>On a timeline</strong> The dates given in the stories below. '
+            f'Each links to its story and sources.</figcaption><ol class="timeline" role="list">{items}</ol></figure>')
+
+
 def build_proud():
     cats = ''
     body = ('<h1>Proud history</h1><p class="lede">For anyone looking for stories to be proud of, or to teach: some of what First Peoples built, invented, defended and won. A few to start; there are thousands more.</p>'
             '<p>Every entry links to the museum, government or Nation source it comes from. If your Nation or family has a story that belongs here, '
-            f'<a href="mailto:{E(SITE["email"])}">send it</a>, told the way you want it told.</p>')
+            f'<a href="mailto:{E(SITE["email"])}">send it</a>, told the way you want it told.</p>') + proud_timeline()
     for i, (cat, title, what, more, sources) in enumerate(PROUD):
-        body += (f'<section aria-labelledby="p{i}"><h2 id="p{i}">{E(title)}</h2><p>{E(what)}</p><p>{E(more)}</p>'
+        body += (f'<section aria-labelledby="p{i}"><p class="kicker">{icon(PROUD_ICON[cat])}{E(cat)}</p><h2 id="p{i}">{E(title)}</h2><p>{E(what)}</p><p>{E(more)}</p>'
                  '<p class="meta">Sources: ' + ' · '.join(f'<a href="{E(u)}">{E(l)}</a>' for l, u in sources) + '. Checked November 18, 2026.</p></section>')
     body += '<p>Nations running their own programs have a record of results too: see <a href="what-works.html">What works</a>.</p>'
     page('proud-history.html', f'Proud history: First Peoples\' achievements in government, language, food, service, science and sport | {SITE["name"]}',
@@ -1157,7 +1293,9 @@ def build_works():
     for i, w in enumerate(WORKS):
         body += (f'<section aria-labelledby="w{i}"><h2 id="w{i}">{E(w["title"])}</h2><p>{E(w["what"])}</p>'
                  '<h3>What the results show</h3><ul>' + ''.join(f'<li>{E(r)}</li>' for r in w['results']) + '</ul>'
-                 f'<p><strong>How to use this:</strong> {E(w["use"])}</p>'
+                 + (bar_chart('<strong>How much each fell</strong> The results above, in percent. A full bar would be 100 percent.',
+                              [(E(label), v, f'fell {v}%') for label, v in w['chart']], scale=100) if w.get('chart') else '')
+                 + f'<p><strong>How to use this:</strong> {E(w["use"])}</p>'
                  '<p class="meta">Sources: ' + ' · '.join(f'<a href="{E(u)}">{E(l)}</a>' for l, u in w['sources'])
                  + f'. Checked {nice_date(WORKS_CHECKED)}.</p></section>')
     page('what-works.html', f'Programs that have worked in Native communities, with their results | {SITE["name"]}',
@@ -1373,11 +1511,15 @@ def who_chooser():
             + '<li><a href="help.html#safety">in danger, or in crisis right now</a></li></ul></nav>')
 
 
+WHO_ICON = {'land': 'land', 'urban': 'city', 'reconnect': 'tree', 'nonfed': 'nation', 'veteran': 'veterans', 'student': 'cap',
+            'family': 'family', 'elder': 'elders', 'recovery': 'recovery', 'staff': 'work', 'ally': 'heart', 'world': 'globe'}
+
+
 def who_panels():
     out = ''
     for k, label, line, links in WHO:
         lst = ''.join(f'<li><a href="{E(href)}">{E(text)}</a></li>' for href, text in links)
-        out += f'<article id="who-{k}"><h3>I\'m {E(label)}</h3><p>{E(line)}</p><ul>{lst}</ul></article>'
+        out += f'<article id="who-{k}"><h3>{icon(WHO_ICON.get(k), cls="ico hico")}I\'m {E(label)}</h3><p>{E(line)}</p><ul>{lst}</ul></article>'
     return f'<section aria-labelledby="paths-h"><h2 id="paths-h">Start where you are</h2><div class="paths who">{out}</div></section>'
 
 
@@ -1465,7 +1607,7 @@ def build_world():
             here = [r for r in recs if r['need'] == need['key']]
             if here:
                 label = 'Peoples, Nations and their governments' if need['key'] == 'nation' else need['label']
-                body += (f'<section class="need" id="{need["key"]}" aria-labelledby="h-{need["key"]}"><h2 id="h-{need["key"]}">{E(label)}</h2>'
+                body += (f'<section class="need" id="{need["key"]}" aria-labelledby="h-{need["key"]}"><h2 id="h-{need["key"]}">{need_icon(need["key"], up, "ico hico")}{E(label)}</h2>'
                          '<div class="cards">' + ''.join(card(r, 3, up) for r in here) + '</div></section>')
         if c['code'] == 'CAN':
             fns = CA_PLACES['first_nations']
@@ -1538,7 +1680,7 @@ def intake_mailto(subject, body):
 def ask_item(c, ask, up, show_group=False):
     """One "how you can help" entry, in the group's own words. Dated asks drop off the page once their date passes."""
     until = f' data-until="{ask["until"]}"' if ask.get('until') else ''
-    out = f'<li class="ask ask-{ask["kind"]}"{until}><strong>{E(ASK_KINDS[ask["kind"]])}'
+    out = f'<li class="ask ask-{ask["kind"]}"{until}><strong>{icon(ASK_ICON[ask["kind"]], up)}{E(ASK_KINDS[ask["kind"]])}'
     if show_group:
         out += f': <a href="{up}communities/{c["slug"]}.html">{E(c["name"])}</a>'
     out += f'</strong> <span>{E(ask["text"])}</span>'
@@ -1652,7 +1794,7 @@ def community_pages_section():
             for c in sorted(LIVE_COMMUNITIES, key=lambda c: c['name'].lower())) + '</ul>'
     else:
         lst = '<p>No group has a page yet. The first ones are being set up; each will be listed here.</p>'
-    return ('<section aria-labelledby="c-pages"><h2 id="c-pages">Community pages, in each group\'s own words</h2>'
+    return ('<section aria-labelledby="c-pages"><h2 id="c-pages">' + icon('layout', cls='ico hico') + 'Community pages, in each group\'s own words</h2>'
             '<p>Pages written and kept up by the groups themselves: their news, events, programs and what would help.</p>'
             f'{lst}<p><a class="btn" href="free-page.html">Get a free page for your community</a> <a class="btn line" href="communities/example.html">See an example page</a></p></section>')
 
@@ -1707,12 +1849,12 @@ def build_offer():
 </ul></section>
 
 <section aria-labelledby="o4"><h2 id="o4">How we help you set it up</h2>
-<ol class="steps">
-<li><strong>You send what you have</strong> by email, in any form: a flyer, a website, a few lines.</li>
-<li><strong>We check that the request comes from your group,</strong> using your group's public phone or email. For a Nation, that means its government office. A page is never made for a group that did not ask for one.</li>
-<li><strong>We put the page together</strong> from what you sent, and send you a preview.</li>
-<li><strong>You approve it,</strong> or tell us what to change. It goes live only when you say so.</li>
-<li><strong>Send updates any time:</strong> a new event, a new ask, a new photo. Each page shows the date it was last updated.</li>
+<ol class="steps" role="list">
+<li>{icon("mail")}<strong>You send what you have</strong> by email, in any form: a flyer, a website, a few lines.</li>
+<li>{icon("shield")}<strong>We check that the request comes from your group,</strong> using your group's public phone or email. For a Nation, that means its government office. A page is never made for a group that did not ask for one.</li>
+<li>{icon("layout")}<strong>We put the page together</strong> from what you sent, and send you a preview.</li>
+<li>{icon("check")}<strong>You approve it,</strong> or tell us what to change. It goes live only when you say so.</li>
+<li>{icon("update")}<strong>Send updates any time:</strong> a new event, a new ask, a new photo. Each page shows the date it was last updated.</li>
 </ol>
 <p>If you are not sure what to say, or what kind of help to ask for, say so, and we will work it out with you.</p></section>
 
@@ -1740,28 +1882,28 @@ def build_support():
     body = f'''<h1>Support Native-led groups</h1>
 <p class="lede">If you want to help Native communities, the surest way is to ask Native-led groups what they need and give that. This page gathers what groups on {E(SITE['name'])} are asking for, and how to give in ways that help.</p>
 
-<section aria-labelledby="s1"><h2 id="s1">What groups are asking for now</h2>
+<section aria-labelledby="s1"><h2 id="s1">{icon('community', cls='ico hico')}What groups are asking for now</h2>
 {current}
 <p>Run a Native-led group? <a href="free-page.html">Get a free page</a> and post what would help.</p></section>
 
-<section aria-labelledby="s2"><h2 id="s2">Giving money</h2>
+<section aria-labelledby="s2"><h2 id="s2">{icon('coins', cls='ico hico')}Giving money</h2>
 <ul>
 <li>Only a small share of philanthropy goes to Native communities, and Native-led organizations receive only part of that share, research by the Bridgespan Group with Native Americans in Philanthropy finds. Giving directly to groups led by Native people is one way to change that.</li>
 <li>Before you give, the Federal Trade Commission suggests searching the group's name with words like "complaint", "review" or "scam", and using the IRS Tax Exempt Organization Search to see whether a gift is tax deductible.</li>
 <li>Pay by credit card or check. The FTC warns against anyone who asks for donations in cash, by gift card or by wire transfer, and against anyone who rushes you.</li>
 </ul></section>
 
-<section aria-labelledby="s3"><h2 id="s3">Giving things</h2>
+<section aria-labelledby="s3"><h2 id="s3">{icon('box', cls='ico hico')}Giving things</h2>
 <p>Ask first. After disasters, FEMA advises that money usually helps most, and that unrequested goods can pull volunteers away from helping people because they have to be sorted, moved and stored. Confirm with the group exactly what it needs before you collect or ship anything. When a group on this site posts a supplies list, it says what is needed and until when.</p></section>
 
-<section aria-labelledby="s4"><h2 id="s4">Buying from Native artists and businesses</h2>
+<section aria-labelledby="s4"><h2 id="s4">{icon('bag', cls='ico hico')}Buying from Native artists and businesses</h2>
 <ul>
 <li>Under federal law, work made after 1935 can be sold as "Indian", "Native American" or as the work of a particular Tribe only if the maker is a member of a federally or state-recognized Tribe, or is certified as an Indian artisan by their Tribe. The FTC says to be careful with words like "descent", "heritage" or "ancestry" next to a Tribe's name.</li>
 <li>Get written proof of any claim about who made a piece, and a receipt that lists the maker and their Tribe.</li>
 <li>The Indian Arts and Crafts Board keeps a Source Directory of arts and crafts businesses.</li>
 </ul></section>
 
-<section aria-labelledby="s5"><h2 id="s5">Giving time and attention</h2>
+<section aria-labelledby="s5"><h2 id="s5">{icon('clock', cls='ico hico')}Giving time and attention</h2>
 <p>Go to the events groups invite the public to. Share their pages and their news. Offer the skills a group asks for, on its terms.</p></section>
 <p class="meta">Sources: {sources}. Checked {nice_date(HELP_CHECKED)}.</p>'''
     page('support.html', f'Support Native-led groups: ways to help | {SITE["name"]}',

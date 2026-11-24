@@ -26,6 +26,7 @@ class Page(HTMLParser):
         self.ids, self.hrefs, self.h1, self.title, self.description, self.canonical = set(), [], 0, '', None, None
         self._in_title = False
         self.circles = 0
+        self.svgs, self.uses, self.figures = [], [], 0
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
@@ -45,6 +46,10 @@ class Page(HTMLParser):
             self._in_title = True
         if tag == 'circle':
             self.circles += 1
+        if tag == 'svg':
+            self.svgs.append(a)
+        if tag == 'use':
+            self.uses.append(a.get('href') or '')
 
     def handle_endtag(self, tag):
         if tag == 'title':
@@ -290,6 +295,47 @@ for c in build.COUNTRIES:
         fail(f'world/{c["slug"]}.html: the help strip is missing')
 if {p['id'] for p in build.MAP['points']} - set(build.NATION):
     fail('data/map/us.json is out of date: run npm run map')
+
+# 8. Pictures: every symbol exists, every picture is either hidden as decoration or named, and charts keep their words.
+symbols = set(re.findall(r'<symbol id="([^"]+)"', (ROOT / 'assets/icons.svg').read_text(encoding='utf-8')))
+for path, page in pages.items():
+    folder = Path(path).parent
+    for href in page.uses:
+        file, _, sym = href.partition('#')
+        target = re.sub(r'(^|/)[^/]+/\.\./', r'\1', str(folder / file).replace('\\', '/'))
+        if target != 'assets/icons.svg' or sym not in symbols:
+            fail(f'{path}: symbol {href} not found in assets/icons.svg')
+    for a in page.svgs:
+        if a.get('aria-hidden') == 'true':
+            if a.get('role') or a.get('focusable') != 'false':
+                fail(f'{path}: a decorative picture must be hidden only (aria-hidden, focusable="false")')
+        elif a.get('role') in ('img', 'group'):
+            names = (a.get('aria-labelledby') or '').split()
+            if not names or any(n not in page.ids for n in names):
+                fail(f'{path}: a picture with role {a["role"]} needs aria-labelledby pointing at its title')
+        else:
+            fail(f'{path}: every picture needs aria-hidden="true" or a role and a name')
+    for fig in re.findall(r'<figure class="chart[^"]*">(.*?)</figure>', page.text, re.S):
+        if '<figcaption>' not in fig:
+            fail(f'{path}: a chart has no caption')
+        if '<svg' in fig and '<table>' not in fig:
+            fail(f'{path}: a drawn chart needs its numbers in a table too')
+        for num in re.findall(r'<span class="num">(.*?)</span>', fig):
+            if not re.search(r'\d', num):
+                fail(f'{path}: a bar has no number written beside it')
+tiles = pages['nations.html'].text
+for code, _ in build.STATES:
+    if f'>{code}</text>' not in tiles:
+        fail(f'nations.html: the tile map has no square for {code}')
+# The timeline uses only dates its stories give, and the What works chart only numbers its results list.
+for year, i, _ in build.PROUD_DATES:
+    _, _, what, more, _ = build.PROUD[i]
+    if str(year) not in what + more:
+        fail(f'proud-history.html: {year} on the timeline is not in the story it links to')
+for w in build.WORKS:
+    for label, value in w.get('chart', []):
+        if not any(f'{value} percent' in r for r in w['results']):
+            fail(f'what-works.html: the chart shows {value} percent, which is not in the results')
 
 if problems:
     print(f'{len(problems)} problem(s):')
