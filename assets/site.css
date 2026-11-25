@@ -311,3 +311,25 @@ ol.steps .ico{width:1.3em;height:1.3em;vertical-align:-.28em}
 .kicker+h2{margin-top:.2em}
 @media (max-width:640px){.chart,.timeline-fig{padding:10px 12px 12px}.bars .num{min-width:5.6em;font-size:15px}.timeline li{grid-template-columns:3em minmax(0,1fr);gap:0 24px}.timeline li::before{left:calc(3em + 10.5px)}.timeline li::after{left:calc(3em + 4px)}.timeline .yr{font-size:18px}ol.steps>li{padding-left:56px}}
 @media print{.chart,.timeline-fig{break-inside:avoid;border-color:#999}.chartdata{display:none}ol.steps>li::before{background:#fff;color:#000;border-color:#000}ol.steps>li::after,.timeline li::before{background:#999}.timeline li::after{background:#000;box-shadow:none}}
+
+/* Locator map on each state page: the Nations page squares, with the page's state marked (fill, heavy outline, letters). */
+.statehead{display:grid;gap:4px 28px;align-items:start}
+@media (min-width:760px){.statehead{grid-template-columns:minmax(0,1fr) 270px}}
+.locfig{margin:10px 0 14px;padding:10px 14px 12px;background:#fff;border:1px solid var(--line);border-radius:8px;max-width:340px}
+.locfig figcaption{font-size:15px;line-height:1.45;color:#4c5a5e}
+.locfig figcaption strong{display:block;font:700 18px/1.3 Georgia,"Times New Roman",serif;color:var(--deep)}
+.locmap{display:block;width:100%;height:auto;margin:2px 0 6px;forced-color-adjust:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.locmap .oth rect{fill:#e2eeec;stroke:#6b7f83;stroke-width:1.5}
+.locmap .here rect{fill:var(--clay);stroke:#0a3743;stroke-width:6}
+.locmap .here text{font:700 26px system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;text-anchor:middle;fill:#fff}
+@media (forced-colors:active){.locmap .oth rect{fill:Canvas;stroke:CanvasText}.locmap .here rect{fill:Highlight;stroke:CanvasText}.locmap .here text{fill:HighlightText}}
+/* About page: what the site covers, as tiles with the numbers written out. 404 page: a symbol beside each way back. */
+.stats{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:14px 0;padding:0}
+.stats li{background:#fff;border:1px solid var(--line);border-top:5px solid var(--leaf);border-radius:8px;padding:10px 14px;max-width:none;line-height:1.35}
+.stats .ico{width:1.6em;height:1.6em;color:var(--leaf);display:block;margin:0 0 4px}
+.stats .big{display:block;font:700 32px/1.1 Georgia,"Times New Roman",serif;color:var(--deep);font-variant-numeric:lining-nums}
+.stats .what{font-size:16px}
+.ways{list-style:none;padding:0}
+.ways li{margin:6px 0}
+.ways a{display:inline-flex;align-items:center;min-height:44px}
+.ways .ico{color:var(--leaf)}

@@ -301,7 +301,7 @@ symbols = set(re.findall(r'<symbol id="([^"]+)"', (ROOT / 'assets/icons.svg').re
 for path, page in pages.items():
     folder = Path(path).parent
     for href in page.uses:
-        file, _, sym = href.partition('#')
+        file, _, sym = href.removeprefix(base).partition('#')  # the 404 page links from the site's root
         target = re.sub(r'(^|/)[^/]+/\.\./', r'\1', str(folder / file).replace('\\', '/'))
         if target != 'assets/icons.svg' or sym not in symbols:
             fail(f'{path}: symbol {href} not found in assets/icons.svg')
@@ -327,6 +327,10 @@ tiles = pages['nations.html'].text
 for code, _ in build.STATES:
     if f'>{code}</text>' not in tiles:
         fail(f'nations.html: the tile map has no square for {code}')
+for code, name in build.STATES:
+    text = pages[f'states/{build.STATE_SLUG[code]}.html'].text
+    if f'<g class="here">' not in text or f'>{code}</text></g>' not in text or f'Where {build.E(name)} is' not in text:
+        fail(f'states/{build.STATE_SLUG[code]}.html: the locator map does not mark {name}')
 # The timeline uses only dates its stories give, and the What works chart only numbers its results list.
 for year, i, _ in build.PROUD_DATES:
     _, _, what, more, _ = build.PROUD[i]
