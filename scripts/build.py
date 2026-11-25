@@ -424,6 +424,29 @@ def nations_tile_map():
             f'<p>None listed: {E(and_list(none))}.</p></details></figure>')
 
 
+def state_locator(code, nations):
+    """State pages: a small locator map, the same squares as the Nations page tile map, with this state marked by its
+    fill, a heavy outline and its letters, so it reads without color. The caption says the same in words."""
+    name = STATE_NAME[code]
+    cell, size = 50, 46
+    others, here = '', ''
+    for c, (col, row) in TILE_GRID.items():
+        x, y = col * cell + 2, row * cell + 2
+        if c == code:
+            here = (f'<g class="here"><rect x="{x - 1}" y="{y - 1}" width="{size + 2}" height="{size + 2}" rx="6"/>'
+                    f'<text x="{x + size // 2}" y="{y + 32}" font-size="26" font-weight="700" text-anchor="middle">{c}</text></g>')
+        else:
+            others += f'<rect x="{x}" y="{y}" width="{size}" height="{size}" rx="5"/>'
+    count = (f'{len(nations)} Nation government office{"s are" if len(nations) != 1 else " is"} listed here.' if nations
+             else 'No Nation has its government office here; the <a href="../nations.html">Nations directory</a> lists every one.')
+    svg = (f'<svg class="locmap" viewBox="-4 -4 {12 * cell + 8} {8 * cell + 8}" width="300" height="200" role="img" aria-labelledby="loc-t">'
+           f'<title id="loc-t">Map: where {E(name)} is in the United States</title>'
+           f'<g class="oth">{others}</g>{here}</svg>')
+    return (f'<figure class="locfig">{svg}<figcaption><strong>Where {E(name)} is</strong> '
+            f'One square for each state and D.C., placed roughly where it is. {E(name)} is the dark square with a heavy outline and its letters, {code}. '
+            f'{count}</figcaption></figure>')  # count is built here, not from data, so it is not escaped
+
+
 def state_options(up=''):
     return '<option value="">Choose a state</option>' + ''.join(
         f'<option value="{up}states/{STATE_SLUG[c]}.html">{E(n)}</option>' for c, n in STATES)
@@ -962,8 +985,9 @@ def build_states():
         up = '../'
         land = state_landing(code, nations, records)
         body = (f'<p class="crumb"><a href="index.html">All states</a></p><h1>{E(land["h1"])}</h1>'
-                f'<p class="lede">{land["lede"]}</p>')
-        body += state_intro(code, nations, records) + urgent(up) + jump_bar(code, nations, records)
+                f'<div class="statehead"><div><p class="lede">{land["lede"]}</p>{state_intro(code, nations, records)}</div>'
+                f'{state_locator(code, nations)}</div>')
+        body += urgent(up) + jump_bar(code, nations, records)
         sections = {}
         if records:
             sections['local'] = (f'<section aria-labelledby="local-h"><h2 id="local-h">Native community and help in {E(name)}</h2>'
@@ -1123,6 +1147,17 @@ def build_community():
          'Find Native people near you: urban Indian centers, Native community groups, youth councils, Wellbriety recovery circles and tribal colleges, for Native people in cities and those coming back to their culture.', body)
 
 
+def about_stats():
+    """About page: what the site covers, counted from the data, as a row of tiles. The numbers are written out."""
+    guides = sum(1 for c in COUNTRIES if c['slug'])
+    tiles = [('nation', len(NATIONS), 'Nation government offices, from the Bureau of Indian Affairs directory'),
+             ('land', len(STATES), 'state pages: every state and the District of Columbia'),
+             ('notes', len(RES) + len(WORLD), 'listings of help, each with its source and the date it was checked'),
+             ('globe', guides, 'country guides beyond the United States')]
+    return ('<ul class="stats" aria-label="What the site covers, in numbers">' + ''.join(
+        f'<li>{icon(i)}<span class="big">{n}</span> <span class="what">{E(t)}</span></li>' for i, n, t in tiles) + '</ul>')
+
+
 def build_about():
     mail = E(SITE['email'])
     labels = ''.join(f'<dt><span class="tag acc-{k}">{E(v["label"])}</span></dt><dd>{E(v["explain"])}</dd>' for k, v in ACCESS.items())
@@ -1136,6 +1171,7 @@ def build_about():
 
 <section aria-labelledby="a2"><h2 id="a2">What it covers so far</h2>
 <p>The United States is covered in the most detail: national help by need, the government office of every federally recognized Nation, Nations recognized by a state (one state at a time), and a page for every state. Ohio and Michigan also list community groups and state programs, and more states are being filled in. <a href="world/index.html">Country guides</a> carry the map beyond the United States.</p>
+{about_stats()}
 <p>Not here yet: Nations still seeking recognition, and most local organizations outside Ohio and Michigan.</p></section>
 
 <section aria-labelledby="a3"><h2 id="a3">Where the listings come from</h2>
@@ -1144,7 +1180,14 @@ def build_about():
 <li><strong>Programs and organizations:</strong> each one's own website, or a page from a government agency that lists it. Every listing shows the date it was checked and links to the page it came from.</li>
 <li><strong>Map shapes:</strong> U.S. Census Bureau state outlines.</li>
 </ul>
-<p>Listings are read from published sources. When something is wrong or out of date, <a href="mailto:{mail}">tell us</a> and it will be fixed.</p></section>
+<p>Listings are read from published sources. When something is wrong or out of date, <a href="mailto:{mail}">tell us</a> and it will be fixed.</p>
+<h3 id="a3s">How a listing gets here</h3>
+<ol class="steps" role="list" aria-labelledby="a3s">
+<li>{icon("search")}<strong>Read from the source.</strong> A Nation's, agency's or organization's own published page, or a government page that lists it.</li>
+<li>{icon("notes")}<strong>Written in plain words,</strong> with a link to the page it came from and the date it was checked.</li>
+<li>{icon("check")}<strong>Labeled with who can use it,</strong> taken from what the program itself says (the labels are explained below).</li>
+<li>{icon("update")}<strong>Corrected or removed</strong> when a Nation or organization asks, or when something is found to be wrong or out of date.</li>
+</ol></section>
 
 <section aria-labelledby="a4"><h2 id="a4">What the labels mean</h2>
 <p>Programs differ on who they serve. Some are open to anyone, some serve descendants, and some ask for proof of enrollment in a federally recognized tribe. Each listing carries one of these labels, taken from what the program itself says:</p>
@@ -1172,7 +1215,7 @@ def build_404():
     base = E(SITE['base_url'])
     body = f'''<h1>That page is not here</h1>
 <p class="lede">The link may be old, or the address may have a typo.</p>
-<ul><li><a href="{base}">Home</a></li><li><a href="{base}help.html">Get help</a></li><li><a href="{base}nations.html">Nations directory</a></li><li><a href="{base}states/index.html">Find help by state</a></li></ul>
+<ul class="ways">{''.join(f'<li><a href="{base}{href}">{icon(sym)}{label}</a></li>' for href, sym, label in [('', 'layout', 'Home'), ('help.html', 'heart', 'Get help'), ('nations.html', 'nation', 'Nations directory'), ('states/index.html', 'land', 'Find help by state')])}</ul>
 <p>In a crisis, <a href="tel:988">call</a> or <a href="sms:988">text 988</a>.</p>'''
     # 404 pages are served from any depth, so every link in the page chrome must be absolute.
     page('404.html', f'Page not found | {SITE["name"]}', 'That page is not here.', body)
@@ -1881,6 +1924,7 @@ def build_support():
     sources = ' · '.join(f'<a href="{E(u)}">{E(l)}</a>' for l, u in HELP_SOURCES)
     body = f'''<h1>Support Native-led groups</h1>
 <p class="lede">If you want to help Native communities, the surest way is to ask Native-led groups what they need and give that. This page gathers what groups on {E(SITE['name'])} are asking for, and how to give in ways that help.</p>
+<nav class="chips glance" aria-label="Ways to help, on this page"><ul>{''.join(f'<li><a href="#{i}">{icon(k)}{l}</a></li>' for i, k, l in [('s1', 'community', 'What groups ask for'), ('s2', 'coins', 'Money'), ('s3', 'box', 'Things'), ('s4', 'bag', 'Buying'), ('s5', 'clock', 'Time')])}</ul></nav>
 
 <section aria-labelledby="s1"><h2 id="s1">{icon('community', cls='ico hico')}What groups are asking for now</h2>
 {current}
@@ -1891,7 +1935,13 @@ def build_support():
 <li>Only a small share of philanthropy goes to Native communities, and Native-led organizations receive only part of that share, research by the Bridgespan Group with Native Americans in Philanthropy finds. Giving directly to groups led by Native people is one way to change that.</li>
 <li>Before you give, the Federal Trade Commission suggests searching the group's name with words like "complaint", "review" or "scam", and using the IRS Tax Exempt Organization Search to see whether a gift is tax deductible.</li>
 <li>Pay by credit card or check. The FTC warns against anyone who asks for donations in cash, by gift card or by wire transfer, and against anyone who rushes you.</li>
-</ul></section>
+</ul>
+<h3 id="s2s">Before you give, in three steps</h3>
+<ol class="steps" role="list" aria-labelledby="s2s">
+<li>{icon('speech')}<strong>Ask the group what it needs,</strong> and give that.</li>
+<li>{icon('search')}<strong>Look the group up:</strong> its name with "complaint", "review" or "scam", and the IRS Tax Exempt Organization Search if you want to know whether a gift is tax deductible.</li>
+<li>{icon('shield')}<strong>Pay by credit card or check.</strong> Not cash, gift cards or wire transfers, and never because someone rushes you.</li>
+</ol></section>
 
 <section aria-labelledby="s3"><h2 id="s3">{icon('box', cls='ico hico')}Giving things</h2>
 <p>Ask first. After disasters, FEMA advises that money usually helps most, and that unrequested goods can pull volunteers away from helping people because they have to be sorted, moved and stored. Confirm with the group exactly what it needs before you collect or ship anything. When a group on this site posts a supplies list, it says what is needed and until when.</p></section>
