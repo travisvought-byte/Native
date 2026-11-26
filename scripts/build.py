@@ -503,6 +503,7 @@ def page(path, title, description, body, head='', noindex=False):
 {body}
 </main>
 <footer><p><strong>{E(SITE['dedication'])}</strong> Built and maintained by <a href="{E(SITE['maintainer_url'])}">{E(SITE['maintainer'])}</a>. <a href="mailto:{E(SITE['email'])}">Send a correction</a> · <a href="{up}about.html">About and sources</a> · <a href="{up}free-page.html">Free pages for Native communities</a></p>
+<p class="related">More free guides: <a href="https://guide.vethomeguard.org/">Veteran Resource Guide</a> (Native veterans and their families) · <a href="https://mobilitytalk.org/">Mobility Talk</a> (disability and mobility help) · <a href="https://www.yogamomtalk.com/">Yoga Mom Talk</a> (help for moms and families)</p>
 <p>Listings come from tribal governments, government agencies and the organizations themselves, with the date each was checked. This site is not a tribal government, does not speak for any Nation, is not legal advice and does not decide who qualifies for anything. Nations and organizations can ask to have a listing corrected or removed.</p></footer>
 </body></html>
 '''
