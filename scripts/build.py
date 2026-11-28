@@ -558,7 +558,7 @@ def build_help():
 {who_chart}
 {sections}
 <section class="panel"><h2>Did we miss something?</h2><p>Tell us about a program that belongs here, or a listing that is wrong: <a href="mailto:{E(SITE['email'])}">{E(SITE['email'])}</a>.</p></section>'''
-    page('help.html', f'Help for Native people: crisis lines, health, housing, school, legal | {SITE["name"]}',
+    page('help.html', f'Help for Native people: health, housing, legal | {SITE["name"]}',
          'National help for Native people by need: crisis and safety lines, Indian Health Service and urban Indian clinics, recovery, family and ICWA, scholarships, housing, food and money, work, legal help, elders and veterans.', body)
 
 
@@ -723,6 +723,11 @@ def and_list(items):
 def plain(text):
     """Text without tags, for meta descriptions."""
     return html.unescape(re.sub(r'<[^>]+>', '', text))
+
+
+def fit(*options, limit=60):
+    """The first title that fits in a search result (about 60 characters), else the last one."""
+    return next((t for t in options if len(t) <= limit), options[-1])
 
 
 def clip(text, limit=255):
@@ -912,7 +917,11 @@ def state_landing(code, nations, records):
             sentences.append('The help further down works from anywhere in the country.')
         lede = ' '.join(sentences)
     h1 = note.get('h1') or (f'Native {name}: {and_list(features)}' if features else f'Native people in {the_name}: help and how to reach your Nation')
-    title = note.get('title') or f'{name} Native resources: {and_list(features) if features else "help and your Nation"} | {SITE["name"]}'
+    # Short enough that Google shows all of it; the description carries the rest of what is on the page.
+    title = note.get('title') or (fit(f'{name} tribal Nations and Native resources | {SITE["name"]}',
+                                      f'{name} tribal Nations and Native resources', f'{name} tribal Nations and Native help')
+                                  if nations or state_rec else fit(f'Native resources in {name} | {SITE["name"]}',
+                                                                   f'Native resources in {name}'))
     description = clip(plain(lede))
     if len(description) < 80:
         description = clip(description + f' Crisis lines, health care, school, housing and legal help for Native people in {the_name}.')
@@ -1052,7 +1061,7 @@ def build_nations():
 <nav class="chips" aria-label="States with Nations listed"><ul>{chips}</ul></nav>
 {sections}
 {state_recognized}'''
-    page('nations.html', f'Find your Nation: directory of tribal Nations by state | {SITE["name"]}',
+    page('nations.html', f'Find your Nation: tribal Nations by state | {SITE["name"]}',
          'Find your Nation\'s government office: phone numbers and websites for every federally recognized tribal Nation in the United States, by state, and a separate section for Nations recognized by a state.', body)
 
 
@@ -1099,7 +1108,7 @@ def build_find():
 <p>Nations recognized by a state have <a href="nations.html#state-recognized">their own section of the Nations directory</a>, added one state at a time from each state's official list. Nations still seeking recognition are not listed yet. Some help does not depend on federal recognition: the American Indian College Fund, for example, accepts members and descendants of state-recognized tribes. On the <a href="help.html">help page</a> you can show only the listings that do not ask for tribal enrollment.</p></section>
 
 <section class="panel"><h2>Something here wrong, or missing?</h2><p>If you work in tribal enrollment, or you have walked this road yourself and see a step we got wrong, write to <a href="mailto:{mail}">{mail}</a>.</p></section>'''
-    page('find-your-nation.html', f'Finding your Nation: tracing Native ancestry and tribal enrollment | {SITE["name"]}',
+    page('find-your-nation.html', f'Tracing Native ancestry and tribal enrollment | {SITE["name"]}',
          'How to work out which Nation your family comes from, how tribal enrollment works, what a CDIB card and DNA tests can and cannot do, and who can help if you were adopted or in foster care.', body)
 
 
@@ -1144,7 +1153,7 @@ def build_community():
 <section aria-labelledby="c-nation"><h2 id="c-nation">{icon('nation', cls='ico hico')}Your own Nation</h2>
 <p>If you know which Nation you come from, call its government office and ask what gatherings, classes or events are coming up, and whether descendants are welcome. The <a href="nations.html">Nations directory</a> has the numbers. If you are not sure which Nation, start with <a href="find-your-nation.html">Finding your Nation</a>.</p></section>
 <section class="panel"><h2>Run a Native community group?</h2><p>We would like to list it, the way you want it described. Write to <a href="mailto:{E(SITE['email'])}">{E(SITE['email'])}</a>.</p></section>'''
-    page('community.html', f'Find Native community: centers, youth councils and recovery circles | {SITE["name"]}',
+    page('community.html', f'Native community centers, youth and recovery | {SITE["name"]}',
          'Find Native people near you: urban Indian centers, Native community groups, youth councils, Wellbriety recovery circles and tribal colleges, for Native people in cities and those coming back to their culture.', body)
 
 
@@ -1208,7 +1217,7 @@ def build_about():
 
 <section aria-labelledby="a8"><h2 id="a8">Reuse</h2>
 <p>The site's data and code are public at <a href="{E(SITE['repo'])}">{E(SITE['repo'].replace('https://', ''))}</a>. The compiled data is licensed CC BY 4.0 and the code under the MIT License. Tribal programs and Native organizations are welcome to copy, adapt and republish it.</p></section>'''
-    page('about.html', f'About {SITE["name"]}: who made it and where the listings come from',
+    page('about.html', f'About {SITE["name"]}: who made it and the sources',
          'Who built this guide for Native people, where its listings come from, what the labels mean, how Nations and organizations can correct or remove a listing, and how your privacy is handled.', body)
 
 
@@ -1326,7 +1335,7 @@ def build_proud():
         body += (f'<section aria-labelledby="p{i}"><p class="kicker">{icon(PROUD_ICON[cat])}{E(cat)}</p><h2 id="p{i}">{E(title)}</h2><p>{E(what)}</p><p>{E(more)}</p>'
                  '<p class="meta">Sources: ' + ' · '.join(f'<a href="{E(u)}">{E(l)}</a>' for l, u in sources) + '. Checked November 18, 2026.</p></section>')
     body += '<p>Nations running their own programs have a record of results too: see <a href="what-works.html">What works</a>.</p>'
-    page('proud-history.html', f'Proud history: First Peoples\' achievements in government, language, food, service, science and sport | {SITE["name"]}',
+    page('proud-history.html', f'Proud history: what First Peoples gave America | {SITE["name"]}',
          'The Haudenosaunee Great Law of Peace, Sequoyah\'s Cherokee syllabary, the crops Native farmers gave the world, the code talkers, Native astronauts and engineers, and Billy Mills, each with its source.', body)
 
 
@@ -1342,7 +1351,7 @@ def build_works():
                  + f'<p><strong>How to use this:</strong> {E(w["use"])}</p>'
                  '<p class="meta">Sources: ' + ' · '.join(f'<a href="{E(u)}">{E(l)}</a>' for l, u in w['sources'])
                  + f'. Checked {nice_date(WORKS_CHECKED)}.</p></section>')
-    page('what-works.html', f'Programs that have worked in Native communities, with their results | {SITE["name"]}',
+    page('what-works.html', f'Programs that worked in Native communities | {SITE["name"]}',
          'Programs with measured, published results in Native communities: tribal diabetes programs, home visiting for young families, and Nations running their own services.', body)
 
 
@@ -1613,7 +1622,7 @@ def build_home():
     head = ('<link rel="stylesheet" href="assets/vendor/leaflet.css"><link rel="stylesheet" href="assets/vendor/markercluster.css">'
             '<script src="assets/vendor/leaflet.js" defer></script><script src="assets/vendor/leaflet.markercluster.js" defer></script>'
             '<script src="assets/finder.js" defer></script>')
-    page('index.html', f'{SITE["name"]}: a map of help, Nations and community for First Peoples', SITE['description'], body, head)
+    page('index.html', f'{SITE["name"]}: help, Nations and community for First Peoples', SITE['description'], body, head)
 
 
 def country_urgent(c, up):
@@ -1676,7 +1685,7 @@ def build_world():
         body += (f'<section class="panel"><h2>Help us fill in {E(c["name"])}</h2><p>This page is new and short on purpose: everything on it is read from the organization\'s own page or a government page. '
                  f'If you know a program, a community center or a correction that belongs here, write to <a href="mailto:{E(SITE["email"])}">{E(SITE["email"])}</a>.</p></section>')
         desc = clip(c.get('welcome') or f'Help for {c["peoples"]} in {c["name"]}, with sources.')
-        page(f'world/{c["slug"]}.html', f'{h1} | {SITE["name"]}', desc, body)
+        page(f'world/{c["slug"]}.html', fit(f'{h1} | {SITE["name"]}', h1, f'{c["name"]}: Indigenous help and community'), desc, body)
         first = c['urgent'][0] if c['urgent'] else None
         line = f'<span class="meta">{E(first["label"])}: {E(first["phone"])}</span>' if first else ''
         cards += f'<li><a href="{c["slug"]}.html"><strong>{E(c["name"])}</strong><span>{E(c["peoples"])}</span>{line}</a></li>'
@@ -1686,7 +1695,7 @@ def build_world():
 <p>Country pages so far: {E(country_names())}, and help that reaches Indigenous peoples anywhere. Some pages are starters, with background and the help we could confirm; more are on the way. If you want your country next, or know what belongs on its page, <a href="mailto:{E(SITE['email'])}">tell us</a>.</p>
 {country_cards(level=2)}
 <p><a class="btn" href="../index.html">Open the map</a> <a class="btn line" href="../help.html">Help in the United States</a></p>'''
-    page('world/index.html', f'Help and community for Indigenous peoples around the world | {SITE["name"]}',
+    page('world/index.html', f'Indigenous help and community worldwide | {SITE["name"]}',
          'Help lines, health care, family support and Nation and community directories for Indigenous peoples in Canada, Mexico, Australia, Aotearoa New Zealand, Sápmi and worldwide.', body)
 
 
@@ -1699,6 +1708,8 @@ def build_sitemap():
     (ROOT / 'sitemap.xml').write_text(
         '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + '</urlset>\n',
         encoding='utf-8')
+    # IndexNow key file: proves the site is ours when .github/workflows/indexnow.yml tells Bing which pages changed
+    (ROOT / 'c35dba3c0b0747ccfdcaa1c2e416e828.txt').write_text('c35dba3c0b0747ccfdcaa1c2e416e828', encoding='utf-8')
     (ROOT / 'robots.txt').write_text(f'User-agent: *\nAllow: /\nSitemap: {SITE["base_url"]}sitemap.xml\n', encoding='utf-8')
 
 
@@ -1820,7 +1831,8 @@ def community_page(c):
         title = f'Example community page (demo) | {SITE["name"]}'
         desc = 'A made-up example of a free community page on Nina\'s Map, showing what a Native community group can post: news, events, programs, photos and how people can help.'
     else:
-        title = f'{name}: {kind.lower() if c["kind"] != "nation" else "Nation"} in {c["place"]} | {SITE["name"]}'
+        title = fit(f'{name}: {kind.lower() if c["kind"] != "nation" else "Nation"} in {c["place"]} | {SITE["name"]}',
+                    f'{name}: {kind.lower() if c["kind"] != "nation" else "Nation"} in {c["place"]}', f'{name} | {SITE["name"]}', name)
         desc = clip(c['intro'])
     page(f'communities/{slug}.html', title, desc, body, noindex=bool(c.get('demo')))
 
@@ -1910,7 +1922,7 @@ def build_offer():
 <p><label for="share-text">Text to copy and share</label></p>
 <textarea id="share-text" readonly rows="5">{E(share)}</textarea>
 <p><button type="button" class="btn" data-print hidden>Print this page</button></p></section>'''
-    page('free-page.html', f'Free community pages for Nations and Native groups | {SITE["name"]}',
+    page('free-page.html', f'Free web pages for Nations and Native groups | {SITE["name"]}',
          'For tribal staff and Native community organizers: a free page on Nina\'s Map for your Nation, program or group, with your news, events and what you need. You own it and can remove it any time.', body)
 
 
