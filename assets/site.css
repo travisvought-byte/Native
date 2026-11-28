@@ -333,3 +333,15 @@ ol.steps .ico{width:1.3em;height:1.3em;vertical-align:-.28em}
 .ways li{margin:6px 0}
 .ways a{display:inline-flex;align-items:center;min-height:44px}
 .ways .ico{color:var(--leaf)}
+
+/* Clean opening page: the map, search and choices first; the list appears once someone picks something */
+.finder-body.start{grid-template-columns:1fr}
+.results[hidden]{display:none}
+.pick-prompt{font-size:16px;color:var(--ink,#1f2a2e);background:#fff;border:1px solid var(--line);border-left:4px solid var(--clay);border-radius:8px;padding:10px 14px;margin:10px 0 4px}
+.who-sec .paths.who article{display:none}
+.who-sec .paths.who article:target{display:flex}
+.who-sec:not(:has(article:target)){display:none}
+.key.k-history{background:#a83262}
+.hsites{list-style:none;padding:0;margin:4px 0 14px}
+.hsites li{margin:0 0 10px}
+.hsites .sub{display:block;font-size:15px;color:#4c5a5e}

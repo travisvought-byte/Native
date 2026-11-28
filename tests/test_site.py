@@ -162,6 +162,9 @@ for path, page in pages.items():
         if not (ROOT / target_path).is_file():
             fail(f'{path}: link to missing file {href}')
             continue
+        # The map opens a historic site from index.html#hs-<id> in the browser; there is no element with that id.
+        if target_path == 'index.html' and anchor.startswith('hs-') and anchor[3:] in {h['id'] for h in build.HISTORIC}:
+            continue
         if anchor and target_path in pages and anchor not in pages[target_path].ids:
             fail(f'{path}: link to missing anchor {href}')
 
@@ -266,6 +269,13 @@ for asset in ('assets/finder.js', 'assets/vendor/leaflet.js', 'assets/vendor/lea
         fail(f'{asset} is missing')
 if 'assets/finder.js' not in home.text or 'id="map"' not in home.text:
     fail('index.html: the map finder is missing')
+# A clean opening page: the list stays hidden until someone picks, and a visible prompt says how to start.
+if not re.search(r'<div class="results" id="f-results" hidden>', home.text):
+    fail('index.html: the results list should start hidden until a pick')
+if not re.search(r'<p id="f-status" class="pick-prompt" role="status">[^<]{20,}</p>', home.text):
+    fail('index.html: the prompt telling people how to start is missing')
+if 'class="who-sec"' not in home.text:
+    fail('index.html: the "Start where you are" panels should open only from the chooser')
 codes = {c['code'] for c in finder['countries']}
 for row in finder['points']:
     lat, lon = row[col['lat']], row[col['lon']]
@@ -279,8 +289,21 @@ for row in finder['points']:
     if page_link and not (ROOT / page_link).is_file():
         fail(f'finder: {row[col["name"]]} links to missing page {page_link}')
     for need in filter(None, row[col['needs']].split(',')):
-        if need not in build.NEED:
+        if need not in build.NEED and need not in build.FINDER_EXTRA:
             fail(f'finder: {row[col["name"]]} has unknown need {need}')
+# Historic sites: each one is open to visitors, has its official page and a place on the map and on the history page.
+hs_ids = set()
+proud = pages['proud-history.html'].text
+for h in build.HISTORIC:
+    if h['id'] in hs_ids or not re.fullmatch(r'[a-z0-9-]+', h['id']):
+        fail(f'historic site {h["name"]}: id is missing, bad or used twice')
+    hs_ids.add(h['id'])
+    if not h['url'].startswith('https://') or h['state'] not in build.STATE_NAME:
+        fail(f'historic site {h["name"]}: needs an https official page and a state')
+    if f'id="hs-{h["id"]}"' not in proud:
+        fail(f'proud-history.html: {h["name"]} is not listed')
+if sum(1 for r in finder['points'] if r[col['kind']] == 'history') != len(build.HISTORIC):
+    fail('finder: not every historic site is on the map')
 placed = sum(1 for n in build.NATIONS if n.get('lat') is not None)
 if sum(1 for r in finder['points'] if r[col['kind']] == 'nation') != placed:
     fail('finder: not every placed Nation office is on the map')
