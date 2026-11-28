@@ -10,10 +10,19 @@
   var $ = function (id) { return document.getElementById(id); };
   var list = $('f-list'), wide = $('f-wide'), status = $('f-status'), cname = $('f-cname'), more = $('f-more');
   var countrySel = $('f-country'), search = $('f-search'), openOnly = $('f-open'), landsBox = $('f-lands');
-  var COLORS = { nation: '#9c4421', fn: '#9c4421', inuit: '#7a3b8f', clinic: '#0e4a5a', college: '#b7791f', land: '#6b7d3a', place: '#2c5a4c', guide: '#ffffff' };
+  var COLORS = { nation: '#9c4421', fn: '#9c4421', inuit: '#7a3b8f', clinic: '#0e4a5a', college: '#b7791f', land: '#6b7d3a', place: '#2c5a4c', history: '#a83262', guide: '#ffffff' };
   var OPEN = { anyone: 1, native: 1, indigenous: 1, descendants: 1 };
 
   var data, pts = [], countries = {}, need = '', userLoc = null, current = 'US', byCountryLock = false;
+  // Nothing is listed until someone picks: a need, a search, a place, their location or a close zoom.
+  var picked = false, results = $('f-results'), fbody = document.querySelector('.finder-body'), PROMPT = status.textContent;
+  function pick() {
+    if (picked) return;
+    picked = true;
+    results.hidden = false;
+    fbody.classList.remove('start');
+    map.invalidateSize();
+  }
   var map = L.map(mapEl, { zoomControl: true, worldCopyJump: true, preferCanvas: true }).setView([39.5, -98.5], 4);
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 18, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -60,7 +69,7 @@
 
   function visible(p) {
     if (need && p.needs.indexOf(need) === -1) return false;
-    if (openOnly.checked && !(p.access && OPEN[p.access]) && p.kind !== 'land' && p.kind !== 'nation' && p.kind !== 'fn' && p.kind !== 'inuit' && p.kind !== 'guide') return false;
+    if (openOnly.checked && !(p.access && OPEN[p.access]) && p.kind !== 'land' && p.kind !== 'nation' && p.kind !== 'fn' && p.kind !== 'inuit' && p.kind !== 'guide' && p.kind !== 'history') return false;
     var q = search.value.trim().toLowerCase();
     if (q && p.key.indexOf(q) === -1) return false;
     return true;
@@ -118,6 +127,10 @@
       return '<li class="urgent-line"><strong>' + esc(u.label) + ':</strong> <a href="tel:' + esc(u.tel) + '">call ' + esc(u.phone) + '</a>' +
         (u.sms ? ' or <a href="sms:' + esc(u.sms) + '">text</a>' : '') + '</li>';
     }).join('') + (c.emergency ? '<li class="urgent-line">In immediate danger, call ' + esc(c.emergency) + '.</li>' : '');
+    if (need === 'history') {
+      wide.innerHTML = '<li><a class="wide-name" href="proud-history.html#sites">Every historic site, by state</a><span class="sub">Open to visitors, each with the official page of whoever runs it.</span></li>';
+      return;
+    }
     wide.innerHTML = (need === '' || need === 'safety' ? lines : '') + items.slice(0, 12).map(function (r) {
       var b = '';
       if (r.tel) b += '<a class="btn sm call" href="tel:' + esc(r.tel) + '">Call ' + esc(r.phone) + '</a>';
@@ -141,7 +154,10 @@
     renderWide();
   }
 
-  function refresh() { renderList(); }
+  function refresh() {
+    if (!picked) { if (data) status.textContent = PROMPT; return; }
+    renderList();
+  }
 
   function loadLands() {
     if (landsLayer || landsLoading) return;
@@ -166,17 +182,19 @@
   document.querySelectorAll('.needs-bar .chip').forEach(function (btn) {
     btn.addEventListener('click', function () {
       need = btn.getAttribute('data-need');
+      pick();
       document.querySelectorAll('.needs-bar .chip').forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
       redrawMarkers(); refresh(); renderWide();
     });
   });
-  countrySel.addEventListener('change', function () { setCountry(countrySel.value, true); });
+  countrySel.addEventListener('change', function () { pick(); setCountry(countrySel.value, true); });
   var t;
   search.addEventListener('input', function () {
     clearTimeout(t);
     t = setTimeout(function () {
-      var n = redrawMarkers(); refresh();
       var q = search.value.trim();
+      if (q) pick();
+      var n = redrawMarkers(); refresh();
       if (q && n > 0 && n <= 60) {
         var b = L.latLngBounds([]);
         pts.forEach(function (p) { if (visible(p)) b.extend([p.lat, p.lon]); });
@@ -190,6 +208,7 @@
     if (!byCountryLock) {
       var c = map.getCenter(), code = nearestCountry([c.lat, c.lng]);
       if (code && code !== current && map.getZoom() >= 4) setCountry(code, false);
+      if (data && map.getZoom() >= 6) pick();
     }
     refresh(); syncLands();
   });
@@ -206,6 +225,7 @@
     status.textContent = 'Finding where you are…';
     navigator.geolocation.getCurrentPosition(function (pos) {
       userLoc = [pos.coords.latitude, pos.coords.longitude];
+      pick();
       youLayer.clearLayers();
       L.circleMarker(userLoc, { radius: 9, color: '#fff', weight: 3, fillColor: '#d0451b', fillOpacity: 1 }).bindTooltip('You are here').addTo(youLayer);
       byCountryLock = false;
@@ -239,7 +259,14 @@
     var slug = (location.hash || '').replace('#', '');
     var start = null;
     d.countries.forEach(function (c) { if (c.page === 'world/' + slug + '.html') start = c.code; });
-    if (start) { setCountry(start, true); mapEl.scrollIntoView({ block: 'center' }); } else setCountry('US', false);
+    var hs = slug.indexOf('hs-') === 0 ? pts.filter(function (p) { return p.page === 'proud-history.html#' + slug; })[0] : null;
+    if (start) { pick(); setCountry(start, true); mapEl.scrollIntoView({ block: 'center' }); } else setCountry('US', false);
+    if (hs) { // a "See it on the map" link from a historic site
+      pick(); byCountryLock = true;
+      map.setView([hs.lat, hs.lon], 11);
+      cluster.zoomToShowLayer(hs.marker, function () { hs.marker.openPopup(); byCountryLock = false; });
+      mapEl.scrollIntoView({ block: 'center' });
+    }
     refresh(); syncLands();
   }).catch(function () {
     status.textContent = 'The map could not load. Everything on it is also on the state pages and country pages.';

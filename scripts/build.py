@@ -41,6 +41,9 @@ COUNTRIES_FILE = load('data/world/countries.json')
 COUNTRIES = COUNTRIES_FILE['countries']
 COUNTRY = {c['code']: c for c in COUNTRIES}
 CA_PLACES = load('data/world/ca-places.json')
+# Native historic and cultural sites that are open to visitors, each with the official page of whoever runs it.
+HISTORIC_FILE = load('data/historic-sites.json')
+HISTORIC = HISTORIC_FILE['sites']
 
 STATES = [
     ('AL', 'Alabama'), ('AK', 'Alaska'), ('AZ', 'Arizona'), ('AR', 'Arkansas'), ('CA', 'California'),
@@ -1017,6 +1020,7 @@ def build_states():
                                 f'<p class="meta">List of Nations: <a href="{E(note["ties_source"]["url"])}">{E(note["ties_source"]["label"])}</a>, checked {nice_date(note["checked"])}. '
                                 f'Phone numbers and websites: Bureau of Indian Affairs directory, retrieved {nice_date(NATIONS_FILE["retrieved"])}.</p></section>')
         body += ''.join(sections.get(k, '') for k in state_order(code, nations, records))
+        body += historic_state_section(code, up)
         body += (f'<section aria-labelledby="nat-h"><h2 id="nat-h">Help that works in every state</h2>{national_links(up)}</section>'
                  f'<section class="panel"><h2>Know something that belongs on this page?</h2><p>A Nation, a community group, a clinic, a program: write to <a href="mailto:{E(SITE["email"])}">{E(SITE["email"])}</a>.</p></section>')
         page(f'states/{STATE_SLUG[code]}.html', land['title'], land['description'], body)
@@ -1334,9 +1338,41 @@ def build_proud():
     for i, (cat, title, what, more, sources) in enumerate(PROUD):
         body += (f'<section aria-labelledby="p{i}"><p class="kicker">{icon(PROUD_ICON[cat])}{E(cat)}</p><h2 id="p{i}">{E(title)}</h2><p>{E(what)}</p><p>{E(more)}</p>'
                  '<p class="meta">Sources: ' + ' · '.join(f'<a href="{E(u)}">{E(l)}</a>' for l, u in sources) + '. Checked November 18, 2026.</p></section>')
+    body += historic_sites_section()
     body += '<p>Nations running their own programs have a record of results too: see <a href="what-works.html">What works</a>.</p>'
     page('proud-history.html', f'Proud history: what First Peoples gave America | {SITE["name"]}',
-         'The Haudenosaunee Great Law of Peace, Sequoyah\'s Cherokee syllabary, the crops Native farmers gave the world, the code talkers, Native astronauts and engineers, and Billy Mills, each with its source.', body)
+         'The Haudenosaunee Great Law of Peace, Sequoyah\'s Cherokee syllabary, the crops Native farmers gave the world, the code talkers, Native astronauts and engineers, Billy Mills, and Native historic sites you can visit, like Serpent Mound, each with its source.', body)
+
+
+def historic_item(h, up=''):
+    whose = f'<span class="sub">{E(h["whose"])}</span>' if h.get('whose') else ''
+    return (f'<li id="hs-{h["id"]}"><a href="{E(h["url"])}" rel="noopener">{E(h["name"])}</a>{whose}'
+            f'<span class="sub"><a href="{up}index.html#hs-{h["id"]}">See it on the map</a></span></li>')
+
+
+HISTORIC_CARE = ('Every place here is open to visitors and links to the park, agency or Nation that runs it, for hours and directions. '
+                 'Many ancestral places are kept private by the Nations they belong to, and they are not listed. '
+                 'When you visit, stay on marked paths and leave everything as you found it.')
+
+
+def historic_sites_section():
+    by_state = defaultdict(list)
+    for h in HISTORIC:
+        by_state[h['state']].append(h)
+    groups = ''.join(f'<h3>{E(STATE_NAME[code])}</h3><ul class="hsites">' + ''.join(historic_item(h) for h in sorted(items, key=lambda h: h['name'])) + '</ul>'
+                     for code, items in sorted(by_state.items(), key=lambda kv: STATE_NAME[kv[0]]))
+    return (f'<section aria-labelledby="sites"><h2 id="sites">Historic and cultural sites you can visit</h2><p>{E(HISTORIC_CARE)}</p>'
+            f'<p>The same {len(HISTORIC)} places are on the <a href="index.html">map</a> under Historic sites.</p>{groups}'
+            f'<p class="meta">Each name links to the official page of the site. Who the place belongs to is given only where that page or another public source says so. Checked {nice_date(HISTORIC_FILE["checked"])}.</p></section>')
+
+
+def historic_state_section(code, up='../'):
+    items = sorted((h for h in HISTORIC if h['state'] == code), key=lambda h: h['name'])
+    if not items:
+        return ''
+    return (f'<section aria-labelledby="hist-h"><h2 id="hist-h">Native historic and cultural sites to visit in {E(STATE_NAME[code])}</h2>'
+            f'<ul class="hsites">' + ''.join(historic_item(h, up) for h in items) + '</ul>'
+            f'<p class="meta">{E(HISTORIC_CARE)} <a href="{up}proud-history.html#sites">Sites in other states</a>. Checked {nice_date(HISTORIC_FILE["checked"])}.</p></section>')
 
 
 def build_works():
@@ -1363,7 +1399,9 @@ CLINIC_NEED = {'hospital': ['health'], 'clinic': ['health'], 'behavioral': ['rec
                'dental': ['health'], 'elder': ['elders', 'health']}
 KIND_LABEL = {'nation': 'Nation government office', 'fn': 'First Nation', 'inuit': 'Inuit community',
               'clinic': 'Health care', 'college': 'Tribal college', 'land': 'Reservation or tribal land',
-              'place': 'Community and help', 'guide': 'Country guide'}
+              'place': 'Community and help', 'history': 'Historic or cultural site', 'guide': 'Country guide'}
+# Map choices that are not a kind of help, so they have no page section of their own in data/needs.json.
+FINDER_EXTRA = {'history': 'Historic sites'}
 LAND_LABEL = {'reservation': 'Reservation', 'hawaiian': 'Hawaiian home land', 'alaska': 'Alaska Native village area',
               'oklahoma': 'Oklahoma tribal area', 'state-area': 'State-designated tribal area', 'tribal-area': 'Tribal designated area',
               'joint': 'Joint-use area', 'state-reservation': 'State reservation'}
@@ -1454,6 +1492,10 @@ def finder_data():
                 r.get('phone'), tel_of(r) if r.get('phone') else None, r.get('url'),
                 f'world/{world_slug(r["area"])}.html#r-{r["id"]}', r['access'], r.get('pin'))
 
+    for h in HISTORIC:
+        add(h['lat'], h['lon'], 'history', h['name'], STATE_NAME[h['state']], ['history'], 'US', url=h['url'],
+            page=f'proud-history.html#hs-{h["id"]}')
+
     for c in COUNTRIES:
         if c['slug'] and c['code'] != 'WORLD':
             add(c['center'][0], c['center'][1], 'guide', f'{c["name"]}: country guide', c['peoples'], FINDER_NEEDS, c['code'],
@@ -1471,7 +1513,7 @@ def finder_data():
             national.setdefault(r['area'], []).append(wide(r, f'world/{world_slug(r["area"])}.html#r-{r["id"]}'))
     countries = [{k: c.get(k) for k in ('code', 'name', 'peoples', 'center', 'zoom', 'emergency', 'urgent')}
                  | {'page': f'world/{c["slug"]}.html' if c['slug'] else 'help.html'} for c in COUNTRIES]
-    needs = [{'key': k, 'label': NEED[k]['short']} for k in FINDER_NEEDS]
+    needs = [{'key': k, 'label': NEED[k]['short']} for k in FINDER_NEEDS] + [{'key': k, 'label': v} for k, v in FINDER_EXTRA.items()]
     access = {k: v['label'] for k, v in ACCESS.items()}
     data = {'cols': ['lat', 'lon', 'kind', 'name', 'sub', 'needs', 'country', 'phone', 'tel', 'url', 'page', 'access', 'pin'],
             'kinds': KIND_LABEL, 'points': pts, 'national': national, 'countries': countries, 'needs': needs, 'access': access}
@@ -1573,21 +1615,23 @@ def who_panels():
     for k, label, line, links in WHO:
         lst = ''.join(f'<li><a href="{E(href)}">{E(text)}</a></li>' for href, text in links)
         out += f'<article id="who-{k}"><h3>{icon(WHO_ICON.get(k), cls="ico hico")}I\'m {E(label)}</h3><p>{E(line)}</p><ul>{lst}</ul></article>'
-    return f'<section aria-labelledby="paths-h"><h2 id="paths-h">Start where you are</h2><div class="paths who">{out}</div></section>'
+    # Collapsed until someone picks an "I'm..." choice at the top, so the opening page stays clean; the links stay in the page.
+    return f'<section class="who-sec" aria-labelledby="paths-h"><h2 id="paths-h">Start where you are</h2><div class="paths who">{out}</div></section>'
 
 
 def build_home():
     data = finder_data()
     country_opts = ''.join(f'<option value="{c["code"]}">{E(c["name"])}</option>' for c in COUNTRIES)
     need_btns = '<button type="button" class="chip" aria-pressed="true" data-need="">Everything</button>' + ''.join(
-        f'<button type="button" class="chip" aria-pressed="false" data-need="{k}">{E(NEED[k]["short"])}</button>' for k in FINDER_NEEDS)
+        f'<button type="button" class="chip" aria-pressed="false" data-need="{k}">{E(NEED[k]["short"])}</button>' for k in FINDER_NEEDS) + ''.join(
+        f'<button type="button" class="chip" aria-pressed="false" data-need="{k}">{E(label)}</button>' for k, label in FINDER_EXTRA.items())
     counts = Counter(p[2] for p in data['points'])
     legend = ''.join(f'<li><span class="key k-{k}" aria-hidden="true"></span>{E(label)} <span class="count">{counts.get(k, 0):,}</span></li>'
                      for k, label in KIND_LABEL.items() if counts.get(k))
     world_cards = country_cards('world/', lines=False)
     body = f'''<section class="finder" aria-labelledby="find-h">
 <div class="finder-head"><h1 id="find-h">Find help, your Nation and your people</h1>
-<p class="lede">A free map for First Peoples: Nations, clinics, community centers, tribal colleges and tribal lands. Tap a place to call, get directions or open its website. <span class="dedication">{E(SITE['dedication'])}</span></p></div>
+<p class="lede">A free map for First Peoples: Nations, clinics, community centers, tribal colleges, tribal lands and historic sites. Tap a place to call, get directions or open its website. <span class="dedication">{E(SITE['dedication'])}</span></p></div>
 {who_chooser()}
 <form class="finder-controls" role="search" onsubmit="return false">
 <p class="ctl"><label for="f-country">Where</label> <select id="f-country">{country_opts}</select></p>
@@ -1597,13 +1641,13 @@ def build_home():
 <div class="chips needs-bar" role="group" aria-label="What do you need?">{need_btns}</div>
 <p class="ctl small"><label><input type="checkbox" id="f-open"> Only places that do not ask for a tribal card</label>
  <label><input type="checkbox" id="f-lands" checked> Show reservation and tribal land outlines</label></p>
-<div class="finder-body">
-<div class="mapwrap"><div id="map" role="region" aria-label="Map of Nations, help and community. The same places are listed next to the map."></div>
+<p id="f-status" class="pick-prompt" role="status">Choose what you need, search for a Nation, clinic or town, use your location, or zoom into your area. The places will be listed next to the map.</p>
+<div class="finder-body start">
+<div class="mapwrap"><div id="map" role="region" aria-label="Map of Nations, help and community. Once you choose what you need, search or zoom in, the same places are listed next to the map."></div>
 <ul class="legend" aria-label="Map key">{legend}</ul>
 <p class="meta">Your location, if you share it, stays on your device. The map pictures come from OpenStreetMap, which sees which area you look at. <a href="about.html#a6">Privacy</a></p></div>
-<div class="results">
+<div class="results" id="f-results" hidden>
 <h2 id="near-h">Closest to the middle of the map</h2>
-<p id="f-status" class="meta" role="status"></p>
 <ol id="f-list" class="hits"></ol>
 <h2 id="wide-h">Help anywhere in <span id="f-cname">the United States</span></h2>
 <ul id="f-wide" class="wide"></ul>

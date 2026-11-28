@@ -1,0 +1,439 @@
+{
+ "checked": "2026-11-28",
+ "about": "Native historic and cultural sites open to visitors. url is the official page of whoever runs the site; whose is said only where that page or the source says so. Places that Nations keep private are not listed.",
+ "sites": [
+  {
+   "id": "serpent-mound",
+   "name": "Serpent Mound",
+   "state": "OH",
+   "lat": 39.0264,
+   "lon": -83.4308,
+   "url": "https://www.ohiohistory.org/visit/museum-and-site-locator/serpent-mound/",
+   "whose": "Effigy mound credited to the Adena culture or the later Fort Ancient culture; which one built it is still debated."
+  },
+  {
+   "id": "hopewell-culture-national-historical-park",
+   "name": "Hopewell Culture National Historical Park",
+   "state": "OH",
+   "lat": 39.3758,
+   "lon": -83.0064,
+   "url": "https://www.nps.gov/hocu/",
+   "whose": "Earthworks built about 2,000 years ago by Native American people of the Hopewell culture."
+  },
+  {
+   "id": "fort-ancient-earthworks-and-nature-preserve",
+   "name": "Fort Ancient Earthworks and Nature Preserve",
+   "state": "OH",
+   "lat": 39.4022,
+   "lon": -84.0903,
+   "url": "https://www.ohiohistory.org/visit/browse-historical-sites/fort-ancient-earthworks/",
+   "whose": "Earthworks built by people of the Hopewell culture and later used by the Fort Ancient culture, ancestors of many modern tribes."
+  },
+  {
+   "id": "newark-earthworks",
+   "name": "Newark Earthworks (Great Circle)",
+   "state": "OH",
+   "lat": 40.0422,
+   "lon": -82.4301,
+   "url": "https://www.ohiohistory.org/visit/browse-historical-sites/newark-earthworks-plan-your-visit/",
+   "whose": "Built by people of the Hopewell culture between about 100 BC and AD 500.",
+   "source": "https://www.ohiohistory.org/visit/museum-and-site-locator/newark-earthworks"
+  },
+  {
+   "id": "sunwatch-indian-village",
+   "name": "SunWatch Indian Village",
+   "state": "OH",
+   "lat": 39.7163,
+   "lon": -84.2316,
+   "url": "https://boonshoft.org/sunwatch/",
+   "whose": "Reconstructed 12th- to 13th-century village of the Fort Ancient culture."
+  },
+  {
+   "id": "angel-mounds-state-historic-site",
+   "name": "Angel Mounds State Historic Site",
+   "state": "IN",
+   "lat": 37.9425,
+   "lon": -87.4572,
+   "url": "https://www.indianamuseum.org/historic-sites/angel-mounds-historic-site/",
+   "whose": "Town built by people of the Mississippian culture around AD 1100; still a sacred place to today's tribal nations."
+  },
+  {
+   "id": "mounds-state-park",
+   "name": "Mounds State Park",
+   "state": "IN",
+   "lat": 40.1004,
+   "lon": -85.6207,
+   "url": "https://www.in.gov/dnr/state-parks/parks-lakes/mounds-state-park/",
+   "whose": "Ten earthworks built by people of the Adena-Hopewell tradition."
+  },
+  {
+   "id": "cahokia-mounds-state-historic-site",
+   "name": "Cahokia Mounds State Historic Site",
+   "state": "IL",
+   "lat": 38.6539,
+   "lon": -90.0644,
+   "url": "https://cahokiamounds.org/",
+   "whose": "Largest city of the Mississippian culture north of Mexico.",
+   "source": "https://en.wikipedia.org/wiki/Cahokia"
+  },
+  {
+   "id": "effigy-mounds-national-monument",
+   "name": "Effigy Mounds National Monument",
+   "state": "IA",
+   "lat": 43.0888,
+   "lon": -91.1856,
+   "url": "https://www.nps.gov/efmo/",
+   "whose": "Built by Woodland-period mound builders; 20 tribes, among them the Ho-Chunk, Iowa, Sac and Fox, Omaha and several Sioux communities, are culturally tied to it.",
+   "source": "https://en.wikipedia.org/wiki/Effigy_Mounds_National_Monument"
+  },
+  {
+   "id": "pipestone-national-monument",
+   "name": "Pipestone National Monument",
+   "state": "MN",
+   "lat": 44.0133,
+   "lon": -96.325,
+   "url": "https://www.nps.gov/pipe/",
+   "whose": "Indigenous people have quarried pipestone here for over 3,000 years; the Yankton Dakota, Iowa and Omaha lived here, and 23 nations hold ties.",
+   "source": "https://en.wikipedia.org/wiki/Pipestone_National_Monument"
+  },
+  {
+   "id": "knife-river-indian-villages-national-historic-site",
+   "name": "Knife River Indian Villages National Historic Site",
+   "state": "ND",
+   "lat": 47.333,
+   "lon": -101.386,
+   "url": "https://www.nps.gov/knri/",
+   "whose": "Earthlodge villages of the Hidatsa and Mandan peoples.",
+   "source": "https://en.wikipedia.org/wiki/Knife_River_Indian_Villages_National_Historic_Site"
+  },
+  {
+   "id": "little-bighorn-battlefield-national-monument",
+   "name": "Little Bighorn Battlefield National Monument",
+   "state": "MT",
+   "lat": 45.5703,
+   "lon": -107.4275,
+   "url": "https://www.nps.gov/libi/",
+   "whose": "Battlefield where Lakota, Cheyenne and Arapaho warriors fought U.S. Army troops."
+  },
+  {
+   "id": "big-hole-national-battlefield",
+   "name": "Big Hole National Battlefield",
+   "state": "MT",
+   "lat": 45.6375,
+   "lon": -113.6436,
+   "url": "https://www.nps.gov/biho/",
+   "whose": "Site of the 1877 attack on a Nez Perce (Nimiipuu) camp during the Nez Perce War."
+  },
+  {
+   "id": "nez-perce-national-historical-park",
+   "name": "Nez Perce National Historical Park (Spalding visitor center)",
+   "state": "ID",
+   "lat": 46.447,
+   "lon": -116.823,
+   "url": "https://www.nps.gov/nepe/",
+   "whose": "Tells the history and culture of the Nez Perce (Nimiipuu) people."
+  },
+  {
+   "id": "sand-creek-massacre-national-historic-site",
+   "name": "Sand Creek Massacre National Historic Site",
+   "state": "CO",
+   "lat": 38.5408,
+   "lon": -102.5286,
+   "url": "https://www.nps.gov/sand/",
+   "whose": "Site of the massacre of Cheyenne and Arapaho people led by chiefs including Black Kettle, White Antelope and Left Hand."
+  },
+  {
+   "id": "mesa-verde-national-park",
+   "name": "Mesa Verde National Park",
+   "state": "CO",
+   "lat": 37.1838,
+   "lon": -108.4887,
+   "url": "https://www.nps.gov/meve/",
+   "whose": "Cliff dwellings built by Ancestral Pueblo people; 27 Pueblos and tribes hold ties here."
+  },
+  {
+   "id": "hovenweep-national-monument",
+   "name": "Hovenweep National Monument",
+   "state": "UT",
+   "lat": 37.3839,
+   "lon": -109.0772,
+   "url": "https://www.nps.gov/hove/",
+   "whose": "Villages built by Ancestral Pueblo people between about 1200 and 1300."
+  },
+  {
+   "id": "washita-battlefield-national-historic-site",
+   "name": "Washita Battlefield National Historic Site",
+   "state": "OK",
+   "lat": 35.621,
+   "lon": -99.709,
+   "url": "https://www.nps.gov/waba/",
+   "whose": "Site of the U.S. Army attack on Peace Chief Black Kettle's Cheyenne village."
+  },
+  {
+   "id": "spiro-mounds-archaeological-center",
+   "name": "Spiro Mounds Archaeological Center",
+   "state": "OK",
+   "lat": 35.3119,
+   "lon": -94.5686,
+   "url": "https://www.okhistory.org/sites/spiromounds",
+   "whose": "Mound center of Caddoan-speaking Mississippian-era people; the Caddo and Wichita are among the related modern nations."
+  },
+  {
+   "id": "chaco-culture-national-historical-park",
+   "name": "Chaco Culture National Historical Park",
+   "state": "NM",
+   "lat": 36.0604,
+   "lon": -107.9614,
+   "url": "https://www.nps.gov/chcu/",
+   "whose": "Great houses built by Ancestral Pueblo people; sacred to many Indigenous peoples of the Southwest."
+  },
+  {
+   "id": "bandelier-national-monument",
+   "name": "Bandelier National Monument",
+   "state": "NM",
+   "lat": 35.7789,
+   "lon": -106.2709,
+   "url": "https://www.nps.gov/band/",
+   "whose": "Homes of Ancestral Pueblo people whose descendants live at Cochiti and San Ildefonso Pueblos; at least 23 tribal nations hold ties.",
+   "source": "https://en.wikipedia.org/wiki/Bandelier_National_Monument"
+  },
+  {
+   "id": "aztec-ruins-national-monument",
+   "name": "Aztec Ruins National Monument",
+   "state": "NM",
+   "lat": 36.8358,
+   "lon": -107.9981,
+   "url": "https://www.nps.gov/azru/",
+   "whose": "Great houses built by Ancestral Pueblo people in the Chacoan tradition."
+  },
+  {
+   "id": "pecos-national-historical-park",
+   "name": "Pecos National Historical Park",
+   "state": "NM",
+   "lat": 35.55,
+   "lon": -105.6844,
+   "url": "https://www.nps.gov/peco/",
+   "whose": "Ruins of Pecos Pueblo, whose people moved to Jemez Pueblo in 1838.",
+   "source": "https://en.wikipedia.org/wiki/Pecos_National_Historical_Park"
+  },
+  {
+   "id": "indian-pueblo-cultural-center",
+   "name": "Indian Pueblo Cultural Center",
+   "state": "NM",
+   "lat": 35.1103,
+   "lon": -106.659,
+   "url": "https://indianpueblo.org/",
+   "whose": "Owned and run by the 19 Pueblos of New Mexico.",
+   "source": "https://en.wikipedia.org/wiki/Indian_Pueblo_Cultural_Center"
+  },
+  {
+   "id": "taos-pueblo",
+   "name": "Taos Pueblo",
+   "state": "NM",
+   "lat": 36.4392,
+   "lon": -105.5456,
+   "url": "https://taospueblo.com/",
+   "whose": "Living village of the Taos Pueblo people, who speak Northern Tiwa.",
+   "source": "https://en.wikipedia.org/wiki/Taos_Pueblo"
+  },
+  {
+   "id": "canyon-de-chelly-national-monument",
+   "name": "Canyon de Chelly National Monument",
+   "state": "AZ",
+   "lat": 36.1553,
+   "lon": -109.509,
+   "url": "https://www.nps.gov/cach/",
+   "whose": "Diné (Navajo) families live and farm in the canyon; Ancestral Puebloans built its cliff villages."
+  },
+  {
+   "id": "montezuma-castle-national-monument",
+   "name": "Montezuma Castle National Monument",
+   "state": "AZ",
+   "lat": 34.6111,
+   "lon": -111.8367,
+   "url": "https://www.nps.gov/moca/",
+   "whose": "Cliff dwelling built by the Sinagua people."
+  },
+  {
+   "id": "wupatki-national-monument",
+   "name": "Wupatki National Monument",
+   "state": "AZ",
+   "lat": 35.52,
+   "lon": -111.3729,
+   "url": "https://www.nps.gov/wupa/",
+   "whose": "Pueblos built by ancestors of today's Pueblo communities, including the Hopi."
+  },
+  {
+   "id": "ocmulgee-mounds-national-historical-park",
+   "name": "Ocmulgee Mounds National Historical Park",
+   "state": "GA",
+   "lat": 32.8367,
+   "lon": -83.6083,
+   "url": "https://www.nps.gov/ocmu/",
+   "whose": "Mounds of the Mississippian culture on land held sacred by the ancestors of the Muscogee (Creek) Nation.",
+   "source": "https://en.wikipedia.org/wiki/Ocmulgee_Mounds_National_Historical_Park"
+  },
+  {
+   "id": "etowah-indian-mounds-state-historic-site",
+   "name": "Etowah Indian Mounds State Historic Site",
+   "state": "GA",
+   "lat": 34.1251,
+   "lon": -84.8077,
+   "url": "https://gastateparks.org/EtowahIndianMounds",
+   "whose": "Town of Mississippian-culture people from about AD 1000 to 1550."
+  },
+  {
+   "id": "moundville-archaeological-park",
+   "name": "Moundville Archaeological Park",
+   "state": "AL",
+   "lat": 33.0047,
+   "lon": -87.6311,
+   "url": "https://moundville.museums.ua.edu/about/hours-location-admission/",
+   "whose": "Mound center of the Mississippian culture.",
+   "source": "https://en.wikipedia.org/wiki/Moundville_Archaeological_Site"
+  },
+  {
+   "id": "poverty-point-world-heritage-site",
+   "name": "Poverty Point World Heritage Site",
+   "state": "LA",
+   "lat": 32.6367,
+   "lon": -91.4114,
+   "url": "https://www.lastateparks.com/historic-sites/poverty-point-world-heritage-site",
+   "whose": "Earthworks built by Late Archaic hunter-fisher-gatherers of the Poverty Point culture.",
+   "source": "https://en.wikipedia.org/wiki/Poverty_Point"
+  },
+  {
+   "id": "plum-bayou-mounds-archeological-state-park",
+   "name": "Plum Bayou Mounds Archeological State Park",
+   "state": "AR",
+   "lat": 34.6469,
+   "lon": -92.0653,
+   "url": "https://www.arkansas.com/state-parks/explore/parks/plum-bayou-mounds-archeological-state-park",
+   "whose": "Ceremonial mounds built by people of the Plum Bayou culture.",
+   "source": "https://en.wikipedia.org/wiki/Plum_Bayou_Mounds_Archeological_State_Park"
+  },
+  {
+   "id": "grand-village-of-the-natchez-indians",
+   "name": "Grand Village of the Natchez Indians",
+   "state": "MS",
+   "lat": 31.5252,
+   "lon": -91.3816,
+   "url": "https://mdah.ms.gov/explore-mississippi/grand-village-natchez-indians",
+   "whose": "Ceremonial center of the Natchez people and their ancestors, about AD 700 to 1730."
+  },
+  {
+   "id": "emerald-mound",
+   "name": "Emerald Mound (Natchez Trace Parkway)",
+   "state": "MS",
+   "lat": 31.6361,
+   "lon": -91.2472,
+   "url": "https://www.nps.gov/natr/learn/historyculture/emeraldmound.htm",
+   "whose": "Built by Mississippian people; the Natchez still followed this way of life when the French arrived around 1700."
+  },
+  {
+   "id": "museum-of-the-cherokee-people",
+   "name": "Museum of the Cherokee People",
+   "state": "NC",
+   "lat": 35.4845,
+   "lon": -83.3164,
+   "url": "https://motcp.org/visit/location-hours/",
+   "whose": "Museum of Cherokee history, founded in 1948 by the Eastern Band of Cherokee Indians.",
+   "source": "https://en.wikipedia.org/wiki/Museum_of_the_Cherokee_People"
+  },
+  {
+   "id": "mashantucket-pequot-museum-and-research-center",
+   "name": "Mashantucket Pequot Museum and Research Center",
+   "state": "CT",
+   "lat": 41.4661,
+   "lon": -71.9628,
+   "url": "https://www.pequotmuseum.org/visit/admissions-and-hours/",
+   "whose": "Owned and run by the Mashantucket Pequot Tribal Nation.",
+   "source": "https://www.mptn-nsn.gov/culture/pequot-museum/"
+  },
+  {
+   "id": "sitka-national-historical-park",
+   "name": "Sitka National Historical Park",
+   "state": "AK",
+   "lat": 57.0489,
+   "lon": -135.316,
+   "url": "https://www.nps.gov/sitk/",
+   "whose": "Site of a battle between Russian traders and the Kiks.adi Tlingit; Tlingit and Haida totem poles line its trail."
+  },
+  {
+   "id": "puuhonua-o-honaunau-national-historical-park",
+   "name": "Pu'uhonua o Honaunau National Historical Park",
+   "state": "HI",
+   "lat": 19.4219,
+   "lon": -155.9103,
+   "url": "https://www.nps.gov/puho/",
+   "whose": "Place of refuge in traditional Native Hawaiian culture."
+  },
+  {
+   "id": "tamastslikt-cultural-institute",
+   "name": "Tamástslikt Cultural Institute",
+   "state": "OR",
+   "lat": 45.651,
+   "lon": -118.671,
+   "url": "https://www.tamastslikt.org/visit/",
+   "whose": "Run by the Confederated Tribes of the Umatilla Indian Reservation: the Cayuse, Umatilla and Walla Walla.",
+   "source": "https://en.wikipedia.org/wiki/Tam%C3%A1stslikt_Cultural_Institute"
+  },
+  {
+   "id": "makah-museum",
+   "name": "Makah Museum (Makah Cultural and Research Center)",
+   "state": "WA",
+   "lat": 48.3683,
+   "lon": -124.599,
+   "url": "https://makah.com/attractions/museum/",
+   "whose": "Makah Tribe museum holding objects from the Makah village at Ozette, buried by a mudslide 300 to 500 years ago."
+  },
+  {
+   "id": "agua-caliente-cultural-museum",
+   "name": "Agua Caliente Cultural Museum",
+   "state": "CA",
+   "lat": 33.821,
+   "lon": -116.5472,
+   "url": "https://accmuseum.org/visit_us",
+   "whose": "Museum of the Agua Caliente Band of Cahuilla Indians.",
+   "source": "https://en.wikipedia.org/wiki/Agua_Caliente_Cultural_Museum"
+  },
+  {
+   "id": "lava-beds-national-monument",
+   "name": "Lava Beds National Monument",
+   "state": "CA",
+   "lat": 41.7139,
+   "lon": -121.5083,
+   "url": "https://www.nps.gov/labe/",
+   "whose": "Modoc homeland and site of the 1872-1873 Modoc War, including Captain Jack's Stronghold.",
+   "source": "https://en.wikipedia.org/wiki/Lava_Beds_National_Monument"
+  },
+  {
+   "id": "ganondagan-state-historic-site",
+   "name": "Ganondagan State Historic Site",
+   "state": "NY",
+   "lat": 42.9612,
+   "lon": -77.4127,
+   "url": "https://parks.ny.gov/visit/historic-sites/ganondagan-state-historic-site",
+   "whose": "Tied to the Seneca people, a nation of the Haudenosaunee (Iroquois) Confederacy."
+  },
+  {
+   "id": "chief-plenty-coups-state-park",
+   "name": "Chief Plenty Coups State Park",
+   "state": "MT",
+   "lat": 45.4278,
+   "lon": -108.5481,
+   "url": "https://fwp.mt.gov/stateparks/chief-plenty-coups",
+   "whose": "Home of the Crow (Apsaalooke) chief Plenty Coups, on the Crow Indian Reservation."
+  },
+  {
+   "id": "ah-tah-thi-ki-museum",
+   "name": "Ah-Tah-Thi-Ki Museum",
+   "state": "FL",
+   "lat": 26.2942,
+   "lon": -80.9692,
+   "url": "https://www.ahtahthiki.com/hours-and-location/",
+   "whose": "Owned and run by the Seminole Tribe of Florida on the Big Cypress Reservation.",
+   "source": "https://en.wikipedia.org/wiki/Ah-Tah-Thi-Ki_Seminole_Indian_Museum"
+  }
+ ]
+}
