@@ -293,21 +293,6 @@ def prep(need, level=3):
             '<p class="meta">General reminders written for this site. Each program sets its own rules.</p></details>')
 
 
-def urgent(up=''):
-    """The help strip near the top of every page that lists programs: suicide and crisis, violence, trafficking.
-
-    Shelter help is not repeated here (owner direction, November 17, 2026). It is one tap away through the
-    link at the end of the strip, in the housing section of the help page."""
-    return ('<aside class="urgent" aria-labelledby="urgent-h"><h2 id="urgent-h">Need help right now?</h2><ul>'
-            '<li>Thinking about suicide, or in any crisis: <a href="tel:988">call 988</a> or <a href="sms:988">text 988</a>, any time. '
-            'Veterans: dial 988, then press 1.</li>'
-            '<li>Hurt or threatened by a partner or family member, or sexually assaulted: '
-            '<a href="tel:+18447628483">call</a> or <a href="sms:+18447628483">text</a> the StrongHearts Native Helpline, 1-844-762-8483.</li>'
-            '<li>Being made to work or sell sex: <a href="tel:+18883737888">call 1-888-373-7888</a> or <a href="sms:233733">text 233733</a>.</li>'
-            '<li>In immediate danger, call 911.</li></ul>'
-            f'<p><a href="{up}help.html#safety">All crisis and safety lines</a> · <a href="{up}help.html#housing">Shelter and housing help</a></p></aside>')
-
-
 def nation_item(n, show_state=False, up=''):
     where = ', '.join(x for x in [n.get('city'), STATE_NAME[n['state']] if show_state else None] if x)
     contact = []
@@ -500,12 +485,11 @@ def page(path, title, description, body, head='', noindex=False):
 <script>window.goatcounter={{path:function(p){{return "/"+location.hostname.replace(/^www\\./,"")+p.replace(/[?#].*$/,"")}},referrer:function(){{try{{var u=new URL(document.referrer);return u.origin+u.pathname}}catch(e){{return ""}}}}}};</script><script data-goatcounter="{E(SITE['counter'])}" async src="https://gc.zgo.at/count.js"></script>
 <script src="{up}assets/site.js" defer></script>{head}</head>
 <body><a class="skip" href="#main">Skip to main content</a>
-<div class="exit" role="region" aria-label="Quick exit"><a id="quick-exit" href="{E(SITE['exit_url'])}" rel="noreferrer">Leave this site now</a> <span>or press Esc twice. This does not clear your browser history.</span></div>
 <header class="top"><a class="brand" href="{up}index.html">{E(SITE['name'])}</a><nav aria-label="Main"><ul>{nav}</ul></nav></header>
 <main id="main">
 {body}
 </main>
-<footer><p><strong>{E(SITE['dedication'])}</strong> Built and maintained by <a href="{E(SITE['maintainer_url'])}">{E(SITE['maintainer'])}</a>. <a href="mailto:{E(SITE['email'])}">Send a correction</a> · <a href="{up}about.html">About and sources</a> · <a href="{up}free-page.html">Free pages for Native communities</a></p>
+<footer><p><strong>{E(SITE['dedication'])}</strong> Built and maintained by <a href="{E(SITE['maintainer_url'])}">{E(SITE['maintainer'])}</a>. <a href="mailto:{E(SITE['email'])}">Send a correction</a> · <a href="{up}about.html">About and sources</a> · <a href="{up}free-page.html">Free pages for Native communities</a> · <a href="{up}help.html#safety">Help lines</a></p>
 <p class="related">More free guides: <a href="https://guide.vethomeguard.org/">Veteran Resource Guide</a> (Native veterans and their families) · <a href="https://mobilitytalk.org/">Mobility Talk</a> (disability and mobility help) · <a href="https://www.yogamomtalk.com/">Yoga Mom Talk</a> (help for moms and families)</p>
 <p>Listings come from tribal governments, government agencies and the organizations themselves, with the date each was checked. This site is not a tribal government, does not speak for any Nation, is not legal advice and does not decide who qualifies for anything. Nations and organizations can ask to have a listing corrected or removed.</p></footer>
 </body></html>
@@ -531,6 +515,8 @@ def need_section(need, area='US', level=2, compact=False, up=''):
         out += f'<p>{E(need["blurb"])}</p>{prep(need, level + 1)}'
     if cards:
         out += '<div class="cards">' + ''.join(card(r, level + 1, up) for r in cards) + '</div>'
+    if need['key'] == 'safety' and area == 'US' and not compact:
+        out += f'<p>In immediate danger, call 911. Outside the United States, each <a href="{up}world/index.html">country page</a> lists its own help lines.</p>'
     if also:
         out += '<p class="also">Also useful here: ' + ' · '.join(
             f'<a href="#r-{r["id"]}">{E(r["name"])}</a>' for r in also) + '</p>'
@@ -549,7 +535,6 @@ def build_help():
     body = f'''<h1>Get help</h1>
 <p class="lede">Whatever brought you here, start with what you need: help for Native people anywhere in the United States, sorted by need. Many listings do not ask for a tribal card, and the filter below can show only those.</p>
 <p>For your Nation, the clinics near you and Native community in your area, <a href="states/index.html">choose your state</a>.</p>
-{urgent()}
 <nav class="chips" aria-label="Kinds of help"><ul>{chips}</ul></nav>
 <p class="filter"><label for="who-filter">Show</label> <select id="who-filter" data-access-filter>
 <option value="">Every listing</option>
@@ -1000,7 +985,7 @@ def build_states():
         body = (f'<p class="crumb"><a href="index.html">All states</a></p><h1>{E(land["h1"])}</h1>'
                 f'<div class="statehead"><div><p class="lede">{land["lede"]}</p>{state_intro(code, nations, records)}</div>'
                 f'{state_locator(code, nations)}</div>')
-        body += urgent(up) + jump_bar(code, nations, records)
+        body += jump_bar(code, nations, records)
         sections = {}
         if records:
             sections['local'] = (f'<section aria-labelledby="local-h"><h2 id="local-h">Native community and help in {E(name)}</h2>'
@@ -1211,10 +1196,9 @@ def build_about():
 <p>You decide how you are described. Names appear as the Bureau of Indian Affairs or the organization itself writes them. If you want a name, a description or a contact changed, or a listing removed, write to <a href="mailto:{mail}">{mail}</a>.</p>
 <p>This site does not publish ceremonial knowledge, the locations of sacred places, or anything else a Nation has not chosen to make public.</p></section>
 
-<section aria-labelledby="a6"><h2 id="a6">Your privacy and safety</h2>
+<section aria-labelledby="a6"><h2 id="a6">Your privacy</h2>
 <p>There are no accounts and no forms, and the site stores nothing about you. One counter (GoatCounter) counts page views without cookies. Phone and text links open your own phone's apps.</p>
-<p>The map on the home page can use your location to show what is near you, but only if you press "Use my location" and your browser asks you first. Your location stays on your device and is never sent to this site. The map pictures are loaded from OpenStreetMap's servers, which, like any website, can see which part of the map is being looked at. Directions open in the maps app you choose.</p>
-<p>The "Leave this site now" bar at the top of every page takes you to a weather page. It cannot clear your browser history. If someone checks your phone or computer, use a private browsing window, or a device they cannot get to.</p></section>
+<p>The map on the home page can use your location to show what is near you, but only if you press "Use my location" and your browser asks you first. Your location stays on your device and is never sent to this site. The map pictures are loaded from OpenStreetMap's servers, which, like any website, can see which part of the map is being looked at. Directions open in the maps app you choose.</p></section>
 
 <section aria-labelledby="a7"><h2 id="a7">Limits</h2>
 <p>This is general information, not legal, medical or financial advice. It does not decide who qualifies for a program; the program does. Phone numbers and rules change, so confirm details with the program before you rely on them.</p></section>
@@ -1229,8 +1213,7 @@ def build_404():
     base = E(SITE['base_url'])
     body = f'''<h1>That page is not here</h1>
 <p class="lede">The link may be old, or the address may have a typo.</p>
-<ul class="ways">{''.join(f'<li><a href="{base}{href}">{icon(sym)}{label}</a></li>' for href, sym, label in [('', 'layout', 'Home'), ('help.html', 'heart', 'Get help'), ('nations.html', 'nation', 'Nations directory'), ('states/index.html', 'land', 'Find help by state')])}</ul>
-<p>In a crisis, <a href="tel:988">call</a> or <a href="sms:988">text 988</a>.</p>'''
+<ul class="ways">{''.join(f'<li><a href="{base}{href}">{icon(sym)}{label}</a></li>' for href, sym, label in [('', 'layout', 'Home'), ('help.html', 'heart', 'Get help'), ('nations.html', 'nation', 'Nations directory'), ('states/index.html', 'land', 'Find help by state')])}</ul>'''
     # 404 pages are served from any depth, so every link in the page chrome must be absolute.
     page('404.html', f'Page not found | {SITE["name"]}', 'That page is not here.', body)
     path = ROOT / '404.html'
@@ -1524,26 +1507,6 @@ def finder_data():
     return data
 
 
-def urgent_world(up=''):
-    """Home page help strip: the United States lines first, then the first line for each other country."""
-    others = ''
-    for c in COUNTRIES:
-        if c['code'] in ('US',) or not c['urgent']:
-            continue
-        u = c['urgent'][0]
-        link = f'<a href="tel:{u["tel"]}">{E(u["phone"])}</a>'
-        if u.get('sms'):
-            link += f' (call or <a href="sms:{u["sms"]}">text</a>)'
-        emergency = f' Emergency: {E(c["emergency"])}.' if c.get('emergency') else ''
-        others += f'<li><strong>{E(c["name"])}:</strong> {E(u["label"])}, {link}.{emergency}</li>'
-    return ('<aside class="urgent" aria-labelledby="urgent-h"><h2 id="urgent-h">Need help right now?</h2><ul>'
-            '<li><strong>United States:</strong> thinking about suicide, or in any crisis: <a href="tel:988">call 988</a> or <a href="sms:988">text 988</a>, any time. '
-            'Hurt or threatened by a partner or family member: <a href="tel:+18447628483">call</a> or <a href="sms:+18447628483">text</a> the StrongHearts Native Helpline, 1-844-762-8483. In immediate danger, call 911.</li>'
-            '</ul>'
-            f'<details class="statebox"><summary>Crisis lines in other countries</summary><ul>{others}</ul></details>'
-            f'<p><a href="{up}help.html#safety">All crisis and safety lines</a> · <a href="{up}help.html#housing">Shelter and housing help</a> · <a href="{up}world/index.html">Help in other countries</a></p></aside>')
-
-
 # The "I'm..." chooser on the home page. Each person gets a short line and links to what already exists on the site.
 WHO = [
     ('land', 'living on a reservation or tribal land',
@@ -1655,7 +1618,6 @@ def build_home():
 </div></div>
 <noscript><p class="panel">The map needs JavaScript. Everything on it is also on the <a href="states/index.html">state pages</a>, the <a href="nations.html">Nations directory</a> and the <a href="world/index.html">country pages</a>.</p></noscript>
 </section>
-{urgent_world()}
 {who_panels()}
 <section aria-labelledby="world-h"><h2 id="world-h">First Peoples around the world</h2>
 <p>Nina's Map started in the United States and is growing country by country, each one in its own peoples' terms.</p>
@@ -1667,20 +1629,6 @@ def build_home():
             '<script src="assets/vendor/leaflet.js" defer></script><script src="assets/vendor/leaflet.markercluster.js" defer></script>'
             '<script src="assets/finder.js" defer></script>')
     page('index.html', f'{SITE["name"]}: help, Nations and community for First Peoples', SITE['description'], body, head)
-
-
-def country_urgent(c, up):
-    if not c['urgent'] and not c.get('emergency'):
-        return ''
-    items = ''
-    for u in c['urgent']:
-        link = f'<a href="tel:{u["tel"]}">call {E(u["phone"])}</a>'
-        if u.get('sms'):
-            link += f' or <a href="sms:{u["sms"]}">text {E(u["sms"])}</a>'
-        items += f'<li>{E(u["label"])}: {link}.</li>'
-    if c.get('emergency'):
-        items += f'<li>In immediate danger, call {E(c["emergency"])}.</li>'
-    return f'<aside class="urgent country" aria-labelledby="urgent-h"><h2 id="urgent-h">Need help right now?</h2><ul>{items}</ul></aside>'
 
 
 def build_world():
@@ -1698,14 +1646,15 @@ def build_world():
         if c.get('report'):
             body += (f'<p class="panel report">Background: <a href="{E(c["report"])}">read the {E(c["name"])} chapter of <em>The Indigenous World {c.get("report_year", 2026)}</em></a>, '
                      'the yearly report of the International Work Group for Indigenous Affairs (IWGIA), on land, rights, health and recent events.</p>')
-        body += country_urgent(c, up)
         body += f'<p><a class="btn" href="../index.html#{c["slug"]}">See {E(c["name"])} on the map</a></p>'
         for need in NEED_LIST:
             here = [r for r in recs if r['need'] == need['key']]
             if here:
                 label = 'Peoples, Nations and their governments' if need['key'] == 'nation' else need['label']
                 body += (f'<section class="need" id="{need["key"]}" aria-labelledby="h-{need["key"]}"><h2 id="h-{need["key"]}">{need_icon(need["key"], up, "ico hico")}{E(label)}</h2>'
-                         '<div class="cards">' + ''.join(card(r, 3, up) for r in here) + '</div></section>')
+                         '<div class="cards">' + ''.join(card(r, 3, up) for r in here) + '</div>'
+                         + (f'<p>In immediate danger, call {E(c["emergency"])}.</p>' if need['key'] == 'safety' and c.get('emergency') else '')
+                         + '</section>')
         if c['code'] == 'CAN':
             fns = CA_PLACES['first_nations']
             body += (f'<section id="first-nations" aria-labelledby="fn-h"><h2 id="fn-h">First Nations ({len(fns["items"])})</h2>'

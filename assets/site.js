@@ -1,21 +1,9 @@
 // Nina's Map. Everything on the site works without this file; it only adds
-// the fast exit, the state picker, the filter on the help page, the search on the Nations page,
+// the state picker, the filter on the help page, the search on the Nations page,
 // hiding events and asks whose date has passed, and the print button.
 // Nothing is stored and nothing is sent anywhere.
 (function () {
   'use strict';
-
-  // Leave fast: replace this page in history so the Back button does not return here.
-  var exit = document.getElementById('quick-exit');
-  function leave() { window.location.replace(exit ? exit.href : 'https://www.weather.gov/'); }
-  if (exit) exit.addEventListener('click', function (e) { e.preventDefault(); leave(); });
-  var lastEsc = 0;
-  document.addEventListener('keydown', function (e) {
-    if (e.key !== 'Escape') return;
-    var now = Date.now();
-    if (now - lastEsc < 1200) leave();
-    lastEsc = now;
-  });
 
   // State picker
   var pick = document.querySelector('select[data-go]');

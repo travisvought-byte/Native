@@ -96,18 +96,22 @@ for path, page in pages.items():
         fail(f'{path}: dedication missing')
     if 'goatcounter' not in page.text:
         fail(f'{path}: visit counter missing')
-    if 'id="quick-exit"' not in page.text:
-        fail(f'{path}: quick exit missing')
-    # Crisis help leads the pages that list help (home, help, each state): one strip, with the 988 call and text links.
-    # Shelter help is not repeated on every page; it lives in the housing section, which the strip links to.
-    lists_help = path in ('index.html', 'help.html') or (path.startswith('states/') and path != 'states/index.html')
-    if lists_help:
-        if page.text.count('<aside class="urgent"') != 1 or 'href="tel:988"' not in page.text or 'href="sms:988"' not in page.text:
-            fail(f'{path}: the crisis strip with the 988 call and text links must lead this page')
-        if 'help.html#housing">Shelter and housing help</a>' not in page.text:
-            fail(f'{path}: the crisis strip must link to shelter and housing help')
+    # No quick-exit bar and no crisis box on any page: the pages read as ordinary resource guides.
+    # Help lines stay in the listings, reached from one plain footer link.
+    if 'quick-exit' in page.text or 'class="exit"' in page.text or 'aria-label="Quick exit"' in page.text:
+        fail(f'{path}: the quick exit bar should not be on the page')
+    if '<aside class="urgent' in page.text or 'Need help right now?' in page.text:
+        fail(f'{path}: the crisis box should not be on the page')
+    if 'help.html#safety">Help lines</a>' not in page.text.split('<footer', 1)[-1]:
+        fail(f'{path}: the footer must link to the help lines')
     if 'class="foothelp"' in page.text or 'No safe place to sleep tonight' in page.text.split('<main', 1)[0]:
         fail(f'{path}: help lines are not repeated in the page chrome')
+
+# Crisis and safety lines stay findable in the help page's own safety section, where the footer link points.
+safety = pages['help.html'].text.split('id="safety"', 1)[-1].split('<section class="need"', 1)[0]
+for line in ('href="tel:988"', 'href="sms:988"', 'href="tel:+18447628483"', 'href="tel:+18883737888"'):
+    if line not in safety:
+        fail(f'help.html: {line} is missing from the safety section')
 
 # 1b. Every landing page is its own: no two pages share a title, a description or a heading, and each opens with a lede.
 for label, getter in (('title', lambda pg: pg.title.strip()), ('description', lambda pg: pg.description),
@@ -314,8 +318,9 @@ for n in build.CA_PLACES['first_nations']['items']:
     if build.E(n['name']) not in canada:
         fail(f'world/canada.html: {n["name"]} is missing')
 for c in build.COUNTRIES:
-    if c['slug'] and c['urgent'] and 'class="urgent country"' not in pages[f'world/{c["slug"]}.html'].text:
-        fail(f'world/{c["slug"]}.html: the help strip is missing')
+    for u in (c['urgent'] or []) if c['slug'] else []:
+        if f'href="tel:{u["tel"]}"' not in pages[f'world/{c["slug"]}.html'].text:
+            fail(f'world/{c["slug"]}.html: the help line {u["phone"]} is not listed on the page')
 if {p['id'] for p in build.MAP['points']} - set(build.NATION):
     fail('data/map/us.json is out of date: run npm run map')
 
